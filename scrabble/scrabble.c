@@ -21,8 +21,6 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
-    int array_size = sizeof(POINTS[0]);
-    printf("%i\n", array_size);
 }
 
 int compute_score(string word)
@@ -30,7 +28,7 @@ int compute_score(string word)
     // TODO: Compute and return score for string
     char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     char lower[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-    int array_size = get_size(word);
+    int array_size = strlen(word);
     for (int i = 0; i < array_size; i++)
     {
         int index = get_index(word[i], word);
@@ -52,11 +50,4 @@ int get_index(char c, char array[])
     }
     return index;
 
-}
-
-int get_size(char array[])
-{
-    // int array_size = sizeof(array);
-    // return array_size;
-    return 0;
 }
