@@ -1,6 +1,6 @@
 #include <cs50.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 int get_start_size(void);
 int get_end_size(int start_size);
@@ -20,8 +20,7 @@ int main(void)
         year++;
     }
     // TODO: Print number of years
-        printf("Years: %i\n", year);
-
+    printf("Years: %i\n", year);
 }
 
 int get_start_size(void)
