@@ -29,13 +29,17 @@ int compute_score(string word)
     // TODO: Compute and return score for string
     char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     char lower[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-    
+    int array_size = get_size(word);
+    for (int i = 0; i < array_size; i++)
+    {
+        int index = get_index(word[i], word)
+    }
     return 0;
 }
 
 int get_index(char c, char array[])
 {
-    array_size = get_size(array)
+    int array_size = get_size(array)
     int index = -1;
     for (int i = 0; i < array_size; i++)
     {
