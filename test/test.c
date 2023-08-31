@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 
 
 int main(int argc, string argv[])
@@ -12,5 +13,5 @@ int main(int argc, string argv[])
         printf("%s\n", "null");
         return 1;
     }
-    printf("%s\n", argv[1]);
+    printf("%i\n", isdigit(argv[1]));
 }
