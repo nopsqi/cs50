@@ -13,6 +13,7 @@ int main(int argc, string argv[])
     if (argc < 2 || argc > 2)
     {
         printf("%s\n", "Usage: ./wordle wordsize");
+        return 1;
     }
 
     int wordsize = 0;
@@ -21,7 +22,7 @@ int main(int argc, string argv[])
     wordsize = strtol(argv[1], NULL, 10);
     if (wordsize < 4 || wordsize > 8)
     {
-        printf("%s\n", "Error: wordsize  must be either 5, 6, 7, or 8\n");
+        printf("%s\n", "Error: wordsize  must be either 5, 6, 7, or 8");
         return 1;
     }
 }
