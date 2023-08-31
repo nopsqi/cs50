@@ -5,7 +5,12 @@ void print_row(int indent, int brick);
 
 int main(void)
 {
-    int n = get_int("Input number: ");
+    int n;
+    do
+    {
+        n = get_int("Input number: ");
+    }
+    while (n > 0 && n < 9);
     for (int i = 0; i < n; i++)
     {
         int indent = n - i - 1;
