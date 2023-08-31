@@ -34,9 +34,5 @@ void print_row(int indent, int brick)
     {
         printf("#");
     }
-    for (int j = 0; j < indent; j++)
-    {
-        printf(" ");
-    }
     printf("\n");
 }
