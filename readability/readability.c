@@ -10,8 +10,8 @@ bool is_alphabet(char c);
 
 int main(void)
 {
-    // string text = get_string("Input text: ");
-    string text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!";
+    string text = get_string("Input text: ");
+    // string text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!";
     int grade = coleman(text);
     if (grade > 16)
     {
