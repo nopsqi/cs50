@@ -21,6 +21,14 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
+    if (score1 > score2)
+    {
+        printf("Player 1 Wins!\n");
+    }
+    else
+    {
+        printf("Player 2 Wins!\n");
+    }
 }
 
 int compute_score(string word)
@@ -45,9 +53,8 @@ int compute_score(string word)
 
 int get_index(char c, char array[])
 {
-    int array_size = get_size(array);
     int index = -1;
-    for (int i = 0; i < array_size; i++)
+    for (int i = 0; i < 26; i++)
     {
         if (c == array[i])
         {
@@ -56,11 +63,4 @@ int get_index(char c, char array[])
         }
     }
     return index;
-
-}
-
-int get_size(char array[])
-{
-    int array_size = sizeof(array) / sizeof(array[0]);
-    return array_size;
 }
