@@ -27,5 +27,10 @@ int coleman(string text)
 
 int count_sentences(string text)
 {
+    int length = strlen(text);
+    for (int i = 0; i < length; i++)
+    {
+        if (text[i] )
+    }
     return 0;
 }
