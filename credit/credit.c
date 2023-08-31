@@ -3,6 +3,7 @@
 
 int main(void)
 {
-    long card_number = get_long("Input card number: ");
-    printf("%ld\n", (card_number /= 10));
+    // long card_number = get_long("Input card number: ");
+    long card_number = 123456789;
+    printf("%ld\n", (card_number /= 1000000000));
 }
