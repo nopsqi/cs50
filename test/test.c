@@ -5,6 +5,7 @@
 #include <time.h>
 #include <stdlib.h>
 
+string get_guess(int wordsize);
 
 int main(int argc, string argv[])
 {
@@ -25,4 +26,19 @@ int main(int argc, string argv[])
         printf("%s\n", "Error: wordsize  must be either 5, 6, 7, or 8");
         return 1;
     }
+    string guess = get_guess(wordsize);
+}
+
+string get_guess(int wordsize)
+{
+    string guess = "";
+
+    // ensure users actually provide a guess that is the correct length
+    // TODO #3
+    int length = strlen(guess);
+    while (length < wordsize || length > wordsize)
+    {
+        guess = get_string("Input a %i-letter word: ", wordsize);
+    }
+    return guess;
 }
