@@ -114,10 +114,12 @@ string get_guess(int wordsize)
 
     // ensure users actually provide a guess that is the correct length
     // TODO #3
-    int length = strlen(guess)
-    if (length < wordsize || length > wordsize)
+    int length = 0;
+    printf("%i\n", length);
+    while (length < wordsize || length > wordsize)
     {
         guess = get_string("Input a %i-letter word: ", wordsize);
+        length = strlen(guess);
     }
     return guess;
 }

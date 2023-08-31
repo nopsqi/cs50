@@ -40,7 +40,7 @@ string get_guess(int wordsize)
     while (length < wordsize || length > wordsize)
     {
         guess = get_string("Input a %i-letter word: ", wordsize);
-        length = 
+        length = strlen(guess);
     }
     return guess;
 }
