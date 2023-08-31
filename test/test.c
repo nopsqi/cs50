@@ -13,5 +13,5 @@ int main(int argc, string argv[])
         printf("%s\n", "null");
         return 1;
     }
-    printf("%i\n", isdigit(argv[1]));
+    printf("%i\n", isdigit("fuck"));
 }
