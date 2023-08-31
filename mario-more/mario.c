@@ -6,10 +6,13 @@ int main(void)
     int n = get_int("Input number: ");
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n*2; j++)
-        {
-            printf("#");
-        }
-        printf("\n");
+        int indent = n - i - 1;
+        int brick = n - indent;
+        printf("%i %i\n", indent, brick);
+        // for (int j = 0; j < n*2; j++)
+        // {
+        //     printf("#");
+        // }
+        // printf("\n");
     }
 }
