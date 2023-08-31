@@ -23,5 +23,7 @@ int main(void)
 
 int compute_score(string word)
 {
+    char capital[] = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z};
+    char lower
     // TODO: Compute and return score for string
 }
