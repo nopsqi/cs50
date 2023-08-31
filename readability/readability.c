@@ -13,7 +13,7 @@ int main(void)
 int coleman(string text)
 {
     int index = 0;
-    int sentences = count_snetences();
+    int sentences = count_sentences();
     int letters = count_letters();
     int words = count_words();
     float l = letters / words * 100
