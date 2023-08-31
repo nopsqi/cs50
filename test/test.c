@@ -7,7 +7,7 @@
 
 int main(int argc, string argv[])
 {
-    if (argv[1])
+    if (!argv[1])
     {
         printf("%s\n", "null");
         return 1;
