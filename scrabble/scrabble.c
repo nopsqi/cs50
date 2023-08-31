@@ -8,7 +8,6 @@ int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 
 
 int compute_score(string word);
 int get_index(char c, char array[]);
-int get_size(char array[]);
 
 int main(void)
 {
@@ -29,11 +28,18 @@ int compute_score(string word)
     char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     char lower[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     int array_size = strlen(word);
+    int sum = 0;
     for (int i = 0; i < array_size; i++)
     {
-        int index = get_index(word[i], word);
+        int index = get_index(word[i], capital);
+        if (index == -1)
+        {
+            int index = get_index(word[i], lower);
+        }
+        score = POINTS[index];
+        sum += score;
     }
-    return 0;
+    return sum;
 }
 
 int get_index(char c, char array[])
