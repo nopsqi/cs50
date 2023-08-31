@@ -21,6 +21,7 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
+    printf("%i\n", get_size(word1));
 }
 
 int compute_score(string word)
@@ -52,8 +53,8 @@ int get_index(char c, char array[])
 
 }
 
-int get_size(char *array)
+int get_size(char array[])
 {
-    int array_size = sizeof(array) / sizeof(array[0]);
+    int array_size = sizeof(*array);
     return array_size;
 }
