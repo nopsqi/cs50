@@ -14,7 +14,12 @@ int main(void)
     long card_number = 123456789;
     int card_length = get_length(card_number);
     bool is_card_valid = check_card(card_number);
-    printf("%d\n", is_card_valid);
+    if (is_card_valid == 0)
+    {
+        printf("INVALID\n");
+        return 0;
+    }
+    if ()
 }
 
 int get_length(long card_number)
