@@ -7,7 +7,7 @@
 int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
 
 int compute_score(string word);
-int get_index(char array[]);
+int get_index(char c, char array[]);
 int get_size(char array[]);
 
 int main(void)
@@ -21,7 +21,6 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
-    printf("%i\n", array_size);
 }
 
 int compute_score(string word)
@@ -32,14 +31,14 @@ int compute_score(string word)
     int array_size = get_size(word);
     for (int i = 0; i < array_size; i++)
     {
-        int index = get_index(word[i], word)
+        int index = get_index(word[i], word);
     }
     return 0;
 }
 
 int get_index(char c, char array[])
 {
-    int array_size = get_size(array)
+    int array_size = get_size(array);
     int index = -1;
     for (int i = 0; i < array_size; i++)
     {
