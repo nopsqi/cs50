@@ -2,14 +2,15 @@
 #include <stdio.h>
 #include <math.h>
 
-int get_number(string description);
+int get_start_size(void);
+int get_end_size(int start_size);
 
 int main(void)
 {
     // TODO: Prompt for start size
     int start_size = get_start_size();
     // TODO: Prompt for end size
-    int end_size = get_number();
+    int end_size = get_end_size(start_size);
     // TODO: Calculate number of years until we reach threshold
     int year = 0;
     int end_size_calculate = start_size;
@@ -23,13 +24,24 @@ int main(void)
 
 }
 
-int get_number(string description)
+int get_start_size(void)
 {
     int n;
     do
     {
-        n = get_int("%s", description);
+        n = get_int("Enter start size: ");
     }
-    while (n < 1);
+    while (n < 9);
+    return n;
+}
+
+int get_end_size(int start_size)
+{
+    int n;
+    do
+    {
+        n = get_int("Enter end size: ");
+    }
+    while (n < start_size);
     return n;
 }
