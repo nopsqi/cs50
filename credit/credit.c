@@ -11,17 +11,21 @@ int get_digit(long card_number, int position);
 int main(void)
 {
     // long card_number = get_long("Input card number: ");
-    long card_number = 123456789;
+    long card_number = 5199999999999991;
     int card_length = get_length(card_number);
-    int card_first_digit = get_digit(card_number, card_length)
-    int card_second_digit = get_digit(card_number, card_length-1)
+    int card_first_digit = get_digit(card_number, card_length);
+    int card_second_digit = get_digit(card_number, card_length-1);
     bool is_card_valid = check_card(card_number);
     if (is_card_valid == 0)
     {
         printf("INVALID\n");
         return 0;
     }
-    if (card_first_digit == 5 && card_)
+    if (card_first_digit == 5 && (card_second_digit == 1 || card_second_digit == 2 || card_second_digit == 3 || card_second_digit == 4 || card_second_digit == 5))
+    {
+        printf("MASTERCARD\n");
+        return 0;
+    }
 }
 
 int get_length(long card_number)
