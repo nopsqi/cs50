@@ -7,9 +7,9 @@ int get_number(string description);
 int main(void)
 {
     // TODO: Prompt for start size
-    int start_size = get_number("Start size: ");
+    int start_size = get_start_size();
     // TODO: Prompt for end size
-    int end_size = get_number("End size: ");
+    int end_size = get_number();
     // TODO: Calculate number of years until we reach threshold
     int year = 0;
     int end_size_calculate = start_size;
