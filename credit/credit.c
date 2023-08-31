@@ -6,6 +6,7 @@
 int get_length(long card_number);
 bool check_card(long card_number);
 int sum_digit(int digit);
+int get_digit(long card_number, int position);
 
 int main(void)
 {
@@ -13,6 +14,7 @@ int main(void)
     long card_number = 123456789;
     int card_length = get_length(card_number);
     bool is_card_valid = check_card(card_number);
+    printf("%d\n", is_card_valid);
 }
 
 int get_length(long card_number)
@@ -32,6 +34,7 @@ bool check_card(long card_number)
     int card_length = get_length(card_number);
     for (int i = 1; i < card_length; i+=2)
     {
+        int number_now = get_digit(card_number, i);
         number_now *= 2;
 
         if (number_now % 10 != number_now)
@@ -44,9 +47,11 @@ bool check_card(long card_number)
     }
     for (int i = 0; i < card_length; i+=2)
     {
-        luhn_last_digit +=
+        int number_now = get_digit(card_number, i);
+        luhn_last_digit += number_now;
     }
-    return true;
+    luhn_last_digit = luhn_last_digit % 10;
+    return (luhn_last_digit == 0);
 }
 
 int sum_digit(int digit)
@@ -60,8 +65,8 @@ int sum_digit(int digit)
     return sum;
 }
 
-int get_digit(long card_number)
+int get_digit(long card_number, int position)
 {
-    int number_now = (card_number / (long)pow(10, i)) % 10;
-    return number_now;
+    int digit = (card_number / (long)pow(10, position)) % 10;
+    return digit;
 }
