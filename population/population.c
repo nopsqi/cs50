@@ -11,11 +11,15 @@ int main(void)
     int end_size = get_number("End size: ");
     // TODO: Calculate number of years until we reach threshold
     int year = 0;
-    int end_size_calculate = 0;
-    while (year)
+    int end_size_calculate = start_size;
+    while (end_size_calculate < end_size)
+    {
+        end_size_calculate = end_size_calculate + (end_size_calculate / 3) - (end_size_calculate / 4);
+        year++;
+    }
     // TODO: Print number of years
 
-    printf("%i %i\n", start_size, end_size);
+    printf("%i %i\n", start_size, end_size_calculate);
 }
 
 int get_number(string description)
