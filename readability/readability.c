@@ -59,6 +59,7 @@ int count_letters(string text)
 {
     int counter = 0;
     int length = strlen(text);
+    printf("%i\n", length);
     for (int i = 0; i < length; i++)
     {
         if (text[i] == '.' || text[i] == '!' || text[i] == '?' || text[i] == ' ')
