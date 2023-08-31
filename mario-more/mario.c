@@ -1,6 +1,8 @@
 #include <cs50.h>
 #include <stdio.h>
 
+void print_row(int indent, int brick);
+
 int main(void)
 {
     int n = get_int("Input number: ");
@@ -8,11 +10,29 @@ int main(void)
     {
         int indent = n - i - 1;
         int brick = n - indent;
-        printf("%i %i\n", indent, brick);
-        // for (int j = 0; j < n*2; j++)
-        // {
-        //     printf("#");
-        // }
-        // printf("\n");
+        print_row(indent, brick);
+        // printf("%i %i\n", indent, brick);
     }
+}
+
+void print_row(int indent, int brick)
+{
+    for (int j = 0; j < indent; j++)
+    {
+        printf(" ");
+    }
+    for (int j = 0; j < brick; j++)
+    {
+        printf("#");
+    }
+    printf(" ");
+    for (int j = 0; j < brick; j++)
+    {
+        printf("#");
+    }
+    for (int j = 0; j < indent; j++)
+    {
+        printf(" ");
+    }
+    printf("\n");
 }
