@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 int coleman(string text);
 int count_sentences(string text);
@@ -34,8 +35,8 @@ int coleman(string text)
     int letters = count_letters(text);
     float l = (float)letters / (float)words * (float)100;
     float s = (float)sentences / (float)words * (float)100;
-    int index = 0.0588 * l - 0.296 * s - 15.8;
-    return index;
+    float index = 0.0588 * l - 0.296 * s - 15.8;
+    return round(index);
 }
 
 int count_sentences(string text)
