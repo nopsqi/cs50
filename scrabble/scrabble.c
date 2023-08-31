@@ -8,6 +8,7 @@ int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 
 
 int compute_score(string word);
 int get_index(char c, char array[]);
+int get_size(char array[]);
 
 int main(void)
 {
@@ -56,4 +57,10 @@ int get_index(char c, char array[])
     }
     return index;
 
+}
+
+int get_size(char array[])
+{
+    int array_size = sizeof(array) / sizeof(array[0]);
+    return array_size;
 }
