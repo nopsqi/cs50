@@ -32,8 +32,15 @@ bool check_card(long card_number)
     for (int i = 0; i < card_length; i += 2)
     {
         int number_now = (card_number / (long)pow(10, i)) % 10;
-        luhn_last_digit = luhn_last_digit + (number_now * 2)
+        number_now *= 2;
+
+        if (number_now % 10 != number_now)
+        {
+            number_now = 
+        }
+        // luhn_last_digit = luhn_last_digit + (number_now * 2)
         printf("%i\n", number_now);
+        printf("=> %i\n", number_now % 10);
     }
     return true;
 }
