@@ -9,10 +9,11 @@ int main(void)
     int start_size = get_number("Start size: ");
     // TODO: Prompt for end size
     int end_size = get_number("End size: ");
-    printf("%i %i\n", start_size, end_size);
     // TODO: Calculate number of years until we reach threshold
 
     // TODO: Print number of years
+
+    printf("%i %i\n", start_size, end_size);
 }
 
 int get_number(string description)
