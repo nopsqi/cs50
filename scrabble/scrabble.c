@@ -20,7 +20,7 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
-    int array_size = sizeof(POINTS);
+    int array_size = sizeof(POINTS) / sizeof(POINTS[0]);
     printf("%i\n", array_size);
 }
 
