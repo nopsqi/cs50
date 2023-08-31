@@ -52,7 +52,7 @@ int get_index(char c, char array[])
 
 }
 
-int get_size(char array[])
+int get_size(char *array)
 {
     int array_size = sizeof(array) / sizeof(array[0]);
     return array_size;
