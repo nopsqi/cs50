@@ -10,7 +10,7 @@ int main(void)
     {
         n = get_int("Input number: ");
     }
-    while (n < 0 || n > 9);
+    while (n < 1 || n > 8);
     for (int i = 0; i < n; i++)
     {
         int indent = n - i - 1;
