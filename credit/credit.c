@@ -27,10 +27,12 @@ int get_length(long card_number)
 
 bool check_card(long card_number)
 {
+    int luhn_last_digit = 0;
     int card_length = get_length(card_number);
     for (int i = 0; i < card_length; i += 2)
     {
         int number_now = (card_number / (long)pow(10, i)) % 10;
+        luhn_last_digit = luhn_last_digit + (number_now * 2)
         printf("%i\n", number_now);
     }
     return true;
