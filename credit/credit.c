@@ -10,8 +10,8 @@ int get_digit(long card_number, int position);
 
 int main(void)
 {
-    long card_number = get_long("Input card number: ");
-    // long card_number = 5199999999999991;
+    // long card_number = get_long("Input card number: ");
+    long card_number = 4062901840;
     int card_length = get_length(card_number);
     int card_first_digit = get_digit(card_number, card_length-1);
     int card_second_digit = get_digit(card_number, card_length-2);
@@ -76,6 +76,7 @@ bool check_card(long card_number)
         int number_now = get_digit(card_number, i);
         luhn_last_digit += number_now;
     }
+    printf("%d\n", luhn_last_digit);
     luhn_last_digit = luhn_last_digit % 10;
     return (luhn_last_digit == 0);
 }
