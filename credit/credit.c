@@ -4,5 +4,5 @@
 int main(void)
 {
     long card_number = get_long("Input card number: ");
-    printf("%li\n", card_number);
+    printf("%ld\n", card_number % 10000);
 }
