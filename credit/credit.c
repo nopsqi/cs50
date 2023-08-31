@@ -61,12 +61,15 @@ bool check_card(long card_number)
     for (int i = 1; i < card_length; i+=2)
     {
         int number_now = get_digit(card_number, i);
+        printf("=> %i\n", number_now);
         number_now *= 2;
+        printf("%i\n", number_now);
 
         if (number_now % 10 != number_now)
         {
             number_now = sum_digit(number_now);
         }
+        printf("%i\n", number_now);
         luhn_last_digit += number_now;
         // printf("%i\n", number_now);
         // printf("=> %i\n", number_now % 10);
