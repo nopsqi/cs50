@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <math.h>
 
 int get_number(string description);
 
@@ -12,14 +13,14 @@ int main(void)
     // TODO: Calculate number of years until we reach threshold
     int year = 0;
     int end_size_calculate = start_size;
-    while (end_size_calculate < end_size)
+    while (end_size_calculate > end_size)
     {
-        end_size_calculate = end_size_calculate + (end_size_calculate / 3) - (end_size_calculate / 4);
+        end_size_calculate = end_size_calculate + round(end_size_calculate / 3) - (end_size_calculate / 4);
         year++;
+        printf("%i %i\n", year, end_size_calculate);
     }
     // TODO: Print number of years
 
-    printf("%i %i\n", start_size, end_size_calculate);
 }
 
 int get_number(string description)
