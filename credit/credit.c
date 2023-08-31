@@ -32,7 +32,6 @@ bool check_card(long card_number)
     int card_length = get_length(card_number);
     for (int i = 1; i < card_length; i+=2)
     {
-        int number_now = (card_number / (long)pow(10, i)) % 10;
         number_now *= 2;
 
         if (number_now % 10 != number_now)
@@ -45,7 +44,7 @@ bool check_card(long card_number)
     }
     for (int i = 0; i < card_length; i+=2)
     {
-        luhn_last_digit += 
+        luhn_last_digit +=
     }
     return true;
 }
@@ -59,4 +58,10 @@ int sum_digit(int digit)
         digit /= 10;
     }
     return sum;
+}
+
+int get_digit(long card_number)
+{
+    int number_now = (card_number / (long)pow(10, i)) % 10;
+    return number_now;
 }
