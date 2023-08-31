@@ -30,7 +30,7 @@ bool check_card(long card_number)
 {
     int luhn_last_digit = 0;
     int card_length = get_length(card_number);
-    for (int i = 0; i < card_length; i += 2)
+    for (int i = 1; i < card_length; i+=2)
     {
         int number_now = (card_number / (long)pow(10, i)) % 10;
         number_now *= 2;
@@ -39,9 +39,13 @@ bool check_card(long card_number)
         {
             number_now = sum_digit(number_now);
         }
-        luhn_last_digit = luhn_last_digit + number_now
-        printf("%i\n", number_now);
-        printf("=> %i\n", number_now % 10);
+        luhn_last_digit += number_now;
+        // printf("%i\n", number_now);
+        // printf("=> %i\n", number_now % 10);
+    }
+    for (int i = 0; i < card_length; i+=2)
+    {
+        luhn_last_digit += 
     }
     return true;
 }
