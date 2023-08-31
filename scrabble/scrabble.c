@@ -55,6 +55,7 @@ int get_index(char c, char array[])
 
 int get_size(char array[])
 {
+    printf("%s\n", array);
     int array_size = sizeof(*array);
     return array_size;
 }
