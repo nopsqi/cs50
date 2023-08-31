@@ -39,7 +39,7 @@ bool check_card(long card_number)
         {
             number_now = sum_digit(number_now);
         }
-        luhn_last_digit = luhn_last_digit + (number_now * 2)
+        luhn_last_digit = luhn_last_digit + number_now
         printf("%i\n", number_now);
         printf("=> %i\n", number_now % 10);
     }
