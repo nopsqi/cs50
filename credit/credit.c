@@ -30,7 +30,7 @@ bool check_card(long card_number)
     int card_length = get_length(card_number);
     for (int i = 0; i < card_length; i += 2)
     {
-        int number_now = (card_number / pow(10, i)) % 10.0;
+        int number_now = (card_number / (long)pow(10, i)) % 10;
         printf("%i\n", number_now);
     }
     return true;
