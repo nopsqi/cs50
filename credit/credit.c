@@ -5,6 +5,7 @@
 
 int get_length(long card_number);
 bool check_card(long card_number);
+int sum_digit(int digit);
 
 int main(void)
 {
@@ -50,7 +51,8 @@ int sum_digit(int digit)
     int sum = 0;
     while (digit != 0)
     {
+        sum = sum + (digit % 10);
         digit /= 10;
-        
     }
+    return sum;
 }
