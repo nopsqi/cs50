@@ -29,7 +29,7 @@ void print_row(int indent, int brick)
     {
         printf("#");
     }
-    printf(" ");
+    printf("  ");
     for (int j = 0; j < brick; j++)
     {
         printf("#");
