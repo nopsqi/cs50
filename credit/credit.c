@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-// int get_length(long card_number);
+int get_length(long card_number);
 bool check_card(long card_number);
 
 int main(void)
@@ -17,22 +17,22 @@ int main(void)
 
 }
 
+int get_length(long card_number)
+{
+    int length = 0;
+    while (card_number != 0)
+    {
+        card_number /= 10;
+        length++;
+    }
+    return length;
+}
+
 bool check_card(long card_number)
 {
-
     int card_length = get_length(card_number);
-    // for (int i = 0; i < card_length)
-
-    int get_length(long card_number)
+    for (int i = 0; i < card_length; i)
     {
-        int length = 0;
-        while (card_number != 0)
-        {
-            card_number /= 10;
-            length++;
-        }
-        return length;
-    }
-    return true;
 
+    }
 }
