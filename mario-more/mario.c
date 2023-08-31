@@ -11,7 +11,6 @@ int main(void)
         int indent = n - i - 1;
         int brick = n - indent;
         print_row(indent, brick);
-        // printf("%i %i\n", indent, brick);
     }
 }
 
