@@ -32,7 +32,6 @@ int main(int argc, string argv[])
         printf("%s\n", "Usage: ./wordle wordsize\n");
         return 1;
     }
-    else if (argv)
     else if (argv[1] < 4 || argv[1] > 8)
     {
         printf("%s\n", "Error: wordsize  must be either 5, 6, 7, or 8\n");
