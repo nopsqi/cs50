@@ -16,9 +16,15 @@ int main(void)
     switch(grade)
     {
         case grade > 16:
-        printf("Grade %i\n", grade);
+            printf("Grade 16+\n");
+            return 0;
+        case grade < 1:
+            printf("Before Grade 1\n");
+            return 0;
+        default:
+            printf("Grade %i\n", grade);
+            return 0;
     }
-    printf("Grade %i\n", grade);
 }
 
 int coleman(string text)
