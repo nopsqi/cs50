@@ -34,9 +34,9 @@ int compute_score(string word)
         int index = get_index(word[i], capital);
         if (index == -1)
         {
-            int index = get_index(word[i], lower);
+            index = get_index(word[i], lower);
         }
-        score = POINTS[index];
+        int score = POINTS[index];
         sum += score;
     }
     return sum;
