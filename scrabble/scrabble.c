@@ -4,7 +4,7 @@
 #include <string.h>
 
 // Points assigned to each letter of the alphabet
-int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
+int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10, 0};
 
 int compute_score(string word);
 int get_index(char c, char array[]);
@@ -45,7 +45,7 @@ int compute_score(string word)
     for (int i = 0; i < array_size; i++)
     {
         int index = get_index(word[i], capital);
-        if (index == -1)
+        if (index == 26)
         {
             index = get_index(word[i], lower);
         }
@@ -57,7 +57,7 @@ int compute_score(string word)
 
 int get_index(char c, char array[])
 {
-    int index = -1;
+    int index = 26;
     for (int i = 0; i < 26; i++)
     {
         if (c == array[i])
