@@ -13,17 +13,17 @@ int main(void)
     // string text = get_string("Input text: ");
     string text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!";
     int grade = coleman(text);
-    switch(grade)
+    if (grade > 16)
     {
-        case grade > 16:
-            printf("Grade 16+\n");
-            return 0;
-        case grade < 1:
-            printf("Before Grade 1\n");
-            return 0;
-        default:
-            printf("Grade %i\n", grade);
-            return 0;
+        printf("Grade 16+\n");
+    }
+    else if (grade < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+    else
+    {
+        printf("Grade %i\n", grade);
     }
 }
 
