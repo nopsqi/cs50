@@ -11,3 +11,12 @@ int main(void)
 
     // TODO: Print number of years
 }
+
+int get_number(void)
+{
+    int n;
+    do
+    {
+        n = get_int("
+    }
+}
