@@ -155,7 +155,6 @@ int check_word(string guess, int wordsize, int status[], string choice)
     {
         for (int c = 0; c < wordsize; c++)
         {
-            printf("%i %i\n", g, c);
             printf("%c %c\n", guess[g], choice[c]);
             if (guess[g] == choice[c] && g == c)
             {
