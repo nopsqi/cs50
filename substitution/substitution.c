@@ -34,7 +34,6 @@ bool check_key(string key)
                 break;
             }
         }
-        // check = false;
     }
     return check;
 }
