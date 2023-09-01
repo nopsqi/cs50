@@ -30,7 +30,7 @@ bool check_key(string key)
             {
                 break;
             }
-            if
+            check = false;
         }
     }
 }
