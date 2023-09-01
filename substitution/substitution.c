@@ -24,7 +24,7 @@ bool check_key(string key)
                       'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     int length = strlen(key);
     bool check = true;
-    for (int k = 0; k < KEY_LENGTH; k++)
+    for (int k = 0; k < length; k++)
     {
         if (!check)
         {
