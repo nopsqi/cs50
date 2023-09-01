@@ -5,6 +5,7 @@
 
 const int KEY_LENGTH = 26;
 bool check_alphabetic(string key);
+bool check_repeat(string key);
 
 int main(int argc, string argv[])
 {
