@@ -33,9 +33,9 @@ int main(int argc, string argv[])
 bool check_key(string key)
 {
     bool check = true;
-    char key_prev[] = {};
     for (int k = 0; k < KEY_LENGTH; k++)
     {
+        int repeat = 0;
         key_prev[k] = key[k]
         if (!isalpha(key[k]))
         {
