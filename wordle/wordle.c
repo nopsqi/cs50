@@ -64,8 +64,7 @@ int main(int argc, string argv[])
 
     // pseudorandomly select a word for this game
     srand(time(NULL));
-    // string choice = options[rand() % LISTSIZE];
-    string choice = "slide";
+    string choice = options[rand() % LISTSIZE];
     printf("%s\n", choice);
 
     // allow one more guess than the length of the word
