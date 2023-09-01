@@ -26,13 +26,21 @@ int main(int argc, string argv[])
         return 1;
     }
     printf("%s\n", argv[1]);
+    bool is_key_valid = check_key(argv[1]);
+    printf("%i\n", is_key_valid);
 }
 
 bool check_key(string key)
 {
-    bool key = 
+    bool check = true;
+    
     for (int k = 0; k < KEY_LENGTH; k++)
     {
-
+        if (!isalpha(key[k]))
+        {
+            check = false;
+            break;
+        }
     }
+    return check;
 }
