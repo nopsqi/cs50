@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 const int KEY_LENGTH = 26;
 bool check_key(string key);
@@ -21,6 +22,7 @@ bool check_key(string key)
 {
     char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                       'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    int length = strlen(key);
     bool check = true;
     for (int k = 0; k < KEY_LENGTH; k++)
     {
