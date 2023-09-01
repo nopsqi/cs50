@@ -30,5 +30,9 @@ int main(int argc, string argv[])
 
 bool check_key(string key)
 {
-    
+    bool key = 
+    for (int k = 0; k < KEY_LENGTH; k++)
+    {
+
+    }
 }
