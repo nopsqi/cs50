@@ -30,8 +30,8 @@ int main(int argc, string argv[])
         return 1;
     }
     string plaintext = get_string("Input plaintext: ");
-    string chipertext = encrypt(plaintext, argv[1]);
-    printf("chipertext: %s\n", chipertext);
+    string ciphertext = encrypt(plaintext, argv[1]);
+    printf("ciphertext: %s\n", ciphertext);
 }
 
 bool check_key(string key)
