@@ -3,6 +3,7 @@
 #include <stdbool.h>
 
 const int KEY_LENGTH = 26;
+bool check_key(string key);
 
 int main(int argc, string argv[])
 {
@@ -11,6 +12,8 @@ int main(int argc, string argv[])
         printf("%s\n", "Usage: ./subtition key");
         return 1;
     }
+    bool is_key_valid = check_key(argv[1]);
+    print(')
 }
 
 bool check_key(string key)
@@ -30,7 +33,7 @@ bool check_key(string key)
             {
                 break;
             }
-            check = false;
         }
+        check = false;
     }
 }
