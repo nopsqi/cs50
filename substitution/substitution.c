@@ -7,6 +7,7 @@
 const int KEY_LENGTH = 26;
 bool check_key(string key);
 string encrypt(string plaintext, string key);
+int check_position(char c);
 
 int main(int argc, string argv[])
 {
@@ -30,6 +31,8 @@ int main(int argc, string argv[])
         return 1;
     }
     string plaintext = get_string("Input plaintext: ");
+    string chippertext = encrypt(plaintext, argv[1]);
+    printf("chippertext: %s\n", chippertext);
 }
 
 bool check_key(string key)
@@ -67,9 +70,10 @@ string encrypt(string plaintext, string key)
         }
         bool is_upper = isupper(plaintext[p]);
         int position = check_position(toupper(plaintext[p]));
-        
+        plaintext[p] = is_upper ? toupper(key[position]): key[position];
+
     }
-    return 0;
+    return plaintext;
 }
 
 int check_position(char c)
