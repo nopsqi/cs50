@@ -93,8 +93,7 @@ int main(int argc, string argv[])
         // Calculate score for the guess
         int score = check_word(guess, wordsize, status, choice);
 
-        printf("Guess %i: \n", i + 1);
-        printf("Score:` %i", score);
+        printf("Guess %i: ", i + 1);
 
         // Print the guess
         print_word(guess, wordsize, status);
