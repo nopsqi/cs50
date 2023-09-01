@@ -158,14 +158,14 @@ int check_word(string guess, int wordsize, int status[], string choice)
             printf("%c %c\n", guess[g], choice[c]);
             printf("Letter: %i\n", guess[g] == choice[c]);
             printf("Index: %i\n", g == c);
-            printf("Letter and index: %i\n", guess[g] == choice[c] && g == c);
+            printf("Letter and index: %i\n", guess[g] == choice[c] && g != c);
             if (guess[g] == choice[c] && g == c)
             {
                 score += EXACT;
                 status[g] = EXACT;
                 break;
             }
-            else if (guess[g] == choice[c] && g != c)
+            if (guess[g] == choice[c] && g != c)
             {
                 score += CLOSE;
                 status[g] = CLOSE;
@@ -176,10 +176,10 @@ int check_word(string guess, int wordsize, int status[], string choice)
             }
         }
     }
-    // for (int i = 0; i < wordsize; i++)
-    // {
-    //     printf("%i ", status[i]);
-    // }
+    for (int i = 0; i < wordsize; i++)
+    {
+        printf("%i ", status[i]);
+    }
     printf("\n");
     return score;
 }
