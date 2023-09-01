@@ -156,6 +156,9 @@ int check_word(string guess, int wordsize, int status[], string choice)
         for (int c = 0; c < wordsize; c++)
         {
             printf("%c %c\n", guess[g], choice[c]);
+            printf("Letter: %i\n", guess[g] == choice[c]);
+            printf("Index: %i\n", g == c);
+            printf("Letter and index: %i\n", guess[g] == choice[c] && g == c);
             if (guess[g] == choice[c] && g == c)
             {
                 score += EXACT;
