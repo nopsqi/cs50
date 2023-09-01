@@ -25,6 +25,7 @@ int main(int argc, string argv[])
     printf("%s\n", argv[1]);
     if (!check_key(argv[1]))
     {
+        // printf("Error: Input valid key (26 uppercase non repeated alphabetic character)\n");
         printf("Key must contain 26 characters.");
         return 1;
     }
@@ -41,11 +42,6 @@ bool check_key(string key)
             break;
         }
         if (!isalpha(key[k]))
-        {
-            check = false;
-            break;
-        }
-        if (islower(key[k]))
         {
             check = false;
             break;
