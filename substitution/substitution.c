@@ -71,6 +71,16 @@ string encrypt(string plaintext, string key)
         }
         bool is_upper = isupper(plaintext[p]);
 
+
     }
     return 0;
+}
+
+int check_position(char c, char alphabet[])
+{
+    int position = -1;
+    for (int i = 0; i < KEY_LENGTH; i++)
+    {
+
+    }
 }
