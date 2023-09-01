@@ -8,6 +8,8 @@ bool check_alphabetic(string key);
 
 int main(int argc, string argv[])
 {
+    argc = 2;
+    argv[1] = "YTNSHKVEFXRBAUQZCLWDMIPGJO";
     if (argc < 2 || argc > 2)
     {
         printf("%s\n", "Usage: ./subtition key");
@@ -53,5 +55,9 @@ bool check_repeat(string key)
                     'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     char lower[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-    for 
+    for (int k = 0; k < KEY_LENGTH; k++)
+    {
+        break;
+    }
+    return true;
 }
