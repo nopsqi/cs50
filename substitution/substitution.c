@@ -17,7 +17,7 @@ bool check_key(string key)
 {
     char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                       'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    bool check = false;
+    bool check = true;
     for (int k = 0; k < KEY_LENGTH; k++)
     {
         for (int c = 0; k < KEY_LENGTH; k++)
@@ -26,7 +26,7 @@ bool check_key(string key)
             {
                 break;
             }
-            
+            if
         }
     }
 }
