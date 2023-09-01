@@ -172,8 +172,19 @@ void print_word(string guess, int wordsize, int status[])
     // TODO #6
     for (int i = 0; i < wordsize; i++)
     {
-        if 
-        printf("%c", guess[i]);
+        if (status[i] == EXACT)
+        {
+            printf(GREEN);
+        }
+        else if (status[i] == CLOSE)
+        {
+            printf(YELLOW);
+        }
+        else
+        {
+            printf(WRONG);
+        }
+        printf("%c"RESET, guess[i]);
     }
 
     printf("\n");
