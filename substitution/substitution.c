@@ -20,6 +20,10 @@ bool check_key(string key)
     bool check = true;
     for (int k = 0; k < KEY_LENGTH; k++)
     {
+        if (!check)
+        {
+            break;
+        }
         for (int c = 0; k < KEY_LENGTH; k++)
         {
             if (key[k] == capital[c])
