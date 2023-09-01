@@ -70,7 +70,7 @@ string encrypt(string plaintext, string key)
         }
         bool is_upper = isupper(plaintext[p]);
         int position = check_position(toupper(plaintext[p]));
-        plaintext[p] = is_upper ? toupper(key[position]): key[position];
+        plaintext[p] = is_upper ? toupper(key[position]): tolower(key[position]);
 
     }
     return plaintext;
