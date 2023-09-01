@@ -4,17 +4,14 @@
 #include <string.h>
 #include <ctype.h>
 
-char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-                'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-char lower[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-                'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 const int KEY_LENGTH = 26;
 bool check_key(string key);
+string encrypt(string plaintext, string key);
 
 int main(int argc, string argv[])
 {
     argc = 2;
-    argv[1] = "YTNSHKVEFXRBAUQZCLWDMIPGJO";
+    argv[1] = "yTNSHKVEFXRBAUQZCLWDMIPGJO";
     if (argc < 2 || argc > 2)
     {
         printf("%s\n", "Usage: ./subtition key");
@@ -26,8 +23,12 @@ int main(int argc, string argv[])
         return 1;
     }
     printf("%s\n", argv[1]);
-    bool is_key_valid = check_key(argv[1]);
-    printf("%i\n", is_key_valid);
+    if (!check_key(argv[1]))
+    {
+        printf("Error: Key invalid (26 uppercase non repeated alphabetic character)\n");
+        return 1;
+    }
+    string plaintext = get_string("Input plaintext: ");
 }
 
 bool check_key(string key)
@@ -35,6 +36,11 @@ bool check_key(string key)
     bool check = true;
     for (int k = 0; k < KEY_LENGTH; k++)
     {
+        printf("%i %c\n", k, key[k]);
+        if (!check)
+        {
+            break;
+        }
         if (!isalpha(key[k]))
         {
             check = false;
@@ -45,7 +51,7 @@ bool check_key(string key)
             check = false;
             break;
         }
-        for (int l = 0; l < KEY_LENGTH; k++)
+        for (int l = 0; l < KEY_LENGTH; l++)
         {
             if (key[k] == key[l] && k != l){
                 check = false;
@@ -54,4 +60,15 @@ bool check_key(string key)
         }
     }
     return check;
+}
+
+string encrypt(string plaintext, string key)
+{
+    for (int p = 0; p < strlen(plaintext); p++)
+    {
+        if (!isalpha(plaintext[p]))
+        {
+            continue;
+        }
+    }
 }
