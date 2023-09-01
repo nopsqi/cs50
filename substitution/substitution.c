@@ -11,7 +11,7 @@ string encrypt(string plaintext, string key);
 int main(int argc, string argv[])
 {
     argc = 2;
-    argv[1] = "yTNSHKVEFXRBAUQZCLWDMIPGJO";
+    argv[1] = "YTNSHKVEFXRBAUQZcLWDMIPGJO";
     if (argc < 2 || argc > 2)
     {
         printf("%s\n", "Usage: ./subtition key");
@@ -25,7 +25,7 @@ int main(int argc, string argv[])
     printf("%s\n", argv[1]);
     if (!check_key(argv[1]))
     {
-        printf("Error: Key invalid (26 uppercase non repeated alphabetic character)\n");
+        printf("Error: Input valid key (26 uppercase non repeated alphabetic character)\n");
         return 1;
     }
     string plaintext = get_string("Input plaintext: ");
@@ -36,7 +36,6 @@ bool check_key(string key)
     bool check = true;
     for (int k = 0; k < KEY_LENGTH; k++)
     {
-        printf("%i %c\n", k, key[k]);
         if (!check)
         {
             break;
@@ -70,5 +69,8 @@ string encrypt(string plaintext, string key)
         {
             continue;
         }
+        bool is_upper = isupper(plaintext[p]);
+        
     }
+    return 0;
 }
