@@ -163,7 +163,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
             }
             else if (guess[g] == choice[c] && g != c)
             {
-                printf("%c %c\n", guess[g], choice[c]);
+                printf("%i%c %i%c\n", g, guess[g], c, choice[c]);
                 printf("Letter: %i\n", guess[g] == choice[c]);
                 printf("Index: %i\n", g == c);
                 printf("Letter and index: %i\n", guess[g] == choice[c] && g != c);
