@@ -167,8 +167,10 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 // printf("Letter: %i\n", guess[g] == choice[c]);
                 // printf("Index: %i\n", g == c);
                 // printf("Letter and index: %i\n", guess[g] == choice[c] && g != c);
+                printf("Guess %i-status: %i\n", g, status[g]);
                 score += CLOSE;
                 status[g] = CLOSE;
+                printf("Guess %i-status: %i\n", g, status[g]);
             }
             else
             {
