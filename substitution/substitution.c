@@ -13,6 +13,11 @@ int main(int argc, string argv[])
         printf("%s\n", "Usage: ./subtition key");
         return 1;
     }
+    if (strlen(argv[1]) < KEY_LENGTH)
+    {
+        printf("%s\n", "Key length must be 26.");
+        return 1;
+    }
     printf("%s\n", argv[1]);
     bool is_key_valid = check_key(argv[1]);
     printf("%i\n", is_key_valid);
@@ -22,9 +27,8 @@ bool check_key(string key)
 {
     char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                       'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    int length = strlen(key);
     bool check = true;
-    for (int k = 0; k < length; k++)
+    for (int k = 0; k < KEY_LENGTH; k++)
     {
         if (!check)
         {
@@ -36,7 +40,7 @@ bool check_key(string key)
             {
                 break;
             }
-            if (c == KEY_LENGTH)
+            if (c == KEY_LENGTH-1)
             {
                 check = false;
             }
