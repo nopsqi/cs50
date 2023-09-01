@@ -1,8 +1,8 @@
 #include <cs50.h>
-#include <stdio.h>
-#include <stdbool.h>
-#include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
 
 const int KEY_LENGTH = 26;
 bool check_key(string key);
@@ -50,7 +50,8 @@ bool check_key(string key)
         }
         for (int l = 0; l < KEY_LENGTH; l++)
         {
-            if (key[k] == key[l] && k != l){
+            if (key[k] == key[l] && k != l)
+            {
                 check = false;
                 break;
             }
@@ -69,8 +70,7 @@ string encrypt(string plaintext, string key)
         }
         bool is_upper = isupper(plaintext[p]);
         int position = check_position(toupper(plaintext[p]));
-        plaintext[p] = is_upper ? toupper(key[position]): tolower(key[position]);
-
+        plaintext[p] = is_upper ? toupper(key[position]) : tolower(key[position]);
     }
     return plaintext;
 }
