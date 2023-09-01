@@ -33,13 +33,26 @@ int main(int argc, string argv[])
 bool check_key(string key)
 {
     bool check = true;
-    
+    char key_prev[] = {};
     for (int k = 0; k < KEY_LENGTH; k++)
     {
+        key_prev[k] = key[k]
         if (!isalpha(key[k]))
         {
             check = false;
             break;
+        }
+        if (islower(key[k]))
+        {
+            ckeck = false;
+            break;
+        }
+        for (int p = 0; p < strlen(key_prev); p++)
+        {
+            if (key[k] == key_prev[p]){
+                check = false;
+                break;
+            }
         }
     }
     return check;
