@@ -4,7 +4,7 @@
 #include <string.h>
 
 const int KEY_LENGTH = 26;
-bool check_key(string key);
+bool (string key);
 
 int main(int argc, string argv[])
 {
@@ -19,11 +19,11 @@ int main(int argc, string argv[])
         return 1;
     }
     printf("%s\n", argv[1]);
-    bool is_key_valid = check_key(argv[1]);
+    bool is_key_valid = (argv[1]);
     printf("%i\n", is_key_valid);
 }
 
-bool check_key(string key)
+bool (string key)
 {
     char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                       'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
