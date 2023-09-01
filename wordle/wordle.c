@@ -96,7 +96,7 @@ int main(int argc, string argv[])
         int score = check_word(guess, wordsize, status, choice);
 
         printf("Guess %i: ", i + 1);
-
+/sta
         // Print the guess
         print_word(guess, wordsize, status);
 
@@ -163,10 +163,10 @@ int check_word(string guess, int wordsize, int status[], string choice)
             }
             else if (guess[g] == choice[c] && g != c)
             {
-                printf("%i%c %i%c\n", g, guess[g], c, choice[c]);
-                printf("Letter: %i\n", guess[g] == choice[c]);
-                printf("Index: %i\n", g == c);
-                printf("Letter and index: %i\n", guess[g] == choice[c] && g != c);
+                // printf("%i%c %i%c\n", g, guess[g], c, choice[c]);
+                // printf("Letter: %i\n", guess[g] == choice[c]);
+                // printf("Index: %i\n", g == c);
+                // printf("Letter and index: %i\n", guess[g] == choice[c] && g != c);
                 score += CLOSE;
                 status[g] = CLOSE;
             }
@@ -176,12 +176,12 @@ int check_word(string guess, int wordsize, int status[], string choice)
             }
         }
     }
-    for (int i = 0; i < wordsize; i++)
-    {
-        printf("%i ", status[i]);
-    }
-    printf("\n");
-    printf("%i\n", score);
+    // for (int i = 0; i < wordsize; i++)
+    // {
+    //     printf("%i ", status[i]);
+    // }
+    // printf("\n");
+    // printf("%i\n", score);
     return score;
 }
 
