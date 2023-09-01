@@ -12,6 +12,7 @@ int main(int argc, string argv[])
         printf("%s\n", "Usage: ./subtition key");
         return 1;
     }
+    printf("%s\n", argv[1]);
     bool is_key_valid = check_key(argv[1]);
     printf("%i\n", is_key_valid);
 }
