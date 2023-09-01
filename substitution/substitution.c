@@ -25,7 +25,7 @@ int main(int argc, string argv[])
     printf("%s\n", argv[1]);
     if (!check_key(argv[1]))
     {
-        printf("Error: Input valid key (26 uppercase non repeated alphabetic character)\n");
+        printf("Key must contain 26 characters.");
         return 1;
     }
     string plaintext = get_string("Input plaintext: ");
@@ -70,7 +70,7 @@ string encrypt(string plaintext, string key)
             continue;
         }
         bool is_upper = isupper(plaintext[p]);
-        
+
     }
     return 0;
 }
