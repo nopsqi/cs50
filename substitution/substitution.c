@@ -32,7 +32,6 @@ int main(int argc, string argv[])
 
 bool check_key(string key)
 {
-    bool check = true;
     for (int k = 0; k < KEY_LENGTH; k++)
     {
         int repeat = 0;
@@ -47,9 +46,9 @@ bool check_key(string key)
             ckeck = false;
             break;
         }
-        for (int p = 0; p < strlen(key_prev); p++)
+        for (int l = 0; l < KEY_LENGTH; k++)
         {
-            if (key[k] == key_prev[p]){
+            if (key[k] == key[l] && k != l){
                 check = false;
                 break;
             }
