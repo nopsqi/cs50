@@ -11,8 +11,8 @@ int check_position(char c);
 
 int main(int argc, string argv[])
 {
-    argc = 2;
-    argv[1] = "YTNSHKVEFXRBAUQZcLWDMIPGJO";
+    // argc = 2;
+    // argv[1] = "YTNSHKVEFXRBAUQZcLWDMIPGJO";
     if (argc < 2 || argc > 2)
     {
         printf("%s\n", "Usage: ./subtition key");
