@@ -27,11 +27,15 @@ bool check_key(string key)
         {
             break;
         }
-        for (int c = 0; k < KEY_LENGTH; k++)
+        for (int c = 0; c < KEY_LENGTH; c++)
         {
             if (key[k] == capital[c])
             {
                 break;
+            }
+            if (c == KEY_LENGTH)
+            {
+                check = false;
             }
         }
     }
