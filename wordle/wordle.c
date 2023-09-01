@@ -163,7 +163,12 @@ int check_word(string guess, int wordsize, int status[], string choice)
             }
         }
     }
-    print("%i\n", status[]);
+    for (int i = 0; i < wordsize; i++)
+    {
+        printf("%i ", status[i]);
+    }
+    printf("\n");
+    printf("Score: %i\n", score);
     return score;
 }
 
