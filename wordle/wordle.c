@@ -93,7 +93,8 @@ int main(int argc, string argv[])
         // Calculate score for the guess
         int score = check_word(guess, wordsize, status, choice);
 
-        printf("Guess %i: ", i + 1);
+        printf("Guess %i: \n", i + 1);
+        printf("Score:` %i", score);
 
         // Print the guess
         print_word(guess, wordsize, status);
@@ -120,7 +121,6 @@ string get_guess(int wordsize)
     // ensure users actually provide a guess that is the correct length
     // TODO #3
     int length = 0;
-    printf("%i\n", length);
     while (length < wordsize || length > wordsize)
     {
         guess = get_string("Input a %i-letter word: ", wordsize);
