@@ -59,10 +59,6 @@ bool check_key(string key)
 
 string encrypt(string plaintext, string key)
 {
-    char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-                      'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    char lower[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-                    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     for (int p = 0; p < strlen(plaintext); p++)
     {
         if (!isalpha(plaintext[p]))
@@ -70,17 +66,24 @@ string encrypt(string plaintext, string key)
             continue;
         }
         bool is_upper = isupper(plaintext[p]);
-
-
+        int position = check_position(toupper(plaintext[p]));
+        
     }
     return 0;
 }
 
-int check_position(char c, char alphabet[])
+int check_position(char c)
 {
+    char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                      'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     int position = -1;
     for (int i = 0; i < KEY_LENGTH; i++)
     {
-
+        if (c == capital[i])
+        {
+            position = i;
+            break;
+        }
     }
+    return position;
 }
