@@ -172,6 +172,10 @@ int check_word(string guess, int wordsize, int status[], string choice)
             }
         }
     }
+    for (int i = 0; i < wordsize; i++)
+    {
+        printf("%i ", status[i]);
+    }
     return score;
 }
 
