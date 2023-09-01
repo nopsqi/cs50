@@ -172,10 +172,6 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 status[g] = CLOSE;
                 printf("Guess %i-status: %i\n", g, status[g]);
             }
-            else
-            {
-                status[g] = WRONG;
-            }
         }
     }
     // for (int i = 0; i < wordsize; i++)
