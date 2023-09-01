@@ -24,9 +24,9 @@ bool check_key(string key)
         {
             if (key[k] == capital[c])
             {
-                check = true;
                 break;
             }
+            
         }
     }
 }
