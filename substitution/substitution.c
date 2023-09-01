@@ -13,7 +13,7 @@ int main(int argc, string argv[])
         return 1;
     }
     bool is_key_valid = check_key(argv[1]);
-    print(')
+    printf("%i\n", is_key_valid);
 }
 
 bool check_key(string key)
@@ -36,4 +36,5 @@ bool check_key(string key)
         }
         check = false;
     }
+    return check;
 }
