@@ -19,6 +19,12 @@ bool check_key(string key)
                       'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     for (int k = 0; k < KEY_LENGTH; k++)
     {
-
+        for (int c = 0; k < KEY_LENGTH; k++)
+        {
+            if (key[k] == capital[c])
+            {
+                check = true;
+            }
+        }
     }
 }
