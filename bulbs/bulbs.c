@@ -12,13 +12,12 @@ int main(void)
 {
     // TODO
     string message = "HI!";
-    int *binary = decimal_to_binary((int)'H');
-    for (int i = 0; i < 8; i++)
-    {
-        printf("%i", binary[i]);
-    }
-    printf("\n");
+    encrypt(message);
+}
 
+void encrypt(string message)
+{
+    
 }
 
 int* decimal_to_binary(int ascii)
