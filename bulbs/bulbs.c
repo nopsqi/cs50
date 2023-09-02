@@ -11,7 +11,7 @@ int main(void)
 {
     // TODO
     string message = "HI!";
-    printf("%i\n", toascii("H"));
+    printf("%i\n", toascii(6));
 
 }
 
