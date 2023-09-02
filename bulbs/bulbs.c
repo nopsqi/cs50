@@ -15,6 +15,10 @@ int main(void)
 
 }
 
+string decimal_to_binary(int ascii)
+{
+    char result[BITS_IN_BYTE]
+}
 
 void print_bulb(int bit)
 {
