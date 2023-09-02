@@ -24,11 +24,12 @@ string decimal_to_binary(int ascii)
     {
         // printf("%i ", ascii);
         int reminder = ascii % 2;
+        result[i] = 'a';
         // printf("%i\n", reminder);
         ascii = ascii / 2;
     }
     printf("\n");
-    return "fuck";
+    return result;
 }
 
 void print_bulb(int bit)
