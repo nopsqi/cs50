@@ -22,3 +22,19 @@ int main(int argc, string argv[])
     int key = strtol(argv[1], NULL, 10);
     printf("%i\n", key);
 }
+
+int check_position(char c)
+{
+    char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                      'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    int position = -1;
+    for (int i = 0; i < KEY_LENGTH; i++)
+    {
+        if (c == capital[i])
+        {
+            position = i;
+            break;
+        }
+    }
+    return position;
+}
