@@ -41,7 +41,7 @@ int check_position(char c)
     char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                       'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     int position = -1;
-    for (int i = 0; i < KEY_LENGTH; i++)
+    for (int i = 0; i < 26; i++)
     {
         if (toupper(c) == capital[i])
         {
