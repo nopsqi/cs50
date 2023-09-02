@@ -6,7 +6,7 @@
 const int BITS_IN_BYTE = 8;
 
 void print_bulb(int bit);
-string decimal_to_binary(int ascii);
+char* decimal_to_binary(int ascii);
 
 int main(void)
 {
@@ -17,18 +17,17 @@ int main(void)
 
 }
 
-string decimal_to_binary(int ascii)
+char* decimal_to_binary(int ascii)
 {
-    string result = "00000000";
-    // for (int i = BITS_IN_BYTE; i > 0; i--)
-    // {
-    //     // printf("%i ", ascii);
-    //     int reminder = ascii % 2;
-    //     // printf("%i\n", reminder);
-    //     ascii = ascii / 2;
-    // }
-    result[2] = 'a';
-    printf("%c\n", result[2]);
+    static char result[BITS_IN_BYTE];
+    for (int i = BITS_IN_BYTE-1; i > 0; i--)
+    {
+        // printf("%i ", ascii);
+        int reminder = ascii % 2;
+        result[i] = reminder
+        // printf("%i\n", reminder);
+        ascii = ascii / 2;
+    }
     return result;
 }
 
