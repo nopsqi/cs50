@@ -19,11 +19,12 @@ int main(void)
 
 string decimal_to_binary(int ascii)
 {
-    while(ascii > 0)
+    string result = "00000000";
+    for (int i = BITS_IN_BYTE; i > 0; i--)
     {
-        printf("%i ", ascii);
+        // printf("%i ", ascii);
         int reminder = ascii % 2;
-        printf("%i\n", reminder);
+        // printf("%i\n", reminder);
         ascii = ascii / 2;
     }
     printf("\n");
