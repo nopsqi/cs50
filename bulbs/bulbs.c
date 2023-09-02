@@ -9,6 +9,8 @@ void print_bulb(int bit);
 int main(void)
 {
     // TODO
+    string message = "HI!";
+    
 }
 
 void print_bulb(int bit)
