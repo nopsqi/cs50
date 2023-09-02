@@ -20,15 +20,15 @@ int main(void)
 string decimal_to_binary(int ascii)
 {
     string result = "00000000";
-    for (int i = BITS_IN_BYTE; i > 0; i--)
-    {
-        // printf("%i ", ascii);
-        int reminder = ascii % 2;
-        result[i] = 'a';
-        // printf("%i\n", reminder);
-        ascii = ascii / 2;
-    }
-    printf("\n");
+    // for (int i = BITS_IN_BYTE; i > 0; i--)
+    // {
+    //     // printf("%i ", ascii);
+    //     int reminder = ascii % 2;
+    //     // printf("%i\n", reminder);
+    //     ascii = ascii / 2;
+    // }
+    result[2] = 'a';
+    printf("%c\n", result[2]);
     return result;
 }
 
