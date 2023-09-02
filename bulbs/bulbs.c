@@ -11,7 +11,8 @@ int main(void)
 {
     // TODO
     string message = "HI!";
-    printf("%i\n", toascii(6));
+    int asc = toascii(6);
+    // printf("%li\n", toascii(6));
 
 }
 
