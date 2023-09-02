@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int main(int argc, string argv[])
 {
@@ -9,6 +10,6 @@ int main(int argc, string argv[])
         printf("%s\n", "Usage: ./caesar key");
         return 1;
     }
-    printf("%i\n", isdigit(argv[1]));
-
+    int key = strtol(argv[1], NULL, 10);
+    printf("%i\n", key);
 }
