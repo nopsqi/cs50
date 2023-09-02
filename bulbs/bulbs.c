@@ -6,25 +6,25 @@
 const int BITS_IN_BYTE = 8;
 
 void print_bulb(int bit);
-string decimal_to_binary(int ascii);
+char* decimal_to_binary(int ascii);
 
 int main(void)
 {
     // TODO
     string message = "HI!";
-    string binary = decimal_to_binary((int)'H');
+    char* binary = decimal_to_binary((int)'H');
     printf("%s\n", binary);
 
 }
 
-string decimal_to_binary(int ascii)
+char* decimal_to_binary(int ascii)
 {
     char result[BITS_IN_BYTE];
     for (int i = 0; i < BITS_IN_BYTE; i++)
     {
         result[i] = ascii % 2;
     }
-    return result;
+    return strcmp(result);
 }
 
 void print_bulb(int bit)
