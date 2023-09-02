@@ -6,7 +6,7 @@
 const int BITS_IN_BYTE = 8;
 
 void print_bulb(int bit);
-char decimal_to_binary(int ascii);
+string decimal_to_binary(int ascii);
 
 int main(void)
 {
@@ -17,12 +17,12 @@ int main(void)
 
 }
 
-char decimal_to_binary(int ascii)
+string decimal_to_binary(int ascii)
 {
     char result[BITS_IN_BYTE];
     for (int i = 0; i < BITS_IN_BYTE; i++)
     {
-        result[i] = 72 % 2;
+        result[i] = ascii % 2;
     }
     return result;
 }
