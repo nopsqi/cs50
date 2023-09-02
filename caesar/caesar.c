@@ -8,9 +8,6 @@ int main(int argc, string argv[])
         printf("%s\n", "Usage: ./caesar key");
         return 1;
     }
-    if ()
-    {
-
-    }
+    printf("%i\n", isdigit(argv[1]));
 
 }
