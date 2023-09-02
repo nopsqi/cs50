@@ -19,14 +19,15 @@ int main(void)
 
 string decimal_to_binary(int ascii)
 {
-    string result = "00000000";
-    for (int i = 0; i < BITS_IN_BYTE; i++)
+    while(ascii > 1)
     {
         int reminder = ascii % 2;
-        printf("%i", reminder);
+        ascii = ascii / 2;
+        printf("ascii %i\n", ascii);
+        printf("reminder %i\n", reminder);
     }
     printf("\n");
-    return result;
+    return "fuck";
 }
 
 void print_bulb(int bit)
