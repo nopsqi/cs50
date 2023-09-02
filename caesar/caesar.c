@@ -10,18 +10,25 @@ bool check_key(string key);
 
 int main(int argc, string argv[])
 {
+    argc = 2;
+    argv[1] = "13";
     if (argc < 2 || argc > 2)
     {
         printf("Usage: ./caesar key\n");
         return 1;
     }
-    if (check_key(argv[1]))
+    if (!check_key(argv[1]))
     {
         printf("Usage: ./caesar key\n");
         return 1;
     }
     int key = strtol(argv[1], NULL, 10);
     printf("%i\n", key);
+}
+
+string caesar(string plaintext; int key)
+{
+    
 }
 
 bool check_key(string key)
