@@ -21,10 +21,10 @@ string decimal_to_binary(int ascii)
 {
     while(ascii > 0)
     {
-        ascii = ascii / 2;
+        printf("%i ", ascii);
         int reminder = ascii % 2;
-        printf("ascii %i\n", ascii);
-        printf("reminder %i\n", reminder);
+        printf("%i\n", reminder);
+        ascii = ascii / 2;
     }
     printf("\n");
     return "fuck";
