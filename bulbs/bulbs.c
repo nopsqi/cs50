@@ -19,10 +19,10 @@ int main(void)
 
 string decimal_to_binary(int ascii)
 {
-    while(ascii > 1)
+    while(ascii > 0)
     {
-        int reminder = ascii % 2;
         ascii = ascii / 2;
+        int reminder = ascii % 2;
         printf("ascii %i\n", ascii);
         printf("reminder %i\n", reminder);
     }
