@@ -5,14 +5,16 @@
 #include <string.h>
 #include <stdbool.h>
 
+char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 int get_position(char c);
 bool check_key(string key);
-string encrypt(string plaintext; int key);
+string encrypt(string plaintext, int key);
 
 int main(int argc, string argv[])
 {
-    argc = 2;
-    argv[1] = "13";
+    // argc = 2;
+    // argv[1] = "13";
     if (argc < 2 || argc > 2)
     {
         printf("Usage: ./caesar key\n");
@@ -24,16 +26,25 @@ int main(int argc, string argv[])
         return 1;
     }
     int key = strtol(argv[1], NULL, 10);
-    printf("%i\n", key);
+    string plaintext = get_string("plaintext: ");
+    string ciphertext = encrypt(plaintext, key);
+    printf("ciphertext: %s\n", ciphertext);
 }
 
-string encrypt(string plaintext; int key)
+string encrypt(string plaintext, int key)
 {
     for (int i = 0; i < strlen(plaintext); i++)
     {
-        position = get_position(plaintext[i])
-        caesar = (position + key) % 26
+        if (!isalpha(plaintext[i]))
+        {
+            continue;
+        }
+        int position = get_position(plaintext[i]);
+        int caesar = (position + key) % 26;
+        bool is_upper = isupper(plaintext[i]);
+        plaintext[i] = is_upper ? toupper(capital[caesar]) : tolower(capital[caesar]);
     }
+    return plaintext;
 }
 
 bool check_key(string key)
@@ -50,8 +61,6 @@ bool check_key(string key)
 
 int get_position(char c)
 {
-    char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-                      'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     int position = -1;
     for (int i = 0; i < 26; i++)
     {
