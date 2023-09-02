@@ -5,8 +5,9 @@
 #include <string.h>
 #include <stdbool.h>
 
-int check_position(char c);
+int get_position(char c);
 bool check_key(string key);
+string encrypt(string plaintext; int key);
 
 int main(int argc, string argv[])
 {
@@ -26,9 +27,13 @@ int main(int argc, string argv[])
     printf("%i\n", key);
 }
 
-string caesar(string plaintext; int key)
+string encrypt(string plaintext; int key)
 {
-    
+    for (int i = 0; i < strlen(plaintext); i++)
+    {
+        position = get_position(plaintext[i])
+        caesar = (position + key) % 26
+    }
 }
 
 bool check_key(string key)
@@ -43,7 +48,7 @@ bool check_key(string key)
     return true;
 }
 
-int check_position(char c)
+int get_position(char c)
 {
     char capital[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                       'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
