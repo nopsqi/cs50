@@ -6,25 +6,29 @@
 const int BITS_IN_BYTE = 8;
 
 void print_bulb(int bit);
-char* decimal_to_binary(int ascii);
+int* decimal_to_binary(int ascii);
 
 int main(void)
 {
     // TODO
     string message = "HI!";
-    string binary = decimal_to_binary((int)'H');
-    printf("%s\n", binary);
+    int *binary = decimal_to_binary((int)'H');
+    for (int i = 0; i < 8; i++)
+    {
+        printf("%i", binary[i]);
+    }
+    printf("\n");
 
 }
 
-char* decimal_to_binary(int ascii)
+int* decimal_to_binary(int ascii)
 {
-    static char result[BITS_IN_BYTE];
+    static int result[BITS_IN_BYTE];
     for (int i = BITS_IN_BYTE-1; i > 0; i--)
     {
         // printf("%i ", ascii);
         int reminder = ascii % 2;
-        result[i] = reminder
+        result[i] = reminder;
         // printf("%i\n", reminder);
         ascii = ascii / 2;
     }
