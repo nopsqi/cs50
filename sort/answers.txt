@@ -4,8 +4,8 @@ How do you know?: Neither selection sort nor merge sort
 
 sort2 uses: Merge sort
 
-How do you know?: Take the shortest to sort reversed.txt
+How do you know?: Take the fastest to sort reversed.txt
 
 sort3 uses: Selection sort
 
-How do you know?: Take the longest to sort sorted.txt
+How do you know?: Take the slowest to sort sorted.txt
