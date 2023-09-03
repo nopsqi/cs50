@@ -1,6 +1,6 @@
 sort1 uses: Bubble sort
 
-How do you know?: 
+How do you know?: Neither selection sort nor merge sort
 
 sort2 uses: Merge sort
 
