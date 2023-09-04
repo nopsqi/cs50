@@ -5,42 +5,14 @@
 #include <time.h>
 #include <stdlib.h>
 
-string get_guess(int wordsize);
+int array[] = {1, 2, 3};
 
 int main(int argc, string argv[])
 {
-    // ensure proper usage
-    // TODO #1
-    if (argc < 2 || argc > 2)
+    int element = array[0];
+    array[0] = 5;
+    for (int i = 0; i < 3; i++)
     {
-        printf("%s\n", "Usage: ./wordle wordsize");
-        return 1;
+        printf("%i\n", array[i]);
     }
-
-    int wordsize = 0;
-    // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
-    // TODO #2
-    wordsize = strtol(argv[1], NULL, 10);
-    if (wordsize < 4 || wordsize > 8)
-    {
-        printf("%s\n", "Error: wordsize  must be either 5, 6, 7, or 8");
-        return 1;
-    }
-    string guess = get_guess(wordsize);
-}
-
-string get_guess(int wordsize)
-{
-    string guess = "";
-
-    // ensure users actually provide a guess that is the correct length
-    // TODO #3
-    int length = strlen(guess);
-    printf("%i\n", length);
-    while (length < wordsize || length > wordsize)
-    {
-        guess = get_string("Input a %i-letter word: ", wordsize);
-        length = strlen(guess);
-    }
-    return guess;
 }
