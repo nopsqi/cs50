@@ -149,9 +149,9 @@ void tabulate(void)
     {
         for (int j = 0; j < candidate_count; j++)
         {
+            int candidates_index = preferences[i][j];
             if (candidates[candidates_index].eliminated)
                 break;
-            int candidates_index = preferences[i][j];
             candidates[candidates_index].votes++;
         }
     }
@@ -162,7 +162,11 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
-    int half_votes = (int)round((float)voters_count / 2);
+    int half_votes = (int)round((float)voter_count / 2);
+    for (int i = 0; i < candidate_count; i++)
+    {
+        
+    }
     return false;
 }
 
