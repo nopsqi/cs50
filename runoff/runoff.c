@@ -1,7 +1,7 @@
 #include <cs50.h>
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -16,8 +16,7 @@ typedef struct
     string name;
     int votes;
     bool eliminated;
-}
-candidate;
+} candidate;
 
 // Array of candidates
 candidate candidates[MAX_CANDIDATES];
