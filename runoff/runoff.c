@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -148,9 +149,10 @@ void tabulate(void)
     {
         for (int j = 0; j < candidate_count; j++)
         {
+            if (candidates[candidates_index].eliminated)
+                break;
             int candidates_index = preferences[i][j];
-            if (!candidates[candidates_index].eliminated)
-                candidates[candidates_index].votes++;
+            candidates[candidates_index].votes++;
         }
     }
     return;
@@ -160,6 +162,7 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
+    int half_votes = (int)round((float)voters_count / 2);
     return false;
 }
 
