@@ -142,11 +142,16 @@ void add_pairs(void)
         for (int j = 0; j < candidate_count; j++)
         {
             if (preferences[i][j] == preferences[j][i])
-                continue
+                continue;
             if (preferences[i][j] > preferences[j][i])
             {
-                pairs[pair_count] = struct pair {i, j}
+                pairs[pair_count].winner = i;
+                pairs[pair_count].loser = j;
+                
+                continue;
             }
+            pairs[pair_count].winner = j;
+            pairs[pair_count].loser = i;
         }
     }
     return;
