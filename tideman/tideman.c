@@ -224,10 +224,10 @@ void print_winner(void)
         }
         if (sum > sum_checker)
         {
-            // sum_checker = sum;
+            sum_checker = sum;
             winner_index = i;
         }
-        printf("%s\n", candidates[winner_index]);
     }
+    printf("%s\n", candidates[winner_index]);
     return;
 }
