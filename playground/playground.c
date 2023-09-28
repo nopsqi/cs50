@@ -13,6 +13,7 @@ int main()
         printf("%i ", arr[i]);
     }
     printf("\n");
+    printf("%i\n", true + true);
 }
 
 void sort_arr()
