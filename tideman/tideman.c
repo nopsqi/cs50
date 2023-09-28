@@ -98,23 +98,24 @@ int main(int argc, string argv[])
 }
 
 // Check candidate
-bool check_candidate(string name)
+int check_candidate(string name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
         if (strcmp(name, candidates[i]) == 0)
-            return true;
+            return i;
     }
-    return false;
+    return -1;
 }
 
 // Update ranks given a new vote
 bool vote(int rank, string name, int ranks[])
 {
     // TODO
-    if (!check_candidate(name))
+    int candidate_index = check_candidate(name);
+    if (candidate_index < 0)
         return false;
-    ranks[rank] = name;
+    ranks[rank] = candidate_index;
     return true;
 }
 
