@@ -182,7 +182,9 @@ void sort_pairs(void)
 
 bool check_locked(int i, int j)
 {
-
+    if (i > candidate_count)
+        return;
+    
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
