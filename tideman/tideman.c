@@ -180,9 +180,9 @@ void sort_pairs(void)
     return;
 }
 
-bool check_locked(int i, int j)
+bool check_locked(int start, int i, int j)
 {
-    if
+    if 
     for (int k = 0; k < candidate_count; k++)
     {
         if (locked[j][k])
