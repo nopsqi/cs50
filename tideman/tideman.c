@@ -201,7 +201,7 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        bool visited[pair_count] = {false};
+        bool visited[MAX] = {false};
         if (has_loop(visited, pairs[i].winner, pairs[i].loser))
             continue;
         locked[pairs[i].winner][pairs[i].loser] = true;
