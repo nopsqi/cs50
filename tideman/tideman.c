@@ -184,7 +184,7 @@ bool check_locked(int i, int j)
 {
     if (i > candidate_count)
         return;
-    
+    for ()
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
