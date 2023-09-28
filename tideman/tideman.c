@@ -163,7 +163,7 @@ void sort_pairs(void)
 {
     // TODO
     int swap = 1;
-    while (swap)
+    while (swap == 1)
     {
         swap = 0;
         for (int i = 0; i < pair_count-1; i++)
