@@ -162,9 +162,10 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
-    int swap = 1;
+    bool swap = true;
     while (swap)
     {
+        swap = false;
         for (int i = 0; i < pair_count-1; i++)
         {
             pair temp = pairs[i];
@@ -172,7 +173,7 @@ void sort_pairs(void)
             {
                 pairs[i] = pairs[i+1];
                 pairs[i+1] = temp;
-                swap = 1;
+                swap = true;
             }
         }
     }
