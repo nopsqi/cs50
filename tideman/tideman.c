@@ -188,7 +188,7 @@ bool has_loop(bool visited[], int current, int target)
     visited[target] = true;
 
     for (int i = 0; i < pair_count; i++)
-        if (locked[target][i] && has_loop(visited, current, i))
+        if (!visited[i] && locked[target][i] && has_loop(visited, current, i))
             return true;
 
     visited[target] = false;
