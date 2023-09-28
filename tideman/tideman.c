@@ -180,7 +180,7 @@ void sort_pairs(void)
     return;
 }
 
-bool check_locked(int start, int i, int j)
+bool check_locked(int i, int j)
 {
     if (start == i)
         return true;
