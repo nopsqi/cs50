@@ -16,8 +16,7 @@ typedef struct
 {
     int winner;
     int loser;
-}
-pair;
+} pair;
 
 // Array of candidates
 string candidates[MAX];
@@ -166,13 +165,13 @@ void sort_pairs(void)
     while (swap)
     {
         swap = false;
-        for (int i = 0; i < pair_count-1; i++)
+        for (int i = 0; i < pair_count - 1; i++)
         {
-            if (preferences[pairs[i].winner][pairs[i].loser] < preferences[pairs[i+1].winner][pairs[i+1].loser])
+            if (preferences[pairs[i].winner][pairs[i].loser] < preferences[pairs[i + 1].winner][pairs[i + 1].loser])
             {
                 pair temp = pairs[i];
-                pairs[i] = pairs[i+1];
-                pairs[i+1] = temp;
+                pairs[i] = pairs[i + 1];
+                pairs[i + 1] = temp;
                 swap = true;
             }
         }
@@ -213,7 +212,6 @@ void lock_pairs(void)
 void print_winner(void)
 {
     // TODO
-    int sum_checker = 0;
     int winner_index = -1;
     for (int i = 0; i < candidate_count; i++)
     {
@@ -221,12 +219,10 @@ void print_winner(void)
         int column_sum = 0;
         for (int j = 0; j < candidate_count; j++)
         {
-            row_sum += locked[i][j];
             column_sum += locked[j][i];
         }
-        if (row_sum == candidate_count)
+        if (column_sum == 0)
         {
-            // sum_checker = row_sum;
             winner_index = i;
         }
     }
