@@ -14,18 +14,21 @@ int main()
     {
         printf("%i ", arr[i]);
     }
+    bool swap = true;
     printf("\n");
     printf("%i\n", return_true());
 }
 
 bool return_true()
 {
+    printf("%i\n", swap);
     return 1;
 }
 
 void sort_arr()
 {
     bool swap = true;
+    return_true();
     while(swap)
     {
         swap = false;
