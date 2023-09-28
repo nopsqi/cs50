@@ -145,7 +145,7 @@ void add_pairs(void)
                 continue
             if (preferences[i][j] > preferences[j][i])
             {
-                pair
+                pairs[pair_count] = struct pair {i, j}
             }
         }
     }
