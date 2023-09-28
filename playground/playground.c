@@ -1,28 +1,33 @@
 #include <stdio.h>
 #include <cs50.h>
 #include <string.h>
-
-int arr[5] = {3, 1, 2, 4, 1};
-void sort_arr(int array[]);
+int N = 7;
+int arr[N] = {3, 1, 1, 2, 4, 2, 5};
+void sort_arr();
 
 int main()
 {
-    sort_arr(arr);
+    sort_arr();
+    for (int i = 0; i < N; i++)
+    {
+        printf("%i ", arr[i]);
+    }
+    printf("\n");
 }
 
-void sort_arr(int array[])
+void sort_arr()
 {
     bool swap = true;
     while(swap)
     {
         swap = false;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < N-1; i++)
         {
-            if (array[i] > array[i+1])
+            if (arr[i] > arr[i+1])
             {
-                int temp = array[i];
-                array[i] = array[i+1];
-                array[i+1] = temp;
+                int temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
                 swap = true;
             }
         }
