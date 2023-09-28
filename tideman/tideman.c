@@ -166,8 +166,6 @@ void sort_pairs(void)
     {
         for (int i = 0; i < pair_count-1; i++)
         {
-            if (pairs[i] == pairs[i+1])
-                continue;
             struct pair temp = pairs[i]
             if (pairs[i] > pairs[i+1])
             {
@@ -175,7 +173,6 @@ void sort_pairs(void)
                 pairs[i+1] = temp;
                 continue;
             }
-            return;
         }
     }
     return;
