@@ -185,6 +185,8 @@ bool has_loop(bool visited[], int current, int target)
     if (i == j)
         return true;
 
+    visited[j] = true;
+
     for (int i = 0; i < pair_count; i++)
         if (locked[target][i] && has_loop(current, i))
             return true;
