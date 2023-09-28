@@ -186,7 +186,7 @@ bool has_loop(int current, int target, int length)
         return true;
 
     for (int i = 0; i < pair_count; i++)
-        if (locked[current][target] && has_loop(target, i, length-1))
+        if (has_loop(target, i, length-1))
             return true;
 
     return false;
