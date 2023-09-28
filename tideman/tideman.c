@@ -162,16 +162,18 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
-    while (true)
+    int swap = 1;
+    while (swap)
     {
+        swap = 0;
         for (int i = 0; i < pair_count-1; i++)
         {
-            struct pair temp = pairs[i]
+            struct pair temp = pairs[i];
             if (pairs[i] > pairs[i+1])
             {
                 pairs[i] = pairs[i+1];
                 pairs[i+1] = temp;
-                continue;
+                swap = 1;
             }
         }
     }
