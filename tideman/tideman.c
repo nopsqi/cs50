@@ -164,7 +164,7 @@ void sort_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        pairs[i]
+        if p
     }
     return;
 }
