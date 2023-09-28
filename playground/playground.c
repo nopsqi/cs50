@@ -3,7 +3,9 @@
 #include <string.h>
 #define N 7
 int arr[N] = {3, 1, 1, 2, 4, 2, 5};
+
 void sort_arr();
+bool return_true();
 
 int main()
 {
@@ -13,7 +15,12 @@ int main()
         printf("%i ", arr[i]);
     }
     printf("\n");
-    printf("%b\n", true * false);
+    printf("%i\n", return_true());
+}
+
+bool return_true()
+{
+    return 1;
 }
 
 void sort_arr()
