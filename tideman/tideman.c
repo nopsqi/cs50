@@ -180,9 +180,9 @@ void sort_pairs(void)
     return;
 }
 
-bool has_loop(int current, int target)
+bool has_loop(bool visited[], int current, int target)
 {
-    if (locked[target][current])
+    if (i == j)
         return true;
 
     for (int i = 0; i < pair_count; i++)
@@ -198,7 +198,8 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        if (has_loop(pairs[i].winner, pairs[i].loser))
+        bool visted[pair_count];
+        if (has_loop(viited, pairs[i].winner, pairs[i].loser))
             continue;
         locked[pairs[i].winner][pairs[i].loser] = true;
     }
