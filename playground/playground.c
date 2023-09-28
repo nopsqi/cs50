@@ -3,14 +3,14 @@
 #include <string.h>
 
 int arr[5] = {3, 1, 2, 4, 1};
-void sort_arr();
+void sort_arr(int array[]);
 
 int main()
 {
-    sort_arr();
+    sort_arr(arr);
 }
 
-void sort_arr()
+void sort_arr(int array[])
 {
     bool swap = true;
     while(swap)
@@ -18,11 +18,11 @@ void sort_arr()
         swap = false;
         for (int i = 0; i < 4; i++)
         {
-            if (arr[i] > arr[i+1])
+            if (array[i] > array[i+1])
             {
-                int temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
+                int temp = array[i];
+                array[i] = array[i+1];
+                array[i+1] = temp;
                 swap = true;
             }
         }
