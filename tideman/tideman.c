@@ -222,9 +222,9 @@ void print_winner(void)
         {
             sum += locked[j][i];
         }
-        if (sum > sum_checker)
+        if (sum == 0)
         {
-            sum_checker = sum;
+            // sum_checker = sum;
             winner_index = i;
         }
     }
