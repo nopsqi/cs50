@@ -112,9 +112,11 @@ bool check_candidate(string name)
 bool vote(int rank, string name, int ranks[])
 {
     // TODO
+    if (!check_candidate(name))
+        return false;
     for(int i = 0; i < candidate_count; i++)
     {
-        check_candidate(name)
+        
     }
     return false;
 }

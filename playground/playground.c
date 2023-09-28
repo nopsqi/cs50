@@ -5,6 +5,6 @@
 int main()
 {
     string a = "book";
-    printf("your word is %i", strcmp(a, "fuck"));
-
+    if (strcmp(a, "aaaa") == 0)
+        printf("this is true");
 }
