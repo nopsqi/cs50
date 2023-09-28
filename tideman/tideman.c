@@ -168,7 +168,7 @@ void sort_pairs(void)
         swap = 0;
         for (int i = 0; i < pair_count-1; i++)
         {
-            struct pair temp = pairs[i];
+            pair temp = pairs[i];
             if (pairs[i] > pairs[i+1])
             {
                 pairs[i] = pairs[i+1];
