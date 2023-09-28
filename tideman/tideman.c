@@ -6,7 +6,7 @@
 #define MAX 9
 
 // preferences[i][j] is number of voters who prefer i over j
-int preferences[MAX][MAX];
+int preferences[MAX][MAX] = {0};
 
 // locked[i][j] means i is locked in over j
 bool locked[MAX][MAX];
@@ -186,7 +186,7 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        locked[pairs[i].winner]]
+        locked[pairs[i].winner][pairs[i].loser] = true;
     }
     return;
 }
