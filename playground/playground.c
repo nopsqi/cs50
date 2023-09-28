@@ -13,7 +13,7 @@ int main()
         printf("%i ", arr[i]);
     }
     printf("\n");
-    printf("%i\n", true + true);
+    printf("%b\n", true * false);
 }
 
 void sort_arr()

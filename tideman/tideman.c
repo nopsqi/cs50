@@ -186,7 +186,7 @@ bool check_locked(int i, int j)
     {
         if (locked[j][k])
         {
-            check_locked(j, k)
+            return true * check_locked(j, k)
         }
     }
 }
