@@ -102,10 +102,10 @@ bool check_candidate(string name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candiates[i]) == 0)
-            return true
+        if (strcmp(name, candidates[i]) == 0)
+            return true;
     }
-    return false
+    return false;
 }
 
 // Update ranks given a new vote
@@ -114,11 +114,8 @@ bool vote(int rank, string name, int ranks[])
     // TODO
     if (!check_candidate(name))
         return false;
-    for(int i = 0; i < candidate_count; i++)
-    {
-        
-    }
-    return false;
+    ranks[rank] = name;
+    return true;
 }
 
 // Update preferences given one voter's ranks
