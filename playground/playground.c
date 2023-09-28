@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <cs50.h>
 #include <string.h>
-int N = 7;
+#define N 7
 int arr[N] = {3, 1, 1, 2, 4, 2, 5};
 void sort_arr();
 
