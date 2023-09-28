@@ -180,10 +180,13 @@ void sort_pairs(void)
     return;
 }
 
-bool check_locked(int i, int j)
+bool check_locked(int path[], int i, int j)
 {
-    if (start == i)
-        return true;
+    for (int p = 0; p < pair_count; 0)
+    {
+        if (path[p] == i)
+            return true;
+    }
     for (int k = 0; k < candidate_count; k++)
     {
         if (locked[j][k])
@@ -197,7 +200,7 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        int path[];
+        int path[pair_count] = {-1};
         int path_count;
         if check_locked(pairs[i].winner, pairs[i].loser, pairs[i].winner)
             return
