@@ -217,10 +217,12 @@ void print_winner(void)
     int winner_index = -1;
     for (int i = 0; i < pair_count; i++)
     {
-        int sum = 0;
+        int row_sum = 0;
+        int column_sum = 0;
         for (int j = 0; j < pair_count; j++)
         {
-            sum += locked[i][j];
+            row_sum += locked[i][j];
+            column_sum += locked[j][i];
         }
         if (sum >= sum_checker)
         {
