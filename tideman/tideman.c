@@ -220,11 +220,11 @@ void print_winner(void)
         int sum = 0;
         for (int j = 0; j < pair_count; j++)
         {
-            sum += locked[j][i];
+            sum += locked[i][j];
         }
-        if (sum == 0)
+        if (sum >= sum_checker)
         {
-            // sum_checker = sum;
+            sum_checker = sum;
             winner_index = i;
         }
     }
