@@ -182,15 +182,16 @@ void sort_pairs(void)
 
 bool has_loop(bool visited[], int current, int target)
 {
-    if (i == j)
+    if (current == target)
         return true;
 
-    visited[j] = true;
+    visited[target] = true;
 
     for (int i = 0; i < pair_count; i++)
-        if (locked[target][i] && has_loop(current, i))
+        if (locked[target][i] && has_loop(visited, current, i))
             return true;
 
+    visited[target] = false;
     return false;
 }
 
@@ -200,7 +201,7 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        bool visted[pair_count];
+        bool visited[pair_count] = {false};
         if (has_loop(viited, pairs[i].winner, pairs[i].loser))
             continue;
         locked[pairs[i].winner][pairs[i].loser] = true;
