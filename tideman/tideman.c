@@ -213,13 +213,18 @@ void lock_pairs(void)
 void print_winner(void)
 {
     // TODO
+    int sum_checker = 0;
+    int winner_index = -1;
     for (int i = 0; i < pair_count; i++)
     {
         int sum = 0;
         for (int j = 0; j < pair_count; j++)
         {
-            sum += locked[i][j]
+            sum += locked[i][j];
         }
+        if (sum > sum_checker)
+            winner_index = i;
     }
+    print()
     return;
 }
