@@ -215,16 +215,16 @@ void print_winner(void)
     // TODO
     int sum_checker = 0;
     int winner_index = -1;
-    for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         int row_sum = 0;
         int column_sum = 0;
-        for (int j = 0; j < pair_count; j++)
+        for (int j = 0; j < candidate_count; j++)
         {
             row_sum += locked[i][j];
             column_sum += locked[j][i];
         }
-        if (column_sum == 0)
+        if (column_sum == 0 || row_sum == candidate_count-1)
         {
             // sum_checker = sum;
             winner_index = i;
