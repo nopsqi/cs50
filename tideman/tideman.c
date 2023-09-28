@@ -9,7 +9,7 @@
 int preferences[MAX][MAX] = {0};
 
 // locked[i][j] means i is locked in over j
-bool locked[MAX][MAX];
+bool locked[MAX][MAX] = {false};
 
 // Each pair has a winner, loser
 typedef struct
@@ -187,7 +187,6 @@ void lock_pairs(void)
     for (int i = 0; i < pair_count; i++)
     {
         locked[pairs[i].winner][pairs[i].loser] = true;
-        if 
     }
     return;
 }
