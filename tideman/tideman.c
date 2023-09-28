@@ -183,13 +183,14 @@ void sort_pairs(void)
 bool has_loop(int current, int target, int length)
 {
     if (length == 0)
-        return pair[current][target]
+        return true;
 
     for (int i = 0; i < pair_count; i++)
     {
-        if (locked[current][i] && has_loop(t))
+        if (has_loop(target, i, length-1))
+            return true;
     }
-    return true;
+    return false;
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
@@ -198,7 +199,6 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        int visited[pair_count] = {-1};
         if has_loop(pairs[i].winner, pairs[i].loser, pair_count)
             continue;
         locked[pairs[i].winner][pairs[i].loser] = true;
