@@ -96,13 +96,22 @@ int main(int argc, string argv[])
     return 0;
 }
 
+// Check candidate
+bool check_candidate(string name)
+{
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if ()
+    }
+}
+
 // Update ranks given a new vote
 bool vote(int rank, string name, int ranks[])
 {
     // TODO
     for(int i = 0; i < candidate_count; i++)
     {
-        
+
     }
     return false;
 }
