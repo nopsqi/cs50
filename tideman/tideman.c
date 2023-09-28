@@ -199,7 +199,7 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        if has_loop(pairs[i].winner, pairs[i].loser, pair_count)
+        if (has_loop(pairs[i].winner, pairs[i].loser, pair_count))
             continue;
         locked[pairs[i].winner][pairs[i].loser] = true;
     }
