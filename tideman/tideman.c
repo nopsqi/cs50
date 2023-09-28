@@ -182,7 +182,13 @@ void sort_pairs(void)
 
 bool check_locked(int current, int target, int length, int visited[])
 {
-    if 
+    if (length == 0)
+        return pair[current][target]
+
+    for (int i = 0; i < pair_count; i++)
+    {
+        if (check_locked())
+    }
     return true;
 }
 
