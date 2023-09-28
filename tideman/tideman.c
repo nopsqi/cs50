@@ -224,9 +224,9 @@ void print_winner(void)
             row_sum += locked[i][j];
             column_sum += locked[j][i];
         }
-        if (sum >= sum_checker)
+        if (column_sum == 0)
         {
-            sum_checker = sum;
+            // sum_checker = sum;
             winner_index = i;
         }
     }
