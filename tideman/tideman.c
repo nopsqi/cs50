@@ -182,6 +182,7 @@ void sort_pairs(void)
 
 bool check_locked(int i, int j)
 {
+    if
     for (int k = 0; k < candidate_count; k++)
     {
         if (locked[j][k])
