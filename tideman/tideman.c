@@ -183,7 +183,7 @@ void sort_pairs(void)
 bool has_loop(int current, int target, int length)
 {
     if (length == 0)
-        return ;
+        return true;
 
     for (int i = 0; i < pair_count; i++)
         if (has_loop(target, i, length-1))
