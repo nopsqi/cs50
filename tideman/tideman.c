@@ -182,8 +182,8 @@ void sort_pairs(void)
 
 bool has_loop(int current, int target)
 {
-    // if (locked[target][current])
-    //     return true;
+    if (locked[target][current])
+        return true;
 
     for (int i = 0; i < pair_count; i++)
         if (locked[target][i] && has_loop(current, i))
