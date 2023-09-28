@@ -226,8 +226,8 @@ void print_winner(void)
         {
             // sum_checker = sum;
             winner_index = i;
-            printf("%s\n", candidates[winner_index]);
         }
+        printf("%s\n", candidates[winner_index]);
     }
     return;
 }
