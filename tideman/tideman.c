@@ -222,7 +222,7 @@ void print_winner(void)
         {
             sum += locked[i][j];
         }
-        if (sum > 1)
+        if (sum == pair_count-1)
         {
             // sum_checker = sum;
             winner_index = i;
