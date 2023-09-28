@@ -224,7 +224,7 @@ void print_winner(void)
             row_sum += locked[i][j];
             column_sum += locked[j][i];
         }
-        if (column_sum == 0)
+        if (row_sum == candidate_count-1)
         {
             // sum_checker = row_sum;
             winner_index = i;
