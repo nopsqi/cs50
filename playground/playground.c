@@ -11,12 +11,11 @@ int main()
 {
     char c = 'a';
     char *p = &c;
-    prinf("%p\n", p);
+    printf("%c\n", *p);
 }
 
 bool return_true()
 {
-    printf("%i\n", swap);
     return 1;
 }
 
