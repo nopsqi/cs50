@@ -9,14 +9,9 @@ bool return_true();
 
 int main()
 {
-    sort_arr();
-    for (int i = 0; i < N; i++)
-    {
-        printf("%i ", arr[i]);
-    }
-    bool swap = true;
-    printf("\n");
-    printf("%i\n", return_true());
+    char c = 'a';
+    char *p = &c;
+    prinf("%p\n", p);
 }
 
 bool return_true()
