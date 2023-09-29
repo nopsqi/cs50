@@ -9,9 +9,10 @@ bool return_true();
 
 int main()
 {
-    char c = 'a';
-    char *p = &c;
-    printf("%c\n", *p);
+    char *s = "hello, world!";
+    printf("%s\n", s);
+    int *i = ;
+    print("%p\n", i);
 }
 
 bool return_true()
