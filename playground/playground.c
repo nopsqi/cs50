@@ -11,8 +11,9 @@ int main()
 {
     char *s = "hello, world!";
     printf("%s\n", s);
-    int *i = ;
-    print("%p\n", i);
+    int a = 50;
+    int *i = &a;
+    printf("%p\n", i);
 }
 
 bool return_true()
