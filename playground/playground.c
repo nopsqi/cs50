@@ -11,7 +11,6 @@ int main(void)
 {
     int size = 2;
     char *ch = "aaa";
-    printf("%s\n", ch);
     char *s[size];
     s[0] = "hello";
     strcpy(s[1], ch);
