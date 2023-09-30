@@ -14,7 +14,7 @@ int main()
     int a = 50;
     int *i = &a;
     printf("%p\n", i);
-    float arr_f[a];
+    float arr_f[a];y
 }
 
 bool return_true()
