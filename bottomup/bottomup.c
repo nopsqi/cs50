@@ -71,14 +71,14 @@ int main(int argc, char *argv[])
     for (int i = 0, biHeight = abs(bi.biHeight), rgb_size = sizeof(RGBTRIPLE); i < biHeight; i++)
     {
         // int back = (i + 1) * (bi.biWidth * rgb_size + padding);
-        int back = (bi.biWidth + padding) * 1;
+        int back = (bi.biWidth * rgb_size + padding) * 2;
         if (i == 0)
             printf("%li\n", ftell(inptr));
         fseek(inptr, -back, SEEK_CUR);
         // Iterate over pixels in scanline
         for (int j = 0; j < bi.biWidth; j++)
         {
-            if (i == 0)
+            if (i == 1)
                 printf("%li ", ftell(inptr));
             // Temporary storage
             RGBTRIPLE triple;
