@@ -62,27 +62,15 @@ int main(int argc, char *argv[])
     // Determine padding for scanlines
     int padding = (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
 
-    printf("%i %i %i %lu %i\n", abs(bi.biHeight), bi.biWidth, bi.biSizeImage, sizeof(RGBTRIPLE), padding);
-
     // Iterate over infile's scanlines
-    for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
+    for (int i = 0, biHeight = abs(bi.biHeight), rgb_size = sizeof(RGBTRIPLE); i < biHeight; i++)
     {
-        int back = ((i + 0) * (bi.biWidth * sizeof(RGBTRIPLE) + padding)) + 54;
-        fseek(inptr, 0, SEEK_CUR);
-        if (i == 0 || i == 1)
-            printf("ftell before %li\n", ftell(inptr));
+        int back = (i + 0) * (bi.biWidth * rgb_size + padding);
+        fseek(inptr, 0, SEEK_END);
         fseek(inptr, -back, SEEK_CUR);
-        if (i == 0 || i == 1)
-            printf("ftell after %li\n", ftell(inptr));
-        if (i == 0 || i == 1)
-            printf("p %i\n", back);
         // Iterate over pixels in scanline
         for (int j = 0; j < bi.biWidth; j++)
         {
-            if (i == 0)
-            {
-                printf("%li ", ftell(inptr));
-            }
             // Temporary storage
             RGBTRIPLE triple;
 
@@ -102,7 +90,6 @@ int main(int argc, char *argv[])
             fputc(0x00, outptr);
         }
     }
-    printf("\n");
 
     // Close infile
     fclose(inptr);
