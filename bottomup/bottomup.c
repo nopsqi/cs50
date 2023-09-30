@@ -63,7 +63,8 @@ int main(int argc, char *argv[])
     int padding = (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
 
     printf("%i\n", bi.biSizeImage);
-    printf("%i\n", sizeof(BITMAPFILE));
+    printf("%lu\n", sizeof(BITMAPFILEHEADER));
+    printf("%lu\n", sizeof(BITMAPINFOHEADER));
     // Iterate over infile's scanlines
     for (int i = 0, biHeight = abs(bi.biHeight), rgb_size = sizeof(RGBTRIPLE); i < biHeight; i++)
     {
