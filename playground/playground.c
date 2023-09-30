@@ -7,14 +7,14 @@ int arr[N] = {3, 1, 1, 2, 4, 2, 5};
 void sort_arr();
 bool return_true();
 
-int main()
+int main(void)
 {
     char *s = "hello, world!";
     printf("%s\n", s);
     int a = 50;
     int *i = &a;
     printf("%p\n", i);
-    float arr_f[a];y
+    float arr_f[a];
 }
 
 bool return_true()
