@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
         printf("Unsupported file format.\n");
         return 4;
     }
-
+    
     // Write outfile's BITMAPFILEHEADER
     fwrite(&bf, sizeof(BITMAPFILEHEADER), 1, outptr);
 
@@ -62,23 +62,12 @@ int main(int argc, char *argv[])
     // Determine padding for scanlines
     int padding = (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
 
-    printf("%i\n", bi.biSizeImage);
-    printf("%lu\n", sizeof(BITMAPFILEHEADER));
-    printf("%lu\n", sizeof(BITMAPINFOHEADER));
-
     // Iterate over infile's scanlines
-    for (int i = 0, biHeight = abs(bi.biHeight), rgb_size = sizeof(RGBTRIPLE); i < biHeight; i++)
+    for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
     {
-        // int back = (i + 1) * (bi.biWidth * rgb_size + padding);
-        int back = (bi.biWidth * rgb_size + padding) * 2;
-        if (i == 0)
-            printf("%li\n", ftell(inptr));
-        fseek(inptr, -back, SEEK_CUR);
         // Iterate over pixels in scanline
         for (int j = 0; j < bi.biWidth; j++)
         {
-            if (i == 1)
-                printf("%li ", ftell(inptr));
             // Temporary storage
             RGBTRIPLE triple;
 
