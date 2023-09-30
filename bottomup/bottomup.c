@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
         t = ftell(inptr);
         if (i == 0 || i == 1)
             printf("ftell before %i\n", t);
-        fseek(inptr, image_size, SEEK_SET);
+        fseek(inptr, image_size, SEEK_);
         fseek(inptr, -p, SEEK_END);
         t = ftell(inptr);
         if (i == 0 || i == 1)
