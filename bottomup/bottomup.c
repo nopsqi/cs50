@@ -64,11 +64,12 @@ int main(int argc, char *argv[])
 
     int image_size = abs(bi.biHeight) * bi.biWidth;
     printf("%i %i %i %lu %i\n", abs(bi.biHeight), bi.biWidth, image_size, sizeof(RGBTRIPLE), padding);
+
+    fseek(inptr, image_size, SEEK_SET);
     // Iterate over infile's scanlines
     for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
     {
         int p = ((i + 1) * (bi.biWidth + padding));
-        fseek(inptr, image_size, SEEK_SET);
         if (i == 0 || i == 1)
             printf("ftell before %li\n", ftell(inptr));
         fseek(inptr, -p, SEEK_CUR);
