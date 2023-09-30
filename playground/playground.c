@@ -9,11 +9,15 @@ bool return_true();
 
 int main(void)
 {
-    char *s = "hello, world!";
-    printf("%s\n", s);
+    int size = 2;
+    char *s[size];
+    s[0] = "hello";
+    for (int i = 0; i < size; i++)
+    {
+        printf("%p\n", s[i]);
+    }
     int a = 50;
     int *i = &a;
-    printf("%p\n", i);
     float arr_f[a];
 }
 
