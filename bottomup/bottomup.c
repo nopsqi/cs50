@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
     {
         int back = ((i + 0) * (bi.biWidth * sizeof(RGBTRIPLE) + padding));
-        fseek(inptr, bi.biSizeImage, SEEK_SET);
+        fseek(inptr, 0, SEEK_CUR);
         if (i == 0 || i == 1)
             printf("ftell before %li\n", ftell(inptr));
         fseek(inptr, -back, SEEK_CUR);
