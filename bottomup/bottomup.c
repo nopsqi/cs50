@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     for (int i = 0, biHeight = abs(bi.biHeight), rgb_size = sizeof(RGBTRIPLE); i < biHeight; i++)
     {
         // int back = (i + 1) * (bi.biWidth * rgb_size + padding);
-        int back = (bi.biWidth * rgb_size + padding) * 2;
+        int back = (bi.biWidth * rgb_size + padding) * 1;
         if (i == 0)
             printf("%li\n", ftell(inptr));
         fseek(inptr, -back, SEEK_CUR);
