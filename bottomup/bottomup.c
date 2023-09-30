@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     // Iterate over infile's scanlines
     for (int i = 0, biHeight = abs(bi.biHeight), rgb_size = sizeof(RGBTRIPLE); i < biHeight; i++)
     {
-        int back = (i + 1) * (bi.biWidth * rgb_size + padding) + 54;
+        int back = (i + 1) * (bi.biWidth * rgb_size + padding);
         fseek(inptr, 0, SEEK_END);
         fseek(inptr, -back, SEEK_CUR);
         // Iterate over pixels in scanline
