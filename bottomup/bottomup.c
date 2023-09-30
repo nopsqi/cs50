@@ -67,10 +67,13 @@ int main(int argc, char *argv[])
     for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
     {
         int p = ((i + 1) * (bi.biWidth + padding));
-        if (i == 0 || i == 1)
-            printf("%i\n", p);
-        fseek(inptr, 0, SEEK_END);
+        int seek_stat = fseek(inptr, 0, SEEK_END);
         fseek(inptr, -p, SEEK_END);
+        if (i == 0 || i == 1)
+        {
+            printf("%i\n", p);
+            printf("%i\n", seek_stat);
+        }
         // Iterate over pixels in scanline
         for (int j = 0; j < bi.biWidth; j++)
         {
