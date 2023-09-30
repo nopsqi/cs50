@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
     for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
     {
         int p = ((i + 1) * (bi.biWidth + padding));
+        printf("%i\n", p);
         fseek(inptr, 0, SEEK_END);
         fseek(inptr, -p, SEEK_END);
         // Iterate over pixels in scanline
