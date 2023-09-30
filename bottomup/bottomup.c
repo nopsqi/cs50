@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
     // Read infile's BITMAPFILEHEADER
     BITMAPFILEHEADER bf;
     fread(&bf, sizeof(BITMAPFILEHEADER), 1, inptr);
+    printf("%u\n", bf.biHeight);
 
     // Read infile's BITMAPINFOHEADER
     BITMAPINFOHEADER bi;
@@ -52,7 +53,7 @@ int main(int argc, char *argv[])
         printf("Unsupported file format.\n");
         return 4;
     }
-    
+
     // Write outfile's BITMAPFILEHEADER
     fwrite(&bf, sizeof(BITMAPFILEHEADER), 1, outptr);
 
