@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +18,11 @@ int main(int argc, char *argv[])
     char *plates[8];
 
     for (int i = 0; i < 8; i++)
+    {
         plates[i] = malloc(sizeof(char) * 7);
+        if (plates[i] == NULL)
+            return 0;
+    }
 
     FILE *infile = fopen(argv[1], "r");
 
@@ -30,7 +35,7 @@ int main(int argc, char *argv[])
 
         // Save plate number in array
         // plates[idx] = buffer;
-        strcpy(paltes[idx], buffer);
+        strcpy(plates[idx], buffer);
         // printf("%i ", idx);
         // printf("%p\n", plates[idx]);
         idx++;
