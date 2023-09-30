@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
         t = ftell(inptr);
         if (i == 0 || i == 1)
             printf("ftell %i\n", t);
-        fseek(inptr, 0, SEEK_CUR);
+        fseek(inptr, , SEEK_CUR);
         fseek(inptr, -p, SEEK_END);
         t = ftell(inptr);
         if (i == 0 || i == 1)
