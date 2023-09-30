@@ -69,14 +69,14 @@ int main(int argc, char *argv[])
     // Iterate over infile's scanlines
     for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
     {
-        int p = ((i + 1) * (bi.biWidth + padding));
+        int back = (bi.biWidth + padding);
         if (i == 0 || i == 1)
             printf("ftell before %li\n", ftell(inptr));
-        fseek(inptr, -p, SEEK_CUR);
+        fseek(inptr, -back, SEEK_CUR);
         if (i == 0 || i == 1)
             printf("ftell after %li\n", ftell(inptr));
         if (i == 0 || i == 1)
-            printf("p %i\n", p);
+            printf("p %i\n", back);
         // Iterate over pixels in scanline
         for (int j = 0; j < bi.biWidth; j++)
         {
