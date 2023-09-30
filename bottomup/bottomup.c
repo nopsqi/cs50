@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     // Iterate over infile's scanlines
     for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
     {
-        int back = ((i + 0) * (bi.biWidth * sizeof(RGBTRIPLE) + padding));
+        int back = ((i + 0) * (bi.biWidth * sizeof(RGBTRIPLE) + padding)) + 54;
         fseek(inptr, 0, SEEK_CUR);
         if (i == 0 || i == 1)
             printf("ftell before %li\n", ftell(inptr));
