@@ -10,11 +10,15 @@ bool return_true();
 int main(void)
 {
     int size = 2;
+    char ch[4];
+    ch[0] = "a";
+    printf("%s\n", ch);
     char *s[size];
     s[0] = "hello";
+    strcpy(s[1], s[0]);
     for (int i = 0; i < size; i++)
     {
-        printf("%p\n", s[i]);
+        printf("%s\n", s[i]);
     }
     int a = 50;
     int *i = &a;
