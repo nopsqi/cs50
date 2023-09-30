@@ -66,7 +66,6 @@ int main(int argc, char *argv[])
     printf("%lu\n", sizeof(BITMAPFILEHEADER));
     printf("%lu\n", sizeof(BITMAPINFOHEADER));
 
-    fseek(inptr, bi.biSizeImage + bi.biWidth * sizeof(RGBTRIPLE) + padding, SEEK_CUR);
     // Iterate over infile's scanlines
     for (int i = 0, biHeight = abs(bi.biHeight), rgb_size = sizeof(RGBTRIPLE); i < biHeight; i++)
     {
