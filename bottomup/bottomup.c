@@ -62,12 +62,14 @@ int main(int argc, char *argv[])
     // Determine padding for scanlines
     int padding = (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
 
-    printf("%li\n", ftell(inptr));
+    printf("%i\n", bi.biSizeImage);
     // Iterate over infile's scanlines
     for (int i = 0, biHeight = abs(bi.biHeight), rgb_size = sizeof(RGBTRIPLE); i < biHeight; i++)
     {
         int back = (i + 1) * (bi.biWidth * rgb_size + padding);
-        fseek(inptr, 0, SEEK_END);
+        fseek(inptr, bi.biSizeImage, SEEK_SET);
+        if (i == 0)
+            printf("%li\n", ftell(inptr));
         fseek(inptr, -back, SEEK_CUR);
         // Iterate over pixels in scanline
         for (int j = 0; j < bi.biWidth; j++)
