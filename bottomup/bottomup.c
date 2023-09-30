@@ -63,9 +63,10 @@ int main(int argc, char *argv[])
     int padding = (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
 
     // Iterate over infile's scanlines
-    fseek(inptr, -bi.biWidth, SEEK_END);
+    fseek(inptr, 0, SEEK_END);
     for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
     {
+        fseek(inptr, -bi.biWidth, SEEK_CUR);
         // Iterate over pixels in scanline
         for (int j = 0; j < bi.biWidth; j++)
         {
