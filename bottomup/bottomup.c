@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
     // Determine padding for scanlines
     int padding = (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
 
-    printf("%i %i %i %lu %i\n", abs(bi.biHeight), bi.biWidth, image_size, sizeof(RGBTRIPLE), padding);
+    printf("%i %i %i %lu %i\n", abs(bi.biHeight), bi.biWidth, bi.biSizeImage, sizeof(RGBTRIPLE), padding);
 
     // Iterate over infile's scanlines
     for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
