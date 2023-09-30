@@ -65,11 +65,13 @@ int main(int argc, char *argv[])
     printf("%i\n", bi.biSizeImage);
     printf("%lu\n", sizeof(BITMAPFILEHEADER));
     printf("%lu\n", sizeof(BITMAPINFOHEADER));
+
+    fseek(inptr, bi.biSizeImage, SEEK_CUR);
     // Iterate over infile's scanlines
     for (int i = 0, biHeight = abs(bi.biHeight), rgb_size = sizeof(RGBTRIPLE); i < biHeight; i++)
     {
-        int back = (i + 1) * (bi.biWidth * rgb_size + padding);
-        fseek(inptr, 0, SEEK_END);
+        // int back = (i + 1) * (bi.biWidth * rgb_size + padding);
+        int back = (bi.biWidth + padding) * 2;
         if (i == 0)
             printf("%li\n", ftell(inptr));
         fseek(inptr, -back, SEEK_CUR);
