@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
     {
         // Replace '\n' with '\0'
         buffer[6] = '\0';
+        printf("%s\n", buffer);
 
         // Save plate number in array
         plates[idx] = buffer;
@@ -31,6 +32,6 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < 8; i++)
     {
-        printf("%s\n", plates[i]);
+        // printf("%s\n", plates[i]);
     }
 }
