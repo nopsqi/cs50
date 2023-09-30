@@ -69,11 +69,11 @@ int main(int argc, char *argv[])
     {
         int p = ((i + 1) * (bi.biWidth + padding));
         int t = 0;
+        fseek(inptr, image_size, SEEK_SET);
         t = ftell(inptr);
         if (i == 0 || i == 1)
             printf("ftell before %i\n", t);
-        fseek(inptr, image_size, SEEK_);
-        fseek(inptr, -p, SEEK_END);
+        fseek(inptr, -p, SEEK_CUR);
         t = ftell(inptr);
         if (i == 0 || i == 1)
             printf("ftell after %i\n", t);
