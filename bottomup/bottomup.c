@@ -68,20 +68,21 @@ int main(int argc, char *argv[])
     for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
     {
         int p = ((i + 1) * (bi.biWidth + padding));
-        int t = 0;
         fseek(inptr, image_size, SEEK_SET);
-        t = ftell(inptr);
         if (i == 0 || i == 1)
-            printf("ftell before %i\n", t);
+            printf("ftell before %li\n", ftell(inptr));
         fseek(inptr, -p, SEEK_CUR);
-        t = ftell(inptr);
         if (i == 0 || i == 1)
-            printf("ftell after %i\n", t);
+            printf("ftell after %li\n", ftell(inptr));
         if (i == 0 || i == 1)
             printf("p %i\n", p);
         // Iterate over pixels in scanline
         for (int j = 0; j < bi.biWidth; j++)
         {
+            if (i == 0)
+            {
+                printf("%li ", ftell(inptr));
+            }
             // Temporary storage
             RGBTRIPLE triple;
 
@@ -101,6 +102,7 @@ int main(int argc, char *argv[])
             fputc(0x00, outptr);
         }
     }
+    printf("\n");
 
     // Close infile
     fclose(inptr);
