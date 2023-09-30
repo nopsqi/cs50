@@ -10,14 +10,9 @@ bool return_true();
 int main(void)
 {
     int size = 2;
-    char *ch = "aaa";
-    char *s[size];
-    s[0] = "hello";
-    strcpy(s[1], ch);
-    for (int i = 0; i < size; i++)
-    {
-        printf("%s\n", s[i]);
-    }
+    char *s;
+    s = "hello";
+    printf("%s\n", s);
     int a = 50;
     int *i = &a;
     float arr_f[a];
