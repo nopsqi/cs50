@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
         printf("%li\n", ftell(input));
         fread(&buffer, 1, 1, input);
         printf("%i\n", buffer);
+        printf("%c\n", EOF);
     }
 
     // Close files
