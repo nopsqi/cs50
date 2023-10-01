@@ -35,13 +35,7 @@ int main(int argc, char *argv[])
 
     // TODO: Copy header from input file to output file
     uint8_t buffer[HEADER_SIZE];
-    if (fread(buffer, sizeof(uint8_t), HEADER_SIZE, input) != HEADER_SIZE)
-    {
-        printf("Reading failed.\n");
-        fclose(input);
-        fclose(output);
-        return 1;
-    }
+    fread(buffer, sizeof(uint8_t), HEADER_SIZE, input);
     printf("%u\n", buffer[0]);
     fwrite(buffer, sizeof(uint8_t), HEADER_SIZE, output);
 
