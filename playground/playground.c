@@ -22,7 +22,7 @@ int main() {
         printf("\n");
     }
 
-    int i = (255) / 3;
+    int i = (110 + 120 + 130) / 3;
     printf("%i\n", i);
 
     // Don't forget to free the allocated memory when done
