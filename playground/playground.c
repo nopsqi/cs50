@@ -28,7 +28,17 @@ int main() {
     for (int i = 0; i < 5; i++)
     {
         // b[i] = a[0][i];
-        // printf("%i\n", b[100][i]);
+        printf("%i\n", b[100][i]);
+    }
+
+    printf("\n");
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            printf("%i,%i ", i, j);
+        }
+        printf("\n");
     }
 
     // Don't forget to free the allocated memory when done
