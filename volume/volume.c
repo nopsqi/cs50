@@ -42,9 +42,9 @@ int main(int argc, char *argv[])
     char buffer;
     while((buffer = fgetc(input)) != EOF)
     {
-        printf("%c ", buffer);
+        printf("%i ", buffer);
     }
-    prnt
+    printf("\n");
 
     // Close files
     fclose(input);
