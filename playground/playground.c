@@ -23,11 +23,12 @@ int main() {
         printf("\n");
     }
 
-    int (*b)[5] = malloc(5 * sizeof(int));
+    int (*b)[5] = calloc(3, 5 * sizeof(int));
+    printf("%i\n", b[0]);
     for (int i = 0; i < 5; i++)
     {
         // b[i] = a[0][i];
-        printf("%i\n", b[100][i]);
+        // printf("%i\n", b[100][i]);
     }
 
     // Don't forget to free the allocated memory when done
