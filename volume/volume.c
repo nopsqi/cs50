@@ -45,8 +45,10 @@ int main(int argc, char *argv[])
         int16_t tmp = buffer * factor;
         fread(&buffer, sizeof(int16_t), 1, input);
         // fwrite(&buffer, sizeof(int16_t), 1, output);
-        printf("%i\n", buffer);
+        printf("%i ", buffer);
     }
+    printf("\n%x\n", EOF);
+    printf("%x\n", -1);
 
     // Close files
     fclose(input);
