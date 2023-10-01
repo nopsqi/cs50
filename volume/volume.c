@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     printf("%u\n", buffer[0]);
+    fwrite(buffer, sizeof(uint8_t), HEADER_SIZE, output);
 
     // TODO: Read samples from input file and write updated data to output file
 
