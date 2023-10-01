@@ -39,15 +39,12 @@ int main(int argc, char *argv[])
     fwrite(header, sizeof(uint8_t), HEADER_SIZE, output);
 
     // TODO: Read samples from input file and write updated data to output file
-    int buffer = 0;
+    char buffer;
     fseek(input, 0, SEEK_END);
-    while (buffer != -1)
-    {
-        printf("%li\n", ftell(input));
-        fread(&buffer, 1, 1, input);
-        printf("%i\n", buffer);
-        printf("%c\n", EOF);
-    }
+    printf("%li\n", ftell(input));
+    fread(&buffer, 1, 1, input);
+    printf("%i\n", buffer);
+    printf("%c\n", EOF);
 
     // Close files
     fclose(input);
