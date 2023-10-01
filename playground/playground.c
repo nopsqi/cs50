@@ -23,8 +23,8 @@ int main() {
         printf("\n");
     }
 
-    int i = (110 + 130 + 140) / (float) 3;
-    printf("%i\n", i);
+    int (*b)[5] = malloc(5 * sizeof(int));
+    b = a[0];
 
     // Don't forget to free the allocated memory when done
     free(a);
