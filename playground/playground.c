@@ -28,7 +28,7 @@ int main() {
     for (int i = 0; i < 5; i++)
     {
         // b[i] = a[0][i];
-        // printf("%i\n", b[0][i]);
+        printf("%i\n", (*b)[i]);
     }
 
     // Don't forget to free the allocated memory when done
