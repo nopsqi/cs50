@@ -42,12 +42,10 @@ int main(int argc, char *argv[])
     int16_t buffer = 0;
     while(buffer != EOF)
     {
+        int16_t tmp = buffer * factor;
         fread(&buffer, sizeof(int16_t), 1, input);
-        printf("%u ", buffer);
-        // printf("%li ", ftell(input));
+        fwrite(&buffer, sizeof(int16_t), 1, output);
     }
-    printf("\n");
-    printf("%li\n", sizeof(int16_t));
 
     // Close files
     fclose(input);
