@@ -40,10 +40,11 @@ int main(int argc, char *argv[])
 
     // TODO: Read samples from input file and write updated data to output file
     char buffer;
-    while(fgetc(input) != EOF)
+    while((buffer = fgetc(input)) != EOF)
     {
-        
+        printf("%c ", buffer);
     }
+    prnt
 
     // Close files
     fclose(input);
