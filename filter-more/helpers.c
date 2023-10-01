@@ -25,15 +25,12 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     for (int i = 0; i < height; i++)
     {
         RGBTRIPLE *row = malloc(width * sizeof(RGBTRIPLE));
-        for (int j = 0, k = width; j < width; j++, k--)
-        {
-            if (i == 0)
-                printf("%i %i\n", j, k);
-        }
-            // row[j] = image[i][j];
+        for (int j = 0, k = width - 1; j < width; j++, k--)
+            row[k] = image[i][j];
 
         for (int j = 0; j < width; j++)
         {
+            image[i][j] = row[j];
         }
         free(row);
     }
