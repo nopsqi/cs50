@@ -24,7 +24,10 @@ int main() {
     }
 
     int (*b)[5] = malloc(5 * sizeof(int));
-    b = a[0];
+    for (int i = 0; i < 5; i++)
+    {
+        b[i] = a[0][i];
+    }
 
     // Don't forget to free the allocated memory when done
     free(a);
