@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     while(buffer != EOF)
     {
         fread(&buffer, sizeof(int16_t), 1, input);
-        printf("%i ", buffer);
+        printf("%u ", buffer);
         // printf("%li ", ftell(input));
     }
     printf("\n");
