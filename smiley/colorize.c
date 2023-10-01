@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
         fseek(inptr, padding, SEEK_CUR);
     }
     image[0][0].rgbtGreen = 0;
-    printf("%i\n", image[0][0].rgbtGreen);
+    printf("%i\n", image[0][0].rgbtRed);
 
     colorize(height, width, image);
 

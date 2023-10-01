@@ -5,6 +5,8 @@ int main() {
     // Declare a pointer to a 2D array of integers
     int (*a)[5] = calloc(3, 5 * sizeof(int));
 
+    printf("%i\n", a[0][0]);
+
     // Fill in the 2D array
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 5; j++) {
