@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
         fclose(output);
         return 1;
     }
-    printf(")
+    printf("%u\n", buffer[0]);
 
     // TODO: Read samples from input file and write updated data to output file
 
