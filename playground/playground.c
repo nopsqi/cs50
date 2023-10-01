@@ -9,28 +9,29 @@ int main() {
     printf("%i\n", a[0][0]);
 
     // Fill in the 2D array
-        for (int i = 0; 3; i++) {
-        for (int j = 0; j < i <j5;
-    }
-
-    //
-
-
-// Second stateme (0; 3; i++) {
-    }t (
-
-    // Initialize the elements of the array
-}
-    (*arr
-    for (int i = 0; i < 5;
-   i++) {
-    // Print the];
-        printf("%i\n", (*b)[i]) i;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            a[i][j] = i * 5 + j; // Assigning values to the elements
         }
-     or (int i = 0; i < 5; i++) {  Don't forget to f ars of allocated memory when done
-    printf("%p\n", &(*ab[0]i
-
-
-}
-    return 0]);
     }
+
+    // Access and print the values
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+
+    int (*b)[5] = malloc(5 * sizeof(int));
+    for (int i = 0; i < 5; i++)
+    {
+        // b[i] = a[0][i];
+        printf("%i\n", b[3][i]);
+    }
+
+    // Don't forget to free the allocated memory when done
+    free(a);
+
+    return 0;
+}
