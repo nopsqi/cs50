@@ -42,8 +42,8 @@ int main(int argc, char *argv[])
     char buffer;
     fseek(input, 0, SEEK_END);
     printf("%li\n", ftell(input));
-    fread(&buffer, 1, 1, input);
-    printf("%i\n", buffer);
+    fread(&buffer, sizeof(char), 1, input);
+    printf("%c\n", buffer);
     printf("%c\n", EOF);
 
     // Close files
