@@ -43,10 +43,11 @@ int main(int argc, char *argv[])
     while(buffer != EOF)
     {
         fread(&buffer, sizeof(int16_t), 1, input);
-        printf("% ", buffer);
+        printf("%i ", buffer);
         // printf("%li ", ftell(input));
     }
     printf("\n");
+    printf("%li\n", sizeof(int16_t));
 
     // Close files
     fclose(input);
