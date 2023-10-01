@@ -77,7 +77,6 @@ int main(int argc, char *argv[])
         // skip over padding
         fseek(inptr, padding, SEEK_CUR);
     }
-    image[0][0].rgbtRed = 0;
 
     colorize(height, width, image);
 
