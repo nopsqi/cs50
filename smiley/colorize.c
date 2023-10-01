@@ -72,7 +72,8 @@ int main(int argc, char *argv[])
     {
         // read row into pixel array
         fread(image[i], sizeof(RGBTRIPLE), width, inptr);
-        pintf()
+        if (i == 0)
+            printf("%i\n", image[i][0].rgbtBlue);
 
         // skip over padding
         fseek(inptr, padding, SEEK_CUR);
