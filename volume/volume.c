@@ -35,7 +35,14 @@ int main(int argc, char *argv[])
 
     // TODO: Copy header from input file to output file
     uint8_t buffer[HEADER_SIZE];
-    printf("%lu\n", fread(buffer, HEADER_SIZE, 1, input));
+    if (fread(buffer, sizeof(uint8_t), HEADER_SIZE, input) != HEADER_SIZE)
+    {
+        printf("Reading failed.\n");
+        fclose(input);
+        fclose(output);
+        return 1;
+    }
+    printf(")
 
     // TODO: Read samples from input file and write updated data to output file
 
