@@ -3,36 +3,30 @@
 #include <stdlib.h>
 
 int main() {
-    // Declare a pointer to a 2D array of integers
-    int (*a)[5] = calloc(3, 5 * sizeof(int));
+        // First statement
+    int *arr = malloc(5 * sizeof(int));
 
-    printf("%i\n", a[0][0]);
-
-    // Fill in the 2D array
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 5; j++) {
-            a[i][j] = i * 5 + j; // Assigning values to the elements
-        }
+    // Initialize the elements of the array
+    for (int i = 0; i < 5; i++) {
+        arr[i] = i;
     }
 
-    // Access and print the values
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 5; j++) {
-            printf("%d ", a[i][j]);
-        }
-        printf("\n");
+    // Print the elements of the array
+    for (int i = 0; i < 5; i++) {
+        printf("%d\n", arr[i]);
     }
 
-    int (*b)[5] = malloc(5 * sizeof(int));
-    printf("%p\n", b);
-    for (int i = 0; i < 5; i++)
-    {
-        // b[i] = a[0][i];
-        printf("%i\n", (*b)[i]);
+    // Second statement
+    int (*arr1)[5] = malloc(5 * sizeof(int));
+
+    // Initialize the elements of the array
+    for (int i = 0; i < 5; i++) {
+        (*arr1)[i] = i;
     }
 
-    // Don't forget to free the allocated memory when done
-    free(a);
+    // Print the addresses of the elements of the array
+    for (int i = 0; i < 5; i++) {
+        printf("%p\n", &(*arr1)[i]);
+    }
 
-    return 0;
 }
