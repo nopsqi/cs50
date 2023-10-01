@@ -24,7 +24,7 @@ int main() {
     }
 
     int (*b)[5] = calloc(3, 5 * sizeof(int));
-    printf("%i\n", b[0]);
+    printf("%p\n", b[1]);
     for (int i = 0; i < 5; i++)
     {
         // b[i] = a[0][i];
