@@ -1,45 +1,27 @@
 #include <stdio.h>
-#include <cs50.h>
-#include <string.h>
-#define N 7
-int arr[N] = {3, 1, 1, 2, 4, 2, 5};
+#include <stdlib.h>
 
-void sort_arr();
-bool return_true();
+int main() {
+    // Declare a pointer to a 2D array of integers
+    int (*a)[5] = calloc(3, 5 * sizeof(int));
 
-int main(void)
-{
-    int size = 2;
-    char *s;
-    s = "hello";
-    printf("%s\n", s);
-    int a = 50;
-    int *i = &a;
-    float arr_f[a];
-}
-
-bool return_true()
-{
-    return 1;
-}
-
-void sort_arr()
-{
-    bool swap = true;
-    return_true();
-    while(swap)
-    {
-        swap = false;
-        for (int i = 0; i < N-1; i++)
-        {
-            if (arr[i] > arr[i+1])
-            {
-                int temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
-                swap = true;
-            }
+    // Fill in the 2D array
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            a[i][j] = i * 5 + j; // Assigning values to the elements
         }
     }
-    return;
+
+    // Access and print the values
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Don't forget to free the allocated memory when done
+    free(a);
+
+    return 0;
 }
