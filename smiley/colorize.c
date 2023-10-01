@@ -78,6 +78,8 @@ int main(int argc, char *argv[])
         fseek(inptr, padding, SEEK_CUR);
     }
     image[0][0].rgbtRed = 0;
+    printf("%lu\n", sizeof(RGBTRIPLE));
+    printf("%lu\n", sizeof(BYTE));
 
     colorize(height, width, image);
 
