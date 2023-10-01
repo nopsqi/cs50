@@ -40,11 +40,10 @@ int main(int argc, char *argv[])
 
     // TODO: Read samples from input file and write updated data to output file
     char buffer;
-    fseek(input, 0, SEEK_END);
-    printf("%li\n", ftell(input));
-    fread(&buffer, sizeof(char), 1, input);
-    printf("%c\n", buffer);
-    printf("%c\n", EOF);
+    while(fgetc(input) != EOF)
+    {
+        
+    }
 
     // Close files
     fclose(input);
