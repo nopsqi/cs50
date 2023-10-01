@@ -23,7 +23,7 @@ int main() {
         printf("\n");
     }
 
-    int i = round((110 + 130 + 140) / 3);
+    int i = round((110 + 130 + 140) / (float) 3);
     printf("%i\n", i);
 
     // Don't forget to free the allocated memory when done
