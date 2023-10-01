@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdlib.h>
 #include "helpers.h"
 
 void colorize(int height, int width, RGBTRIPLE image[height][width])
@@ -8,9 +8,9 @@ void colorize(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            if (i == 0 && j == 0){
-                printf("%x\n", image[i][j].rgbtRed);
-            }
+            image[i][j].rgbtRed = rand() % 256;
+            image[i][j].rgbtGreen = rand() % 256;
+            image[i][j].rgbtBlue = rand() % 256;
         }
     }
 }
