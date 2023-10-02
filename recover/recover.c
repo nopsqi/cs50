@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #define BLOCK_SIZE 512
 
@@ -16,10 +17,11 @@ int main(int argc, char *argv[])
 
     while (fread(&buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
+        printf("f)
     }
 }
 
-bool isJpeg(int i)
+bool isJpeg()
 {
     return 0;
 }
