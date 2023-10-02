@@ -95,13 +95,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int l = (kernel.x_start < 0 ? 0 : kernel.x_start); l < (kernel.x_end > width ? width : kernel.x_end); l++)
                 // for (int l = kernel.x_start; l < kernel.x_end; l++)
                 {
-                    if (i == 6 && j == 6)
+                    if (i == 154 && j == 24)
                         printf("%i,%i\t", k, l);
                     r += tmp[k][l].rgbtRed;
                     g += tmp[k][l].rgbtGreen;
                     b += tmp[k][l].rgbtBlue;
                 }
-                if (i == 6 && j == 6)
+                if (i == 154 && j == 24)
                     printf("\n");
             }
             image[i][j].rgbtRed = round(r / (float) kernel.size);
