@@ -49,19 +49,19 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void get_kernel(int height, int width, int i, int j, KERNEL *kernel)
 {
     int kernel_half = ((*kernel).init_hw - 1) / 2;
-    (*kernel).x_start = j - kernel_half;
-    (*kernel).x_end = j + kernel_half + 1;
-    (*kernel).y_start = i - kernel_half;
-    (*kernel).y_end = i + kernel_half + 1;
+    // (*kernel).x_start = j - kernel_half;
+    // (*kernel).x_end = j + kernel_half + 1;
+    // (*kernel).y_start = i - kernel_half;
+    // (*kernel).y_end = i + kernel_half + 1;
 
-    // if (((*kernel).x_start = j - kernel_half) < 0)
-    //     (*kernel).x_start = 0;
-    // if (((*kernel).x_end = j + kernel_half + 1) > width)
-    //     (*kernel).x_end = width;
-    // if (((*kernel).y_start = i - kernel_half) < 0)
-    //     (*kernel).y_start = 0;
-    // if (((*kernel).y_end = i + kernel_half + 1) > height)
-    //     (*kernel).y_end = height;
+    if (((*kernel).x_start = j - kernel_half) < 0)
+        (*kernel).x_start = 0;
+    if (((*kernel).x_end = j + kernel_half + 1) > width)
+        (*kernel).x_end = width;
+    if (((*kernel).y_start = i - kernel_half) < 0)
+        (*kernel).y_start = 0;
+    if (((*kernel).y_end = i + kernel_half + 1) > height)
+        (*kernel).y_end = height;
     (*kernel).size = ((*kernel).x_end - (*kernel).x_start) * ((*kernel).y_end - (*kernel).y_start);
 }
 
@@ -80,6 +80,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     KERNEL kernel;
     kernel.init_hw = 3;
     RGBTRIPLE zeroed = {0, 0, 0};
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -87,7 +88,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             get_kernel(height, width, i, j, &kernel);
 
             int r = 0, g = 0, b = 0;
-            for (int k = kernel.y_start; k < kernel.y_end; k++)
+            for (int k = (kernel.y_start < 0 ? 0 : kernel.y_start); k < (kernel.y_end > height ? height : kernel.y_end); k++)
             {
                 for (int l = kernel.x_start; l < kernel.x_end; l++)
                 {
