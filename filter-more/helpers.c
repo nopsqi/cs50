@@ -132,6 +132,22 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     gx[2][1] = 2;
     gx[2][2] = 1;
 
+    for (int = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            int kernel_half = (kernel.init_hw - 1) / 2;
+            if ((kernel.x_start = j - kernel_half) < 0)
+                kernel.x_start = 0;
+            if ((kernel.x_end = j + kernel_half + 1) > width)
+                kernel.x_end = width;
+            if ((kernel.y_start = i - kernel_half) < 0)
+                kernel.y_start = 0;
+            if ((kernel.y_end = i + kernel_half + 1) > height)
+                kernel.y_end = height;
+            kernel.size = (kernel.x_end - kernel.x_start) * (kernel.y_end - kernel.y_start);
+        }
+    }
 
     free(tmp);
     return;
