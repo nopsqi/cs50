@@ -5,6 +5,7 @@
 typedef struct
 {
    int size;
+   int 
    int x_start;
    int x_end;
    int y_start;
