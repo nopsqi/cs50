@@ -201,5 +201,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     }
 
     free(tmp);
+    free(Mx);
+    free(My);
     return;
 }
