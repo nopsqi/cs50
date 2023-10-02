@@ -74,17 +74,21 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 kernel.y_start = 0;
             if ((kernel.y_end = i + kernel_half + 1) > height)
                 kernel.y_end = height;
-            // kernel.size = ()
-            for (i)
+            kernel.size = (kernel.x_end - kernel.x_start) * (kernel.y_end - kernel.y_start);
 
             image[i][j] = zeroed;
             for (int k = kernel.y_start; k < kernel.y_end; k++)
             {
                 for (int l = kernel.x_start; l < kernel.x_end; l++)
                 {
-
+                    image[i][j].rgbtRed += tmp[k][l].rgbtRed;
+                    image[i][j].rgbtGreen += tmp[k][l].rgbtGreen;
+                    image[i][j].rgbtBlue += tmp[k][l].rgbtBlue;
                 }
             }
+            image[i][j].rgbtRed = round(image[i][j].rgbtRed / (float) kernel.size);
+            image[i][j].rgbtGreen = round(image[i][j].rgbtGreen / (float) kernel.size);
+            image[i][j].rgbtBlue = round(image[i][j].rgbtBlue / (float) kernel.size);
         }
     }
     free(tmp);
