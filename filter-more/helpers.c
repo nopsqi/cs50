@@ -143,7 +143,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         {
             get_kernel(height, width, i, j, &kernel);
 
-            int
+            int gx = 0, gy = 0;
+            
         }
     }
 
