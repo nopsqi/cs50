@@ -63,6 +63,18 @@ void get_kernel(int height, int width, int i, int j, KERNEL *kernel)
     // if (((*kernel).y_end = i + kernel_half + 1) > height)
     //     (*kernel).y_end = height;
 
+    // (*kernel).size = ((*kernel).x_end - (*kernel).x_start) * ((*kernel).y_end - (*kernel).y_start);
+    // (*kernel).size =
+    //     (
+    //         (*kernel).x_end -
+    //         (*kernel).x_start
+    //     )
+    //     *
+    //     (
+    //         (*kernel).y_end -
+    //         (*kernel).y_start
+    //     );
+
     (*kernel).size =
         (
             ((*kernel).x_end > width ? width : (*kernel).x_end) -
@@ -116,6 +128,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 if (i == 154 && j == 24)
                     printf("\n");
             }
+            if (i == 154 && j == 24)
+                printf("%i\n", kernel.size);
             image[i][j].rgbtRed = round(r / (float) kernel.size);
             image[i][j].rgbtGreen = round(g / (float) kernel.size);
             image[i][j].rgbtBlue = round(b / (float) kernel.size);
