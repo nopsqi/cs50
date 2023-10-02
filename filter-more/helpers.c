@@ -146,7 +146,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     Mx[1][2] = 2;
     Mx[2][0] = -1;
     Mx[2][1] = 0;
-    Mx[2][2] = -1;
+    Mx[2][2] = 1;
 
     int8_t (*My)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
     My[0][0] = -1;
