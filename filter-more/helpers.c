@@ -107,11 +107,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    
-
     KERNEL kernel;
     kernel.init_hw = 3;
 
-    free(tmp)
+    int8_t (*gx)[kernel.init_hw] = 
+
+    free(tmp);
     return;
 }
