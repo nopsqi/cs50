@@ -90,7 +90,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int r = 0, g = 0, b = 0;
             for (int k = (kernel.y_start < 0 ? 0 : kernel.y_start); k < (kernel.y_end > height ? height : kernel.y_end); k++)
             {
-                for (int l = (kernel.x_start; l < kernel.x_end; l++)
+                for (int l = (kernel.x_start < 0 ? 0 : kernel.x_start); l < (kernel.x_end > width ? width : kernel.x_end); l++)
                 {
                     r += tmp[k][l].rgbtRed;
                     g += tmp[k][l].rgbtGreen;
