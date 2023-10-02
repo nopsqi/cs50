@@ -191,7 +191,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if (i == 0 && j == 0)
                     {
                         // printf("gx(%i,%i,%i)\t\t", gx.r, gx.g, gx.b);
-                        printf("gy(%i,%i,%i)\t\t", gy.r, gy.g, gy.b);
+                        // printf("gy(%i,%i,%i)\t\t", gy.r, gy.g, gy.b);
                         // printf("Mx(%i)\t\t", My[km][lm]);
                     }
                 }
@@ -202,7 +202,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             euclid.r = round(sqrt(pow(gx.g, 2) + pow((float)gy.g, 2)));
             euclid.b = round(sqrt(pow(gx.b, 2) + pow((float)gy.b, 2)));
             if (i == 0 && j ==0)
-                printf("%i\n", euclid.r);
+                // printf("%i\n", euclid.r);
 
             image[i][j].rgbtRed = euclid.r > 255 ? 255 : euclid.r;
             image[i][j].rgbtGreen = euclid.g > 255 ? 255 : euclid.g;
