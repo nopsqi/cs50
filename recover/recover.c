@@ -13,13 +13,16 @@ int main(int argc, char *argv[])
         return 1;
     }
     FILE *file = fopen(argv[1], "r");
-    uint8_t *buffer = malloc(BLOCK_SIZE);
+    uint8_t *buffer = malloc(BLOCK_SIZE * sizeof(uint8_t));
 
     while (fread(&buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
-        printf("%x\n", buffer);
+        printf("%s\n", buffer);
         break;
     }
+
+    fclose(file);
+    free(buffer);
 }
 
 bool isJpeg()
