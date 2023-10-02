@@ -54,27 +54,6 @@ void get_kernel(int height, int width, int i, int j, KERNEL *kernel)
     (*kernel).y_start = i - kernel_half;
     (*kernel).y_end = i + kernel_half + 1;
 
-    // if (((*kernel).x_start = j - kernel_half) < 0)
-    //     (*kernel).x_start = 0;
-    // if (((*kernel).x_end = j + kernel_half + 1) > width)
-    //     (*kernel).x_end = width;
-    // if (((*kernel).y_start = i - kernel_half) < 0)
-    //     (*kernel).y_start = 0;
-    // if (((*kernel).y_end = i + kernel_half + 1) > height)
-    //     (*kernel).y_end = height;
-
-    // (*kernel).size = ((*kernel).x_end - (*kernel).x_start) * ((*kernel).y_end - (*kernel).y_start);
-    // (*kernel).size =
-    //     (
-    //         (*kernel).x_end -
-    //         (*kernel).x_start
-    //     )
-    //     *
-    //     (
-    //         (*kernel).y_end -
-    //         (*kernel).y_start
-    //     );
-
     (*kernel).size =
         (
             ((*kernel).x_end > width ? width : (*kernel).x_end) -
@@ -110,26 +89,23 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             get_kernel(height, width, i, j, &kernel);
 
             int r = 0, g = 0, b = 0;
-            for (int k = (kernel.y_start < 0 ? 0 : kernel.y_start); k < (kernel.y_end > height ? height : kernel.y_end); k++)
-            // for (int k = kernel.y_start; k < kernel.y_end; k++)
+            for (
+                    int k = (kernel.y_start < 0 ? 0 : kernel.y_start);
+                    k < (kernel.y_end > height ? height : kernel.y_end);
+                    k++
+                )
             {
-                for (int l = (kernel.x_start < 0 ? 0 : kernel.x_start); l < (kernel.x_end > width ? width : kernel.x_end); l++)
-                // for (int l = kernel.x_start; l < kernel.x_end; l++)
+                for (
+                        int l = (kernel.x_start < 0 ? 0 : kernel.x_start);
+                        l < (kernel.x_end > width ? width : kernel.x_end);
+                        l++
+                    )
                 {
-                    if (i == 154 && j == 24)
-                    {
-                        // printf("(%i,%i)\t", k, l);
-                        printf("(%i,%i,%i)\t", r, g, b);
-                    }
                     r += tmp[k][l].rgbtRed;
                     g += tmp[k][l].rgbtGreen;
                     b += tmp[k][l].rgbtBlue;
                 }
-                if (i == 154 && j == 24)
-                    printf("\n");
             }
-            if (i == 154 && j == 24)
-                printf("%i\n", kernel.size);
             image[i][j].rgbtRed = round(r / (float) kernel.size);
             image[i][j].rgbtGreen = round(g / (float) kernel.size);
             image[i][j].rgbtBlue = round(b / (float) kernel.size);
