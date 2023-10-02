@@ -149,14 +149,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             get_kernel(height, width, i, j, &kernel);
-            pixel px = {0, 0, 0}, py = {0, 0, 0};
-            int gx = 0, gy = 0, euclid = 0;
+            pixel gx = {0, 0, 0}, gy = {0, 0, 0}, euclid = {0, 0, 0};
 
             for (int k = kernel.y_start; k < kernel.y_end; k++)
             {
                 for (int l = kernel.x_start; l < kernel.x_end; l++)
                 {
-                    px.r = image
+                    gx.r = 
                 }
             }
 
