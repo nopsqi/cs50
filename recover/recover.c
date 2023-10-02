@@ -21,5 +21,5 @@ int main(int argc, char *argv[])
 
 bool isJpeg(int i)
 {
-
+    return 0;
 }
