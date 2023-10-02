@@ -160,7 +160,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     gx.b += Mx[k][l] * tmp[k][l].rgbtBlue;
                     if (i == 0 && j == 0)
                     {
-                        printf("gx(%i %i %i)\t", gx.r, gx.g, gx.b);
+                        // printf("gx(%i %i %i)\t\t", gx.r, gx.g, gx.b);
+                        printf("Mx(%i %i %i)\t\t", Mx[k][l], Mx[k][l], Mx[k][l]);
                     }
                 }
                 if (i == 0 && j ==0)
