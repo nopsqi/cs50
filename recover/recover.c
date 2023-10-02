@@ -17,7 +17,8 @@ int main(int argc, char *argv[])
 
     while (fread(&buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
-        printf("f)
+        printf("%x\n", buffer);
+        break;
     }
 }
 
