@@ -86,8 +86,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     if (i == 0 && j == 0)
                     {
                         // printf("t(%i, %i, %i)\t", tmp[k][l].rgbtRed, tmp[k][l].rgbtGreen, tmp[k][l].rgbtBlue);
-                        printf("t(%p, %p, %p)\t", &tmp[k][l].rgbtRed, &tmp[k][l].rgbtGreen, &tmp[k][l].rgbtBlue);
-                        // printf("i(%i, %i, %i)\t", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
+                        // printf("t(%p, %p, %p)\t", &tmp[k][l].rgbtRed, &tmp[k][l].rgbtGreen, &tmp[k][l].rgbtBlue);
+                        printf("i(%i, %i, %i)\t", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
                         // printf("i(%p, %p, %p)\t", &image[i][j].rgbtRed, &image[i][j].rgbtGreen, &image[i][j].rgbtBlue);
                     }
                     image[i][j].rgbtRed += tmp[k][l].rgbtRed;
@@ -102,8 +102,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             if (i == 0 && j == 0)
             {
                 // printf("t(%i, %i, %i)\n", tmp[i][j].rgbtRed, tmp[i][j].rgbtGreen, tmp[i][j].rgbtBlue);
-                // printf("i(%i, %i, %i)\n", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
-                printf("i(%p, %p, %p)\n", &image[i][j].rgbtRed, &image[i][j].rgbtGreen, &image[i][j].rgbtBlue);
+                printf("i(%i, %i, %i)\n", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
+                // printf("i(%p, %p, %p)\n", &image[i][j].rgbtRed, &image[i][j].rgbtGreen, &image[i][j].rgbtBlue);
             }
             image[i][j].rgbtRed = round(image[i][j].rgbtRed / (float) kernel.size);
             image[i][j].rgbtGreen = round(image[i][j].rgbtGreen / (float) kernel.size);
