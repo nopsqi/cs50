@@ -156,7 +156,15 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 for (int l = kernel.x_start; l < kernel.x_end; l++)
                 {
                     gx.r += Mx[k][l] * tmp[k][l].rgbtRed;
+                    gx.g += Mx[k][l] * tmp[k][l].rgbtGreen;
+                    gx.b += Mx[k][l] * tmp[k][l].rgbtBlue;
+                    if (i == 0 && j == 0)
+                    {
+                        printf("gx(%i %i %i)\t", gx.r, gx.g, gx.b);
+                    }
                 }
+                if (i == 0 && j ==0)
+                    printf("\n");
             }
 
         }
