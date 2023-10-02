@@ -77,6 +77,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             for (int k = kernel.y_start; k < kernel.y_end; k++)
             {
                 for (int l = kernel.x_start; l < kernel.x_end; l++)
+                {
+                    
+                }
             }
         }
     }
