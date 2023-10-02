@@ -10,11 +10,16 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover IMAGE");
         return 1;
     }
-    char *filename = argv[1];
-    uint8_t 
+    FILE *file = fopen(argv[1], "r");
+    uint8_t buffer;
 
-    while (fread(buffer, 1, BLOCK_SIZE, filename) == BLOCK_SIZE)
+    while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
 
     }
+}
+
+bool isJpeg()
+{
+
 }
