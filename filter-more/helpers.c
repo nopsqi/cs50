@@ -76,6 +76,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 kernel.y_end = height;
             kernel.size = (kernel.x_end - kernel.x_start) * (kernel.y_end - kernel.y_start);
 
+            
             image[i][j] = zeroed;
             if (i == 0 && j == 0)
                 printf("i(%i, %i, %i)\n\n", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
