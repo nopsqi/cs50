@@ -115,32 +115,35 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     KERNEL kernel;
     kernel.init_hw = 3;
 
-    int8_t (*gx)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
-    gx[0][0] = -1;
-    gx[0][1] = 0;
-    gx[0][2] = 1;
-    gx[1][0] = -2;
-    gx[1][1] = 0;
-    gx[1][2] = 2;
-    gx[2][0] = -1;
-    gx[2][1] = 0;
-    gx[2][2] = -1;
+    int8_t (*gx_arr)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
+    gx_arr[0][0] = -1;
+    gx_arr[0][1] = 0;
+    gx_arr[0][2] = 1;
+    gx_arr[1][0] = -2;
+    gx_arr[1][1] = 0;
+    gx_arr[1][2] = 2;
+    gx_arr[2][0] = -1;
+    gx_arr[2][1] = 0;
+    gx_arr[2][2] = -1;
 
-    int8_t (*gy)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
-    gx[0][0] = -1;
-    gx[0][1] = -2;
-    gx[0][2] = -1;
-    gx[1][0] = 0;
-    gx[1][1] = 0;
-    gx[1][2] = 0;
-    gx[2][0] = 1;
-    gx[2][1] = 2;
-    gx[2][2] = 1;
+    int8_t (*gy_arr)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
+    gy_arr[0][0] = -1;
+    gy_arr[0][1] = -2;
+    gy_arr[0][2] = -1;
+    gy_arr[1][0] = 0;
+    gy_arr[1][1] = 0;
+    gy_arr[1][2] = 0;
+    gy_arr[2][0] = 1;
+    gy_arr[2][1] = 2;
+    gy_arr[2][2] = 1;
 
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
+            get_kernel(height, width, i, j, &kernel);
+
+            int
         }
     }
 
