@@ -36,7 +36,7 @@ int main() {
     {
         for (int j = 0; j < 15; j++)
         {
-            printf("%i,%i ", i, j);
+            printf("%i,%i\t", i, j);
         }
         printf("\n");
     }
