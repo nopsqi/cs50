@@ -2,7 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "helpers.h"
-struct
+typedef struct
+{
+   int size;
+   
+} kernel;
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
