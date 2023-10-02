@@ -67,8 +67,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int kernel_half = (kernel.init_hw - 1) / 2;
             if ((kernel.x_start = j - kernel_half) < 0)
                 kernel.x_start = 0;
-            if ((kernel.x_end = j + kernel_half + 1) > width - 1)
-                kernel.x_end = 0;
+            if ((kernel.x_end = j + kernel_half + 1) > width)
+                kernel.x_end = width;
             if ((kernel.y_start = i - kernel_half) < 0)
                 kernel.y_start = 0;
             if ((kernel.y_end = i + kernel_half + 1) < 0)
