@@ -78,7 +78,7 @@ void get_kernel(int height, int width, int i, int j, KERNEL *kernel)
     (*kernel).size =
         (
             ((*kernel).x_end > width ? width : (*kernel).x_end) -
-            ((*kernel).x_start) < 0 ? 0 : (*kernel).x_start
+            ((*kernel).x_start < 0 ? 0 : (*kernel).x_start)
         )
         *
         (
