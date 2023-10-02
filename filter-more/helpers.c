@@ -49,7 +49,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE (*tmp)[width] = malloc(height * width * sizeof(RGBTRIPLE));
+    RGBTRIPLE (*tmp)[width] = calloc(height, width * sizeof(RGBTRIPLE));
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -110,7 +110,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     KERNEL kernel;
     kernel.init_hw = 3;
 
-    // int8_t (*gx)[kernel.init_hw] =
+    int8_t (*gx)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t))
 
     free(tmp);
     return;
