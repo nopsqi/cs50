@@ -96,7 +96,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 // for (int l = kernel.x_start; l < kernel.x_end; l++)
                 {
                     if (i == 154 && j == 24)
-                        printf("%i,%i\t", k, l);
+                    {
+                        // printf("(%i,%i)\t", k, l);
+                        printf("(%i,%i,%i)\t", r, g, b);
+                    }
                     r += tmp[k][l].rgbtRed;
                     g += tmp[k][l].rgbtGreen;
                     b += tmp[k][l].rgbtBlue;
