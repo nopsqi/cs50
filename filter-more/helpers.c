@@ -61,7 +61,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     KERNEL kernel;
     kernel.init_hw = 3;
     RGBTRIPLE zeroed = {0, 0, 0};
-    RGBTRIPLE zeroed = {0, 0, 0};
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -75,6 +74,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 kernel.y_start = 0;
             if ((kernel.y_end = i + kernel_half + 1) > height)
                 kernel.y_end = height;
+            kernel.size = ()
 
             image[i][j] = zeroed;
             for (int k = kernel.y_start; k < kernel.y_end; k++)
