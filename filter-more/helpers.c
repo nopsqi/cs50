@@ -110,7 +110,28 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     KERNEL kernel;
     kernel.init_hw = 3;
 
-    int8_t (*gx)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t))
+    int8_t (*gx)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
+    gx[0][0] = -1;
+    gx[0][1] = 0;
+    gx[0][2] = 1;
+    gx[1][0] = -2;
+    gx[1][1] = 0;
+    gx[1][2] = 2;
+    gx[2][0] = -1;
+    gx[2][1] = 0;
+    gx[2][2] = -1;
+
+    int8_t (*gy)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
+    gx[0][0] = -1;
+    gx[0][1] = -2;
+    gx[0][2] = -1;
+    gx[1][0] = 0;
+    gx[1][1] = 0;
+    gx[1][2] = 0;
+    gx[2][0] = 1;
+    gx[2][1] = 2;
+    gx[2][2] = 1;
+
 
     free(tmp);
     return;
