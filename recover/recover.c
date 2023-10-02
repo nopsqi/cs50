@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-#define BLOCK_SIZE 512;
+#define BLOCK_SIZE 512
 
 int main(int argc, char *argv[])
 {
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     }
 }
 
-bool isJpeg()
+bool isJpeg(int i)
 {
 
 }
