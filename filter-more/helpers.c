@@ -46,7 +46,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-void get_kernel(int i, int j, KERNEL kernel)
+void get_kernel(int height, int width, int i, int j, KERNEL kernel)
 {
     int kernel_half = (kernel.init_hw - 1) / 2;
     if ((kernel.x_start = j - kernel_half) < 0)
@@ -79,7 +79,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            get_kernel(i, j, kernel);
+            get_kernel(height, width, i, j, kernel);
 
             int r = 0, g = 0, b = 0;
             for (int k = kernel.y_start; k < kernel.y_end; k++)
@@ -137,20 +137,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     gx[2][1] = 2;
     gx[2][2] = 1;
 
-    for (int = 0; i < height; i++)
+    for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            int kernel_half = (kernel.init_hw - 1) / 2;
-            if ((kernel.x_start = j - kernel_half) < 0)
-                kernel.x_start = 0;
-            if ((kernel.x_end = j + kernel_half + 1) > width)
-                kernel.x_end = width;
-            if ((kernel.y_start = i - kernel_half) < 0)
-                kernel.y_start = 0;
-            if ((kernel.y_end = i + kernel_half + 1) > height)
-                kernel.y_end = height;
-            kernel.size = (kernel.x_end - kernel.x_start) * (kernel.y_end - kernel.y_start);
         }
     }
 
