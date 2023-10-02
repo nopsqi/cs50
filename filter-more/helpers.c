@@ -197,7 +197,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 if (i == 0 && j ==0)
                     printf("\n");
             }
-
+            euclid.r = sqrt()
         }
     }
 
