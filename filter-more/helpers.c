@@ -46,10 +46,10 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-void get_kernel(int height, int width, int i, int j, KERNEL *kernel)
+void get_kernel(int height, int width, int i, int j, KERNEL kernel)
 {
     if (i == 0 && j == 0)
-        printf("%p\n", &kernel);
+        printf("%p\n", kernel);
     int kernel_half = (kernel.init_hw - 1) / 2;
     if ((kernel.x_start = j - kernel_half) < 0)
         kernel.x_start = 0;
@@ -93,7 +93,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 kernel.y_end = height;
             kernel.size = (kernel.x_end - kernel.x_start) * (kernel.y_end - kernel.y_start);
             if (i == 0 && j == 0)
-                printf("%p\n", &kernel);
+                printf("%p\n", kernel);
 
             int r = 0, g = 0, b = 0;
             for (int k = kernel.y_start; k < kernel.y_end; k++)
