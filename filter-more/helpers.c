@@ -103,6 +103,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    typedef struct
+    {
+        int r;
+        int g;
+        int b;
+    } pixel;
+
     RGBTRIPLE (*tmp)[width] = calloc(height, width * sizeof(RGBTRIPLE));
     for (int i = 0; i < height; i++)
     {
