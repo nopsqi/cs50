@@ -183,10 +183,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     gx.r += Mx[km][lm] * tmp[k][l].rgbtRed;
                     gx.g += Mx[km][lm] * tmp[k][l].rgbtGreen;
                     gx.b += Mx[km][lm] * tmp[k][l].rgbtBlue;
+
+                    gy.r += My[km][lm] * tmp[k][l].rgbtRed;
+                    gy.g += My[km][lm] * tmp[k][l].rgbtGreen;
+                    gy.b += My[km][lm] * tmp[k][l].rgbtBlue;
                     if (i == 0 && j == 0)
                     {
                         // printf("gx(%i %i %i)\t\t", gx.r, gx.g, gx.b);
-                        printf("Mx(%i)\t\t", Mx[km][lm]);
+                        printf("Mx(%i)\t\t", My[km][lm]);
                     }
                 }
                 if (i == 0 && j ==0)
