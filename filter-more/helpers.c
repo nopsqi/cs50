@@ -46,7 +46,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-void get_kernel(int height, int width, int i, int j, KERNEL kernel)
+void get_kernel(int height, int width, int i, int j, KERNEL *kernel)
 {
     if (i == 0 && j == 0)
         printf("%p\n", &kernel);
