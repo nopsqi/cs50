@@ -78,15 +78,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             image[i][j] = zeroed;
             if (i == 0 && j == 0)
-                printf("(i%i, %i, %i)\n\n", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
+                printf("(%i, %i, %i)\n\n", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
             for (int k = kernel.y_start; k < kernel.y_end; k++)
             {
                 for (int l = kernel.x_start; l < kernel.x_end; l++)
                 {
                     if (i == 0 && j == 0)
                     {
-                        // printf("i(%i, %i, %i)\t", tmp[k][l].rgbtRed, tmp[k][l].rgbtGreen, tmp[k][l].rgbtBlue);
-                        printf("t(%i, %i, %i)\t", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
+                        // printf("t(%i, %i, %i)\t", tmp[k][l].rgbtRed, tmp[k][l].rgbtGreen, tmp[k][l].rgbtBlue);
+                        printf("i(%i, %i, %i)\t", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
                     }
                     image[i][j].rgbtRed += tmp[k][l].rgbtRed;
                     image[i][j].rgbtGreen += tmp[k][l].rgbtGreen;
