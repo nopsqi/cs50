@@ -2,6 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "helpers.h"
+typedef struct
+{
+   int init_hw;
+   int size;
+   int x_start;
+   int x_end;
+   int y_start;
+   int y_end;
+} KERNEL;
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -40,16 +49,6 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    typedef struct
-    {
-        int init_hw;
-        int size;
-        int x_start;
-        int x_end;
-        int y_start;
-        int y_end;
-    } KERNEL;
-
     RGBTRIPLE (*tmp)[width] = calloc(height, width * sizeof(RGBTRIPLE));
     for (int i = 0; i < height; i++)
     {
@@ -99,5 +98,20 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE (*tmp)[width] = calloc(height, width * sizeof(RGBTRIPLE));
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            tmp[i][j] = image[i][j];
+        }
+    }
+
+    
+
+    KERNEL kernel;
+    kernel.init_hw = 3;
+
+    free(tmp)
     return;
 }
