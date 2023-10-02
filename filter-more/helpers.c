@@ -178,6 +178,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         l++
                     )
                 {
+                    km = k - kernel.y_start
                     gx.r += Mx[k][l] * tmp[k][l].rgbtRed;
                     gx.g += Mx[k][l] * tmp[k][l].rgbtGreen;
                     gx.b += Mx[k][l] * tmp[k][l].rgbtBlue;
