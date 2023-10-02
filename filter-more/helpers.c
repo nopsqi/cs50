@@ -65,7 +65,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             int kernel_half = (kernel.size - 1) / 2;
             if ((kernel.x_start = j - kernel_half) < 0)
-                kernel.x
+                kernel.x_start = 0;
+            if (i == 0 && j == 5)
+                printf("%i\n", kernel.x_start);
         }
     }
     free(tmp);
