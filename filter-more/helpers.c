@@ -88,11 +88,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             get_kernel(height, width, i, j, &kernel);
 
             int r = 0, g = 0, b = 0;
-            // for (int k = (kernel.y_start < 0 ? 0 : kernel.y_start); k < (kernel.y_end > height ? height : kernel.y_end); k++)
-            for (int k = kernel.y_start; k < kernel.y_end; k++)
+            for (int k = (kernel.y_start < 0 ? 0 : kernel.y_start); k < (kernel.y_end > height ? height : kernel.y_end); k++)
+            // for (int k = kernel.y_start; k < kernel.y_end; k++)
             {
-                // for (int l = (kernel.x_start < 0 ? 0 : kernel.x_start); l < (kernel.x_end > width ? width : kernel.x_end); l++)
-                for (int l = kernel.x_start; l <kernel.x_end; l++)
+                for (int l = (kernel.x_start < 0 ? 0 : kernel.x_start); l < (kernel.x_end > width ? width : kernel.x_end); l++)
+                // for (int l = kernel.x_start; l < kernel.x_end; l++)
                 {
                     if (i == 6 && j == 6)
                         printf("%i,%i\t", k, l);
