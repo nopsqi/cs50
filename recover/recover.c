@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
-#define BLOCK_SZE 512;
+#define BLOCK_SIZE 512;
 
 int main(int argc, char *argv[])
 {
