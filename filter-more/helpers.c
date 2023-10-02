@@ -199,7 +199,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     // printf("\n");
             }
             euclid.r = round(sqrt(pow(gx.r, 2) + pow((float)gy.r, 2)));
-            euclid.r = round(sqrt(pow(gx.g, 2) + pow((float)gy.g, 2)));
+            euclid.g = round(sqrt(pow(gx.g, 2) + pow((float)gy.g, 2)));
             euclid.b = round(sqrt(pow(gx.b, 2) + pow((float)gy.b, 2)));
             if (i == 0 && j ==0)
                 // printf("%i\n", euclid.r);
