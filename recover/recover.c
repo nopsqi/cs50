@@ -19,10 +19,10 @@ int main(int argc, char *argv[])
     }
     uint8_t *buffer = malloc(BLOCK_SIZE * sizeof(uint8_t));
 
-    while (fread(&buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
+    while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
-        printf("%s\n", buffer);
-        break;
+        printf("%x\n", buffer[0]);
+        // printf("%li\n", sizeof(buffer[0]));
     }
 
     fclose(file);
