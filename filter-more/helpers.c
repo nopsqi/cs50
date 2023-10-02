@@ -161,7 +161,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if (i == 0 && j == 0)
                     {
                         // printf("gx(%i %i %i)\t\t", gx.r, gx.g, gx.b);
-                        printf("Mx(%i %i %i)\t\t", Mx[k][l], Mx[k][l], Mx[k][l]);
+                        printf("Mx(%i)\t\t", Mx[k][l]);
                     }
                 }
                 if (i == 0 && j ==0)
