@@ -77,39 +77,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             kernel.size = (kernel.x_end - kernel.x_start) * (kernel.y_end - kernel.y_start);
 
             int r = 0, g = 0, b = 0;
-            if (i == 0 && j == 0)
-                printf("i(%i, %i, %i)\n\n", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
             for (int k = kernel.y_start; k < kernel.y_end; k++)
             {
                 for (int l = kernel.x_start; l < kernel.x_end; l++)
                 {
-                    if (i == 0 && j == 0)
-                    {
-                        // printf("t(%i, %i, %i)\t", tmp[k][l].rgbtRed, tmp[k][l].rgbtGreen, tmp[k][l].rgbtBlue);
-                        // printf("t(%p, %p, %p)\t", &tmp[k][l].rgbtRed, &tmp[k][l].rgbtGreen, &tmp[k][l].rgbtBlue);
-                        printf("i(%i, %i, %i)\t", r, g, b);
-                        // printf("i(%p, %p, %p)\t", &image[i][j].rgbtRed, &image[i][j].rgbtGreen, &image[i][j].rgbtBlue);
-                    }
                     r += tmp[k][l].rgbtRed;
                     g += tmp[k][l].rgbtGreen;
                     b += tmp[k][l].rgbtBlue;
                 }
-                if (i == 0 && j == 0)
-                    printf("\n");
-            }
-            if (i == 0 && j == 0)
-                printf("\n");
-            if (i == 0 && j == 0)
-            {
-                // printf("t(%i, %i, %i)\n", tmp[i][j].rgbtRed, tmp[i][j].rgbtGreen, tmp[i][j].rgbtBlue);
-                printf("i(%i, %i, %i)\n", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
-                // printf("i(%p, %p, %p)\n", &image[i][j].rgbtRed, &image[i][j].rgbtGreen, &image[i][j].rgbtBlue);
             }
             image[i][j].rgbtRed = round(r / (float) kernel.size);
             image[i][j].rgbtGreen = round(g / (float) kernel.size);
             image[i][j].rgbtBlue = round(b / (float) kernel.size);
-            if (i == 0 && j == 0)
-                printf("(%i, %i, %i)\n", image[i][j].rgbtRed, image[i][j].rgbtGreen, image[i][j].rgbtBlue);
         }
     }
     free(tmp);
