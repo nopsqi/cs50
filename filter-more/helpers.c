@@ -63,7 +63,16 @@ void get_kernel(int height, int width, int i, int j, KERNEL *kernel)
     // if (((*kernel).y_end = i + kernel_half + 1) > height)
     //     (*kernel).y_end = height;
 
-    (*kernel).size = ((*kernel).x_end - (*kernel).x_start) * ((*kernel).y_end - (*kernel).y_start);
+    (*kernel).size =
+        (
+            ((*kernel).x_end > width ? width : (*kernel).x_end) -
+            ((*kernel).x_start) < 0 ? 0 : (*kernel).x_start
+        )
+        *
+        (
+            ((*kernel).y_end > height ? height : (*kernel).y_end) -
+            ((*kernel).y_start < 0 ? 0 : (*kernel).y_start)
+        );
 }
 
 // Blur image
