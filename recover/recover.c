@@ -11,9 +11,10 @@ int main(int argc, char *argv[])
         return 1;
     }
     char *filename = argv[1];
+    uint8_t 
 
     while (fread(buffer, 1, BLOCK_SIZE, filename) == BLOCK_SIZE)
     {
-        
+
     }
 }
