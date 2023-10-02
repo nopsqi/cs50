@@ -4,7 +4,7 @@
 #include "helpers.h"
 typedef struct
 {
-   int init_size;
+   int init_hw;
    int size;
    int x_start;
    int x_end;
