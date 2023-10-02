@@ -115,27 +115,27 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     KERNEL kernel;
     kernel.init_hw = 3;
 
-    int8_t (*Gx)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
-    Gx[0][0] = -1;
-    Gx[0][1] = 0;
-    Gx[0][2] = 1;
-    Gx[1][0] = -2;
-    Gx[1][1] = 0;
-    Gx[1][2] = 2;
-    Gx[2][0] = -1;
-    Gx[2][1] = 0;
-    Gx[2][2] = -1;
+    int8_t (*Mx)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
+    Mx[0][0] = -1;
+    Mx[0][1] = 0;
+    Mx[0][2] = 1;
+    Mx[1][0] = -2;
+    Mx[1][1] = 0;
+    Mx[1][2] = 2;
+    Mx[2][0] = -1;
+    Mx[2][1] = 0;
+    Mx[2][2] = -1;
 
-    int8_t (*Gy)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
-    Gy[0][0] = -1;
-    Gy[0][1] = -2;
-    Gy[0][2] = -1;
-    Gy[1][0] = 0;
-    Gy[1][1] = 0;
-    Gy[1][2] = 0;
-    Gy[2][0] = 1;
-    Gy[2][1] = 2;
-    Gy[2][2] = 1;
+    int8_t (*My)[kernel.init_hw] = calloc(kernel.init_hw, kernel.init_hw * sizeof(int8_t));
+    My[0][0] = -1;
+    My[0][1] = -2;
+    My[0][2] = -1;
+    My[1][0] = 0;
+    My[1][1] = 0;
+    My[1][2] = 0;
+    My[2][0] = 1;
+    My[2][1] = 2;
+    My[2][2] = 1;
 
     for (int i = 0; i < height; i++)
     {
@@ -148,7 +148,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int l = kernel.x_start; l < kernel.y_end; l++)
                 {
-                    gx += Gx[k][l] 
+                    gx += Mx[k][l]
                 }
             }
 
