@@ -190,7 +190,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
                     if (i == 0 && j == 0)
                     {
-                        printf("gx(%i %i %i)\t\t", gx.r, gx.g, gx.b);
+                        printf("gx(%i,%i,%i)\t\t", gx.r, gx.g, gx.b);
                         // printf("Mx(%i)\t\t", My[km][lm]);
                     }
                 }
