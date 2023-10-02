@@ -155,7 +155,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int l = kernel.x_start; l < kernel.x_end; l++)
                 {
-                    gx.r = 
+                    gx.r += Mx[k][l] * tmp[k][l].rgbtRed;
                 }
             }
 
