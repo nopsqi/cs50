@@ -5,8 +5,11 @@
 typedef struct
 {
    int size;
-   
-} kernel;
+   int x_start;
+   int x_end;
+   int y_start;
+   int y_end;
+} KERNEL;
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -58,8 +61,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            int kernel = 3;
-            int
+            KERNEL kernel;
+            kernel.size = 3;
         }
     }
     free(tmp);
