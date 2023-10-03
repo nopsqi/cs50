@@ -18,18 +18,19 @@ int main(int argc, char *argv[])
         return 1;
     }
     uint8_t *buffer = malloc(BLOCK_SIZE * sizeof(uint8_t));
-    int outname = 0;
+    int image_counter = 0;
 
     while (fread(buffer, 1, BLOCK_SIZE, raw) == BLOCK_SIZE)
     {
         if ((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && (buffer[3] >= 0xe0 && buffer[3] <= 0xef))
         {
-            char 
+            char outname[8];
+            sprintf(outname, ")
             FILE *outfile = fopen()
-            outname++;
+            image_counter++;
         }
     }
-    printf("total = %i\n", outname);
+    printf("total = %i\n", image_counter);
 
     fclose(raw);
     free(buffer);
