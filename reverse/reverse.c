@@ -62,7 +62,6 @@ int main(int argc, char *argv[])
     uint8_t *data = malloc(block_size * sizeof(uint8_t));
     // int *data = malloc(block_size * sizeof(int));
     fseek(input, block_size, SEEK_END);
-    printf("%li\n", ftell(input));
     while(fread(data, 1, block_size, input) == block_size)
     while(ftell(input) > 43)
     {
