@@ -18,16 +18,17 @@ int main(int argc, char *argv[])
         return 1;
     }
     uint8_t *buffer = malloc(BLOCK_SIZE * sizeof(uint8_t));
-    int outfile = 0;
+    int outname = 0;
 
     while (fread(buffer, 1, BLOCK_SIZE, raw) == BLOCK_SIZE)
     {
         if ((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && (buffer[3] >= 0xe0 && buffer[3] <= 0xef))
         {
-            outfile++;
+            FILE *outfile = fopen()
+            outname++;
         }
     }
-    printf("total = %i\n", outfile);
+    printf("total = %i\n", outname);
 
     fclose(raw);
     free(buffer);
