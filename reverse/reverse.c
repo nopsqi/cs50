@@ -20,6 +20,11 @@ int main(int argc, char *argv[])
     // Open input file for reading
     // TODO #2
     FILE *input = fopen(argv[1], "r");
+    if (input == NULL)
+    {
+        return 1;
+    }
+
 
     // Read header
     // TODO #3
@@ -33,6 +38,10 @@ int main(int argc, char *argv[])
     // Open output file for writing
     // TODO #5
     FILE *output = fopen(argv[2], "w");
+    if (output == NULL)
+    {
+        return 1;
+    }
 
     // Write header to file
     // TODO #6
