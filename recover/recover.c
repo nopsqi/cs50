@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
         {
             char outname[8];
             sprintf(outname, "%03d.jpg", image_counter);
-            FILE *outfile = fopen(outname, "w")
+            FILE *outfile = fopen(outname, "w");
             image_counter++;
         }
     }
