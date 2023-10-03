@@ -59,6 +59,8 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
+    int *data = malloc(block_size)
+    while()
 
     fclose(input);
     fclose(output);
