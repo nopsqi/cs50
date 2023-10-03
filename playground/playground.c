@@ -41,7 +41,12 @@ int main() {
         printf("\n");
     }
 
-    char c[5] = "aaaaaaaaa";
+    char c[8];
+    for (int i= 0; i < 16; i++)
+    {
+        sprintf(c, "%03d.jpg", i);
+        printf("%s\n", c);
+    }
 
     // Don't forget to free the allocated memory when done
     free(a);
