@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
     {
         if ((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && (buffer[3] >= 0xe0 && buffer[3] <= 0xef))
         {
-            // printf("JPEG found!\n");
             if (image_counter > 0)
                 fclose(outfile);
             sprintf(outname, "%03d.jpg", image_counter);
@@ -34,12 +33,8 @@ int main(int argc, char *argv[])
             image_counter++;
         }
         if (image_counter > 0)
-        {
             fwrite(buffer, BLOCK_SIZE, 1, outfile);
-            // printf("ftell %s %li\n", outname, ftell(outfile));
-        }
     }
-    // printf("total = %i\n", image_counter);
 
     fclose(raw);
     fclose(outfile);
