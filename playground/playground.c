@@ -41,8 +41,7 @@ int main() {
         printf("\n");
     }
 
-    int c = -1;
-    printf("%i\n", c < 0 ? 100 : 0);
+    char c[5] = "aaaaaaaaa";
 
     // Don't forget to free the allocated memory when done
     free(a);
