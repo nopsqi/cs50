@@ -60,9 +60,11 @@ int main(int argc, char *argv[])
     // Write reversed audio to file
     // TODO #8
     int8_t *data = malloc(block_size * sizeof(int8_t));
-    while(fread(&data, 1, block_size, input) == block_size)
+    while(fread(data, 1, block_size, input) == block_size)
     {
-        printf("%x \n", data[0]);
+        for (int i = 0; i < block_size; i++)
+            printf("%x ", data[i]);
+        printf("\n");
     }
 
     fclose(input);
