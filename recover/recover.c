@@ -24,12 +24,13 @@ int main(int argc, char *argv[])
     {
         if ((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && (buffer[3] >= 0xe0 && buffer[3] <= 0xef))
         {
-            if 
             char outname[8];
-            sprintf(outname, "%03d.jpg", image_counter);
             FILE *outfile = fopen(outname, "w");
+            sprintf(outname, "%03d.jpg", image_counter);
+            fclose(outfile);
             image_counter++;
         }
+        fwrite(buffer, 1, BLOCK_SIZE, outfile);
     }
     printf("total = %i\n", image_counter);
 
