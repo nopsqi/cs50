@@ -65,9 +65,13 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
-    if (strcmp(header.format, "WAVE"))
-        return true;
-    return false;
+    char *wave = "WAVE";
+    for (int i = 0; i < 4; i++)
+    {
+        if (header.format[i] != wave[i])
+            return 0;
+    }
+    return 1;
 }
 
 int get_block_size(WAVHEADER header)
