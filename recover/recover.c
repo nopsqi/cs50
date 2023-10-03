@@ -28,8 +28,6 @@ int main(int argc, char *argv[])
         }
     }
     printf("total = %i\n", outfile);
-    FILE *file = fopen("text.txt", "w");
-    
 
     fclose(raw);
     free(buffer);
