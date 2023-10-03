@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
     uint16_t *data = malloc(sizeof(block_size));
     while(fread(data, 1, block_size, input) == block_size)
     {
-        printf("%x\n", data[0]);
+        printf("%x\n", data[1]);
     }
 
     fclose(input);
