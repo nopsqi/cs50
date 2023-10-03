@@ -22,14 +22,8 @@ int main(int argc, char *argv[])
 
     while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
-        for (int i = 0; i < BLOCK_SIZE; i++)
-        {
-            printf("%x ", buffer[i]);
-            if (i % 4 == 0)
-                printf("\n");
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff)
             total++;
-        }
-        // printf("%li\n", sizeof(buffer[0]));
     }
     printf("total = %i\n", total);
 
