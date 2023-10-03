@@ -67,6 +67,7 @@ int main(int argc, char *argv[])
     {
         printf("%li\n", ftell(output));
         fread(data, 1, block_size, input);
+        fwrite(data, 1, block_size, output);
         fseek(input, -block_size, SEEK_CUR);
     }
 
