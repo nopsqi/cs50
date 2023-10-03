@@ -59,8 +59,8 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
-    int data = 0;
-    while(fread(&data, 1, block_size, input) == block_size)
+    int32_t data = 0;
+    while(fread(&data, block_size, 1, input) == 1)
     {
         printf("%x \n", data[0]);
     }
