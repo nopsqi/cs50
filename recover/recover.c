@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
         if ((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && (buffer[3] >= 0xe0 && buffer[3] <= 0xef))
         {
             char outname[8];
-            FILE *outfile = fopen(outname, "w");
+            outfile = fopen(outname, "w");
             sprintf(outname, "%03d.jpg", image_counter);
             fclose(outfile);
             image_counter++;
