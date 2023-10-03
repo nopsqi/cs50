@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     while(ftell(input) > 43)
     {
         printf("%li\n", ftell(output));
-        fseek()
+        fseek(input, -block_size, SEEK_CUR);
     }
 
     fclose(input);
