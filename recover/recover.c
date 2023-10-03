@@ -31,11 +31,11 @@ int main(int argc, char *argv[])
             fclose(outfile);
             image_counter++;
         }
-        if (image_counter > 0)
-        {
-            fwrite(buffer, 1, BLOCK_SIZE, outfile);
-            printf("writing on %i\n", image_counter);
-        }
+        // if (image_counter > 0)
+        // {
+        //     fwrite(buffer, 1, BLOCK_SIZE, outfile);
+        //     printf("writing on %i\n", image_counter);
+        // }
     }
     printf("total = %i\n", image_counter);
 
