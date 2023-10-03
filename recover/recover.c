@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     FILE *outfile;
+    char outname[8];
     uint8_t *buffer = malloc(BLOCK_SIZE * sizeof(uint8_t));
     int image_counter = 0;
 
@@ -25,7 +26,6 @@ int main(int argc, char *argv[])
     {
         if ((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && (buffer[3] >= 0xe0 && buffer[3] <= 0xef))
         {
-            char outname[8];
             sprintf(outname, "%03d.jpg", image_counter);
             outfile = fopen(outname, "w");
             fclose(outfile);
@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
         }
         if (image_counter > 0)
         {
+            printf("%s %li\n", outname, ftell(outfile));
             fwrite(buffer, BLOCK_SIZE, 1, outfile);
         }
     }
