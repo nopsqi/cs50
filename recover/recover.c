@@ -12,15 +12,15 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover IMAGE");
         return 1;
     }
-    FILE *file = fopen(argv[1], "r");
-    if (file == NULL)
+    FILE *raw = fopen(argv[1], "r");
+    if (raw == NULL)
     {
         return 1;
     }
     uint8_t *buffer = malloc(BLOCK_SIZE * sizeof(uint8_t));
     int outfile = 0;
 
-    while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
+    while (fread(buffer, 1, BLOCK_SIZE, raw) == BLOCK_SIZE)
     {
         if ((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && (buffer[3] >= 0xe0 && buffer[3] <= 0xef))
         {
@@ -28,8 +28,9 @@ int main(int argc, char *argv[])
         }
     }
     printf("total = %i\n", outfile);
-    FILE *
+    FILE *file = fopen("text.txt", "w");
+    fwrite()
 
-    fclose(file);
+    fclose(raw);
     free(buffer);
 }
