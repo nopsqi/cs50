@@ -63,10 +63,10 @@ int main(int argc, char *argv[])
     // int *data = malloc(block_size * sizeof(int));
     fseek(input, block_size, SEEK_END);
     // while(fread(data, 1, block_size, input) == block_size)
-    while(ftell(input) > sizeof(WAVHEADER))
+    while(ftell(input) > sizeof(WAVHEADER) + block_size)
     {
         fseek(input, -(2 * block_size), SEEK_CUR);
-        printf("%li\n", ftell(output));
+        printf("%li\n", ftell(input));
         fread(data, 1, block_size, input);
         fwrite(data, 1, block_size, output);
     }
