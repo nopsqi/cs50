@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     // Use get_block_size to calculate size of block
     // TODO #7
     int block_size = get_block_size(bf);
-    printf("%i %i\n", block_size);
+    printf("%i %li\n", block_size, ftell(input));
 
     // Write reversed audio to file
     // TODO #8
