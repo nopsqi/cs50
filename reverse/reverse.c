@@ -59,19 +59,15 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
-    int *data = malloc(block_size);
-    while(fread(data, 1, block_size, input) == block_size)
+    int data = 0;
+    while(fread(&data, 1, block_size, input) == block_size)
     {
-        for (int i = 0; i < block_size; i++)
-        {
-            printf("%x ", data[i]);
-        }
-        printf("\n");
+        printf("%x \n", data[0]);
     }
 
     fclose(input);
     fclose(output);
-    free(data);
+    // free(data);
 }
 
 int check_format(WAVHEADER header)
