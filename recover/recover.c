@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     {
         return 1;
     }
+    FILE *outfile;
     uint8_t *buffer = malloc(BLOCK_SIZE * sizeof(uint8_t));
     int image_counter = 0;
 
@@ -30,7 +31,7 @@ int main(int argc, char *argv[])
             fclose(outfile);
             image_counter++;
         }
-        fwrite(buffer, 1, BLOCK_SIZE, outfile);
+        // fwrite(buffer, 1, BLOCK_SIZE, outfile);
     }
     printf("total = %i\n", image_counter);
 

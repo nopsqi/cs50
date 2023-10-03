@@ -47,6 +47,7 @@ int main() {
         sprintf(c, "%03d.jpg", i);
         printf("%s\n", c);
     }
+    FILE *testfile;
 
     // Don't forget to free the allocated memory when done
     free(a);
