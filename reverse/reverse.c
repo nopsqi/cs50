@@ -61,10 +61,10 @@ int main(int argc, char *argv[])
     // TODO #8
     uint8_t *data = malloc(block_size * sizeof(uint8_t));
     // int *data = malloc(block_size * sizeof(int));
-    fseek(output, -5, SEEK_END);
+    fseek(input, -block_size, SEEK_END);
     while(fread(data, 1, block_size, input) == block_size)
     {
-        printf("%li\n", ftell(output));
+        printf("%li\n", ftell(input));
     }
 
     fclose(input);
