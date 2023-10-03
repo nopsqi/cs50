@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
     while(ftell(input) > 43)
     {
         printf("%li\n", ftell(output));
+        fread(data, 1, block_size, input);
         fseek(input, -block_size, SEEK_CUR);
     }
 
