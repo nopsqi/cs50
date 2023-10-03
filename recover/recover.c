@@ -36,6 +36,8 @@ int main(int argc, char *argv[])
             fwrite(buffer, BLOCK_SIZE, 1, outfile);
             printf("%s %li\n", outname, ftell(outfile));
         }
+        if (image_counter > 1)
+            break;
     }
     printf("total = %i\n", image_counter);
 
