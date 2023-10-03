@@ -61,14 +61,15 @@ int main(int argc, char *argv[])
     // TODO #8
     uint8_t *data = malloc(block_size * sizeof(uint8_t));
     // int *data = malloc(block_size * sizeof(int));
-    fseek(input, -block_size, SEEK_END);
-    // while(fread(data, 1, block_size, input) == block_size)
+    fseek(input, block_size, SEEK_END);
+    printf("%li\n", ftell(input));
+    while(fread(data, 1, block_size, input) == block_size)
     while(ftell(input) > 43)
     {
+        fseek(input, -(2 * block_size), SEEK_CUR);
         printf("%li\n", ftell(output));
         fread(data, 1, block_size, input);
         fwrite(data, 1, block_size, output);
-        fseek(input, -block_size, SEEK_CUR);
     }
 
     fclose(input);
