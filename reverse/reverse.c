@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 
     // Use check_format to ensure WAV format
     // TODO #4
-    if (!check_format)
+    if (!check_format(bf))
     {
         printf("File is not WAV.\n");
         return 1;
@@ -65,8 +65,9 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
-    if (strcmp(header.))
-    return 0;
+    if (strcmp(header.format, "WAVE"))
+        return true;
+    return false;
 }
 
 int get_block_size(WAVHEADER header)
