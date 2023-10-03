@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
         if ((buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff) && (buffer[3] >= 0xe0 && buffer[3] <= 0xef))
-            total++;
+            printf("%x %x %x %x\n", buffer[0], buffer[1], buffer[2], buffer[3]);
     }
     printf("total = %i\n", total);
 
