@@ -1,8 +1,8 @@
+#include <math.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 
 #include "wav.h"
 
@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
     {
         return 1;
     }
-
 
     // Read header
     // TODO #3
@@ -61,7 +60,7 @@ int main(int argc, char *argv[])
     // TODO #8
     uint8_t *data = malloc(block_size * sizeof(uint8_t));
     fseek(input, block_size, SEEK_END);
-    while(ftell(input) > sizeof(WAVHEADER) + block_size)
+    while (ftell(input) > sizeof(WAVHEADER) + block_size)
     {
         fseek(input, -(2 * block_size), SEEK_CUR);
         fread(data, 1, block_size, input);
