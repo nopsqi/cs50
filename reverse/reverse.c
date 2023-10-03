@@ -59,10 +59,10 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
-    uint16_t *data = malloc(2);
-    while(fread(&data, 1, block_size, input) == block_size)
+    uint16_t *data = malloc(sizeof(block_size));
+    while(fread(data, 1, block_size, input) == block_size)
     {
-
+        printf("%x\n", data[0]);
     }
 
     fclose(input);
