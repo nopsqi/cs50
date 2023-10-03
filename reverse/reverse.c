@@ -59,10 +59,9 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
-    uint8_t *data = malloc(block_size * sizeof(uint8_t));
-    // int *data = malloc(block_size * sizeof(int));
+    // uint8_t *data = malloc(block_size * sizeof(uint8_t));
+    int *data = malloc(block_size * sizeof(int));
     fseek(input, block_size, SEEK_END);
-    // while(fread(data, 1, block_size, input) == block_size)
     while(ftell(input) > sizeof(WAVHEADER) + block_size)
     {
         fseek(input, -(2 * block_size), SEEK_CUR);
