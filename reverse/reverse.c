@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #include "wav.h"
 
@@ -31,7 +32,6 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER bf;
     fread(&bf, 1, sizeof(WAVHEADER), input);
-
 
     // Use check_format to ensure WAV format
     // TODO #4
@@ -78,5 +78,5 @@ int check_format(WAVHEADER header)
 int get_block_size(WAVHEADER header)
 {
     // TODO #7
-    return header.numChannels;
+    return round(header.numChannels * (header.bitsPerSample / (float) 8));
 }
