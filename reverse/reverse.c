@@ -11,21 +11,28 @@ int main(int argc, char *argv[])
 {
     // Ensure proper usage
     // TODO #1
-    if (argc < 2);
+    if (argc < 3)
     {
+        printf("Usage: ./reverse input output\n");
+        return 1;
     }
 
     // Open input file for reading
     // TODO #2
+    FILE *input = fopen(argv[1], "r");
 
     // Read header
     // TODO #3
+    WAVHEADER bf;
+    fread(&bf, 1, sizeof(WAVHEADER), input);
+
 
     // Use check_format to ensure WAV format
     // TODO #4
 
     // Open output file for writing
     // TODO #5
+    FILE *output = fopen(argv[2], "w");
 
     // Write header to file
     // TODO #6
@@ -35,6 +42,9 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
+
+    fclose(input);
+    fclose(output);
 }
 
 int check_format(WAVHEADER header)
