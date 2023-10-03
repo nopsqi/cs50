@@ -18,15 +18,20 @@ int main(int argc, char *argv[])
         return 1;
     }
     uint8_t *buffer = malloc(BLOCK_SIZE * sizeof(uint8_t));
-    int i = 0;
+    int total = 0;
 
     while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
-        i++;
-        printf("%x\n", buffer[0]);
+        for (int i = 0; i < BLOCK_SIZE; i++)
+        {
+            printf("%x ", buffer[i]);
+            if (i % 4 == 0)
+                printf("\n");
+            total++;
+        }
         // printf("%li\n", sizeof(buffer[0]));
     }
-    printf("total = %i\n", i);
+    printf("total = %i\n", total);
 
     fclose(file);
     free(buffer);
