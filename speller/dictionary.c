@@ -39,9 +39,11 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int hash = 0;
-    for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
+    // for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
+    for (int i = 1, c = word[i]; c != '\0'; c = word[++i])
     {
-        hash += (toupper(c) - 'A' + 1) * (i + 1);
+        // hash += (toupper(c) - 'A' + 1) * (i + 1);
+        hash += (c)
     }
     return hash;
 }
