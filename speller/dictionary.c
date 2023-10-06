@@ -95,7 +95,8 @@ bool create_hash_table(void)
                 // {
                 //     table[hashes_word]->word[i] = word[i];
                 // }
-                strcpy(table[hashes_word]->word, word);
+                // strcpy(table[hashes_word]->word, word);
+                strcpy(word, table[hashes_word]->word);
             }
 
             // Prepare for next word
