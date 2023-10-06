@@ -87,7 +87,7 @@ bool load(const char *dictionary)
             // Update counter
             words++;
 
-            printf("%s\t%u\n", word, hash(word));
+            printf("%s\t\t%u\n", word, hash(word));
 
             // Prepare for next word
             index = 0;
