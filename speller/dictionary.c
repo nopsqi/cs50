@@ -54,12 +54,6 @@ unsigned int hash(const char *word)
     return hash - 1;
 }
 
-void insert_hash_table(node *n, char *word)
-{
-
-
-}
-
 bool create_hash_table(void)
 {
     int index = 0, words = 0;
@@ -95,17 +89,10 @@ bool create_hash_table(void)
             words++;
 
             unsigned int hashes_word = hash(word);
-            if (table[hashes_word] == NULL)
-            {
-                table[hashes_word] = malloc(sizeof(node));
-                strcpy(table[hashes_word]->word, word);
-                table[hashes_word]->next = NULL;
-            }
-            else
-            {
-
-                while(table[hashes])
-            }
+            node *ptr = malloc(sizeof(node));
+            if 
+            ptr->next = n->next;
+            n->next = ptr;
 
             // Prepare for next word
             index = 0;
