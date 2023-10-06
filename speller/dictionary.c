@@ -52,8 +52,8 @@ unsigned int hash(const char *word)
         // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
         // hash += pow((toupper(c) - 'A' + 1), (i + 1));
         printf("%c ", c);
-        // if (i > 3)
-        //     break;
+        if (i > 3)
+            break;
     }
     return hash;
 }
