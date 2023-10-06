@@ -48,10 +48,10 @@ unsigned int hash(const char *word)
         // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
         hash += pow((toupper(c) - 'A' + 1), (i + 1));
         printf("%c,", c);
-        if (i > 2)
+        if (i >= 4)
             break;
     }
-    return hash;
+    return hash - 1;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
@@ -100,8 +100,7 @@ bool load(const char *dictionary)
             index = 0;
         }
 
-        // if (words > 50)
-        if (word[0] == 'c')
+        if (words > 50)
             return false;
     }
 
