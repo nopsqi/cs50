@@ -90,9 +90,17 @@ bool create_hash_table(void)
 
             unsigned int hashes_word = hash(word);
             node *ptr = malloc(sizeof(node));
-            if 
-            ptr->next = n->next;
-            n->next = ptr;
+            strcpy(ptr->word, word);
+            if (table[hashes_word] == NULL)
+            {
+                ptr->next == NULL;
+                table[hashes_word] = ptr;
+            }
+            else
+            {
+                ptr->next = table[hashes_word]->next;
+                n->next = ptr;
+            }
 
             // Prepare for next word
             index = 0;
