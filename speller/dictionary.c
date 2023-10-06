@@ -44,7 +44,7 @@ unsigned int hash(const char *word)
     {
         // hash += (toupper(c) - 'A' + 1) * (i + 1);
         hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
-        if (i > 1)
+        if (i >= 1)
             break;
     }
     return hash;
