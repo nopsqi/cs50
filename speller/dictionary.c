@@ -91,18 +91,19 @@ bool create_hash_table(void)
             unsigned int hashes_word = hash(word);
             if (table[hashes_word] == NULL)
             {
-                // for (int i = 0 ; word[i] == '\0'; i++)
-                // {
-                //     table[hashes_word]->word[i] = word[i];
-                // }
-                strcpy(table[hashes_word]->word, word);
+                for (int i = 0 ; word[i] == '\0'; i++)
+                {
+                    printf("%c, ", word[i]);
+                    table[hashes_word]->word[i] = word[i];
+                }
+                // strcpy(table[hashes_word]->word, word);
             }
 
             // Prepare for next word
             index = 0;
         }
 
-        if (words > 100)
+        if (words > 50)
             return false;
     }
 
