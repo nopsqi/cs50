@@ -45,8 +45,8 @@ unsigned int hash(const char *word)
     for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
     {
         int curr = toupper(word[i]) - 'A' + 1;
-        int prev = i == 0 ? 0 : toupper(word[i - 1]) - 'A' + 1;
-        int next = word[i + 1] == '\0' ? 0 : toupper(word[i + i]) - 'A' + 1;
+        int prev = i == 0 ? curr : toupper(word[i - 1]) - 'A' + 1;
+        int next = word[i + 1] == '\0' ? curr : toupper(word[i + i]) - 'A' + 1;
         hash += ( curr * abs(curr * (i + 1) - prev * (i)) * abs(curr * (i + 1) - next * (i + 2)) );
         // hash += (toupper(c) - 'A' + 1) * (i + 1);
         // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
