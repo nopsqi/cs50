@@ -54,7 +54,7 @@ unsigned int hash(const char *word)
         if (i > 1)
             break;
     }
-    return hash - 1;
+    return abs(hash - 1);
 }
 
 bool create_hash_table(void)
