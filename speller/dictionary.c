@@ -15,15 +15,9 @@ typedef struct node
 node;
 
 // TODO: Choose number of buckets in hash table
-unsigned int get_bucket_size()
-{
-    unsigned int n = 0;
-    for (int i = 0; i < LENGTH; i++)
-        n += ('z' - 'A' + 1) * (i + 1);
-    return n;
-}
 // const unsigned int N = 26;
-const unsigned int N = get_bucket_size();
+// N = Σ_i ('z' - 'A' + 1) * (i + 1)
+const unsigned int N = ;
 
 // Hash table
 node *table[N];
