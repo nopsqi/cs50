@@ -91,12 +91,14 @@ bool create_hash_table(void)
             unsigned int hashes_word = hash(word);
             if (table[hashes_word] == NULL)
             {
-
-                for (int i = 0; word[i] == '\0'; i++)
-                {
-                    printf("%s\n", word);
-                }
-                // strcpy(table[hashes_word]->word, word);
+                table[hashes_word] = malloc(sizeof(node));
+                strcpy(table[hashes_word]->word, word);
+                table[hashes_word]->next = NULL;
+            }
+            else
+            {
+                
+                while(table[hashes])
             }
 
             // Prepare for next word
