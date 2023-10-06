@@ -30,7 +30,7 @@ bool check(const char *word)
     // TODO
     unsigned int hashes_dictionary;
     unsigned int hashes_word = hash(word);
-    printf("\n\n");
+    printf("\n");
     printf("%u\n", hashes_word);
     return false;
 }
