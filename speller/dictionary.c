@@ -38,13 +38,11 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int hash = 0;
-    int n = 0;
     for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
     {
         hash += (c - 'A' + 1) * (i + 1);
-        n++;
     }
-    return hash / (n + 1);
+    return hash;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
