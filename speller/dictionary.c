@@ -45,15 +45,15 @@ unsigned int hash(const char *word)
     {
         char c = toupper(word[i]);
         c = c >= 'A' && c <= 'Z' ? c - 'A' + 1 : c;
-        hash += (c * (i + 1);
+        hash += (c * (i + 1));
         // hash += pow(c / (i + 1), i + 1);
         // hash += (c * pow(i + 1, 3));
         // hash += toupper(c) - 'A' + 1;
         // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
         // hash += pow(c, i + 1);
         // printf("%c,", c);
-        if (i > 2)
-            break;
+        // if (i > 2)
+        //     break;
     }
     return abs(hash - 1);
 }
