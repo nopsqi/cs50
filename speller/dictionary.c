@@ -100,7 +100,8 @@ bool load(const char *dictionary)
             index = 0;
         }
 
-        if (words > 50)
+        // if (words > 50)
+        if (word[0] == 'b' && word[1] == 'a')
             return false;
     }
 
