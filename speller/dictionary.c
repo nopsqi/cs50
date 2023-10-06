@@ -55,7 +55,7 @@ bool load(const char *dictionary)
         return false;
 
     char c;
-    while (fread(&c, sizeof(char), 1, file))
+    while (fread(&c, sizeof(char), 1, dictionary_file))
     {
         // Allow only alphabetical characters and apostrophes
         if (isalpha(c) || (c == '\'' && index > 0))
@@ -73,16 +73,6 @@ bool load(const char *dictionary)
                 // Prepare for new word
                 index = 0;
             }
-        }
-
-        // Ignore words with numbers (like MS Word can)
-        else if (isdigit(c))
-        {
-            // Consume remainder of alphanumeric string
-            while (fread(&c, sizeof(char), 1, file) && isalnum(c));
-
-            // Prepare for new word
-            index = 0;
         }
 
         // We must have found a whole word
