@@ -92,7 +92,7 @@ bool create_hash_table(void)
             if (table[hashes_word] == NULL)
             {
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; word[i] == '\0'; i++)
                 {
                     printf("%s\n", word);
                 }
