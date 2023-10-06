@@ -56,19 +56,8 @@ unsigned int hash(const char *word)
     return hash - 1;
 }
 
-bool create_hash(void)
+bool create_hash_table(void)
 {
-
-}
-
-// Loads dictionary into memory, returning true if successful, else false
-bool load(const char *dictionary)
-{
-    // TODO
-    dictionary_file = fopen(dictionary, "r");
-    if (dictionary_file == NULL)
-        return false;
-
     int index = 0, words = 0;
     char word[LENGTH + 1];
     char c;
@@ -110,6 +99,20 @@ bool load(const char *dictionary)
         if (words > 100)
             return false;
     }
+
+    return true;
+}
+
+// Loads dictionary into memory, returning true if successful, else false
+bool load(const char *dictionary)
+{
+    // TODO
+    dictionary_file = fopen(dictionary, "r");
+    if (dictionary_file == NULL)
+        return false;
+
+    if (create_hash_table())
+        return false;
 
     return true;
 }
