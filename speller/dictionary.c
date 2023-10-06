@@ -115,8 +115,8 @@ bool create_hash_table(void)
             index = 0;
         }
 
-        // if (words > 50)
-        //     return false;
+        if (words > 50)
+            return false;
     }
 
     return true;
