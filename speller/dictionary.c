@@ -91,11 +91,14 @@ bool load(const char *dictionary)
             // Update counter
             words++;
 
-            // printf("%u\n", hash(word));
+            printf("%s\t%u\n", word, hash(word));
 
             // Prepare for next word
             index = 0;
         }
+
+        if (words > 10)
+            return false;
     }
 
     return true;
