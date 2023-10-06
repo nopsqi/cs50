@@ -48,7 +48,7 @@ unsigned int hash(const char *word)
         unsigned int prev = toupper(word[i - 1]) - 'A';
         hash += pow((curr - prev), 2);
     }
-    return sqrt(hash);
+    return hash;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
