@@ -57,8 +57,6 @@ unsigned int hash(const char *word)
 void insert_hash_table(node *n, char *word)
 {
 
-    node *ptr = malloc(sizeof(node));
-    ptr->next = 
 
 }
 
