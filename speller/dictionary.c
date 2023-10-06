@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdbool.h>
+#include <math.h>
 
 #include "dictionary.h"
 
@@ -43,9 +44,11 @@ unsigned int hash(const char *word)
     for (int i = 1, c = word[i]; c != '\0'; c = word[++i])
     {
         // hash += (toupper(c) - 'A' + 1) * (i + 1);
-        hash += ( toupper(word[i]) )
+        unsigned int curr = toupper(word[i]) - 'A';
+        unsigned int prev = toupper(word[i - 1]) - 'A';
+        hash += pow((curr - prev), 2);
     }
-    return hash;
+    return sqrt(hash);
 }
 
 // Loads dictionary into memory, returning true if successful, else false
