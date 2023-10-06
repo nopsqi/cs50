@@ -102,7 +102,7 @@ bool load(const char *dictionary)
             index = 0;
         }
 
-        if (words > 50)
+        if (words > 100)
             return false;
     }
 
