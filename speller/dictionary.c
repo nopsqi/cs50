@@ -56,6 +56,11 @@ unsigned int hash(const char *word)
     return hash - 1;
 }
 
+bool create_hash(void)
+{
+
+}
+
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
