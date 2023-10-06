@@ -48,8 +48,11 @@ unsigned int hash(const char *word)
         int tmp = 0;
         for (int j = 0; word[j] != '\0'; j++)
         {
-            tmp += 
+            char c1 = toupper(word[j]);
+            c1 = c1 >= 'A' && c1 <= 'Z' ? c1 - 'A' + 1 : c1;
+            tmp += pow(c - c1, 2);
         }
+        hash += tmp;
         // hash += (c * (i + 1));
         // hash += pow(c / (i + 1), i + 1);
         // hash += (c * pow(i + 1, 3));
