@@ -45,7 +45,7 @@ unsigned int hash(const char *word)
     {
         // hash += (toupper(c) - 'A' + 1) * (i + 1);
         // hash += pow((toupper(c) - 'A' + 1) / (i + 1), i + 1);
-        printf("%f ", (toupper(c) - 'A' + 1) * pow(i + 1, 2));
+        printf("%d ", (toupper(c) - 'A' + 1));
         hash += (toupper(c) - 'A' + 1) * pow(i + 1, 2);
         // hash += toupper(c) - 'A' + 1;
         // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
