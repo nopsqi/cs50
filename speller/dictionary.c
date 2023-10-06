@@ -54,9 +54,9 @@ unsigned int hash(const char *word)
     return hash - 1;
 }
 
-bool insert_hash_table(node *n)
+void insert_hash_table(node *n)
 {
-    if ()
+    if (n )
 }
 
 bool create_hash_table(void)
