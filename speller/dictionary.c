@@ -54,6 +54,8 @@ unsigned int hash(const char *word)
     return hash - 1;
 }
 
+int
+
 bool create_hash_table(void)
 {
     int index = 0, words = 0;
@@ -91,7 +93,11 @@ bool create_hash_table(void)
             unsigned int hashes_word = hash(word);
             if (table[hashes_word] == NULL)
             {
-                strcpy(word, table[hashes_word]->word);
+                // for (int i = 0 ; word[i] == '\0'; i++)
+                // {
+                //     table[hashes_word]->word[i] = word[i];
+                // }
+                strcpy(table[hashes_word]->word, word);
             }
 
             // Prepare for next word
