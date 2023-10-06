@@ -45,7 +45,7 @@ unsigned int hash(const char *word)
     for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
     {
         printf("%c ", c);
-        if (i > 1)
+        if (i > 2)
             break;
         int curr = toupper(word[i]) - 'A' + 1;
         int prev = i == 0 ? curr : toupper(word[i - 1]) - 'A' + 1;
