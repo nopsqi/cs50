@@ -15,6 +15,8 @@ typedef struct node
 node;
 
 // TODO: Choose number of buckets in hash table
+for (int i = 0; i < 3; i++)
+    printf("asdfasdfadfadf");
 const unsigned int N = 26;
 
 // Hash table
