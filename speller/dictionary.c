@@ -28,7 +28,6 @@ FILE *dictionary_file = NULL;
 bool check(const char *word)
 {
     // TODO
-    unsigned int hashes_dictionary;
     unsigned int hashes_word = hash(word);
     printf("\n");
     printf("%u\n", hashes_word);
@@ -54,6 +53,8 @@ bool load(const char *dictionary)
     dictionary_file = fopen(dictionary, "r");
     if (dictionary_file == NULL)
         return false;
+
+
     return true;
 }
 
