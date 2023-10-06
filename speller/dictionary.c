@@ -94,7 +94,6 @@ bool create_hash_table(void)
 
             unsigned int hashes_word = hash(word);
             node *ptr = malloc(sizeof(node));
-            printf("inserting hash %s %u\n", word, hashes_word);
             if (ptr == NULL)
             {
                 return false;
@@ -104,6 +103,7 @@ bool create_hash_table(void)
             {
                 ptr->next = NULL;
                 table[hashes_word] = ptr;
+                printf("inserting hash %s %u\n", word, hashes_word);
             }
             else
             {
