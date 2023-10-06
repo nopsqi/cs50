@@ -91,7 +91,8 @@ bool create_hash_table(void)
             unsigned int hashes_word = hash(word);
             if (table[hashes_word] == NULL)
             {
-                for (int i = 0 ; word[i] == '\0'; i++)
+
+                for (int i = 0, ch = word[i] ; ch == '\0'; ch = word[++i])
                 {
                     printf("%c, ", word[i]);
                     table[hashes_word]->word[i] = word[i];
