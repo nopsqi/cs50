@@ -44,8 +44,9 @@ unsigned int hash(const char *word)
     {
         // hash += (toupper(c) - 'A' + 1) * (i + 1);
         hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
+        if < 
     }
-    return sqrt(hash);
+    return hash;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
