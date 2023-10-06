@@ -54,6 +54,8 @@ bool load(const char *dictionary)
     if (dictionary_file == NULL)
         return false;
 
+    int index = 0, words = 0;
+    char word[LENGTH + 1];
     char c;
     while (fread(&c, sizeof(char), 1, dictionary_file))
     {
@@ -68,7 +70,7 @@ bool load(const char *dictionary)
             if (index > LENGTH)
             {
                 // Consume remainder of alphabetical string
-                while (fread(&c, sizeof(char), 1, file) && isalpha(c));
+                while (fread(&c, sizeof(char), 1, dictionary_file) && isalpha(c));
 
                 // Prepare for new word
                 index = 0;
@@ -84,20 +86,7 @@ bool load(const char *dictionary)
             // Update counter
             words++;
 
-            // Check word's spelling
-            getrusage(RUSAGE_SELF, &before);
-            bool misspelled = !check(word);
-            getrusage(RUSAGE_SELF, &after);
-
-            // Update benchmark
-            time_check += calculate(&before, &after);
-
-            // Print word if misspelled
-            if (misspelled)
-            {
-                printf("%s\n", word);
-                misspellings++;
-            }
+            printf("%s\n", word);
 
             // Prepare for next word
             index = 0;
