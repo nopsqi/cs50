@@ -99,7 +99,7 @@ bool create_hash_table(void)
             else
             {
                 ptr->next = table[hashes_word];
-                n->next = ptr;
+                table[hashes_word] = ptr;
             }
 
             // Prepare for next word
