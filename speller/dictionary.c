@@ -28,8 +28,8 @@ FILE *dictionary_file = NULL;
 bool check(const char *word)
 {
     // TODO
-    unsigned int hashes_word = hash(word);
     printf("\n");
+    unsigned int hashes_word = hash(word);
     printf("%u\n", hashes_word);
     return false;
 }
@@ -43,7 +43,7 @@ unsigned int hash(const char *word)
     for (int i = 1, c = word[i]; c != '\0'; c = word[++i])
     {
         // hash += (toupper(c) - 'A' + 1) * (i + 1);
-        hash += (c)
+        hash += ( toupper(word[]) )
     }
     return hash;
 }
@@ -88,7 +88,7 @@ bool load(const char *dictionary)
             // Update counter
             words++;
 
-            printf("%u\n", hash(word));
+            // printf("%u\n", hash(word));
 
             // Prepare for next word
             index = 0;
