@@ -100,14 +100,15 @@ bool create_hash_table(void)
             {
                 ptr->next = table[hashes_word];
                 table[hashes_word] = ptr;
+                printf("linked list created\n");
             }
 
             // Prepare for next word
             index = 0;
         }
 
-        if (words > 50)
-            return false;
+        // if (words > 50)
+        //     return false;
     }
 
     return true;
