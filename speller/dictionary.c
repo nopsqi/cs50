@@ -42,11 +42,11 @@ unsigned int hash(const char *word)
     int hash = 0;
     printf("\n");
     // for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
-    for (int i = 0; word[i] != 0; i++)
+    for (int i = 0; word[i] != '\0'; i++)
     {
+        int c = toupper(word[i]) > toupper[word[i]] - 'A' + 1;
         // hash += (toupper(c) - 'A' + 1) * (i + 1);
         // hash += pow((toupper(c) - 'A' + 1) / (i + 1), i + 1);
-        printf("%c ", word[i]);
         hash += (toupper(word[i]) - 'A' + 1) * pow(i + 1, 2);
         // hash += toupper(c) - 'A' + 1;
         // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
