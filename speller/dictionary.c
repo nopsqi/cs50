@@ -111,7 +111,7 @@ bool load(const char *dictionary)
     if (dictionary_file == NULL)
         return false;
 
-    if (create_hash_table())
+    if (!create_hash_table())
         return false;
 
     return true;
