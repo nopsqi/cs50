@@ -51,7 +51,6 @@ unsigned int hash(const char *word)
         if (i >= 4)
             break;
     }
-    printf("%li\n", sizeof(table));
     return hash - 1;
 }
 
