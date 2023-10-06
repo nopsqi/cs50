@@ -92,10 +92,9 @@ bool create_hash_table(void)
             if (table[hashes_word] == NULL)
             {
 
-                for (int i = 0, ch = word[i] ; ch == '\0'; ch = word[++i])
+                for (int i = 0; i < 5; i++)
                 {
-                    printf("%c, ", word[i]);
-                    table[hashes_word]->word[i] = word[i];
+                    printf("%s\n", word);
                 }
                 // strcpy(table[hashes_word]->word, word);
             }
