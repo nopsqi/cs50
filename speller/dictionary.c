@@ -20,7 +20,7 @@ node;
 // TODO: Choose number of buckets in hash table
 // const unsigned int N = 26;
 // N = Σ_(i = 0)^(LENGTH) ('z' - 'A' + 1) * (i + 1) ≈ 60000;
-const unsigned int N = 10000;
+const unsigned int N = 26;
 
 // Hash table
 node *table[N] = {NULL};
@@ -44,11 +44,12 @@ unsigned int hash(const char *word)
     {
         // hash += (toupper(c) - 'A' + 1) * (i + 1);
         // hash += pow((toupper(c) - 'A' + 1) / (i + 1), i + 1);
-        hash += (toupper(c) - 'A' + 1) * pow(i + 1, 2);
+        // hash += (toupper(c) - 'A' + 1) * pow(i + 1, 2);
+        hash += toupper(c) - 'A' + 1;
         // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
         // hash += pow(toupper(c) - 'A' + 1, i + 1);
         // printf("%c,", c);
-        if (i > 1)
+        if (i > -1)
             break;
     }
     return hash - 1;
