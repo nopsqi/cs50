@@ -93,7 +93,7 @@ bool create_hash_table(void)
             strcpy(ptr->word, word);
             if (table[hashes_word] == NULL)
             {
-                ptr->next == NULL;
+                ptr->next = NULL;
                 table[hashes_word] = ptr;
             }
             else
