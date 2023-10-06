@@ -42,10 +42,11 @@ unsigned int hash(const char *word)
     unsigned int hash = 0;
     for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
     {
-        // hash += (toupper(c) - 'A' + 1) * (i + 1);
-        hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
-        // if (i > 3)
-        //     break;
+        hash += (toupper(c) - 'A' + 1) * (i + 1);
+        // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
+        // hash += pow((toupper(c) - 'A' + 1), (i + 1));
+        if (i > 3)
+            break;
     }
     return hash;
 }
