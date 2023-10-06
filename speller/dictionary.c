@@ -42,7 +42,7 @@ unsigned int hash(const char *word)
     {
         hash += (c - 'A' + 1) * (i + 1);
     }
-    return hash;
+    return hash / (i + 1);
 }
 
 // Loads dictionary into memory, returning true if successful, else false
