@@ -96,6 +96,7 @@ bool create_hash_table(void)
                 return false;
             }
             strcpy(ptr->word, word);
+            printf("linked list created %s %u\n", word, hashes_word);
             if (table[hashes_word] == NULL)
             {
                 ptr->next = NULL;
@@ -105,7 +106,6 @@ bool create_hash_table(void)
             {
                 ptr->next = table[hashes_word];
                 table[hashes_word] = ptr;
-                printf("linked list created %s %u\n", word, hashes_word);
             }
 
             // Prepare for next word
