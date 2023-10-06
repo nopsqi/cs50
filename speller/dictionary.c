@@ -90,7 +90,7 @@ bool create_hash_table(void)
             unsigned int hashes_word = hash(word);
             if (table[hashes_word] != NULL)
             {
-                for 
+                
             }
 
             // Prepare for next word
