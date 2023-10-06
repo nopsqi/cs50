@@ -28,6 +28,7 @@ bool check(const char *word)
     // TODO
     unsigned int hashes_dictionary;
     unsigned int hashes_word = hash(word);
+    printf("%u\n", hashes_word);
     return false;
 }
 
@@ -39,7 +40,7 @@ unsigned int hash(const char *word)
     printf("\n\n");
     for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
     {
-        printf("%c\n", c);
+        hash += (c - 'A' + 1) * (i + 1);
     }
     return hash;
 }
