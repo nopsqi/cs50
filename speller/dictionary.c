@@ -42,8 +42,10 @@ unsigned int hash(const char *word)
     unsigned int hash = 0;
     for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
     {
+        printf("%c ", c);
         hash += (toupper(c) - 'A' + 1) * (i + 1);
     }
+    printf("\n");
     return hash;
 }
 
