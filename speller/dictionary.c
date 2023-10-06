@@ -30,9 +30,7 @@ FILE *dictionary_file = NULL;
 bool check(const char *word)
 {
     // TODO
-    printf("\n");
     unsigned int hashes_word = hash(word);
-    printf("%u\n", hashes_word);
     return false;
 }
 
@@ -41,7 +39,6 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     int hash = 0;
-    printf("\n");
     for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
     {
         // hash += (toupper(c) - 'A' + 1) * (i + 1);
