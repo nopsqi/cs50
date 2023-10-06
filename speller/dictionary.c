@@ -43,7 +43,7 @@ unsigned int hash(const char *word)
     for (int i = 1, c = word[i]; c != '\0'; c = word[++i])
     {
         // hash += (toupper(c) - 'A' + 1) * (i + 1);
-        hash += ( toupper(word[]) )
+        hash += ( toupper(word[i]) )
     }
     return hash;
 }
