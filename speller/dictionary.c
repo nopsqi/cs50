@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "dictionary.h"
 
@@ -88,9 +89,9 @@ bool create_hash_table(void)
             words++;
 
             unsigned int hashes_word = hash(word);
-            if (table[hashes_word] != NULL)
+            if (table[hashes_word] == NULL)
             {
-                
+                strcpy(word, table[hashes_word]->word);
             }
 
             // Prepare for next word
