@@ -43,6 +43,7 @@ bool load(const char *dictionary)
     dictionary_file = fopen(dictionary, "r");
     if (dictionary_file == NULL)
         return false;
+    printf("test");
     return true;
 }
 
