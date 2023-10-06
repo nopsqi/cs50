@@ -20,7 +20,7 @@ node;
 // TODO: Choose number of buckets in hash table
 // const unsigned int N = 26;
 // N = Σ_(i = 0)^(LENGTH) ('z' - 'A' + 1) * (i + 1) ≈ 60000;
-const unsigned int N = 1000000;
+const unsigned int N = 10000;
 
 // Hash table
 node *table[N] = {NULL};
