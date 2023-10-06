@@ -31,7 +31,6 @@ bool check(const char *word)
     unsigned int hashes_dictionary;
     unsigned int hashes_word = hash(word);
     printf("\n\n");
-    printf("%lu\n", sizeof(node));
     printf("%u\n", hashes_word);
     return false;
 }
