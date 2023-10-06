@@ -22,7 +22,7 @@ node;
 const unsigned int N = 1000000;
 
 // Hash table
-node *table[N];
+node *table[N] = {0};
 
 FILE *dictionary_file = NULL;
 
@@ -88,6 +88,7 @@ bool create_hash_table(void)
             words++;
 
             printf("%s\t\t%u\n", word, hash(word));
+
 
             // Prepare for next word
             index = 0;
