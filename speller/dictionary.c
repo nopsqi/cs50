@@ -51,14 +51,13 @@ char *sanitize(const char *word)
 bool check(const char *word)
 {
     // TODO
-    char *sanitized_word = malloc((LENGTH + 1) * sizeof(char));
+    char *sanitized_word = calloc(1, (LENGTH + 1) * sizeof(char));
     for (int i = 0; word[i] != '\0'; i++)
     {
         sanitized_word[i] = tolower(word[i]);
     }
     unsigned int hashes_word = hash(word);
     bool status = search_dictionary(table[hashes_word], sanitized_word);
-    printf("\t%s\n", sanitized_word);
     free(sanitized_word);
     return status;
 }
