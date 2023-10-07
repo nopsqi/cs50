@@ -44,6 +44,7 @@ char *sanitize(const char *word)
     {
         sanitized_word[i] = tolower(word[i]);
     }
+    free(sanitized_word);
     return sanitized_word;
 }
 
