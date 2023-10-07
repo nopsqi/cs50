@@ -50,7 +50,7 @@ unsigned int hash(const char *word)
         {
             char c1 = toupper(word[j]);
             c1 = c1 >= 'A' && c1 <= 'Z' ? c1 - 'A' + 1 : c1;
-            tmp += pow(c * (i + 1) - c1 * (j + 1), 2);
+            tmp += pow(pow(c, i + 1) - pow(c1, j + 1), 2);
         }
         hash += tmp;
         // hash += (c * (i + 1));
@@ -60,8 +60,8 @@ unsigned int hash(const char *word)
         // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
         // hash += pow(c, i + 1);
         // printf("%c,", c);
-        // if (i > 3)
-        //     break;
+        if (i > 3)
+            break;
     }
     return sqrt(hash - 1);
 }
