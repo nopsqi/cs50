@@ -39,7 +39,7 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    int hash = 0;
+    int h = 0;
     // for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
     for (int i = 0; word[i] != '\0'; i++)
     {
@@ -52,19 +52,19 @@ unsigned int hash(const char *word)
             c1 = c1 >= 'A' && c1 <= 'Z' ? c1 - 'A' + 1 : c1;
             tmp += pow(c * (i + 1) - c1 * (j + 1), 2);
         }
-        // hash += (tmp / (c * (i + 1))) + (c * (i + 1)) ;
-        hash += tmp;
-        // hash += (c * (i + 1));
-        // hash += pow(c / (i + 1), i + 1);
-        // hash += (c * pow(i + 1, 3));
-        // hash += toupper(c) - 'A' + 1;
-        // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
-        // hash += pow(c, i + 1);
+        // h += (tmp / (c * (i + 1))) + (c * (i + 1)) ;
+        h += tmp;
+        // h += (c * (i + 1));
+        // h += pow(c / (i + 1), i + 1);
+        // h += (c * pow(i + 1, 3));
+        // h += toupper(c) - 'A' + 1;
+        // h += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
+        // h += pow(c, i + 1);
         // printf("%c,", c);
         if (i > 3)
             break;
     }
-    return abs(hash);
+    return abs(h);
 }
 
 bool create_hash_table(void)
