@@ -60,7 +60,7 @@ unsigned int hash(const char *word)
         // h += (c * pow(i + 1, 3));
         // h += toupper(c) - 'A' + 1;
         // h += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
-        h += pow(c, i + 1);
+        // h += pow(c, i + 1);
         // printf("%c,", c);
         n++;
         if (i > 3)
