@@ -183,7 +183,8 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    return *words;
+    unsigned int size = 0;
+    return size;
 }
 
 void free_hash_table(node *n)
