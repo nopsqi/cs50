@@ -66,10 +66,10 @@ unsigned int hash(const char *word)
         // printf("%c,", c);
         // d += (c / (i + 1));
         n++;
-        if (i > 0)
+        if (i > 3)
             break;
     }
-    return labs(h);
+    return labs(h) / n;
 }
 
 bool create_hash_table(void)
