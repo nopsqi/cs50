@@ -37,7 +37,14 @@ bool search_dictionary(node *n, const char *word)
     return false;
 }
 
-
+char *santize(char *word)
+{
+    char sanitized_word[LENGTH + 1];
+    for (int i = 0; word[i] != '\0'; i++)
+    {
+        sanitized_word[i] = toupper
+    }
+}
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
