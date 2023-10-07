@@ -26,11 +26,12 @@ node *table[N] = {NULL};
 
 FILE *dictionary_file = NULL;
 
-bool search_dictionary(node *n)
+bool search_dictionary(node *n, char *word)
 {
     if (n == NULL)
         return false;
-    search_dictionary(n->next);
+    search_dictionary(n->next, word);
+    strcmp()
 }
 
 // Returns true if word is in dictionary, else false
