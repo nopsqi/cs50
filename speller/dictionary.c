@@ -26,6 +26,11 @@ node *table[N] = {NULL};
 
 FILE *dictionary_file = NULL;
 
+void search_dictionary(node *n)
+{
+    
+}
+
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
@@ -62,7 +67,7 @@ unsigned int hash(const char *word)
         // d += (c * pow(i + 1, 3));
         // h += pow(c, i + 1);
         // printf("%c,", c);
-        // d += c * (i + 1);
+        d += c * (i + 1);
         n++;
         if (i > 3)
             break;
