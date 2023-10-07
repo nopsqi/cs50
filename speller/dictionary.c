@@ -1,9 +1,9 @@
 // Implements a dictionary's functionality
 
-#include <stdio.h>
 #include <ctype.h>
-#include <stdbool.h>
 #include <math.h>
+#include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -14,8 +14,7 @@ typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
-}
-node;
+} node;
 
 // TODO: Choose number of buckets in hash table
 // const unsigned int N = 26;
@@ -119,7 +118,8 @@ bool create_hash_table(void)
             if (index > LENGTH)
             {
                 // Consume remainder of alphabetical string
-                while (fread(&c, sizeof(char), 1, dictionary_file) && isalpha(c));
+                while (fread(&c, sizeof(char), 1, dictionary_file) && isalpha(c))
+                    ;
 
                 // Prepare for new word
                 index = 0;
