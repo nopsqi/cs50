@@ -39,11 +39,12 @@ bool search_dictionary(node *n, const char *word)
 
 char *santize(char *word)
 {
-    char sanitized_word[LENGTH + 1];
+    char *sanitized_word = malloc((LENGTH + 1) * sizeof(char));
     for (int i = 0; word[i] != '\0'; i++)
     {
-        sanitized_word[i] = toupper
+        sanitized_word[i] = toupper(word[i]);
     }
+    return sanitized_word;
 }
 
 // Returns true if word is in dictionary, else false
@@ -180,5 +181,6 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
+    
     return false;
 }
