@@ -179,9 +179,15 @@ unsigned int size(void)
     return 0;
 }
 
-void free_hash_table()
+void free_hash_table(node *n)
 {
-    
+    if (n == NULL)
+        return;
+    if (n->next == NULL)
+        return;
+    free_hash_table(n->next);
+    free(n);
+    return;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
@@ -189,5 +195,7 @@ bool unload(void)
 {
     // TODO
     fclose(dictionary_file);
+    // for (int i = 0; i < N; i++)
+    //     free_hash_table(table[i]);
     return true;
 }
