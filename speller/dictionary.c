@@ -50,7 +50,7 @@ unsigned int hash(const char *word)
         {
             char c1 = toupper(word[j]);
             c1 = c1 >= 'A' && c1 <= 'Z' ? c1 - 'A' + 1 : c1;
-            tmp += pow(abs(c - c1), 2);
+            tmp += pow(c * (i + 1) - c1 * (j + 1), 2);
         }
         hash += tmp;
         // hash += (c * (i + 1));
