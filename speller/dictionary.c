@@ -58,6 +58,7 @@ bool check(const char *word)
     }
     unsigned int hashes_word = hash(word);
     bool status = search_dictionary(table[hashes_word], sanitized_word);
+    printf("\t%s\n", sanitized_word);
     free(sanitized_word);
     return status;
 }
