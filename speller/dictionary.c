@@ -123,7 +123,7 @@ bool create_hash_table(void)
             {
                 ptr->next = table[hashes_word];
                 table[hashes_word] = ptr;
-                printf("\tlinked list created %s %u\n", word, hashes_word);
+                // printf("\tlinked list created %s %u\n", word, hashes_word);
             }
 
             // Prepare for next word
