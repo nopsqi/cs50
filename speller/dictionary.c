@@ -57,17 +57,17 @@ unsigned int hash(const char *word)
         // h += tmp;
         // h += (c * pow(i + 1, 3));
         // h += round(pow(c, i + 1) / (float) pow(i + 1, i + 1));
-        h += pow(c, i + 1) / (i + 1);
+        h += pow(c, i + 1);
         // h += c * (i + 1);
         // d += (c * pow(i + 1, 3));
         // h += pow(c, i + 1);
         // printf("%c,", c);
-        d += c * (i + 1);
+        // d += c * (i + 1);
         n++;
-        if (i > 3)
+        if (i > -1)
             break;
     }
-    return labs(h) / d;
+    return labs(h) / (d * (n - 1));
 }
 
 bool create_hash_table(void)
