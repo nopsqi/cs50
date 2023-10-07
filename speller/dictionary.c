@@ -42,7 +42,7 @@ char *sanitize(const char *word)
     char *sanitized_word = malloc((LENGTH + 1) * sizeof(char));
     for (int i = 0; word[i] != '\0'; i++)
     {
-        sanitized_word[i] = toupper(word[i]);
+        sanitized_word[i] = tolower(word[i]);
     }
     return sanitized_word;
 }
@@ -51,7 +51,7 @@ char *sanitize(const char *word)
 bool check(const char *word)
 {
     // TODO
-    char wod
+    char *sanitized_word = sanitize(word);
     unsigned int hashes_word = hash(word);
     return search_dictionary(table[hashes_word], sanitized_word);
 }
