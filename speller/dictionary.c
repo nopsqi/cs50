@@ -58,14 +58,15 @@ unsigned int hash(const char *word)
         // h += tmp;
         // h += (c * pow(i + 1, 3));
         // h += round(pow(c, i + 1) / (float) pow(i + 1, i + 1));
-        h += c * (i + 1);
+        // h += c * (i + 1);
+        h += pow((i + 1) / c, i + 1);
         // d += (c * pow(i + 1, 3));
         // h += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
         // h += pow(c, i + 1);
         // printf("%c,", c);
         // d += (c / (i + 1));
         n++;
-        if (i > -1)
+        if (i > 3)
             break;
     }
     return labs(h);
