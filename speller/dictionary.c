@@ -26,7 +26,7 @@ node *table[N] = {NULL};
 
 FILE *dictionary_file = NULL;
 
-bool search_dictionary(node *n, char *word)
+bool search_dictionary(node *n, const char *word)
 {
     if (n == NULL)
         return false;
