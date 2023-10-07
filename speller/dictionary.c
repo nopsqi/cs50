@@ -67,7 +67,7 @@ unsigned int hash(const char *word)
         if (i > 4)
             break;
     }
-    return labs(h);
+    return labs(h) / n;
 }
 
 bool create_hash_table(void)
