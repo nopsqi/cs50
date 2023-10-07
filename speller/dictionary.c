@@ -25,7 +25,7 @@ const unsigned int N = 8000000;
 node *table[N] = {NULL};
 
 FILE *dictionary_file = NULL;
-int *words = malloc(sizeof(int));
+int *words = NULL;
 
 bool search_dictionary(node *n, const char *word)
 {
@@ -102,6 +102,7 @@ unsigned int hash(const char *word)
 bool create_hash_table(void)
 {
     int index = 0;
+    words = malloc(sizeof(int));
     char word[LENGTH + 1];
     char c;
     while (fread(&c, sizeof(char), 1, dictionary_file))
@@ -131,7 +132,7 @@ bool create_hash_table(void)
             word[index] = '\0';
 
             // Update counter
-            *words++;
+            (*words)++;
 
             unsigned int hashes_word = hash(word);
             node *ptr = malloc(sizeof(node));
