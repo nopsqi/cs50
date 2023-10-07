@@ -51,12 +51,15 @@ char *sanitize(const char *word)
 bool check(const char *word)
 {
     // TODO
-    char *sanitized_word = sanitize(word);
+    char *sanitized_word = malloc((LENGTH + 1) * sizeof(char));
+    for (int i = 0; word[i] != '\0'; i++)
+    {
+        sanitized_word[i] = tolower(word[i]);
+    }
     unsigned int hashes_word = hash(word);
-    if (!search_dictionary(table[hashes_word], sanitized_word))
-        return false;
-    // return search_dictionary(table[hashes_word], sanitized_word)
-    return true;
+    bool status = search_dictionary(table[hashes_word], sanitized_word);
+    free(sanitized_word);
+    return status;
 }
 
 // Hashes word to a number
