@@ -51,9 +51,9 @@ unsigned int hash(const char *word)
         {
             char c1 = toupper(word[j]);
             c1 = c1 >= 'A' && c1 <= 'Z' ? c1 - 'A' + 1 : c1;
-            tmp += pow(c * pow(2, i + 1) - c1 * pow(2, j + 1), 2);
+            tmp += (c * pow(2, i + 1) - c1 * pow(2, j + 1));
         }
-        h += tmp;
+        h += tmp ;
         // h += tmp;
         // h += (c * (i + 1));
         // h += pow(c / (i + 1), i + 1);
@@ -66,7 +66,7 @@ unsigned int hash(const char *word)
         if (i > 1)
             break;
     }
-    return labs(h) * 0.000001;
+    return labs(h) * 0.1;
 }
 
 bool create_hash_table(void)
