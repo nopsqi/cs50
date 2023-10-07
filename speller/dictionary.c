@@ -203,5 +203,6 @@ bool unload(void)
     fclose(dictionary_file);
     for (int i = 0; i < N; i++)
         free_hash_table(table[i]);
+    free(words);
     return true;
 }
