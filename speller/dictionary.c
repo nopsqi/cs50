@@ -183,9 +183,8 @@ void free_hash_table(node *n)
 {
     if (n == NULL)
         return;
-    if (n->next == NULL)
-        return;
-    free_hash_table(n->next);
+    if (n->next != NULL)
+        free_hash_table(n->next);
     free(n);
     return;
 }
