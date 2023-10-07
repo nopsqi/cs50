@@ -57,7 +57,7 @@ unsigned int hash(const char *word)
         // h += tmp * (c / 100);
         // h += tmp;
         // h += (c * pow(i + 1, 3));
-        h += round(pow(c, i + 1) / (float) pow(i + 1, c));
+        h += round(pow(c, i) / (float) pow(i, i));
         // h += c * (i + 1);
         // d += (c * pow(i + 1, 3));
         // h += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
