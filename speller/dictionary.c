@@ -62,8 +62,8 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    int n = 0;
-    int d = 0;
+    // int n = 0;
+    // int d = 0;
     long int h = 0;
     for (int i = 0; word[i] != '\0'; i++)
     {
@@ -85,7 +85,7 @@ unsigned int hash(const char *word)
         // d += (c * pow(i + 1, 3));
         // h += pow(c, i + 1);
         // d += c * (i + 1);
-        n++;
+        // n++;
     }
     return labs(h);
 }
