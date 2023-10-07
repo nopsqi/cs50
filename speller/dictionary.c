@@ -42,7 +42,7 @@ bool check(const char *word)
 {
     // TODO
     unsigned int hashes_word = hash(word);
-    return false;
+    return search_dictionary(table[hashes_word], word);
 }
 
 // Hashes word to a number
@@ -126,7 +126,7 @@ bool create_hash_table(void)
             {
                 ptr->next = NULL;
                 table[hashes_word] = ptr;
-                printf("inserting hash %s %u\n", word, hashes_word);
+                // printf("inserting hash %s %u\n", word, hashes_word);
             }
             else
             {
