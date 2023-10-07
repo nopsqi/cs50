@@ -55,7 +55,7 @@ bool check(const char *word)
     unsigned int hashes_word = hash(word);
     if (!search_dictionary(table[hashes_word], sanitized_word))
         return false;
-    free(sanitized_word);
+    // free(sanitized_word);
     // return search_dictionary(table[hashes_word], sanitized_word)
     return true;
 }
