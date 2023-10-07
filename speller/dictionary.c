@@ -44,7 +44,6 @@ char *sanitize(const char *word)
     {
         sanitized_word[i] = tolower(word[i]);
     }
-    free(sanitized_word);
     return sanitized_word;
 }
 
@@ -55,6 +54,7 @@ bool check(const char *word)
     char *sanitized_word = sanitize(word);
     unsigned int hashes_word = hash(word);
     return search_dictionary(table[hashes_word], sanitized_word);
+    free(sanitized_word);
 }
 
 // Hashes word to a number
@@ -195,7 +195,7 @@ bool unload(void)
 {
     // TODO
     fclose(dictionary_file);
-    // for (int i = 0; i < N; i++)
-    //     free_hash_table(table[i]);
+    for (int i = 0; i < N; i++)
+        free_hash_table(table[i]);
     return true;
 }
