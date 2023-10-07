@@ -56,7 +56,7 @@ unsigned int hash(const char *word)
         // h += tmp * (c / 100);
         // h += tmp;
         // h += (c * pow(i + 1, 3));
-        h += (pow(c, 3) * (i + 1));
+        h += (pow(c, (i + 1)) / (i + 1));
         // h += pow(c, i + 1);
         // n += (c * pow(i + 1, 3));
         // h += toupper(c) - 'A' + 1;
@@ -64,7 +64,7 @@ unsigned int hash(const char *word)
         // h += pow(c, i + 1);
         // printf("%c,", c);
         n += c;
-        if (i > 3)
+        if (i > 1)
             break;
     }
     return labs(h) / n;
