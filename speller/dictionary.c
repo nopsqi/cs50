@@ -26,9 +26,11 @@ node *table[N] = {NULL};
 
 FILE *dictionary_file = NULL;
 
-void search_dictionary(node *n)
+bool search_dictionary(node *n)
 {
-    
+    if (n == NULL)
+        return false;
+    search_dictionary(n->next);
 }
 
 // Returns true if word is in dictionary, else false
