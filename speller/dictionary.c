@@ -40,6 +40,7 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     int n = 0;
+    int d = 0;
     long int h = 0;
     // for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
     for (int i = 0; word[i] != '\0'; i++)
@@ -58,16 +59,17 @@ unsigned int hash(const char *word)
         // h += (c * pow(i + 1, 3));
         h += (pow(c, i + 1) / pow(2, i + 1));
         // h += pow(c, i + 1);
-        // n += (c * pow(i + 1, 3));
+        // d += (c * pow(i + 1, 3));
         // h += toupper(c) - 'A' + 1;
         // h += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
         // h += pow(c, i + 1);
         // printf("%c,", c);
-        n += c;
+        d += c;
+        n++;
         if (i > 3)
             break;
     }
-    return labs(h) / n;
+    return labs(h) / (d * n);
 }
 
 bool create_hash_table(void)
