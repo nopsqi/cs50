@@ -39,7 +39,7 @@ bool search_dictionary(node *n, const char *word)
 
 char *sanitize(const char *word)
 {
-    char *sanitized_word = malloc((LENGTH + 1) * sizeof(char));
+    char *sanitized_word = calloc(1, (LENGTH + 1) * sizeof(char));
     for (int i = 0; word[i] != '\0'; i++)
     {
         sanitized_word[i] = tolower(word[i]);
@@ -51,11 +51,7 @@ char *sanitize(const char *word)
 bool check(const char *word)
 {
     // TODO
-    char *sanitized_word = calloc(1, (LENGTH + 1) * sizeof(char));
-    for (int i = 0; word[i] != '\0'; i++)
-    {
-        sanitized_word[i] = tolower(word[i]);
-    }
+    char *sanitized_word = sanitize(word);
     unsigned int hashes_word = hash(word);
     bool status = search_dictionary(table[hashes_word], sanitized_word);
     free(sanitized_word);
