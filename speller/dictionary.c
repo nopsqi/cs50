@@ -30,7 +30,8 @@ bool search_dictionary(node *n, char *word)
 {
     if (n == NULL)
         return false;
-    if (strcmp())
+    if (strcmp(n->word, word) == 0)
+        return true;
 }
 
 // Returns true if word is in dictionary, else false
