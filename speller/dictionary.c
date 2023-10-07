@@ -46,7 +46,7 @@ unsigned int hash(const char *word)
     for (int i = 0; word[i] != '\0'; i++)
     {
         char c = toupper(word[i]);
-        // c = c >= 'A' && c <= 'Z' ? c - 'A' + 1 : c;
+        c = c >= 'A' && c <= 'Z' ? c - 'A' + 1 : c;
         // long int tmp = 0;
         // for (int j = 0; word[j] != '\0'; j++)
         // {
@@ -66,7 +66,7 @@ unsigned int hash(const char *word)
         // printf("%c,", c);
         // d += (c / (i + 1));
         n++;
-        if (i > -1)
+        if (i > 0)
             break;
     }
     return labs(h);
