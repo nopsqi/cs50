@@ -37,6 +37,8 @@ bool search_dictionary(node *n, const char *word)
     return false;
 }
 
+
+
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
