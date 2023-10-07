@@ -85,11 +85,10 @@ unsigned int hash(const char *word)
         // h += tmp;
         // h += (c * pow(i + 1, 3));
         // h += round(pow(c, i + 1) / (float) pow(i + 1, i + 1));
-        h += pow(c, i + 1);
+        // h += pow(c, i + 1);
         // h += c * (i + 1);
         // d += (c * pow(i + 1, 3));
         // h += pow(c, i + 1);
-        // printf("%c,", c);
         d += c * (i + 1);
         n++;
         if (i > 3)
@@ -138,29 +137,23 @@ bool create_hash_table(void)
             unsigned int hashes_word = hash(word);
             node *ptr = malloc(sizeof(node));
             if (ptr == NULL)
-            {
                 return false;
-            }
+
             strcpy(ptr->word, word);
             if (table[hashes_word] == NULL)
             {
                 ptr->next = NULL;
                 table[hashes_word] = ptr;
-                // printf("inserting hash %s %u\n", word, hashes_word);
             }
             else
             {
                 ptr->next = table[hashes_word];
                 table[hashes_word] = ptr;
-                // printf("\tlinked list created %s %u\n", word, hashes_word);
             }
 
             // Prepare for next word
             index = 0;
         }
-
-        // if (words > 50)
-        //     return false;
     }
 
     return true;
