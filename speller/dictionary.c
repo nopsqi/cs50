@@ -103,6 +103,7 @@ bool create_hash_table(void)
 {
     int index = 0;
     words = malloc(sizeof(int));
+    *words = 0;
     char word[LENGTH + 1];
     char c;
     while (fread(&c, sizeof(char), 1, dictionary_file))
