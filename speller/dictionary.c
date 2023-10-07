@@ -46,13 +46,13 @@ unsigned int hash(const char *word)
     {
         char c = toupper(word[i]);
         c = c >= 'A' && c <= 'Z' ? c - 'A' + 1 : c;
-        // long int tmp = 0;
-        // for (int j = 0; word[j] != '\0'; j++)
-        // {
-        //     char c1 = toupper(word[j]);
-        //     c1 = c1 >= 'A' && c1 <= 'Z' ? c1 - 'A' + 1 : c1;
-        //     tmp += (c * pow(2, i + 1) - c1 * pow(2, j + 1));
-        // }
+        long int tmp = 0;
+        for (int j = 0; word[j] != '\0'; j++)
+        {
+            char c1 = toupper(word[j]);
+            c1 = c1 >= 'A' && c1 <= 'Z' ? c1 - 'A' + 1 : c1;
+            tmp += (c * pow(2, i + 1) - c1 * pow(2, j + 1));
+        }
         // h += tmp * (c / 100);
         // h += tmp;
         // h += (c * (i + 1));
