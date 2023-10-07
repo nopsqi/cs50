@@ -179,6 +179,8 @@ unsigned int size(void)
     return 0;
 }
 
+
+
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
