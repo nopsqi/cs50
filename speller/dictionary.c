@@ -52,7 +52,7 @@ unsigned int hash(const char *word)
             c1 = c1 >= 'A' && c1 <= 'Z' ? c1 - 'A' + 1 : c1;
             tmp += pow(c * (i + 1) - c1 * (j + 1), 2);
         }
-        hash += tmp;
+        hash += sqrt(tmp);
         // hash += (c * (i + 1));
         // hash += pow(c / (i + 1), i + 1);
         // hash += (c * pow(i + 1, 3));
@@ -60,7 +60,7 @@ unsigned int hash(const char *word)
         // hash += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
         // hash += pow(c, i + 1);
         // printf("%c,", c);
-        if (i > -1)
+        if (i > 5)
             break;
     }
     return abs(hash - 1);
