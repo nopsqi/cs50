@@ -69,7 +69,7 @@ unsigned int hash(const char *word)
         if (i > 1)
             break;
     }
-    return labs(h) / (d * pow(2, n));
+    return labs(h) / (d * n);
 }
 
 bool create_hash_table(void)
