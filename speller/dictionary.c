@@ -57,7 +57,7 @@ unsigned int hash(const char *word)
         // h += tmp * (c / 100);
         // h += tmp;
         // h += (c * pow(i + 1, 3));
-        h += (pow(c, i + 1) / pow(i + 1, c));
+        h += (pow(c, i + 1) / pow(i + 1, i + i));
         // h += pow(c, i + 1);
         // d += (c * pow(i + 1, 3));
         // h += toupper(c) - 'A' + 1;
@@ -69,7 +69,7 @@ unsigned int hash(const char *word)
         if (i > 3)
             break;
     }
-    return labs(h);
+    return labs(h) / n;
 }
 
 bool create_hash_table(void)
@@ -123,7 +123,7 @@ bool create_hash_table(void)
             {
                 ptr->next = table[hashes_word];
                 table[hashes_word] = ptr;
-                printf("\tlinked list created %s %u\n", word, hashes_word);
+                // printf("\tlinked list created %s %u\n", word, hashes_word);
             }
 
             // Prepare for next word
