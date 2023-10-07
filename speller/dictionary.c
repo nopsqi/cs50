@@ -66,7 +66,7 @@ unsigned int hash(const char *word)
         // printf("%c,", c);
         // d += (c / (i + 1));
         n++;
-        if (i > 5)
+        if (i > -1)
             break;
     }
     return labs(h);
