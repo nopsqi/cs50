@@ -25,7 +25,7 @@ const unsigned int N = 8000000;
 node *table[N] = {NULL};
 
 FILE *dictionary_file = NULL;
-int *words = NULL;
+unsigned int *words = NULL;
 
 bool search_dictionary(node *n, const char *word)
 {
