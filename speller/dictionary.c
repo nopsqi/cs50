@@ -30,7 +30,8 @@ bool search_dictionary(node *n, char *word)
 {
     if (n == NULL)
         return false;
-    search_dictionary(n->next, word);
+    if (!search_dictionary(n->next, word))
+        retu
     strcmp()
 }
 
