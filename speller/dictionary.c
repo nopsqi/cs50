@@ -181,6 +181,6 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    
+    free()
     return false;
 }
