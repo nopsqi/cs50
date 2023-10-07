@@ -39,7 +39,7 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    int h = 0;
+    long int h = 0;
     // for (int i = 0, c = word[i]; c != '\0'; c = word[++i])
     for (int i = 0; word[i] != '\0'; i++)
     {
@@ -52,7 +52,7 @@ unsigned int hash(const char *word)
             c1 = c1 >= 'A' && c1 <= 'Z' ? c1 - 'A' + 1 : c1;
             tmp += pow(c * (i + 1) - c1 * (j + 1), 2);
         }
-        h += (tmp / (c * pow(2, i + 1))) + (c * (i + 1)) ;
+        h += (tmp / (i + 1));
         // h += tmp;
         // h += (c * (i + 1));
         // h += pow(c / (i + 1), i + 1);
@@ -61,10 +61,10 @@ unsigned int hash(const char *word)
         // h += pow((toupper(c) - 'A' + 1) * (i + 1), 2);
         // h += pow(c, i + 1);
         // printf("%c,", c);
-        if (i > 3)
+        if (i > 2)
             break;
     }
-    return abs(h);
+    return labs(h);
 }
 
 bool create_hash_table(void)
