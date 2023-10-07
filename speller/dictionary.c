@@ -89,12 +89,12 @@ unsigned int hash(const char *word)
         // h += c * (i + 1);
         // d += (c * pow(i + 1, 3));
         // h += pow(c, i + 1);
-        d += c * (i + 1);
+        // d += c * (i + 1);
         n++;
         if (i > 3)
             break;
     }
-    return labs(h) / (d * n);
+    return labs(h);
 }
 
 bool create_hash_table(void)
