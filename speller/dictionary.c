@@ -53,10 +53,11 @@ bool check(const char *word)
     // TODO
     char *sanitized_word = sanitize(word);
     unsigned int hashes_word = hash(word);
-    // if (!search_dictionary(table[hashes_word], sanitized_word))
-    //     return false;
-    // free(sanitized_word);
-    return search_dictionary(table[hashes_word], sanitized_word);
+    if (!search_dictionary(table[hashes_word], sanitized_word))
+        return false;
+    free(sanitized_word);
+    // return search_dictionary(table[hashes_word], sanitized_word)
+    return true;
 }
 
 // Hashes word to a number
