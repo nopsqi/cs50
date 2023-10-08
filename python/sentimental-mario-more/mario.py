@@ -8,10 +8,13 @@ def main():
 def get_int(prompt):
     height = 0
     while True:
+        height = input("Height: ")
         try:
-            height = int(input("Height: "))
+            height = int(height)
         except ValueError:
             print(f"{height} is not number")
+        else:
+            print(f"height is {height}")
 
 
 
