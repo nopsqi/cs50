@@ -20,8 +20,8 @@ def check_text(text):
 
 
 def coleman(text):
-    sentences = re.split(r'[.!?]', text))
-    
+    sentences = re.split(r'[.!?]', text)
+    sentences.pop()
     print(sentences)
     return 3
 
