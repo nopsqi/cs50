@@ -19,7 +19,7 @@ def check_text(text):
 
 
 def coleman(text):
-    sentences =
+    sentences = len(re.split(r'[.!?]', text))
 
 
 if __name__ = "__main__":
