@@ -21,6 +21,7 @@ def check_text(text):
 
 def coleman(text):
     sentences = re.split(r'[.!?]', text)
+    if sentences[-1] = 
     sentences.pop()
     print(sentences)
     return 3
