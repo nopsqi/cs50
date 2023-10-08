@@ -11,10 +11,10 @@ def get_int(prompt):
         height = input("Height: ")
         try:
             height = int(height)
+            if height in range(1, 9):
+                break
         except ValueError:
             print(f"{height} is not number")
-        else:
-            print(f"height is {height}")
 
 
 
