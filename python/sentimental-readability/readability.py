@@ -23,19 +23,17 @@ def check_text(text):
 
 def coleman(text):
     sentences = re.split(r"[.!?]", text)
-    print(sentences)
-    sentences = sum(1 for s in sentences if s != "")
-    # sentences = sum(1 for _ in sentences)
+    if len(sentences[-1]) < 2:
+        sentences.pop()
+    sentences = len(sentences)
     words = text.split(" ")
-    print(words)
-    words = sum(1 for w in words if w != "")
-    # words = sum(1 for _ in words)
+    # words = sum(1 for w in words if w != "")
+    words = len(words)
     letters = sum(1 for c in text if c.isalpha())
 
     l = letters / words * 100
     s = sentences / words * 100
     index = 0.0588 * l - 0.296 * s - 15.8
-    print(index)
     return round(index)
 
 
