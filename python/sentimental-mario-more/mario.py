@@ -3,7 +3,8 @@
 def main():
     height = get_int("Height: ")
     for h in range(height):
-        print(' ' * (height - (h + 1)) + '#' * (h + 1) + "  " + '#' * (h + 1))
+        brick = '#' * (h + 1)
+        print(' ' * (height - (h + 1)) + brick + "  " + brick)
 
 
 def get_int(prompt):
