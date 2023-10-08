@@ -24,7 +24,8 @@ def coleman(text):
     sentences = sum(1 for s in sentences if s != '')
     words = text.split(' ')
     words = sum(1 for w in words if w != '')
-    print(words)
+    letters = sum(1 for l in text if l.isalpha())
+    print(letters)
     return 3
 
 
