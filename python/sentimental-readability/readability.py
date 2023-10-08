@@ -27,7 +27,6 @@ def coleman(text):
         sentences.pop()
     sentences = len(sentences)
     words = text.split(" ")
-    # words = sum(1 for w in words if w != "")
     words = len(words)
     letters = sum(1 for c in text if c.isalpha())
 
