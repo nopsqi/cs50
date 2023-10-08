@@ -3,7 +3,14 @@ def main():
     ...
 
 def get_string(prompt):
-    return 
+    card_number = "";
+    while True:
+        try:
+            int(card_number)
+            return card_number
+        except ValueError:
+            pass
+
 
 
 if __name__ == "__main__":
