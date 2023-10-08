@@ -8,7 +8,12 @@ def main():
     if (not check_card(card_number)):
         print("INVALID")
         sys.exit(1)
-    print("VALID")
+    print(check_provider)
+    sys.exit(0)
+
+
+def check_provider(card_number):
+    
 
 
 def check_card(card_number):
@@ -16,10 +21,9 @@ def check_card(card_number):
     for i, n in enumerate(card_number[::-1]):
         n = int(n)
         if i % 2 == 1:
-            luhn += sum(int(sub_n) for sub_n in str(n))
+            luhn += sum(int(sub_n) for sub_n in str(n * 2))
         else:
             luhn += n
-    print(luhn)
     return luhn % 10 == 0
 
 
