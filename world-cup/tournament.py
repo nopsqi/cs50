@@ -9,7 +9,6 @@ import random
 
 
 def main():
-
     # Ensure correct usage
     if len(sys.argv) != 3:
         sys.exit("Usage: python tournament.py FILENAME")
@@ -17,7 +16,7 @@ def main():
     N = int(sys.argv[2])
     teams = []
     # TODO: Read teams into memory from file
-    with open(sys.argv[1], 'r') as file:
+    with open(sys.argv[1], "r") as file:
         reader = csv.DictReader(file)
         for row in reader:
             row["rating"] = int(row["rating"])
@@ -61,7 +60,7 @@ def simulate_tournament(teams):
     # TODO
     teams_copy = teams.copy()
     if len(teams_copy) == 1:
-        return teams_copy[0]['team']
+        return teams_copy[0]["team"]
     teams_copy = simulate_round(teams_copy)
     return simulate_tournament(teams_copy)
 
