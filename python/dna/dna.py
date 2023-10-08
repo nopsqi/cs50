@@ -15,7 +15,6 @@ def main():
         reader = csv.DictReader(file)
         for row in reader:
             database.append(row)
-    print(database)
 
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as file:
@@ -25,6 +24,7 @@ def main():
     dna_str = {key: 0 for key in database[0].keys() if key != "name"}
     for s in dna_str:
         dna_str[s] = longest_match(dna, s)
+    print(dna_str)
 
     # TODO: Check database for matching profiles
 
