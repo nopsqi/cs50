@@ -1,4 +1,14 @@
 # TODO
-from cs50 import get_int
 
-height = get_int("Height: ")
+def main():
+    height = get_int("Height: ")
+
+
+def get_int(prompt):
+    height = 0
+    while True:
+
+
+
+if __name__ == "__main__":
+    main()
