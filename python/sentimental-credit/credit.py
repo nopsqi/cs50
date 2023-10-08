@@ -3,19 +3,24 @@ import sys
 
 
 def main():
-    # card_number = get_string("Number: ")
-    card_number = str(4003600000000014)
+    card_number = get_string("Number: ")
+    # card_number = str(4003600000000014)
     if (not check_card(card_number)):
         print("INVALID")
         sys.exit(1)
-    print(check_provider)
+    print(check_provider(card_number))
     sys.exit(0)
 
 
 def check_provider(card_number):
     card_length = len(card_number)
     if card_length == 16 and int(card_number[:2]) in range(51,56):
-        print
+        return "MASTERCARD"
+    if card_length == 15 and int(card_number[:2]) in [34, 37]:
+        return "AMEX"
+    if card_length in [13, 16] and int(card_number[0]) == 4:
+        return "VISA"
+    return "INVALID"
 
 
 def check_card(card_number):
