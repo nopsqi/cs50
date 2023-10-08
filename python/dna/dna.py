@@ -27,6 +27,7 @@ def main():
 
     # TODO: Check database for matching profiles
     result = [d["name"] for d in database if list(d.values())[1:] == list(dna_str.values())]
+    result = []
     print(result)
 
     return
