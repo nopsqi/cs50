@@ -5,8 +5,9 @@ def main():
 
 
 def get_int(prompt):
-    height = 0
     while True:
+        if int(input("Height: ")) in range(1, 9):
+            return 
 
 
 
