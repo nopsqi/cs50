@@ -3,7 +3,7 @@
 def main():
     height = get_int("Height: ")
     for h in range(height):
-        print('#' * (h + 1), '#' * (h + 1))
+        print(' ' * height - (h + 1), '#' * (h + 1), '#' * (h + 1))
 
 
 def get_int(prompt):
