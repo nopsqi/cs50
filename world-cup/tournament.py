@@ -5,15 +5,16 @@ import sys
 import random
 
 # Number of simluations to run
-N = 1000
+# N = 1000
 
 
 def main():
 
     # Ensure correct usage
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         sys.exit("Usage: python tournament.py FILENAME")
 
+    N = int(sys.argv[2])
     teams = []
     # TODO: Read teams into memory from file
     with open(sys.argv[1], 'r') as file:
