@@ -1,15 +1,16 @@
 # TODO
 def main():
-    ...
+    card_number = get_string("Number: ")
+    print(card_number)
 
 def get_string(prompt):
-    card_number = "";
+    card_number = input(prompt)
     while True:
         try:
             int(card_number)
             return card_number
         except ValueError:
-            pass
+            print("invalid")
 
 
 
