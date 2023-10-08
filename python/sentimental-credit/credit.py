@@ -4,7 +4,7 @@ import sys
 
 def main():
     # card_number = get_string("Number: ")
-    card_number = str(4062901840)
+    card_number = str(4003600000000014)
     if (not check_card(card_number)):
         print("INVALID")
         sys.exit(1)
@@ -16,9 +16,11 @@ def check_card(card_number):
     for i, n in enumerate(card_number[::-1]):
         n = int(n)
         if i % 2 == 1:
+            print(n)
             luhn += n * 2
         else:
             luhn += n
+    print(luhn)
     return luhn % 10 == 0
 
 
