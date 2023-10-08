@@ -5,7 +5,7 @@ import sys
 def main():
     # card_number = get_string("Number: ")
     card_number = str(4062901840)
-    if (check_card(card_number) == 0):
+    if (not check_card(card_number)):
         print("INVALID")
         sys.exit(1)
     print("VALID")
@@ -19,7 +19,7 @@ def check_card(card_number):
             luhn += n * 2
         else:
             luhn += n
-    return luhn
+    return luhn % 10 == 0
 
 
 def get_string(prompt):
