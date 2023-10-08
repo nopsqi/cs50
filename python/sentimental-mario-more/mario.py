@@ -18,6 +18,5 @@ def get_int(prompt):
             print(f"{height} is not number")
 
 
-
 if __name__ == "__main__":
     main()
