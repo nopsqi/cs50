@@ -1,5 +1,6 @@
 # TODO
 import sys
+import re
 
 
 def main():
@@ -18,7 +19,7 @@ def check_text(text):
 
 
 def coleman(text):
-    sentences = 
+    sentences =
 
 
 if __name__ = "__main__":
