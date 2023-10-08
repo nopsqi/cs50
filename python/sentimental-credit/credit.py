@@ -4,6 +4,7 @@ def main():
     print(card_number)
 
 def check_card(card_number):
+    for i, n in enumerate(card_number):
 
 def get_string(prompt):
     while True:
