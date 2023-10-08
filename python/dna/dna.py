@@ -21,6 +21,7 @@ def main():
         dna = file.read().rstrip()
 
     # TODO: Find longest match of each STR in DNA sequence
+    print(database[0].keys())
 
     # TODO: Check database for matching profiles
 
