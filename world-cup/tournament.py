@@ -23,8 +23,7 @@ def main():
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
-    counts = {key: 0 for key in teams.key}
-    print(counts)
+    counts = {key["team"]: 0 for key in teams}
     for i in range(N):
         winner = simulate_tournament(teams)
         counts[winner] = counts[winner] + 1 if winner in counts else 0
