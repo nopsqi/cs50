@@ -4,13 +4,13 @@ def main():
     print(card_number)
 
 def get_string(prompt):
-    card_number = input(prompt)
     while True:
+        card_number = input(prompt)
         try:
             int(card_number)
             return card_number
         except ValueError:
-            print("invalid")
+            continue
 
 
 
