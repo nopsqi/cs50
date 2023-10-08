@@ -4,7 +4,8 @@ import re
 
 
 def main():
-    text = input("Input text: ")
+    # text = input("Input text: ")
+    text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!"
     print(check_text(text))
     sys.exit(0)
 
@@ -19,8 +20,10 @@ def check_text(text):
 
 
 def coleman(text):
-    sentences = len(re.split(r'[.!?]', text))
+    sentences = re.split(r'[.!?]', text)
+    print(sentences)
+    return 3
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     main()
