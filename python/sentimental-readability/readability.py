@@ -24,9 +24,12 @@ def coleman(text):
     sentences = sum(1 for s in sentences if s != '')
     words = text.split(' ')
     words = sum(1 for w in words if w != '')
-    letters = sum(1 for l in text if l.isalpha())
-    print(letters)
-    return 3
+    letters = sum(1 for c in text if c.isalpha())
+
+    l = letters / words * 100
+    s = sentences / words * 100
+    index = 0.0588 * l - 0.296 * s - 15.8
+    return round(index)
 
 
 if __name__ == "__main__":
