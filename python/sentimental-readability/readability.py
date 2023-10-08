@@ -1,6 +1,7 @@
 # TODO
 import sys
 import re
+import math
 
 
 def main():
@@ -29,7 +30,7 @@ def coleman(text):
     l = letters / words * 100
     s = sentences / words * 100
     index = 0.0588 * l - 0.296 * s - 15.8
-    return ceil(index)
+    return round(index)
 
 
 if __name__ == "__main__":
