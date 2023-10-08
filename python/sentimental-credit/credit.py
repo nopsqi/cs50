@@ -14,7 +14,7 @@ def main():
 
 def check_provider(card_number):
     card_length = len(card_number)
-    if card_length 
+    if card_length == 16 and 
 
 
 def check_card(card_number):
