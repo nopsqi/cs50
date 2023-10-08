@@ -16,7 +16,7 @@ def check_card(card_number):
     for i, n in enumerate(card_number[::-1]):
         n = int(n)
         if i % 2 == 1:
-            luhn += n * 2
+            luhn += sum(int(sub_n) for sub_n in str(n))
         else:
             luhn += n
     print(luhn)
