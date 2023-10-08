@@ -5,7 +5,9 @@ import sys
 def main():
 
     # TODO: Check for command-line usage
-    print(longest_match("CTAGATAGATAGATAGATAGATT", "AGAT"))
+    if len(sys.argv) != 3:
+        print("Usage: python dna.py data.scv sequence.txt")
+        sys.exit(1)
 
     # TODO: Read database file into a variable
 
