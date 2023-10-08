@@ -2,7 +2,7 @@
 
 def main():
     height = get_int("Height: ")
-    print(height)
+    
 
 
 def get_int(prompt):
@@ -12,7 +12,7 @@ def get_int(prompt):
         try:
             height = int(height)
             if height in range(1, 9):
-                break
+                return height
         except ValueError:
             print(f"{height} is not number")
 
