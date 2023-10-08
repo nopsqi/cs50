@@ -2,7 +2,8 @@
 def main():
     ...
 
-def get_string
+def get_string(prompt):
+    return 
 
 
 if __name__ == "__main__":
