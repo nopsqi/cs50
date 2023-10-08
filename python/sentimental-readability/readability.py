@@ -4,8 +4,8 @@ import re
 
 
 def main():
-    # text = input("Input text: ")
-    text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!"
+    text = input("Input text: ")
+    # text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!"
     print(check_text(text))
     sys.exit(0)
 
@@ -20,10 +20,10 @@ def check_text(text):
 
 
 def coleman(text):
-    sentences = re.split(r'[.!?]', text)
-    sentences = sum(1 for s in sentences if s != '')
-    words = text.split(' ')
-    words = sum(1 for w in words if w != '')
+    sentences = re.split(r"[.!?]", text)
+    sentences = sum(1 for s in sentences if s != "")
+    words = text.split(" ")
+    words = sum(1 for w in words if w != "")
     letters = sum(1 for c in text if c.isalpha())
 
     l = letters / words * 100
