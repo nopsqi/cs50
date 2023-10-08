@@ -26,7 +26,8 @@ def main():
         dna_str[s] = longest_match(dna, s)
 
     # TODO: Check database for matching profiles
-    result = [d["name"] for d in database if ]
+    result = [d["name"] for d in database if list(d.values())[1:] == list(dna_str.values())]
+    print(result)
 
     return
 
