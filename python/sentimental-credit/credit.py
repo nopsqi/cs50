@@ -14,7 +14,7 @@ def main():
 
 def check_provider(card_number):
     card_length = len(card_number)
-    firs_digit = 
+    if card_length 
 
 
 def check_card(card_number):
