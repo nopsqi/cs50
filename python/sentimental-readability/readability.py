@@ -5,8 +5,9 @@ import math
 
 
 def main():
-    text = input("Input text: ")
+    # text = input("Input text: ")
     # text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!"
+    text = 'Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, "and what is the use of a book," thought Alice "without pictures or conversation?"'
     print(check_text(text))
     sys.exit(0)
 
@@ -32,6 +33,7 @@ def coleman(text):
     l = letters / words * 100
     s = sentences / words * 100
     index = 0.0588 * l - 0.296 * s - 15.8
+    print(index)
     return round(index)
 
 
