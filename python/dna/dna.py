@@ -17,9 +17,9 @@ def main():
             database.append(row)
 
     # TODO: Read DNA sequence file into a variable
-    dna = ""
     with open(sys.argv[2], "r") as file:
         dna = file.read().rstrip()
+    print(dna)
 
     # TODO: Find longest match of each STR in DNA sequence
 
