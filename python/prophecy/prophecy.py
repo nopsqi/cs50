@@ -11,7 +11,9 @@ def main():
             row["id"] = int(row["id"])
             data.append(row)
     houses = []
-    houses = sorted([d["house"] for d in data if d not in houses])
+    for d in data:
+        house = {k: v for k, v in d.items() if k not in ["student_id", "id"]}
+        print(house)
     print(houses)
     return
     for house in houses:
