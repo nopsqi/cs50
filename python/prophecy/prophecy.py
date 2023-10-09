@@ -11,7 +11,7 @@ def main():
             row["id"] = int(row["id"])
             data.append(row)
     for d in data:
-        db.execute("INSERT INTO students (student_name) VALUES (?)", d["student_name"])
+        # db.execute("INSERT INTO students (student_name) VALUES (?)", d["student_name"])
 
 
 if __name__ == "__main__":
