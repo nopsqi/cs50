@@ -10,7 +10,8 @@ def main():
         for row in reader:
             row["id"] = int(row["id"])
             data.append(row)
-    houses = sorted(set([d["house"], d["head"]] for d in data))
+    houses = []
+    houses = sorted([d["house"] for d in data if d not in houses])
     print(houses)
     return
     for house in houses:
