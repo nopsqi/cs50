@@ -3,10 +3,9 @@ CREATE TABLE students (
     student_name TEXT NOT NULL
 );
 CREATE TABLE houses (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL PRIMARY KEY,
     house TEXT NOT NULL,
-    head, TEXT NOT NULL,
-    PRIMARY KEY(id)
+    head, TEXT NOT NULL
 );
 CREATE TABLE assignment (
     id INTEGER NOT NULL PRIMARY KEY,
