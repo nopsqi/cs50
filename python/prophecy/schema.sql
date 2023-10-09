@@ -1,7 +1,6 @@
 CREATE TABLE students (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL PRIMARY KEY,
     student_name TEXT NOT NULL
-    PRIMARY KEY(id)
 );
 CREATE TABLE houses (
     id INTEGER NOT NULL,
@@ -10,6 +9,9 @@ CREATE TABLE houses (
     PRIMARY KEY(id)
 );
 CREATE TABLE assignment (
-    id INTEGER NOT NULL,
-    student_id 
-)
+    id INTEGER NOT NULL PRIMARY KEY,
+    FOREIGN KEY (student_id)
+        REFERENCES students (id)
+    FOREIGN KEY (house_id)
+        REFERENCES houses (id)
+);
