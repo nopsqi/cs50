@@ -10,6 +10,8 @@ CREATE TABLE houses (
 );
 CREATE TABLE assignment (
     id INTEGER NOT NULL PRIMARY KEY,
+    student_id INTEGER NOT NULL,
+    house_id INTEGER NOT NULL,
     FOREIGN KEY (student_id)
         REFERENCES students (id),
     FOREIGN KEY (house_id)
