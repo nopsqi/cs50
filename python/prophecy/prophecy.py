@@ -10,6 +10,7 @@ def main():
         for row in reader:
             row["id"] = int(row["id"])
             data.append(row)
+    
     for d in data:
         # db.execute("INSERT INTO students (student_name) VALUES (?)", d["student_name"])
 
