@@ -12,11 +12,10 @@ def main():
             data.append(row)
     houses = []
     for d in data:
-        house = {k: v for k, v in d.items() if k not in ["student_id", "id"]}
-        print(house)
-    print(houses)
-    return
-    for house in houses:
+        house = {k: v for k, v in d.items() if k not in ["student_name", "id"]}
+        if house not in houses:
+            houses.append(house)
+    for house in sorted(houses, key=lambda house: house["house"]):
         db.execute("INSERT INTO houses (house, head) VALUES (?, ?)", house["house"], house["head"])
     for d in data:
         pass
