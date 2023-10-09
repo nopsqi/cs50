@@ -10,8 +10,11 @@ def main():
         for row in reader:
             row["id"] = int(row["id"])
             data.append(row)
-    houses = set(d["house"] for d in data)
+    houses = sorted(set([d["house"], d["head"]] for d in data))
     print(houses)
+    return
+    for house in houses:
+        db.execute("INSERT INTO houses (house, head) VALUES (?, ?)", house["house"], house["head"])
     for d in data:
         pass
         # db.execute("INSERT INTO students (student_name) VALUES (?)", d["student_name"])
