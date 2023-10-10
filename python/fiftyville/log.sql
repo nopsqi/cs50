@@ -14,4 +14,5 @@ AND c.day = 28
 AND c.street = 'Humphrey Street'
 AND c.description LIKE '%theft%'
 AND i.transcript LIKE '%theft%'
-AND b.hour = 10;
+AND b.hour = 10
+AND b.minute = 25;
