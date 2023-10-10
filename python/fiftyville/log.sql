@@ -32,16 +32,17 @@ SELECT
     , p.name as thief
     -- , p.phone_number
     -- , p.passport_number
-    , pc.caller
-    , pc.receiver
-    , pc.duration
+    -- , pc.caller
+    -- , pc.receiver
+    -- , pc.duration
     , p1.name as accomplice
     , p1.passport_number
     , f.year || ', ' ||  f.month || ' ' || f.day AS flight_date
     -- , a1.city origin
     -- , a.city destination
-    , a2.city origin
-    , a3.city destination
+    , f1.year || ', ' ||  f1.month || ' ' || f1.day AS flight_date
+    , a3.city origin
+    , a2.city destination
     -- , b.hour || ':' || b.minute as time
     -- , b.activity
     -- , b.license_plate
