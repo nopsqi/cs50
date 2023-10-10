@@ -5,6 +5,7 @@
 SELECT
     i.year, i.month, i.day
     -- , c.description
+    , i.name
     , i.transcript
     -- , b.hour
     -- , b.minute
