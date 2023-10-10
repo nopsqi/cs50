@@ -6,11 +6,8 @@ SELECT
     i.year, i.month, i.day
     -- , c.description
     -- , i.name
-    , i.transcript
+    -- , i.transcript
     , atm.account_number
-    , atm.year
-    , atm.month
-    , atm.day
     , atm.atm_location
     , atm.transaction_type
     , atm.amount
@@ -42,6 +39,7 @@ AND c.day = 28
 AND c.street = 'Humphrey Street'
 AND c.description LIKE '%theft%'
 AND i.transcript LIKE '%bakery%'
-AND atm.transaction_type = 'withdraw';
+AND atm.transaction_type = 'withdraw'
+AND atm.atm_location = 'Leggett Street'
 -- AND b.hour = 10
 -- AND b.minute = 25;
