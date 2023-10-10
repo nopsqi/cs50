@@ -21,7 +21,7 @@ ORDER BY i.name
 ;
 
 SELECT
-    c.year || ', ' ||  c.month || ' ' || c.day AS 
+    c.year || ', ' ||  c.month || ' ' || c.day AS crime_date
     -- , atm.year
     -- , atm.month
     -- , atm.day
@@ -37,6 +37,7 @@ SELECT
     , pc.duration
     , p1.name
     , p1.passport_number
+    , f.year || ', ' ||  f.month || ' ' || f.day AS flight_date
     , a.city destination
     -- , b.hour || ':' || b.minute as time
     -- , b.activity
