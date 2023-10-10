@@ -4,10 +4,12 @@
 
 SELECT
     i.day, i.month, i.year, b.hour, b.minute
-    , i.name, c.description, i.transcript
+    -- , i.name, c.description, i.transcript
     , b.activity, b.license_plate
+    , p.name, p.phone_number, p.passport_number
 FROM crime_scene_reports c
 JOIN interviews i, bakery_security_logs b
+JOIN people p ON p.license_plate = b.license_plate
 WHERE c.year = 2021
 AND c.month = 7
 AND c.day = 28
