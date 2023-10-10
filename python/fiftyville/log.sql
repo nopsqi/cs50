@@ -32,10 +32,10 @@ SELECT
     , p.name
     -- , p.phone_number
     -- , p.passport_number
-    -- , b.hour
-    -- , b.minute
-    -- , b.activity
-    -- , b.license_plate
+    , b.hour
+    , b.minute
+    , b.activity
+    , b.license_plate
     -- , pc.caller
     -- , pc.receiver
     -- , pc.duration
@@ -44,7 +44,7 @@ SELECT
 FROM crime_scene_reports c
 JOIN atm_transactions atm ON atm.year = c.year AND atm.month = c.month AND atm.day = c.day AND atm.atm_location = 'Leggett Street' AND atm.transaction_type = 'withdraw'
 JOIN bank_accounts ba ON ba.account_number = atm.account_number
-JOIN people p ON p.id = ba.person_id -- AND p.license_plate = b.license_plate
+JOIN people p ON p.id = ba.person_id AND p.license_plate = b.license_plate
 JOIN bakery_security_logs b ON b.year = c.year AND b.month = c.month AND b.day = c.day AND b.hour >= 10 AND b.minute >= 15 AND b.activity = 'exit'
 -- JOIN phone_calls pc ON (pc.year = c.year AND pc.month = c.month AND pc.day = c.day) AND (pc.caller = p.phone_number OR pc.receiver = p.phone_number) AND pc.duration < 60
 -- JOIN passengers pas ON pas.passport_number = p.passport_number
