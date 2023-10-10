@@ -38,8 +38,10 @@ SELECT
     , p1.name as accomplice
     , p1.passport_number
     , f.year || ', ' ||  f.month || ' ' || f.day AS flight_date
-    , a1.city origin
-    , a.city destination
+    -- , a1.city origin
+    -- , a.city destination
+    , a2.city origin
+    , a3.city destination
     -- , b.hour || ':' || b.minute as time
     -- , b.activity
     -- , b.license_plate
@@ -51,9 +53,12 @@ JOIN people p ON p.id = ba.person_id -- AND p.license_plate = b.license_plate
 JOIN phone_calls pc ON pc.year = c.year AND pc.month = c.month AND pc.day = c.day AND pc.duration < 60 AND (pc.caller = p.phone_number OR pc.receiver = p.phone_number)
 JOIN people p1 ON p1.phone_number = pc.receiver
 JOIN passengers pas ON pas.passport_number = p1.passport_number
-JOIN flights f ON f.id = pas.flight_id AND f.year >= c.year AND f.month >= c.month AND f.day = c.day + 1 -- AND f.hour >= b.hour AND f.minute >= b.minute
+JOIN flights f ON f.id = pas.flight_id AND f.year >= c.year AND f.month >= c.month AND f.day = c.day + 1
 JOIN airports a ON a.id = f.destination_airport_id
 JOIN airports a1 ON a1.id = f.origin_airport_id
+JOIN flights f1 ON f1.origin_airport_id = f.destination_airport_id AND f1.year >= f.year AND f1.month >= f.month AND f1.day >= f.day
+JOIN airports a2 ON a2.id = f1.destination_airport_id
+JOIN airports a3 ON a3.id = f1.origin_airport_id
 -- JOIN bakery_security_logs b ON b.year = c.year AND b.month = c.month AND b.day = c.day AND b.hour >= 10 AND b.minute >= 15 AND b.activity = 'exit'
 -- JOIN flights f1 ON f1.id = pas.flight_id AND f1.year >= f.year AND f.month >=c.month AND  f.day >= c.day AND f.hour >= b.hour AND f.minute >= b.minute
 -- JOIN airports a1 ON a1.id = f1.destination_airport_id
