@@ -22,6 +22,9 @@ ORDER BY i.name
 
 SELECT
     c.year, c.month, c.day
+    , atm.year
+    , atm.month
+    , atm.day
     , atm.account_number
     , atm.atm_location
     , atm.transaction_type
