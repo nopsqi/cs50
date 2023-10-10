@@ -9,4 +9,5 @@ OR people.id =
 (
     SELECT people.id FROM people
     WHERE people.name = 'Jennifer Lawrence'
-);
+)
+GROUP BY movies.title;
