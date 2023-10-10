@@ -48,7 +48,7 @@ JOIN passengers pas ON pas.passport_number = p.passport_number
 JOIN flights f ON f.id = pas.flight_id AND f.year >= c.year AND f.month >= c.month AND f.day >= c.day AND f.hour >= b.hour AND f.minute >= b.minute
 JOIN airports a ON a.id = f.destination_airport_id and a.city = 'Fiftyville'
 JOIN people p1 ON p1.phone_number = pc.receiver
-JOIN flight f1 ON f1.id = pas.
+JOIN flight f1 ON f1.id = pas.flight_id AND f1.year >= f.year AND f.month >=c.month AND  f.day >= c.day AND f.hour >= b.hour AND f.minute >= b.minute
 -- JOIN people p1 ON p1.phone_number = pc.receiver
 -- JOIN airports a ON a.id = f.origin_airport_id
 WHERE c.year = 2021
