@@ -10,5 +10,6 @@ SELECT *
 FROM movies m1
 INNER JOIN stars s1 ON s1.movie_id = m1.id
 INNER JOIN people p1 ON p1.id = s1.person_id
+INNER JOIN stars s2 ON s2.person_id = p1.id
 WHERE p1.name = 'Bradley Cooper'
 LIMIT 20;
