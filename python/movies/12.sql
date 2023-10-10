@@ -5,7 +5,7 @@ WHERE stars.person_id =
     SELECT people.id FROM people
     WHERE people.name = 'Bradley Cooper'
 )
-OR stars.person_id =
+AND stars.person_id =
 (
     SELECT people.id FROM people
     WHERE people.name = 'Jennifer Lawrence'
