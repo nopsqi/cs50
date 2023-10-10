@@ -2,4 +2,5 @@
 
 .table
 
-SELECT * FROM crime_scene_reports ORDER BY year LIMIT 10;
+SELECT * FROM crime_scene_reports WHERE year = 2021 AND month = 7 AND day = 28 AND street = 'Humphrey Street' AND description LIKE '%theft%';
+
