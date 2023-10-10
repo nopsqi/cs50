@@ -3,12 +3,13 @@ from cs50 import SQL
 
 def main():
     db = SQL("sqlite:///fiftyville.db")
-    tables = db.execute("SELECT name FROM sqlite_master;")
+    tables = db.execute("SELECT tbl_name FROM sqlite_master;")
     for table in tables:
         print(table)
-        db.execute("SELECT * FROM ? LIMIT 5;", table["name"])
-        break
-    db.execute("SELECT * FROM crime_scene_reports LIMIT 5;")
+        rows = db.execute("SELECT * FROM ? LIMIT 5;", table["tbl_name"])
+        for row in rows:
+            print(row)
+        print()
 
 
 if __name__ == "__main__":
