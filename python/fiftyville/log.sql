@@ -6,6 +6,7 @@ SELECT
     i.year, i.month, i.day, b.hour, b.minute
     , c.description
     , i.transcript
+    , b.minute
     , b.activity
     , b.license_plate
     , p.name
