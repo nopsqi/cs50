@@ -18,7 +18,7 @@ SELECT
     -- , a.city origin
     -- , a1.city destination
 FROM crime_scene_reports c
-JOIN interviews i
+JOIN interviews i ON i.year = c.year AND i.month = c.month
 -- JOIN bakery_security_logs b
 -- JOIN people p ON p.license_plate = b.license_plate
 -- JOIN phone_calls pc ON pc.caller = p.phone_number AND pc.day = c.day
