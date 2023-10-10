@@ -2,6 +2,10 @@
 
 .schema
 
+SELECT i.name, i.transcript
+FROM interviews
+WHERE
+
 SELECT
     i.year, i.month, i.day
     -- , c.description
