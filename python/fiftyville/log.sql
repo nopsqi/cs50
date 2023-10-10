@@ -4,7 +4,7 @@
 
 SELECT
     i.day, i.month, i.year, b.hour, b.minute
-    -- , i.name, c.description, i.transcript
+    , i.name, c.description, i.transcript
     , b.activity, b.license_plate
 FROM crime_scene_reports c
 JOIN interviews i, bakery_security_logs b
