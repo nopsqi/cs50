@@ -11,7 +11,7 @@ AND c.day = 28
 AND c.description LIKE '%theft%'
 ;
 
-SELECT i.name, i.transcript
+SELECT i.year || ', ' || i.month || ' ' || i.day as interview_date, i.name, i.transcript
 FROM interviews i
 WHERE i.year >= 2021
 AND i.month >= 7
