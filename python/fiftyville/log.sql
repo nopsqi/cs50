@@ -21,7 +21,7 @@ ORDER BY i.name
 ;
 
 SELECT
-    c.year, c.month, c.day
+    c.year + ', ' + c.month, c.day
     -- , atm.year
     -- , atm.month
     -- , atm.day
