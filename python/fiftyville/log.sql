@@ -6,19 +6,20 @@ SELECT
     i.year, i.month, i.day
     -- , c.description
     -- , i.name
-    , i.transcript
+    -- , i.transcript
     , atm.account_number
     -- , atm.atm_location
     -- , atm.transaction_type
     -- , atm.amount
     , p.name
+    , p.phone_nuber
     , b.hour
     , b.minute
     , b.activity
     , b.license_plate
-    -- , p.name
-    -- , pc.caller
-    -- , pc.receiver
+    , pc.caller
+    , pc.receiver
+    , pc.duration
     -- , p1.name
     -- , p1.passport_number
     -- , a.city origin
@@ -29,7 +30,7 @@ JOIN atm_transactions atm ON atm.year = c.year AND atm.month = c.month AND atm.d
 JOIN bank_accounts ba ON ba.account_number = atm.account_number
 JOIN bakery_security_logs b ON b.year = c.year AND b.month = c.month AND b.day = c.day
 JOIN people p ON p.id = ba.person_id AND p.license_plate = b.license_plate
-JOIN phone_calls pc ON pc.caller = p.phone_number AND pc.day = c.day
+JOIN phone_calls pc ON pc.year = c.year AND pc.month = c.month AND pc.day = c.day
 -- JOIN people p1 ON p1.phone_number = pc.receiver
 -- JOIN passengers pas ON pas.passport_number = p1.passport_number
 -- JOIN flights f ON f.id = pas.flight_id
