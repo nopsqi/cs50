@@ -1,4 +1,4 @@
-SELECT *
+SELECT m.title, p2.name
 FROM people p1
 INNER JOIN stars s1 ON s1.person_id = p1.id
 INNER JOIN movies m ON m.id = s1.movie_id
