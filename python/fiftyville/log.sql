@@ -2,4 +2,4 @@
 
 .table
 
-SELECT * FROM crime_scene_reports ORDER BY ;
+SELECT * FROM crime_scene_reports ORDER BY year LIMIT 10;
