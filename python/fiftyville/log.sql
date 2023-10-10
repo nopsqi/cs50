@@ -12,3 +12,4 @@ AND c.street = 'Humphrey Street'
 AND c.description LIKE '%theft%'
 AND i.transcript LIKE '%theft%';
 
+SELECT * FROM bkery_security_logs
