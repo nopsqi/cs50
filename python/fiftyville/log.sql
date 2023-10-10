@@ -6,7 +6,8 @@ SELECT
     i.year, i.month, i.day
     -- , c.description
     , i.name
-    , i.transcript
+    -- , i.transcript
+    , a.
     -- , b.hour
     -- , b.minute
     -- , b.activity
@@ -20,7 +21,7 @@ SELECT
     -- , a1.city destination
 FROM crime_scene_reports c
 JOIN interviews i ON i.year = c.year AND i.month = c.month
-JOIN atm_transactions a ON a.year = i.year 
+JOIN atm_transactions a ON a.year = i.year AND a.month = i.month AND a.day = i.day
 -- JOIN bakery_security_logs b
 -- JOIN people p ON p.license_plate = b.license_plate
 -- JOIN phone_calls pc ON pc.caller = p.phone_number AND pc.day = c.day
