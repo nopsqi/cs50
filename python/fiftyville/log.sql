@@ -6,12 +6,12 @@ SELECT
     i.year, i.month, i.day
     -- , c.description
     -- , i.name
-    -- , i.transcript
-    , atm.account_number
-    , atm.atm_location
-    , atm.transaction_type
-    , atm.amount
-    , p.name
+    , i.transcript
+    -- , atm.account_number
+    -- , atm.atm_location
+    -- , atm.transaction_type
+    -- , atm.amount
+    -- , p.name
     -- , b.hour
     -- , b.minute
     -- , b.activity
@@ -24,11 +24,11 @@ SELECT
     -- , a.city origin
     -- , a1.city destination
 FROM crime_scene_reports c
-JOIN interviews i ON i.year = c.year AND i.month = c.month
-JOIN atm_transactions atm ON atm.year = i.year AND atm.month = i.month AND atm.day = i.day
+JOIN interviews i ON i.year >= c.year AND i.month >= c.month
+JOIN atm_transactions atm ON atm.year = c.year AND atm.month = c.month AND atm.day = c.day
 JOIN bank_accounts ba ON ba.account_number = atm.account_number
+JOIN bakery_security_logs b ON b.year = c.year AND b.month = c.month AND b.day = c.day
 JOIN people p ON p.id = ba.person_id
--- JOIN bakery_security_logs b
 -- JOIN phone_calls pc ON pc.caller = p.phone_number AND pc.day = c.day
 -- JOIN people p1 ON p1.phone_number = pc.receiver
 -- JOIN passengers pas ON pas.passport_number = p1.passport_number
@@ -43,5 +43,6 @@ AND c.description LIKE '%theft%'
 AND i.transcript LIKE '%bakery%'
 AND atm.transaction_type = 'withdraw'
 AND atm.atm_location = 'Leggett Street'
+GROUP BY i.transcript;
 -- AND b.hour = 10
 -- AND b.minute = 25;
