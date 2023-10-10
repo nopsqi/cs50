@@ -4,5 +4,6 @@ WHERE stars.person_id = (
     SELECT people.id FROM people
     WHERE people.name = 'Chadwick Boseman'
 )
-ORDER BY ratings.rating DESC, movies.name
+GROUP BY movies.title
+ORDER BY ratings.rating DESC
 LIMIT 5;
