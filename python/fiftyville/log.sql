@@ -9,7 +9,6 @@ SELECT
     , p.name, p.phone_number, p.passport_number
 FROM crime_scene_reports c
 JOIN interviews i, bakery_security_logs b
-JOIN people p ON p.license_plate = b.license_plate
 WHERE c.year = 2021
 AND c.month = 7
 AND c.day = 28
@@ -17,4 +16,5 @@ AND c.street = 'Humphrey Street'
 AND c.description LIKE '%theft%'
 AND i.transcript LIKE '%theft%'
 AND b.hour = 10
-AND b.minute = 25;
+AND b.minute = 25
+JOIN people p ON p.license_plate = b.license_plate;
