@@ -32,8 +32,8 @@ SELECT
     , p.name as thief
     -- , p.phone_number
     -- , p.passport_number
-    -- , pc.caller
-    -- , pc.receiver
+    , pc.caller
+    , pc.receiver
     -- , pc.duration
     , p1.name as accomplice
     , p1.passport_number
