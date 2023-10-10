@@ -45,10 +45,9 @@ JOIN atm_transactions atm ON atm.year = c.year AND atm.month = c.month AND atm.d
 JOIN bank_accounts ba ON ba.account_number = atm.account_number
 JOIN bakery_security_logs b ON b.year = c.year AND b.month = c.month AND b.day = c.day
 JOIN people p ON p.id = ba.person_id AND p.license_plate = b.license_plate
--- JOIN phone_calls pc ON (pc.year = c.year AND pc.month = c.month AND pc.day = c.day) AND (pc.caller = p.phone_number OR pc.receiver = p.phone_number)
-JOIN phone_calls pc ON (pc.year = c.year AND pc.month = c.month AND pc.day = c.day)
+JOIN phone_calls pc ON (pc.year = c.year AND pc.month = c.month AND pc.day = c.day) AND (pc.caller = p.phone_number OR pc.receiver = p.phone_number)
 JOIN passengers pas ON pas.passport_number = p.passport_number
-JOIN flights f ON f.id = pas.flight_id
+JOIN flights f ON f.id = pas.flight_id AND f.year = c.year AND f.month = c.month
 JOIN airports a ON a.id = f.destination_airport_id
 -- JOIN people p1 ON p1.phone_number = pc.receiver
 -- JOIN airports a ON a.id = f.origin_airport_id
@@ -63,6 +62,5 @@ AND b.hour >= 10
 AND b.minute >= 15
 AND b.activity = 'exit'
 AND pc.duration < 60
-AND (pc.caller = p.phone_number OR pc.receiver = p.phone_number)
 -- GROUP BY i.transcript
 ;
