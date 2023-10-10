@@ -29,13 +29,13 @@ SELECT
     -- , atm.atm_location
     -- , atm.transaction_type
     -- , atm.amount
-    -- , p.name
+    , p.name as thief
     -- , p.phone_number
     -- , p.passport_number
     , pc.caller
     , pc.receiver
     , pc.duration
-    , p1.name
+    , p1.name as accomplice
     , p1.passport_number
     , f.year || ', ' ||  f.month || ' ' || f.day AS flight_date
     , a1.city origin
