@@ -5,9 +5,14 @@
 SELECT
     i.year, i.month, i.day
     -- , c.description
-    , i.name
+    -- , i.name
     -- , i.transcript
-    , a.
+    , a.year
+    , a.month
+    , a.day
+    , a.location
+    , a.transaction_type
+    , a.amount
     -- , b.hour
     -- , b.minute
     -- , b.activity
