@@ -7,8 +7,11 @@ SELECT
     -- , i.name, c.description, i.transcript
     , b.activity, b.license_plate
     , p.name, p.phone_number, p.passport_number
+    , pc.
 FROM crime_scene_reports c
 JOIN interviews i, bakery_security_logs b
+JOIN people p ON p.license_plate = b.license_plate
+JOIN phone_calls pc ON pc.caller = b.phone_number
 WHERE c.year = 2021
 AND c.month = 7
 AND c.day = 28
@@ -16,5 +19,4 @@ AND c.street = 'Humphrey Street'
 AND c.description LIKE '%theft%'
 AND i.transcript LIKE '%theft%'
 AND b.hour = 10
-AND b.minute = 25
-JOIN people p ON p.license_plate = b.license_plate;
+AND b.minute = 25;
