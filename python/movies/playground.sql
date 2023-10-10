@@ -9,4 +9,5 @@
 SELECT *
 FROM movies m1
 INNER JOIN stars s1 ON s1.movie_id = m1.id
+INNER JOIN people p1 ON p1.id = s1.person_id
 LIMIT 20;
