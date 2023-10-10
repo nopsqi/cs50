@@ -1,6 +1,5 @@
 SELECT *
-FROM
-(
+FROM (
     SELECT *
-    FROM
+    FROM 
 )
