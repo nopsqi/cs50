@@ -36,19 +36,19 @@ SELECT
     , pc.caller
     , pc.receiver
     , pc.duration
+    , a.city destination
     -- , p1.name
     -- , p1.passport_number
-    -- , a.city origin
-    -- , a1.city destination
+    -- , a1.city origin
 FROM crime_scene_reports c
 JOIN atm_transactions atm ON atm.year = c.year AND atm.month = c.month AND atm.day = c.day
 JOIN bank_accounts ba ON ba.account_number = atm.account_number
 JOIN bakery_security_logs b ON b.year = c.year AND b.month = c.month AND b.day = c.day
 JOIN people p ON p.id = ba.person_id AND p.license_plate = b.license_plate
 JOIN phone_calls pc ON (pc.year = c.year AND pc.month = c.month AND pc.day = c.day) AND (pc.caller = p.phone_number OR pc.receiver = p.phone_number)
-JOIN passengers pas ON pas.passport_number = p1.passport_number
--- JOIN flights f ON f.id = pas.flight_id
--- JOIN airports a ON a.id = f.destination_airport_id
+JOIN passengers pas ON pas.passport_number = p.passport_number
+JOIN flights f ON f.id = pas.flight_id
+JOIN airports a ON a.id = f.destination_airport_id
 -- JOIN people p1 ON p1.phone_number = pc.receiver
 -- JOIN airports a ON a.id = f.origin_airport_id
 WHERE c.year = 2021
