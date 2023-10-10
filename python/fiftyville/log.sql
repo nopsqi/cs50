@@ -5,9 +5,9 @@
 SELECT
     i.day, i.month, i.year, b.hour, b.minute
     -- , i.name, c.description, i.transcript
-    , b.activity, b.license_plate
+    -- , b.activity, b.license_plate
     , p.name, p.phone_number, p.passport_number
-    , pc.caller, pc.receiver, pc.year, pc.month, pc.day
+    , pc.caller, pc.receiver, pc.year, pc.month, pc.day, pc.duration
 FROM crime_scene_reports c
 JOIN interviews i, bakery_security_logs b
 JOIN people p ON p.license_plate = b.license_plate
