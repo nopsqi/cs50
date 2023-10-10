@@ -6,7 +6,7 @@ SELECT
     i.year, i.month, i.day
     -- , c.description
     -- , i.name
-    -- , i.transcript
+    , i.transcript
     , atm.account_number
     , atm.year
     , atm.month
