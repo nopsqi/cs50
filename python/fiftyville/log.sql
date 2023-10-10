@@ -47,5 +47,6 @@ AND atm.atm_location = 'Leggett Street'
 AND b.hour >= 10
 AND b.minute >= 15
 AND b.activity = 'exit'
+AND pc.duration < 60
 -- GROUP BY i.transcript;
 ;
