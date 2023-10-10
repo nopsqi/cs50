@@ -6,16 +6,16 @@ SELECT
     i.year, i.month, i.day
     -- , c.description
     -- , i.name
-    , i.transcript
-    -- , atm.account_number
+    -- , i.transcript
+    , atm.account_number
     -- , atm.atm_location
     -- , atm.transaction_type
     -- , atm.amount
-    -- , p.name
-    -- , b.hour
-    -- , b.minute
-    -- , b.activity
-    -- , b.license_plate
+    , p.name
+    , b.hour
+    , b.minute
+    , b.activity
+    , b.license_plate
     -- , p.name
     -- , pc.caller
     -- , pc.receiver
@@ -43,6 +43,8 @@ AND c.description LIKE '%theft%'
 AND i.transcript LIKE '%bakery%'
 AND atm.transaction_type = 'withdraw'
 AND atm.atm_location = 'Leggett Street'
-GROUP BY i.transcript;
--- AND b.hour = 10
--- AND b.minute = 25;
+AND b.hour >= 10
+AND b.minute >= 15
+AND b.activity = 'exit'
+-- GROUP BY i.transcript;
+;
