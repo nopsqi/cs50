@@ -38,6 +38,7 @@ SELECT
     , p1.name as accomplice
     , p1.passport_number accom_passport
     , f.year || ', ' ||  f.month || ' ' || f.day AS flight_date
+    , f.hour || ':' ||  f.minute AS flight_time
     , a1.city origin
     , a.city destination
     -- , b.hour || ':' || b.minute as time
