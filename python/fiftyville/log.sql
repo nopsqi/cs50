@@ -6,11 +6,12 @@ SELECT
     i.year, i.month, i.day
     -- , c.description
     -- , i.name
-    , i.transcript
+    -- , i.transcript
     , atm.account_number
     , atm.atm_location
     , atm.transaction_type
     , atm.amount
+    , p.name
     -- , b.hour
     -- , b.minute
     -- , b.activity
@@ -25,8 +26,9 @@ SELECT
 FROM crime_scene_reports c
 JOIN interviews i ON i.year = c.year AND i.month = c.month
 JOIN atm_transactions atm ON atm.year = i.year AND atm.month = i.month AND atm.day = i.day
+JOIN bank_accounts ba ON ba.account_number = atm.account_number
+JOIN people p ON p.id = ba.person_id
 -- JOIN bakery_security_logs b
--- JOIN people p ON p.license_plate = b.license_plate
 -- JOIN phone_calls pc ON pc.caller = p.phone_number AND pc.day = c.day
 -- JOIN people p1 ON p1.phone_number = pc.receiver
 -- JOIN passengers pas ON pas.passport_number = p1.passport_number
