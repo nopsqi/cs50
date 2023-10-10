@@ -21,10 +21,7 @@ ORDER BY i.name
 ;
 
 SELECT
-    i.year, i.month, i.day
-    -- , c.description
-    -- , i.name
-    -- , i.transcript
+    c.year, c.month, c.day
     , atm.account_number
     -- , atm.atm_location
     -- , atm.transaction_type
@@ -43,7 +40,6 @@ SELECT
     -- , a.city origin
     -- , a1.city destination
 FROM crime_scene_reports c
-JOIN interviews i ON i.year >= c.year AND i.month >= c.month
 JOIN atm_transactions atm ON atm.year = c.year AND atm.month = c.month AND atm.day = c.day
 JOIN bank_accounts ba ON ba.account_number = atm.account_number
 JOIN bakery_security_logs b ON b.year = c.year AND b.month = c.month AND b.day = c.day
@@ -59,7 +55,6 @@ AND c.month = 7
 AND c.day = 28
 AND c.street = 'Humphrey Street'
 AND c.description LIKE '%theft%'
-AND i.transcript LIKE '%bakery%'
 AND atm.transaction_type = 'withdraw'
 AND atm.atm_location = 'Leggett Street'
 AND b.hour >= 10
