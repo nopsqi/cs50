@@ -1,2 +1,2 @@
 1. bold
-2. 
+2. the first song listened more that the 100th. so each song shoud've a weight attach to them before averaging
