@@ -3,12 +3,10 @@
 .schema
 
 SELECT i.name, i.transcript
-FROM interviews
-WHERE c.year = 2021
-AND c.month = 7
-AND c.day = 28
-AND c.street = 'Humphrey Street'
-AND c.description LIKE '%theft%'
+FROM interviews i
+WHERE i.year = 2021
+AND i.month = 7
+AND i.day = 28
 AND i.transcript LIKE '%bakery%'
 ;
 
