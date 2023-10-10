@@ -21,7 +21,7 @@ ORDER BY i.name
 ;
 
 SELECT
-    c.year || ', ' ||  c.month || ' ' || c.day AS time
+    c.year || ', ' ||  c.month || ' ' || c.day AS date
     -- , atm.year
     -- , atm.month
     -- , atm.day
@@ -32,8 +32,7 @@ SELECT
     , p.name
     -- , p.phone_number
     -- , p.passport_number
-    , b.hour
-    , b.minute
+    , b.hour || ':' || b.minute as time
     , b.activity
     , b.license_plate
     -- , pc.caller
