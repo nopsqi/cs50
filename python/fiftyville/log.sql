@@ -7,12 +7,12 @@ SELECT
     -- , c.description
     -- , i.name
     -- , i.transcript
-    , a.year
-    , a.month
-    , a.day
-    , a.location
-    , a.transaction_type
-    , a.amount
+    , atm.year
+    , atm.month
+    , atm.day
+    , atm.atm_location
+    , atm.transaction_type
+    , atm.amount
     -- , b.hour
     -- , b.minute
     -- , b.activity
@@ -26,7 +26,7 @@ SELECT
     -- , a1.city destination
 FROM crime_scene_reports c
 JOIN interviews i ON i.year = c.year AND i.month = c.month
-JOIN atm_transactions a ON a.year = i.year AND a.month = i.month AND a.day = i.day
+JOIN atm_transactions atm ON atm.year = i.year AND atm.month = i.month AND atm.day = i.day
 -- JOIN bakery_security_logs b
 -- JOIN people p ON p.license_plate = b.license_plate
 -- JOIN phone_calls pc ON pc.caller = p.phone_number AND pc.day = c.day
