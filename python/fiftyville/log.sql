@@ -28,7 +28,7 @@ JOIN interviews i ON i.year >= c.year AND i.month >= c.month
 JOIN atm_transactions atm ON atm.year = c.year AND atm.month = c.month AND atm.day = c.day
 JOIN bank_accounts ba ON ba.account_number = atm.account_number
 JOIN bakery_security_logs b ON b.year = c.year AND b.month = c.month AND b.day = c.day
-JOIN people p ON p.id = ba.person_id AND 
+JOIN people p ON p.id = ba.person_id AND p.license_plate = b.license_plate
 -- JOIN phone_calls pc ON pc.caller = p.phone_number AND pc.day = c.day
 -- JOIN people p1 ON p1.phone_number = pc.receiver
 -- JOIN passengers pas ON pas.passport_number = p1.passport_number
