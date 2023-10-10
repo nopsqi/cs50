@@ -48,5 +48,6 @@ AND b.hour >= 10
 AND b.minute >= 15
 AND b.activity = 'exit'
 AND pc.duration < 60
+AND p.license_plate IN b.license_plate
 -- GROUP BY i.transcript;
 ;
