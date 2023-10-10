@@ -11,7 +11,7 @@ SELECT
 FROM crime_scene_reports c
 JOIN interviews i, bakery_security_logs b
 JOIN people p ON p.license_plate = b.license_plate
-JOIN phone_calls pc ON pc.caller = p.phone_number
+JOIN phone_calls pc ON pc.caller = p.phone_number AND pc.day = c.day
 WHERE c.year = 2021
 AND c.month = 7
 AND c.day = 28
