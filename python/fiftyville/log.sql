@@ -5,10 +5,10 @@
 SELECT
     i.day, i.month, i.year, b.hour, b.minute
     -- , i.name, c.description, i.transcript
-    -- , b.activity, b.license_plate
+    , b.activity, b.license_plate
     , p.name, p.phone_number, p.passport_number
-    , pc.caller, pc.receiver
-    , p1.name, p1.phone_number, p1.passport_number
+    -- , pc.caller, pc.receiver
+    -- , p1.name, p1.phone_number, p1.passport_number
 FROM crime_scene_reports c
 JOIN interviews i, bakery_security_logs b
 JOIN people p ON p.license_plate = b.license_plate
@@ -21,4 +21,4 @@ AND c.street = 'Humphrey Street'
 AND c.description LIKE '%theft%'
 AND i.transcript LIKE '%theft%'
 AND b.hour = 10
-AND b.minute = 25;
+-- AND b.minute >= 1;
