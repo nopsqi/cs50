@@ -13,15 +13,15 @@ AND c.description LIKE '%theft%'
 
 SELECT i.name, i.transcript
 FROM interviews i
-WHERE i.year = 2021
-AND i.month = 7
-AND i.day = 28
+WHERE i.year >= 2021
+AND i.month >= 7
+AND i.day >= 28
 AND i.transcript LIKE '%bakery%'
 ORDER BY i.name
 ;
 
 SELECT
-    c.year || ', ' ||  c.month || ' ' || c.day AS date
+    c.year || ', ' ||  c.month || ' ' || c.day AS 
     -- , atm.year
     -- , atm.month
     -- , atm.day
