@@ -8,4 +8,5 @@
 -- LIMIT 20;
 SELECT *
 FROM movies m1
-INNER JOIN 
+INNER JOIN stars s1 ON s1.movie_id = m1.id
+LIMIT 20;
