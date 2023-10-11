@@ -52,7 +52,7 @@ JOIN passengers pas ON pas.passport_number = p.passport_number
 JOIN flights f ON f.id = pas.flight_id AND f.year >= c.year AND f.month >= c.month AND f.day = c.day + 1
 JOIN airports a ON a.id = f.destination_airport_id
 JOIN airports a1 ON a1.id = f.origin_airport_id
-JOIN bakery_security_logs b ON b.year = c.year AND b.month = c.month AND b.day = c.day AND b.hour >= 10 AND b.minute >= 15 AND b.activity = 'exit'
+JOIN bakery_security_logs b ON b.year = c.year AND b.month = c.month AND b.day = c.day AND b.hour >= 10 AND b.minute <= 25 AND b.activity = 'exit'
 WHERE c.year = 2021
 AND c.month = 7
 AND c.day = 28
