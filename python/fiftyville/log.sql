@@ -29,6 +29,7 @@ SELECT
     -- , atm.atm_location
     -- , atm.transaction_type
     -- , atm.amount
+    , b.hour || ':' || b.minute as bake_time
     , p.name as thief
     , p.phone_number t_ph_number
     -- , p.passport_number
