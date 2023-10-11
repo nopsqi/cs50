@@ -30,7 +30,7 @@ SELECT
     -- , atm.transaction_type
     -- , atm.amount
     , p.name as thief
-    , p.phone_number
+    , p.phone_number t_ph_number
     -- , p.passport_number
     , pc.caller
     , pc.receiver
