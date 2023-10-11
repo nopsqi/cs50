@@ -61,5 +61,4 @@ AND c.month = 7
 AND c.day = 28
 AND c.street = 'Humphrey Street'
 AND c.description LIKE '%theft%'
--- GROUP BY i.transcript
 ;
