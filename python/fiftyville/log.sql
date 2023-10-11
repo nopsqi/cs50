@@ -44,7 +44,6 @@ SELECT
     -- , b.hour || ':' || b.minute as time
     -- , b.activity
     -- , b.license_plate
-    -- , p1.name
 FROM crime_scene_reports c
 JOIN atm_transactions atm ON atm.year = c.year AND atm.month = c.month AND atm.day = c.day AND atm.atm_location = 'Leggett Street' AND atm.transaction_type = 'withdraw'
 JOIN bank_accounts ba ON ba.account_number = atm.account_number
