@@ -47,7 +47,7 @@ JOIN bank_accounts ba ON ba.account_number = atm.account_number
 JOIN people p ON p.id = ba.person_id AND p.license_plate = b.license_plate
 JOIN phone_calls pc ON pc.year = c.year AND pc.month = c.month AND pc.day = c.day AND pc.duration < 60 AND (pc.caller = p.phone_number OR pc.receiver = p.phone_number)
 JOIN people p1 ON (p1.phone_number = pc.receiver OR p1.phone_number = pc.caller) AND p1.phone_number != p.phone_number
-JOIN passengers pas ON pas.passport_number = p.passport_number OR pas.passport_number = p1.passport_number
+JOIN passengers pas ON pas.passport_number = p.passport_number
 JOIN flights f ON f.id = pas.flight_id AND f.year >= c.year AND f.month >= c.month AND f.day = c.day + 1
 JOIN airports a ON a.id = f.destination_airport_id
 JOIN airports a1 ON a1.id = f.origin_airport_id
