@@ -25,7 +25,7 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 def index():
     birthdays = db.execute("SELECT * FROM birthdays;")
-    is_valid = {"name": 1, "month": 1, "day": 1};
+    is_valid = {"name": 1, "month": 1, "day": 1}
     if request.method == "POST":
         # TODO: Add the user's entry into the database
         data = request.form
