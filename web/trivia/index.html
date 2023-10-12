@@ -7,7 +7,13 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-            
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('.part-1-ans').foreach((answer) => function() {
+                    answer.onclick = function(event) {
+                        console.log(event.srcElement.innerHTML)
+                    }
+                })
+            });
         </script>
     </head>
     <body>
