@@ -13,7 +13,6 @@
                 document.querySelectorAll('.part-1-ans').forEach((button) => {
                     button.onclick = function() {
                         let answer = this.innerHTML
-                        console.log(answer)
                         if (answer == '1 people per 6 sheep') {
                             this.style.backgroundColor = 'green'
                             partOneStatus.innerHTML = 'Correct'
@@ -29,10 +28,11 @@
                     if (answerField.value.toLowerCase() == 'australia') {
                         answerField.style.backgroundColor = 'green'
                         partTwoStatus.innerHTML = 'Correct'
-                        return;
                     }
-                    answerField.style.backgroundColor = 'red'
-                    partTwoStatus.innerHTML = 'Incorrect'
+                    else {
+                        answerField.style.backgroundColor = 'red'
+                        partTwoStatus.innerHTML = 'Incorrect'
+                    }
                     event.preventDefault()
                 }
             });
