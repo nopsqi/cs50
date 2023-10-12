@@ -25,9 +25,10 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-
         # TODO: Add the user's entry into the database
+        is_valid = 0;
         data = request.form
+        
         return redirect("/")
 
     else:
