@@ -26,8 +26,9 @@ def after_request(response):
 def index():
     if request.method == "POST":
         # TODO: Add the user's entry into the database
-        is_valid = 0;
+        is_valid = {};
         data = request.form
+        if data.get("name") is None
         return redirect("/")
 
     else:
