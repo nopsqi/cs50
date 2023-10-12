@@ -24,9 +24,9 @@
                     };
                 });
 
-                document.querySelector('#part-1-ans'). function () {
-                    console.log('submited')
-                    this.preventDefault()
+                document.querySelector('#part-2-ans').onsubmit = function (event) {
+                    console.log(event.srcElement)
+                    event.preventDefault()
                 }
             });
         </script>
