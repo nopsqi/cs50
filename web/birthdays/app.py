@@ -28,7 +28,6 @@ def index():
         # TODO: Add the user's entry into the database
         is_valid = 0;
         data = request.form
-        
         return redirect("/")
 
     else:
