@@ -28,7 +28,9 @@ def index():
         # TODO: Add the user's entry into the database
         is_valid = {};
         data = request.form
-        if data.get("name") is None
+        if data.get("name") is None:
+            is_valid["name"] = 0
+        if data.get("month") is None and 
         return redirect("/")
 
     else:
