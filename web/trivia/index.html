@@ -26,12 +26,12 @@
 
                 document.querySelector('#part-2-ans').onsubmit = function (event) {
                     let answerField = event.srcElement.querySelector('input')
-                    if (answerField.value.toLowerCase() = 'australia') {
-                        answerField.style.background = 'green'
+                    if (answerField.value.toLowerCase() == 'australia') {
+                        answerField.style.backgroundColor = 'green'
                         partTwoStatus.innerHTML = 'Correct'
                         return;
                     }
-                    answerField.style.background = 'red'
+                    answerField.style.backgroundColor = 'red'
                     partTwoStatus.innerHTML = 'Incorrect'
                     event.preventDefault()
                 }
