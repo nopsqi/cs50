@@ -39,12 +39,20 @@ def index():
             month = int(month)
         except:
             is_valid["month"] = 0
-        if is_valid.get("month") is not in [None, 0] and
-            is_valid["month"] = 0
+        if is_valid.get("month") is not in [None, 0] and month in range(1, 13):
+            is_valid["month"] = 1
 
+        day = data.get("day")
         try:
-            day = int(data.get("day"))
-        return redirect("/")
+            day = int(day)
+        except:
+            is_valid["day"] = 0
+        if is_valid.get("day") is not in [None, 0] and day in range(1, 32):
+            is_valid["day"] = 1
+
+        if 0 not in is_valid.values()
+
+        return render_template("/", is_valid=is_valid)
 
     else:
 
