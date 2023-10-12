@@ -37,6 +37,9 @@ def index():
             is_valid["month"] = 0
         if is_valid.get("month") not in [None, 0] and month not in range(1, 13):
             is_valid["month"] = 0
+
+        try:
+            day = int(data.get("day"))
         return redirect("/")
 
     else:
