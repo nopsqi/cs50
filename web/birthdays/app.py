@@ -28,14 +28,18 @@ def index():
         # TODO: Add the user's entry into the database
         is_valid = {};
         data = request.form
-        if data.get("name") is None:
+        name = data.get("name")
+        if name is None:
             is_valid["name"] = 0
+        else:
+            is_valid["name"] = 1
 
+        month = data.get("month")
         try:
-            month = int(data.get("month"))
+            month = int(month)
         except:
             is_valid["month"] = 0
-        if is_valid.get("month") not in [None, 0] and month not in range(1, 13):
+        if is_valid.get("month") is not in [None, 0] and
             is_valid["month"] = 0
 
         try:
