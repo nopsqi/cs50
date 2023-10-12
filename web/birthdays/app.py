@@ -29,6 +29,7 @@ def index():
         is_valid = {};
         data = request.form
         name = data.get("name")
+        print(name)
         if name is None:
             is_valid["name"] = 0
         else:
