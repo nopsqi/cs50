@@ -24,31 +24,29 @@ def after_request(response):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    is_valid = {"name": 1, "month": 1, "day": 1};
     if request.method == "POST":
         # TODO: Add the user's entry into the database
-        is_valid = {};
         data = request.form
         name = data.get("name")
         if len(name) == 0:
             is_valid["name"] = 0
-        else:
-            is_valid["name"] = 1
 
         month = data.get("month")
         try:
             month = int(month)
         except:
             is_valid["month"] = 0
-        if is_valid.get("month") is None and month in range(1, 13):
-            is_valid["month"] = 1
+        if is_valid.get("month") is None and month not in range(1, 13):
+            is_valid["month"] = 0
 
         day = data.get("day")
         try:
             day = int(day)
         except:
             is_valid["day"] = 0
-        if is_valid.get("day") is None and day in range(1, 32):
-            is_valid["day"] = 1
+        if is_valid.get("day") is None and day not in range(1, 32):
+            is_valid["day"] = 0
 
         # if 0 not in is_valid.values():
         #     db.execute("INSERT INTO (name, month, day) VALUES (?, ?, ?)", name, month, day)
@@ -59,6 +57,6 @@ def index():
 
         # TODO: Display the entries in the database on index.html
         birthdays = db.execute("SELECT * FROM birthdays;")
-        return render_template("index.html", birthdays=birthdays, is_valid={})
+        return render_template("index.html", birthdays=birthdays, is_valid=is_valid)
 
 
