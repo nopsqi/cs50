@@ -27,7 +27,8 @@ def index():
     if request.method == "POST":
 
         # TODO: Add the user's entry into the database
-
+        data = request.form
+        print(data)
         return redirect("/")
 
     else:
