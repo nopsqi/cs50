@@ -50,15 +50,16 @@ def index():
             is_valid["day"] = 0
 
         if 0 not in is_valid.values():
-            db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", name, month, day)
+            db.execute(
+                "INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)",
+                name,
+                month,
+                day,
+            )
             return redirect("/")
-
 
         return render_template("index.html", birthdays=birthdays, is_valid=is_valid)
 
     else:
-
         # TODO: Display the entries in the database on index.html
         return render_template("index.html", birthdays=birthdays, is_valid=is_valid)
-
-
