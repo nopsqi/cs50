@@ -30,7 +30,11 @@ def index():
         data = request.form
         if data.get("name") is None:
             is_valid["name"] = 0
-        if data.get("month") is None and 
+        try:
+            month = int(data.get("month"))
+        except:
+            is_valid["month"] = 0
+        if data.get("month") is None and
         return redirect("/")
 
     else:
