@@ -9,6 +9,7 @@
             // TODO: Add code to check answers to questions
             document.addEventListener('DOMContentLoaded', function() {
                 let partOneStatus = document.querySelector('#part-1-status')
+                let partTwoStatus = document.querySelector('#part-2-status')
                 document.querySelectorAll('.part-1-ans').forEach((button) => {
                     button.onclick = function() {
                         let answer = this.innerHTML
@@ -22,6 +23,11 @@
                         partOneStatus.innerHTML = 'Incorrect'
                     };
                 });
+
+                document.querySelector('#part-1-ans').onsubmit = function () {
+                    console.log('submited')
+                    this.pr
+                }
             });
         </script>
     </head>
@@ -49,6 +55,7 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
                 <h3>In which country is it illegal to own only ne guinea pig, as a lone ginea pig might get lonely?</h3>
+                <p id="part-2-status"></p>
                 <form id="part-2-ans">
                     <input type="text">
                     <button type="submit">Check Answer</button>
