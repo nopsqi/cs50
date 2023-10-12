@@ -10,8 +10,14 @@
             document.addEventListener('DOMContentLoaded', function() {
                 document.querySelectorAll('.part-1-ans').forEach((button) => {
                     button.onclick = function(event) {
-                        let answer = event.srcElement.innerHTML
-                        console.log(this.)
+                        // let answer = event.srcElement.innerHTML
+                        let answer = this.innerHTML
+                        console.log(answer)
+                        if (answer == '1 people per 6 sheep') {
+                            this.style.backgroundColor = 'green'
+                            return;
+                        }
+                        this.style.backgroundColor = 'red'
                     };
                 });
             });
