@@ -24,9 +24,9 @@ def after_request(response):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    birthdays = db.execute("SELECT * FROM birthdays;")
     is_valid = {"name": 1, "month": 1, "day": 1}
     if request.method == "POST":
+        birthdays = db.execute("SELECT * FROM birthdays;")
         # TODO: Add the user's entry into the database
         data = request.form
         name = data.get("name")
@@ -57,6 +57,7 @@ def index():
     else:
 
         # TODO: Display the entries in the database on index.html
+        birthdays = db.execute("SELECT * FROM birthdays;")
         return render_template("index.html", birthdays=birthdays, is_valid=is_valid)
 
 
