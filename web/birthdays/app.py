@@ -39,8 +39,7 @@ def index():
             month = int(month)
         except:
             is_valid["month"] = 0
-        print(is_valid.get("month"))
-        if is_valid.get("month") not in [None, 0] and month in range(1, 13):
+        if is_valid.get("month") is None and month in range(1, 13):
             is_valid["month"] = 1
 
         day = data.get("day")
@@ -48,7 +47,7 @@ def index():
             day = int(day)
         except:
             is_valid["day"] = 0
-        if is_valid.get("day") not in [None, 0] and day in range(1, 32):
+        if is_valid.get("day") is None and day in range(1, 32):
             is_valid["day"] = 1
 
         # if 0 not in is_valid.values():
