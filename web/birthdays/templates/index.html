@@ -22,7 +22,8 @@
                     <button type="submit">Add Birthday</button>
                 </form>
                 <script>
-                    document.getElementsByName('name')
+                    console.log("{{ is_valid['name']}}")
+                    document.getElementsByName('name')[0].style.backgroundColor = 'red';
                 </script>
             </div>
 
