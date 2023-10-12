@@ -48,8 +48,8 @@ def index():
         if is_valid.get("day") is None and day not in range(1, 32):
             is_valid["day"] = 0
 
-        # if 0 not in is_valid.values():
-        #     db.execute("INSERT INTO (name, month, day) VALUES (?, ?, ?)", name, month, day)
+        if 0 not in is_valid.values():
+            db.execute("INSERT INTO (name, month, day) VALUES (?, ?, ?)", name, month, day)
 
         return render_template("index.html", is_valid=is_valid)
 
