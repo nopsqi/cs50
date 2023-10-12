@@ -11,14 +11,14 @@
                 let partOneStatus = document.querySelector('#part-1-status')
                 let partTwoStatus = document.querySelector('#part-2-status')
                 document.querySelectorAll('.part-1-ans').forEach((button) => {
-                    button.onclick = function() {
-                        let answer = this.innerHTML
+                    button.onclick = () => {
+                        let answer = button.innerHTML
                         if (answer == '1 people per 6 sheep') {
-                            this.style.backgroundColor = 'green'
+                            button.style.backgroundColor = 'green'
                             partOneStatus.innerHTML = 'Correct'
                             return;
                         }
-                       this.style.backgroundColor = 'red'
+                       button.style.backgroundColor = 'red'
                         partOneStatus.innerHTML = 'Incorrect'
                     };
                 });
