@@ -39,6 +39,7 @@ def index():
             month = int(month)
         except:
             is_valid["month"] = 0
+        print(is_valid.get("month"))
         if is_valid.get("month") not in [None, 0] and month in range(1, 13):
             is_valid["month"] = 1
 
