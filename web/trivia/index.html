@@ -25,7 +25,8 @@
                 });
 
                 document.querySelector('#part-2-ans').onsubmit = function (event) {
-                    console.log(event[0])
+                    let answer = event.srcElement.querySelector('input').value
+                    if (answer.to)
                     event.preventDefault()
                 }
             });
