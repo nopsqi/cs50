@@ -50,7 +50,8 @@ def index():
         if is_valid.get("day") is not in [None, 0] and day in range(1, 32):
             is_valid["day"] = 1
 
-        if 0 not in is_valid.values()
+        if 0 not in is_valid.values():
+            db.execute("INSERT INTO (name, month, day) VALUES (?, ?, ?)", name, month, day)
 
         return render_template("/", is_valid=is_valid)
 
