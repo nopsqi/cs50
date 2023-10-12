@@ -8,15 +8,18 @@
         <script>
             // TODO: Add code to check answers to questions
             document.addEventListener('DOMContentLoaded', function() {
+                let partOneStatus = document.querySelector('#part-1-status')
                 document.querySelectorAll('.part-1-ans').forEach((button) => {
                     button.onclick = function() {
                         let answer = this.innerHTML
                         console.log(answer)
                         if (answer == '1 people per 6 sheep') {
                             this.style.backgroundColor = 'green'
+                            partOneStatus.innerHTML = 'Correct'
                             return;
                         }
                        this.style.backgroundColor = 'red'
+                        partOneStatus.innerHTML = 'Incorrect'
                     };
                 });
             });
@@ -33,7 +36,7 @@
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
                 <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
-                <p id=""></p>
+                <p id="part-1-status"></p>
                 <button class="part-1-ans">6 people per 1 sheep</button>
                 <button class="part-1-ans">3 people per 1 sheep</button>
                 <button class="part-1-ans">1 people per 1 sheep</button>
