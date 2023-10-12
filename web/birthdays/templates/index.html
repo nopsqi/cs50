@@ -16,7 +16,7 @@
                 <h2>Add a Birthday</h2>
                 <!-- TODO: Create a form for users to submit a name, a month, and a day -->
                 <form action="/" method="post">
-                    <input type="text" name="name" placeholder="Name" autocomplete="off" style="background-color:{{ if not is_valid['name'] red else blue }};">
+                    <input type="text" name="name" placeholder="Name" autocomplete="off" style="background-color:{{ red if not is_valid.name else blue }};">
                     <input type="text" name="month" placeholder="Month" autocomplete="off">
                     <input type="text" name="day" placeholder="Day" autocomplete="off">
                     <button type="submit">Add Birthday</button>
