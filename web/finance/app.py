@@ -46,7 +46,7 @@ def index():
             data["price"] = result["price"]
         data["total"] = data["shares"] * data["price"]
 
-    return render_template("index.html", cash=cash, datas=datas, total=sum(data["total"] for data in datas), usd=usd)
+    return render_template("index.html", cash=cash, datas=datas, total=sum(data["total"] for data in datas) + cash, usd=usd)
 
 
 @app.route("/buy", methods=["GET", "POST"])

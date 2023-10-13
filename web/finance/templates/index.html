@@ -23,7 +23,7 @@
                     <td class="text-start">{{ data["symbol"] }}</td>
                     <td class="text-start">{{ data["name"] }}</td>
                     <td class="text-end">{{ data["shares"] }}</td>
-                    <td class="text-end">{{ data["price"] }}</td>
+                    <td class="text-end">{{ usd(data["price"]) }}</td>
                     <td class="text-end">{{ usd(data["total"]) }}</td>
                 </tr>
             {% endfor %}
@@ -32,11 +32,11 @@
         <tfoot>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
-                <td class="border-0 text-end">{{ cash }}</td>
+                <td class="border-0 text-end">{{ usd(cash) }}</td>
             </tr>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
-                <td class="border-0 w-bold text-end">{{ total }}</td>
+                <td class="border-0 w-bold text-end">{{ usd(total) }}</td>
             </tr>
         </tfoot>
     </table>
