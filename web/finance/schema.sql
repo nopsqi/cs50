@@ -14,7 +14,7 @@ CREATE TABLE histories (
     price INTEGER NOT NULL,
     shares INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (symbol_id) REFERENCES users(id)
+    FOREIGN KEY (symbol_id) REFERENCES symbols(id)
 );
 CREATE TABLE symbols (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
