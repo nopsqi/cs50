@@ -24,7 +24,7 @@
                     <td class="text-start">{{ data["name"] }}</td>
                     <td class="text-end">{{ data["shares"] }}</td>
                     <td class="text-end">{{ data["price"] }}</td>
-                    <td class="text-end">{{ data["price"] * data["price"] }}</td>
+                    <td class="text-end">{{ data["total"] }}</td>
                 </tr>
             {{ % endfor % }}
 
@@ -32,11 +32,11 @@
         <tfoot>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
-                <td class="border-0 text-end">$8,139.13</td>
+                <td class="border-0 text-end">{{ cash }}</td>
             </tr>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
-                <td class="border-0 w-bold text-end">$9,995.80</td>
+                <td class="border-0 w-bold text-end">{{ cash + </td>
             </tr>
         </tfoot>
     </table>
