@@ -149,7 +149,7 @@ def quote():
         result["price"] = usd(result["price"])
         print(get_symbol_id(db, result["symbol"]))
         if not get_symbol_id(db, result["symbol"]):
-            db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
+            db.execute("INSERT INTO symbols (symbol, name) VALUES (?, ?)", result["symbol"], result["name"])
         return render_template("quoted.html", result=result)
     else:
         return render_template("quote.html")
