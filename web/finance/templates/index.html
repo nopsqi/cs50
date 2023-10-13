@@ -6,4 +6,44 @@
 {% endblock %}
 
 {% block main %}
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-start">Name</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">TOTAL</th>
+            </tr>
+        </thead>
+       <tbody>
+
+                <tr>
+                    <td class="text-start">AAPL</td>
+                    <td class="text-start">AAPL</td>
+                    <td class="text-end">6</td>
+                    <td class="text-end">$180.96</td>
+                    <td class="text-end">$1,085.76</td>
+                </tr>
+
+                <tr>
+                    <td class="text-start">TSLA</td>
+                    <td class="text-start">TSLA</td>
+                    <td class="text-end">3</td>
+                    <td class="text-end">$256.97</td>
+                    <td class="text-end">$770.91</td>
+                </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                <td class="border-0 text-end">$8,139.13</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+                <td class="border-0 w-bold text-end">$9,995.80</td>
+            </tr>
+        </tfoot>
+    </table>
 {% endblock %}
