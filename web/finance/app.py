@@ -260,6 +260,12 @@ def sell():
             return apology(
                 f"you don't have {request.form.get('symbol')} in your portofolio"
             )
+        try:
+            int(request.form.get("shares"))
+        except:
+            return apology("Invalid amount of shares.")
+        if int(request.form.get("shares")) < 0:
+            return apology("Invalid amount of shares.")
         if (
             int(request.form.get("shares"))
             > [
