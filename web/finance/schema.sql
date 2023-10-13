@@ -23,9 +23,7 @@ CREATE TABLE histories (
 CREATE TABLE portfolios (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     user_id INTEGER,
-    transacted DATETIME NOT NULL,
     symbol_id TEXT NOT NULL,
-    price NUMERIC NOT NULL,
     shares INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (symbol_id) REFERENCES symbols(id)
