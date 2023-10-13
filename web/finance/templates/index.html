@@ -24,25 +24,9 @@
                     <td class="text-start">{{ data["name"] }}</td>
                     <td class="text-end">{{ data["shares"] }}</td>
                     <td class="text-end">{{ data["price"] }}</td>
-                    <td class="text-end">{{ data["price"] * data["shares"] }}</td>
+                    <td class="text-end">{{ data["total"] }}</td>
                 </tr>
             {{ % endfor % }}
-
-            <tr>
-                <td class="text-start">AAPL</td>
-                <td class="text-start">AAPL</td>
-                <td class="text-end">6</td>
-                <td class="text-end">$180.96</td>
-                <td class="text-end">$1,085.76</td>
-            </tr>
-
-            <tr>
-                <td class="text-start">TSLA</td>
-                <td class="text-start">TSLA</td>
-                <td class="text-end">3</td>
-                <td class="text-end">$256.97</td>
-                <td class="text-end">$770.91</td>
-            </tr>
 
         </tbody>
         <tfoot>
