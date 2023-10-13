@@ -203,8 +203,9 @@ def sell():
         if int(request.form.get("shares")) > [row["shares"] for row in rows if row["symbol"] == request.form.get("symbol")][0]:
             return apology(f"You don't have enough {request.form.get('symbol')}")
 
+        result = lookup(request.form.get("symbol"))
         db.execute()
         return redirect("/sell")
     else:
 
-        return render_template("sell.html", symbols=[row["symbol"] for row in rows])
+        return render_template("sell.html")
