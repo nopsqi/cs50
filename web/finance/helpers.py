@@ -76,3 +76,9 @@ def lookup(symbol):
 def usd(value):
     """Format value as USD."""
     return f"${value:,.2f}"
+
+
+def symbol_to_id(symbol):
+    symbol = symbol.upper()
+    rows = db.execute("SELECT id FROM symbols WHERE symbol = ?", symbol)
+    
