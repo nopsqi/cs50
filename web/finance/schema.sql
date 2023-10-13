@@ -10,7 +10,7 @@ CREATE TABLE histories (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     user_id INTEGER,
     transacted DATETIME NOT NULL,
-    symbol TEXT NOT NULL,
+    symbol_id TEXT NOT NULL,
     price INTEGER NOT NULL,
     shares INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
