@@ -53,9 +53,10 @@ def buy():
         if not request.form.get("shares"):
             return apology("Enter amount of share.")
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
-        if result["price"] * request.formm.get("shares") < cash:
+        if result["price"] * request.form.get("shares") < cash:
             return apology("Not enough cash.")
-        
+        cash = cash - (result["price"] * request.form.get("shares"))
+        db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
         return redirect("/buy")
     else:
         return render_template("buy.html")
