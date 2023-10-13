@@ -192,7 +192,12 @@ def sell():
     """Sell shares of stock"""
     rows = db.execute("SELECT p.shares, s.symbol FROM portofolios p JOIN symbols s ON s.id = p.symbol_id WHERE p.user_id = ? AND p.shares > 0 GROUP BY p.symbol_id;", session["user_id"])
     if request.method == "POST":
-        if no
+        if not request.form.get("symbol") and not request.form.get("shares"):
+            return apology("all field empty.")
+        if not request.form.get("symbol"):
+            return apology("Select stock you want to sell")
+        if not request.form.get("symbol"):
+            return apology("Select stock you want to sell")
         return redirect("/sell")
     else:
 
