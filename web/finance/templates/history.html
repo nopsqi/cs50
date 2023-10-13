@@ -17,14 +17,14 @@
             </thead>
             <tbody>
 
-            {% for data in datas %}
-                <tr>
-                    <td class="text-start">{{ data["symbol"] }}</td>
-                    <td class="text-end">{{ data["shares"] }}</td>
-                    <td class="text-end">{{ usd(data["price"]) }}</td>
-                    <td class="text-end">{{ data["transacted"] }}</td>
-                </tr>
-            {% endfor %}
+                {% for data in datas %}
+                    <tr>
+                        <td class="text-start">{{ data["symbol"] }}</td>
+                        <td class="text-end">{{ data["shares"] }}</td>
+                        <td class="text-end">{{ usd(data["price"]) }}</td>
+                        <td class="text-end">{{ data["transacted"] }}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

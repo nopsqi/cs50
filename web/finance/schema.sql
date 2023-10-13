@@ -11,6 +11,7 @@ CREATE TABLE symbols (
     symbol TEXT NOT NULL,
     name TEXT NOT NULL
 );
+CREATE UNIQUE INDEX symbol ON symbols (symbol);
 CREATE TABLE histories (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     user_id INTEGER,
