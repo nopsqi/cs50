@@ -8,7 +8,8 @@ CREATE TABLE sqlite_sequence(name,seq);
 CREATE UNIQUE INDEX username ON users (username);
 CREATE TABLE symbols (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    symbol TEXT NOT NULL
+    symbol TEXT NOT NULL,
+    name TEXT NOT NULL
 );
 CREATE TABLE histories (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
