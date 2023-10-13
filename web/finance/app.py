@@ -1,4 +1,5 @@
 import os
+import datetime
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -64,7 +65,7 @@ def buy():
         symbol_id = get_symbol_id(db, result["symbol"]):
         if not symbol_id:
             symbol_id = db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
-        db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], datetime)
+        db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], datetime.datetime.now(), symbol_id, result["price"], )
 
         return redirect("/buy")
     else:
