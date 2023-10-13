@@ -43,6 +43,8 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
+        if not request.form.get("symbol") and not request.form.get("shares"):
+            return apology("All field empty.")
         if not request.form.get("symbol"):
             return apology("Enter stock symbol.")
         result = lookup(request.form.get("symbol"))
@@ -50,6 +52,8 @@ def buy():
             return apology(f"Can't get {request.form.get('symbol')}")
         if not request.form.get("shares"):
             return apology("Enter amount of share.")
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id])
+        print(cash)
     else:
         return render_template("buy.html")
 
