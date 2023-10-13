@@ -20,3 +20,4 @@ CREATE TABLE histories (
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (symbol_id) REFERENCES symbols(id)
 );
+CREATE TABLE 
