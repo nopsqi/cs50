@@ -198,7 +198,7 @@ def sell():
             return apology("Select stock you want to sell")
         if not request.form.get("shares"):
             return apology("Select how many stock you want to sell")
-        if request.form.get("").upper() not in [row["symbol"] for row in rows]:
+        if request.form.get("symbol").upper() not in [row["symbol"] for row in rows]:
             return apology(f"you don't have {request.form.get('symbol')} in your portofolio")
         if int(request.form.get("shares")) > [row["shares"] for row in rows if row["symbol"] == request.form.get("symbol")][0]:
             return apology(f"You don't have enough {request.form.get('symbol')}")
