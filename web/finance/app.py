@@ -61,12 +61,13 @@ def buy():
             return apology("Not enough cash.")
         cash = cash - (result["price"] * int(request.form.get("shares")))
 
-        db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
+        # db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
 
-        # symbol_id = get_symbol_id(db, result["symbol"])
+        symbol_id = get_symbol_id(db, result["symbol"])
+        print(type(symbol_id), symbol_id)
         # if not symbol_id:
         #     symbol_id = db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
-        # db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?, ?)", session["user_id"], datetime.datetime.now(), symbol_id, result["price"], result["shares"])
+        # db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?, ?)", session["user_id"], datetime.datetime.now(), symbol_id, result["price"], int(request.form.get("shares")))
 
         return redirect("/buy")
     else:
