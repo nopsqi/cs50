@@ -206,7 +206,6 @@ def sell():
         result = lookup(request.form.get("symbol"))
         if result is None:
             return apology("Failed fo fetch data.")
-        db.execute("UPDATE )
         return redirect("/sell")
     else:
 
