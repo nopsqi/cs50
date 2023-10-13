@@ -47,22 +47,24 @@ def buy():
             return apology("All field empty.")
         if not request.form.get("symbol"):
             return apology("Enter stock symbol.")
+
         result = lookup(request.form.get("symbol"))
         if result is None:
             return apology(f"Can't get {request.form.get('symbol')}")
         if not request.form.get("shares"):
             return apology("Enter amount of share.")
+
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
         if result["price"] * request.form.get("shares") < cash:
             return apology("Not enough cash.")
         cash = cash - (result["price"] * request.form.get("shares"))
         db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
+
         symbol_id = get_symbol_id(db, result["symbol"]):
         if not symbol_id:
-            db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
-            symbol_id = get_symbol_id(db, result["symbol"]):
+            symbol_id = db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
+        db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares))
 
-        db.execute("INSERT INTO )
         return redirect("/buy")
     else:
         return render_template("buy.html")
