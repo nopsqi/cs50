@@ -37,8 +37,16 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     cash = db.execute("SELECT cash FROM users WHERE id = ?;", session["user_id"])[0]["cash"]
-    # datas = db.execute("SELECT p.shares, s.symbol;")
-    print(lookup("tsla"))
+    datas = db.execute("SELECT s.symbol, s.name, p.shares FROM portofolios p JOIN symbols s ON s.id = p.symbol_id WHERE p.user_id = ?;", session["user_id"])
+    for data in datas:
+        result = lookup(data["symbol"])
+        if result is None:
+            data["price"] = 0
+        else:
+            data["price"] = result["price"]
+        data["total"] = data["shares"] * data["price"]
+
+    print(datas)
 
     return "index"
 
