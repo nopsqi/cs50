@@ -67,11 +67,11 @@ def buy():
         if not symbol_id:
             symbol_id = db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
         db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?, ?)", session["user_id"], datetime.datetime.now(), symbol_id, result["price"], int(request.form.get("shares")))
-        rows = db.execute("SELECT * FROM portofolios WHERE user_id = ? AND symbol_id = ? LIMIT 1;", session["user_id"], symbol_id)
+        rows = db.execute("SELECT shares FROM portofolios WHERE user_id = ? AND symbol_id = ? LIMIT 1;", session["user_id"], symbol_id)
         if len(rows) != 1:
             db.execute("INSERT INTO portofolios (user_id, symbol_id, shares) VALUES (?, ?, ?);", session["user_id"], symbol_id, int(request.form.get("shares")))
         else:
-            db.execute("UPDATE )
+            db.execute("UPDATE portofolios SET shares = ? WHERE user_id = ? AND symbol_id = ?;", rows[0]["shares"])
 
         return redirect("/buy")
     else:
