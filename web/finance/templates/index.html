@@ -18,15 +18,15 @@
         </thead>
         <tbody>
 
-            { % for data in datas % }
+            {% for data in datas %}
                 <tr>
                     <td class="text-start">{{ data["symbol"] }}</td>
                     <td class="text-start">{{ data["name"] }}</td>
                     <td class="text-end">{{ data["shares"] }}</td>
                     <td class="text-end">{{ data["price"] }}</td>
-                    <td class="text-end">{{ data["total"] }}</td>
+                    <td class="text-end">{{ usd(data["total"]) }}</td>
                 </tr>
-            { % endfor % }
+            {% endfor %}
 
         </tbody>
         <tfoot>
