@@ -20,7 +20,7 @@ CREATE TABLE histories (
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (symbol_id) REFERENCES symbols(id)
 );
-CREATE TABLE portfolios (
+CREATE TABLE portofolios (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     user_id INTEGER,
     symbol_id TEXT NOT NULL,
