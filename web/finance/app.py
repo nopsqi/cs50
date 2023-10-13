@@ -57,12 +57,11 @@ def buy():
             return apology("Enter amount of share.")
 
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
-        print(type(result["price"]), type(request.form.get("shares")))
-        if result["price"] * request.form.get("shares") < cash:
+        if result["price"] * int(request.form.get("shares")) < cash:
             return apology("Not enough cash.")
-        cash = cash - (result["price"] * request.form.get("shares"))
+        cash = cash - (result["price"] * int(request.form.get("shares")))
 
-        # db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
 
         # symbol_id = get_symbol_id(db, result["symbol"])
         # if not symbol_id:
