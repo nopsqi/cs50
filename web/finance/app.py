@@ -111,15 +111,18 @@ def register():
     """Register user"""
     if request.method == "POST":
         username = request.form.get("username")
-        password = request.form.get("username")
+        password = request.form.get("password")
         confirmation = request.form.get("confirmation")
         if not username or not password or not confirmation:
             return apology("Please fill all field.")
-        is_username_exist = db.execute("SELECT username FROM users WHERE username = ?;", username)
-        if not is_username_exist:
+        is_username_exist = db.execute("SELECT username FROM users WHERE username = ?;", username.lower())
+        if is_username_exist:
             return apology("username exist.")
         if password != confirmation:
             return apology("password is not match.")
+
+        hash = generate_password_hash(password)
+        print(hash)
         return redirect("/register")
 
     else:
