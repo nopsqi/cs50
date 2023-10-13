@@ -69,7 +69,7 @@ def buy():
 
         symbol_id = get_symbol_id(db, result["symbol"])
         if not symbol_id:
-            symbol_id = db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
+            symbol_id = db.execute("INSERT INTO symbols (symbol, name) VALUES (?, ?)", result["symbol"], result["name"])
         db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?, ?)", session["user_id"], datetime.datetime.now(), symbol_id, result["price"], int(request.form.get("shares")))
         rows = db.execute("SELECT shares FROM portofolios WHERE user_id = ? AND symbol_id = ? LIMIT 1;", session["user_id"], symbol_id)
         if len(rows) != 1:
