@@ -291,6 +291,6 @@ def sell():
             symbol_id,
         )
 
-        return redirect("/sell")
+        return redirect("/")
     else:
         return render_template("sell.html", symbols=rows)
