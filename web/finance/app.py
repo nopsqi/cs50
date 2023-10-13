@@ -57,17 +57,16 @@ def buy():
             return apology("Enter amount of share.")
 
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
-        if result["price"] * int(request.form.get("shares")) < cash:
+        if result["price"] * int(request.form.get("shares")) > cash:
             return apology("Not enough cash.")
         cash = cash - (result["price"] * int(request.form.get("shares")))
 
-        # db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
 
         symbol_id = get_symbol_id(db, result["symbol"])
-        print(type(symbol_id), symbol_id)
-        # if not symbol_id:
-        #     symbol_id = db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
-        # db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?, ?)", session["user_id"], datetime.datetime.now(), symbol_id, result["price"], int(request.form.get("shares")))
+        if not symbol_id:
+            symbol_id = db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
+        db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?, ?)", session["user_id"], datetime.datetime.now(), symbol_id, result["price"], int(request.form.get("shares")))
 
         return redirect("/buy")
     else:
