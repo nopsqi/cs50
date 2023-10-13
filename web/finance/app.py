@@ -51,6 +51,7 @@ def buy():
         result = lookup(request.form.get("symbol"))
         if result is None:
             return apology(f"Can't get {request.form.get('symbol')}")
+
         if not request.form.get("shares"):
             return apology("Enter amount of share.")
 
@@ -63,7 +64,7 @@ def buy():
         symbol_id = get_symbol_id(db, result["symbol"]):
         if not symbol_id:
             symbol_id = db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
-        db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares))
+        db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], datetime)
 
         return redirect("/buy")
     else:
