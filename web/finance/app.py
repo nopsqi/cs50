@@ -207,6 +207,7 @@ def sell():
         if result is None:
             return apology("Failed fo fetch data.")
 
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
         cash = cash + (result["price"] * int(request.form.get("shares")))
         db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
 
