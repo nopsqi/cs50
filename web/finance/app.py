@@ -48,7 +48,8 @@ def buy():
         result = lookup(request.form.get("symbol"))
         if result is None:
             return apology(f"Can't get {request.form.get('symbol')}")
-        
+        if not request.form.get("shares"):
+            return apology("Enter amount of share.")
     else:
         return render_template("buy.html")
 
