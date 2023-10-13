@@ -70,7 +70,8 @@ def buy():
         rows = db.execute("SELECT * FROM portofolios WHERE user_id = ? AND symbol_id = ? LIMIT 1;", session["user_id"], symbol_id)
         if len(rows) != 1:
             db.execute("INSERT INTO portofolios (user_id, symbol_id, shares) VALUES (?, ?, ?);", session["user_id"], symbol_id, int(request.form.get("shares")))
-        
+        else:
+            db.execute("UPDATE )
 
         return redirect("/buy")
     else:
