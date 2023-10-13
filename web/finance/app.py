@@ -71,7 +71,7 @@ def buy():
         if len(rows) != 1:
             db.execute("INSERT INTO portofolios (user_id, symbol_id, shares) VALUES (?, ?, ?);", session["user_id"], symbol_id, int(request.form.get("shares")))
         else:
-            db.execute("UPDATE portofolios SET shares = ? WHERE user_id = ? AND symbol_id = ?;", rows[0]["shares"])
+            db.execute("UPDATE portofolios SET shares = ? WHERE user_id = ? AND symbol_id = ?;", rows[0]["shares"] + int(request.form.get("shares")), session["user_id"], symbol_id)
 
         return redirect("/buy")
     else:
