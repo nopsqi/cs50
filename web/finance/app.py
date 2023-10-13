@@ -107,6 +107,8 @@ def quote():
         if not request.form.get("symbol"):
             return apology("Enter stock symbol.")
         result = lookup(request.form.get("symbol"))
+        if result is None:
+            return apology(f"Can't get {request.form.get('symbol')}")
         return render_template("quoted.html")
     else:
         return render_template("quote.html")
