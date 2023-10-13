@@ -52,8 +52,11 @@ def buy():
             return apology(f"Can't get {request.form.get('symbol')}")
         if not request.form.get("shares"):
             return apology("Enter amount of share.")
-        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id])
-        print(cash)
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
+        if result["price"] * request.formm.get("shares") < cash:
+            return apology("Not enough cash.")
+        
+        return redirect("/buy")
     else:
         return render_template("buy.html")
 
