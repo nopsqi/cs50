@@ -57,6 +57,10 @@ def buy():
             return apology("Not enough cash.")
         cash = cash - (result["price"] * request.form.get("shares"))
         db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
+        symbol_id = get_symbol_id(db, result["symbol"]):
+        if not symbol_id:
+            db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
+        db.execute("INSERT INTO )
         return redirect("/buy")
     else:
         return render_template("buy.html")
