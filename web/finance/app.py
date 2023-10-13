@@ -118,7 +118,8 @@ def register():
         is_username_exist = db.execute("SELECT username FROM users WHERE username = ?;", username)
         if not is_username_exist:
             return apology("username exist.")
-        if 
+        if password != confirmation:
+            return apology("password is not match.")
         return redirect("/register")
 
     else:
