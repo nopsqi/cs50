@@ -113,15 +113,8 @@ def register():
         username = request.form.get("username")
         password = request.form.get("username")
         confirmation = request.form.get("confirmation")
-        if not username and not password and not confirmation:
+        if not username or not password or not confirmation:
             return apology("all field empty.")
-        if not username:
-            return apology("username empty.")
-        if not password:
-            return apology("password empty.")
-        if not confirmation:
-            return apology("password confrimation empty.")
-        return redirect("/register")
     else:
         return render_template("register.html")
 
