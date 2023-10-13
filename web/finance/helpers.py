@@ -78,7 +78,7 @@ def usd(value):
     return f"${value:,.2f}"
 
 
-def symbol_to_id(symbol):
+def get_symbol_id(db, symbol):
     symbol = symbol.upper()
     rows = db.execute("SELECT id FROM symbols WHERE symbol = ?", symbol)
     if len(rows) != 1:

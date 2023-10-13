@@ -5,7 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, lookup, usd
+from helpers import apology, login_required, lookup, usd, get_symbol_id
 
 # Configure application
 app = Flask(__name__)
@@ -127,7 +127,8 @@ def quote():
         if result is None:
             return apology(f"Can't get {request.form.get('symbol')}")
         result["price"] = usd(result["price"])
-        if not symbol_to_id(result["symbol"]):
+        print(get_symbol_id(db, result["symbol"]))
+        if not get_symbol_id(db, result["symbol"]):
             db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
         return render_template("quoted.html", result=result)
     else:
