@@ -109,7 +109,7 @@ def quote():
         result = lookup(request.form.get("symbol"))
         if result is None:
             return apology(f"Can't get {request.form.get('symbol')}")
-        return render_template("quoted.html")
+        return render_template("quoted.html", result=result)
     else:
         return render_template("quote.html")
 
