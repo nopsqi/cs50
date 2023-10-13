@@ -60,6 +60,8 @@ def buy():
         symbol_id = get_symbol_id(db, result["symbol"]):
         if not symbol_id:
             db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
+            symbol_id = get_symbol_id(db, result["symbol"]):
+
         db.execute("INSERT INTO )
         return redirect("/buy")
     else:
