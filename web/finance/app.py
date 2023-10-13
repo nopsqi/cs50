@@ -37,6 +37,7 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     cash = db.execute("SELECT cash FROM users WHERE id = ?;", session["user_id"])[0]["cash"]
+    datas = db.execute("SELECT p.shares, s.symbol)
     print(cash)
 
     return "index"
