@@ -80,7 +80,7 @@ def usd(value):
 
 def get_symbol_id(db, symbol):
     symbol = symbol.upper()
-    rows = db.execute("SELECT id FROM symbols WHERE symbol = ?", symbol)
+    rows = db.execute("SELECT id FROM symbols WHERE symbol = ? LIMIT 1;", symbol)
     if len(rows) != 1:
         return None
     return rows[0]["id"]
