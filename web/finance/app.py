@@ -69,13 +69,17 @@ def buy():
             return apology("All field empty.")
         if not request.form.get("symbol"):
             return apology("Enter stock symbol.")
+        if not request.form.get("shares"):
+            return apology("Enter amount of shares.")
+        try:
+            int(request.form.get("shares"))
+        except:
+            return apology("Invalid amount of shares.")
+        if 
 
         result = lookup(request.form.get("symbol"))
         if result is None:
             return apology(f"Can't get {request.form.get('symbol')}")
-
-        if not request.form.get("shares"):
-            return apology("Enter amount of share.")
 
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0][
             "cash"
