@@ -109,6 +109,8 @@ def quote():
         result = lookup(request.form.get("symbol"))
         if result is None:
             return apology(f"Can't get {request.form.get('symbol')}")
+        result["price"] = usd(result["price"])
+        print(result)
         return render_template("quoted.html", result=result)
     else:
         return render_template("quote.html")
