@@ -75,7 +75,8 @@ def buy():
             int(request.form.get("shares"))
         except:
             return apology("Invalid amount of shares.")
-        if 
+        if int(request.form.get("shares")) < 0:
+            return apology("Invalid amount of shares.")
 
         result = lookup(request.form.get("symbol"))
         if result is None:
