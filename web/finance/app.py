@@ -67,6 +67,7 @@ def buy():
 
         db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
 
+        # add symbol if doesn't exist
         symbol_id = get_symbol_id(db, result["symbol"])
         if not symbol_id:
             symbol_id = db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
