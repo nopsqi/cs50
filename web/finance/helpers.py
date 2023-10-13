@@ -81,4 +81,6 @@ def usd(value):
 def symbol_to_id(symbol):
     symbol = symbol.upper()
     rows = db.execute("SELECT id FROM symbols WHERE symbol = ?", symbol)
-    
+    if len(rows) != 1:
+        return None
+    return rows[0]["id"]
