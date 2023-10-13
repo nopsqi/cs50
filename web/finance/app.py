@@ -115,7 +115,7 @@ def register():
         confirmation = request.form.get("confirmation")
         if not username or not password or not confirmation:
             return apology("Please fill all field.")
-        is_username_exist = db.execute("SELECT username FROM users WHERE username = ?;", username.lower())
+        is_username_exist = db.execute("SELECT username FROM users WHERE username = ?;", username)
         if is_username_exist:
             return apology("username exist.")
         if password != confirmation:
