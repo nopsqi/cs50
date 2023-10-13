@@ -83,7 +83,7 @@ def buy():
         else:
             db.execute("UPDATE portofolios SET shares = ? WHERE user_id = ? AND symbol_id = ?;", rows[0]["shares"] + int(request.form.get("shares")), session["user_id"], symbol_id)
 
-        return redirect("/buy")
+        return redirect("/")
     else:
         return render_template("buy.html")
 
