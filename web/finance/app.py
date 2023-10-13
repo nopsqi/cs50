@@ -110,8 +110,8 @@ def quote():
 def register():
     """Register user"""
     if request.method == "POST":
-        print(request.form)
-        return redirect("/")
+        print(type(request.form.get("username")))
+        return redirect("/register")
     else:
         return render_template("register.html")
 
