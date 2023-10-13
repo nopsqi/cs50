@@ -122,7 +122,7 @@ def register():
             return apology("password is not match.")
 
         hash = generate_password_hash(password)
-        print(hash)
+        db.execute("INSERT INTO users (username, hash, cash) VALUES (?, ? ,?)", username, hash, )
         return redirect("/register")
 
     else:
