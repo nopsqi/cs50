@@ -15,7 +15,7 @@ CREATE TABLE histories (
     user_id INTEGER,
     transacted DATETIME NOT NULL,
     symbol_id TEXT NOT NULL,
-    price REAL NOT NULL,
+    price NUMERIC NOT NULL,
     shares INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (symbol_id) REFERENCES symbols(id)
