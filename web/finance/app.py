@@ -128,7 +128,7 @@ def quote():
             return apology(f"Can't get {request.form.get('symbol')}")
         result["price"] = usd(result["price"])
         if not symbol_to_id(result["symbol"]):
-            db.execute("INSERT INTO symbols (symbol) VALUES ())
+            db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
         return render_template("quoted.html", result=result)
     else:
         return render_template("quote.html")
