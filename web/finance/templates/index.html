@@ -20,11 +20,11 @@
 
             {{ % for data in datas % }}
                 <tr>
-                    <td class="text-start">AAPL</td>
-                    <td class="text-start">AAPL</td>
-                    <td class="text-end">6</td>
-                    <td class="text-end">$180.96</td>
-                    <td class="text-end">$1,085.76</td>
+                    <td class="text-start">{{ data["symbol"] }}</td>
+                    <td class="text-start">{{ data["name"] }}</td>
+                    <td class="text-end">{{ data["shares"] }}</td>
+                    <td class="text-end">{{ data["price"] }}</td>
+                    <td class="text-end">{{ data["price"] * data["shares"] }}</td>
                 </tr>
             {{ % endfor % }}
 
