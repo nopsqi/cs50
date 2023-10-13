@@ -198,22 +198,22 @@ def sell():
             return apology("Select stock you want to sell")
         if not request.form.get("shares"):
             return apology("Select how many stock you want to sell")
-        if request.form.get("shares").upper() not in [row["symbol"] for row in rows]:
-            return apology("you don't have {request.form.get('symbol')} in your portofolio")
+        if request.form.get("").upper() not in [row["symbol"] for row in rows]:
+            return apology(f"you don't have {request.form.get('symbol')} in your portofolio")
         if int(request.form.get("shares")) > [row["shares"] for row in rows if row["symbol"] == request.form.get("symbol")][0]:
             return apology(f"You don't have enough {request.form.get('symbol')}")
 
         result = lookup(request.form.get("symbol"))
         if result is None:
             return apology("Failed fo fetch data.")
+
+        cash = cash + (result["price"] * int(request.form.get("shares")))
+        db.execute("UPDATE users SET cash = ? WHERE id = ?;", cash, session["user_id"])
+
         symbol_id = get_symbol_id(db, result["symbol"])
         db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?, ?)", session["user_id"], datetime.datetime.now(), symbol_id, result["price"], -int(request.form.get("shares")))
-        rows = db.execute("SELECT shares FROM portofolios WHERE user_id = ? AND symbol_id = ? LIMIT 1;", session["user_id"], symbol_id)
-        if len(rows) != 1:
-            db.execute("INSERT INTO portofolios (user_id, symbol_id, shares) VALUES (?, ?, ?);", session["user_id"], symbol_id, int(request.form.get("shares")))
-        else:
-            db.execute("UPDATE portofolios SET shares = ? WHERE user_id = ? AND symbol_id = ?;", rows[0]["shares"] + int(request.form.get("shares")), session["user_id"], symbol_id)
+        db.execute("UPDATE portofolios SET shares = ? WHERE user_id = ? AND symbol_id = ?;", rows[0]["shares"] - int(request.form.get("shares")), session["user_id"], symbol_id)
+
         return redirect("/sell")
     else:
-
-        return render_template("sell.html")
+        return render_template("sell.html", symbols=rows)
