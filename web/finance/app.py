@@ -65,7 +65,7 @@ def buy():
         symbol_id = get_symbol_id(db, result["symbol"]):
         if not symbol_id:
             symbol_id = db.execute("INSERT INTO symbols (symbol) VALUES (?)", result["symbol"])
-        db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], datetime.datetime.now(), symbol_id, result["price"], )
+        db.execute("INSERT INTO histories (user_id, transacted, symbol_id, price, shares) VALUES (?, ?, ?, ?)", session["user_id"], datetime.datetime.now(), symbol_id, result["price"], result["shares"])
 
         return redirect("/buy")
     else:
