@@ -24,11 +24,12 @@ def player(board):
     Returns player who has the next turn on a board.
     """
     if not any(any(row) for row in board):
-        return 'X'
+        return X
     sum_x = sum(sum(1 for r in row if r == X) for row in board)
     sum_o = sum(sum(1 for r in row if r == O) for row in board)
-    print(sum_x)
-    sys.exit(1)
+    if sum_x > sum_o:
+        return O
+    return X
 
 
 def actions(board):
