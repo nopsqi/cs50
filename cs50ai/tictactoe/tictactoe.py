@@ -105,7 +105,7 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    if te
+    # TODO
     pl = player(board)
     values = (minimax(b) for b in [result(board, a) for a in actions(board)])
 
