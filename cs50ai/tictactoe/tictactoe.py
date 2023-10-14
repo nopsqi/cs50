@@ -134,6 +134,7 @@ def calculate(board):
 
     for row in board:
         print(row)
+    print()
 
     values = [calculate(b) for b in [result(board, a) for a in actions(board)]]
 
