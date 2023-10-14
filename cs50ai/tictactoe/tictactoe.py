@@ -23,6 +23,9 @@ def player(board):
     """
     Returns player who has the next turn on a board.
     """
+    if not any(any(row) for row in board):
+        return 'X'
+    
     raise NotImplementedError
 
 
