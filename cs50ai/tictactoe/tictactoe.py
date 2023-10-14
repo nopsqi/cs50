@@ -57,7 +57,7 @@ def winner(board):
     Returns the winner of the game, if there is one.
     """
     result = [[1 if cell == 'X' else 0 for cell in row] for row in board]
-    row_state = [sum(cell for cell in row) for row in result]
+    row_state = [sum()]
     # col_state = [sum(cell for i)]
     return row_state
 
