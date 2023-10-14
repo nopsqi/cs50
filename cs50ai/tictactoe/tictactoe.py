@@ -4,7 +4,6 @@ Tic Tac Toe Player
 
 import math
 from copy import deepcopy
-from util import Node, StackFrontier, QueueFrontier
 
 X = "X"
 O = "O"
@@ -59,7 +58,7 @@ def winner(board):
     """
     for i, row in enumerate(board):
         for j, cell in enumerate(row):
-            
+
     raise NotImplementedError
 
 
