@@ -59,11 +59,13 @@ def winner(board):
     result = [[1 if cell == 'X' else 0 for cell in row] for row in board]
     row_state = [0] * 3
     col_state = [0] * 3
+    diag_
     for i, row in enumerate(result):
         for j, cell in enumerate(row):
-            row_state[i]
+            row_state[i] += cell
+            col_state[j] += cell
 
-    return row_state
+    return row_state, col_state
 
 
 def terminal(board):
