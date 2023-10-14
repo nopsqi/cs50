@@ -121,14 +121,11 @@ while True:
         # Check for a user move
         click, _, _ = pygame.mouse.get_pressed()
         if click == 1 and user == player and not game_over:
-            time.sleep(0.5)
-            move = ttt.minimax(board)
-            board = ttt.result(board, move)
-            # mouse = pygame.mouse.get_pos()
-            # for i in range(3):
-            #     for j in range(3):
-            #         if (board[i][j] == ttt.EMPTY and tiles[i][j].collidepoint(mouse)):
-            #             board = ttt.result(board, (i, j))
+            mouse = pygame.mouse.get_pos()
+            for i in range(3):
+                for j in range(3):
+                    if (board[i][j] == ttt.EMPTY and tiles[i][j].collidepoint(mouse)):
+                        board = ttt.result(board, (i, j))
 
         if game_over:
             againButton = pygame.Rect(width / 3, height - 65, width / 3, 50)
