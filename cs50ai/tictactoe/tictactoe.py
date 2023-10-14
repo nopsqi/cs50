@@ -78,8 +78,10 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
+    frontier = StackFrontier()
     start = Node(state=board, parent=None, action=None)
-    num_explored = 0
-    explored = set()
-    explored.add(tuple(tuple(row) for row in board))
-    return explored
+    return "minimax"
+
+
+def to_tuple(board):
+    return tuple(tuple(row) for row in board)
