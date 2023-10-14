@@ -60,13 +60,16 @@ def winner(board):
     row_state = [0] * 3
     col_state = [0] * 3
     diag_state = [0] * 2
-    
+    i_prev = -1
+    j_prev = 
     for i, row in enumerate(result):
         for j, cell in enumerate(row):
             row_state[i] += cell
             col_state[j] += cell
             if i == j:
                 diag_state[0] += cell
+            if i == i_prev + 1 and j == j_prev:
+                diag_
 
 
     return row_state, col_state, diag_state
