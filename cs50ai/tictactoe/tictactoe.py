@@ -81,3 +81,5 @@ def minimax(board):
     start = Node(state=board, parent=None, action=None)
     num_explored = 0
     explored = set()
+    explored.add(tuple(tuple(row) for row in board))
+    return explored
