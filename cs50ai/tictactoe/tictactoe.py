@@ -25,8 +25,10 @@ def player(board):
     """
     if not any(any(row) for row in board):
         return 'X'
-    
-    raise NotImplementedError
+    sum_x = sum(sum(1 for r in row if r == X) for row in board)
+    sum_o = sum(sum(1 for r in row if r == O) for row in board)
+    print(sum_x)
+    sys.exit(1)
 
 
 def actions(board):
