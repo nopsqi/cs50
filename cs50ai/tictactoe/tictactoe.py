@@ -140,5 +140,5 @@ def calculate(board):
         values = -2
         for b in boards:
             
-        return max(values)
-    return min(values)
+    #     return max(values)
+    # return min(values)
