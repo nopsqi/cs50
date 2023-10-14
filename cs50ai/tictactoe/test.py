@@ -7,8 +7,8 @@ def main():
              [EMPTY, EMPTY, EMPTY],
              [EMPTY, EMPTY, EMPTY]]
     board = [[X, O, O],
-             [X, X, X],
-             [O, X, O]]
+             [X, X, O],
+             [O, X, X]]
     print(winner(board))
 
 
