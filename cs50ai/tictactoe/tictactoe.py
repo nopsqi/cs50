@@ -58,9 +58,9 @@ def winner(board):
     """
     r = [[1 if cell == X else 0 if cell == -1 else 0 for cell in row] for row in board]
     states = {}
-    states["row"] = [0] * 3
-    states["column"] = [0] * 3
-    states["diagonal"] = [0] * 2
+    states["row"] = [1] * 3
+    states["column"] = [1] * 3
+    states["diagonal"] = [1] * 2
     i_prev = -1
     j_prev = 3
     for i, row in enumerate(r):

@@ -12,9 +12,12 @@ def main():
     # board = [[X, EMPTY, EMPTY],
     #          [EMPTY, EMPTY, EMPTY],
     #          [EMPTY, EMPTY, EMPTY]]
-    board = [[X, O, X],
-             [X, X, O],
-             [O, O, X]]
+    board = [[X,O,EMPTY],
+             [X,X,O],
+             [X,EMPTY,O]]
+    board = [[O,X,EMPTY],
+             [O,O,X],
+             [O,EMPTY,X]]
     print(winner(board))
 
 
