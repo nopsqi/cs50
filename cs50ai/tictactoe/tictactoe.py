@@ -3,6 +3,7 @@ Tic Tac Toe Player
 """
 
 import math
+import sys
 
 X = "X"
 O = "O"
@@ -22,7 +23,8 @@ def player(board):
     """
     Returns player who has the next turn on a board.
     """
-    
+    print(board)
+    sys.exit(1)
 
 
 def actions(board):
