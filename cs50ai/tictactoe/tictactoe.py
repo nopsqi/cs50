@@ -135,11 +135,6 @@ def calculate(board):
     values = [calculate(b) for b in [result(board, a) for a in actions(board)]]
 
     pl = player(board)
-    print(pl)
-    for row in board:
-        print(row)
-    print()
-
     if pl == X:
         return max(values)
     return min(values)
