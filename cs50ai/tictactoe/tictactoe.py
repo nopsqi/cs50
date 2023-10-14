@@ -69,6 +69,7 @@ def winner(board):
             if i == j:
                 diag_state[0] += cell
             if i == i_prev + 1 and j == j_prev - 1:
+                print(i, j)
                 diag_state[1] += cell
             j_prev = j
         i_prev = i
