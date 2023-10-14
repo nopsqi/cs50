@@ -79,4 +79,5 @@ def minimax(board):
     Returns the optimal action for the current player on the board.
     """
     start = Node(state=board, parent=None, action=None)
-    
+    num_explored = 0
+    explored = set()
