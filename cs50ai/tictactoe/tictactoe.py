@@ -78,4 +78,5 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    raise NotImplementedError
+    start = Node(state=board, parent=None, action=None)
+    
