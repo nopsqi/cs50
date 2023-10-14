@@ -110,8 +110,11 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    values = [(a, calculate(b)) for a in actions(board) for b in result(board, a)]
-    return values
+    # values = [(a, calculate(b)) for a in actions(board) for b in result(board, a)]
+    values = [() for a in actions(board) for b in result(board, a)]
+    for v in values:
+        print(v)
+    return None
 
 def calculate(board):
     if terminal(board):
