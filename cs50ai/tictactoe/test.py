@@ -7,9 +7,12 @@ def main():
              [EMPTY, EMPTY, EMPTY],
              [EMPTY, EMPTY, EMPTY]]
     board = [[X, O, X],
+             [O, X, O],
+             [X, EMPTY, EMPTY]]
+    board = [[X, O, X],
              [X, X, O],
-             [O, EMPTY, EMPTY]]
-    print(minimax(board))
+             [O, X, EMPTY]]
+    print(terminal(board))
 
 
 if __name__ == "__main__":

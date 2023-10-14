@@ -85,7 +85,12 @@ def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    return all(all(row) for row in board)
+    filled = all(all(row) for row in board)
+    if filled:
+        return filled
+    if winner(board):
+        return True
+    return False
 
 
 def utility(board):
