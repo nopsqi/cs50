@@ -23,8 +23,7 @@ def player(board):
     """
     Returns player who has the next turn on a board.
     """
-    print(board)
-    sys.exit(1)
+    raise NotImplementedError
 
 
 def actions(board):
@@ -52,6 +51,9 @@ def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
+    
+    print(board)
+    sys.exit(1)
     raise NotImplementedError
 
 
