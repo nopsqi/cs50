@@ -3,6 +3,7 @@ Tic Tac Toe Player
 """
 
 import math
+from copy import deepcopy
 import sys
 
 X = "X"
@@ -43,10 +44,8 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
-    result = copy.deepcopy(board)
-    board[0][0] = X
-    print(board)
-    print(result)
+    result = deepcopy(board)
+    result[action[0]][]
     raise NotImplementedError
 
 
