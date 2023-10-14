@@ -44,8 +44,10 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
+    if board[action[0]][action[1]] is not None:
     result = deepcopy(board)
     p = player(board)
+
     result[action[0]][action[1]] = p
     return result
 
