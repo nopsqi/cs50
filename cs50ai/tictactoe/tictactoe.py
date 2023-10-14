@@ -45,25 +45,25 @@ def result(board, action):
     """
     if board[action[0]][action[1]] is not None:
         raise Exception("Ilegal move.")
-    result = deepcopy(board)
+    r = deepcopy(board)
     p = player(board)
-    result[action[0]][action[1]] = p
+    r[action[0]][action[1]] = p
 
-    return result
+    return r
 
 
 def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
-    result = [[1 if cell == 'X' else 0 for cell in row] for row in board]
+    r = [[1 if cell == 'X' else 0 for cell in row] for row in board]
     states = {}
     states["row"] = [0] * 3
     states["column"] = [0] * 3
     states["diagonal"] = [0] * 2
     i_prev = -1
     j_prev = 3
-    for i, row in enumerate(result):
+    for i, row in enumerate(r):
         for j, cell in enumerate(row):
             states["row"][i] += cell
             states["column"][j] += cell
@@ -106,8 +106,8 @@ def minimax(board):
     Returns the optimal action for the current player on the board.
     """
     p = player(board)
-    if p == X:
-        return max()
+    act = actions(board)
+    resu
 
 
 def to_tuple(board):
