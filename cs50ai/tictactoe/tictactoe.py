@@ -51,8 +51,9 @@ def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
+    board[1][2] = 'X'
     print(board)
-    print(any(row for row in board))
+    print(all(all(row) for row in board))
     sys.exit(1)
     raise NotImplementedError
 
