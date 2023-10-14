@@ -15,7 +15,7 @@ def main():
     # board = [[X, O, X],
     #          [X, X, O],
     #          [O, X, EMPTY]]
-    print(minimax(board))
+    print(winner(board))
 
 
 if __name__ == "__main__":
