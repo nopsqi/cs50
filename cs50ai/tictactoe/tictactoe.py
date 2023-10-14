@@ -61,7 +61,7 @@ def winner(board):
     col_state = []
     for i, row in enumerate(result):
         for j, cell in enumerate(row):
-            
+            row_state[i]
 
     return row_state
 
