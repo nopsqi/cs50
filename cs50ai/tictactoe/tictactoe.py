@@ -139,7 +139,12 @@ def calculate(board):
     return min(values)
 
 def calculate_prune(board):
-    boards = [result(board, a) for a in actions(boards)]
 
+
+    node = board
     pl = player(board)
     while True:
+        if terminal(board):
+            return utility(board)
+        
+
