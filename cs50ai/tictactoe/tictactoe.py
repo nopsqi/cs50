@@ -43,7 +43,7 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
-    result = board.copy()
+    result = copy.deepcopy(board)
     board[0][0] = X
     print(board)
     print(result)
