@@ -6,10 +6,10 @@ def main():
     empty = [[EMPTY, EMPTY, EMPTY],
              [EMPTY, EMPTY, EMPTY],
              [EMPTY, EMPTY, EMPTY]]
-    board = [[X, O, O],
+    board = [[X, O, X],
              [X, X, O],
-             [O, X, X]]
-    print(winner(board))
+             [O, X, O]]
+    print(utility(board))
 
 
 if __name__ == "__main__":
