@@ -139,6 +139,7 @@ def calculate(board):
     if pl == X:
         values = -2
         for b in boards:
-            
+            if calculate(b)
+
     #     return max(values)
     # return min(values)
