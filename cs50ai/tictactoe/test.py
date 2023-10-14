@@ -12,13 +12,13 @@ def main():
     # board = [[X, EMPTY, EMPTY],
     #          [EMPTY, EMPTY, EMPTY],
     #          [EMPTY, EMPTY, EMPTY]]
-    board = [[X,O,EMPTY],
-             [X,X,O],
-             [X,EMPTY,O]]
-    board = [[O,X,EMPTY],
-             [O,O,X],
-             [O,EMPTY,X]]
-    print(winner(board))
+    # board = [[X,O,EMPTY],
+    #          [X,X,O],
+    #          [X,EMPTY,O]]
+    # board = [[O,X,EMPTY],
+    #          [O,O,X],
+    #          [O,EMPTY,X]]
+    print(minimax(board))
 
 
 if __name__ == "__main__":
