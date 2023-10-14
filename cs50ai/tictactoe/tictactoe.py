@@ -37,7 +37,7 @@ def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
-    
+    return set((i, j) for i, row in enumerate(board) for j, col in enumerate(row))
     return "action"
 
 
