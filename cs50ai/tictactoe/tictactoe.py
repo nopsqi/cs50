@@ -64,8 +64,11 @@ def winner(board):
         for j, cell in enumerate(row):
             row_state[i] += cell
             col_state[j] += cell
+            if i == j:
+                diag_state[0] += cell
 
-    return row_state, col_state
+
+    return row_state, col_state, diag_state
 
 
 def terminal(board):
