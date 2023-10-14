@@ -76,7 +76,7 @@ def winner(board):
     states = sum(states.values(), [])
     if 3 in states:
         return X
-    elif 0 in states:
+    if 0 in states:
         return O
     return None
 
@@ -92,7 +92,13 @@ def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
-    raise NotImplementedError
+    w = winner(board)
+
+    if w == X:
+        return 1
+    if w == O:
+        return -1
+    return 0
 
 
 def minimax(board):
