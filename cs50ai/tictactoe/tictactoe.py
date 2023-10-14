@@ -4,6 +4,7 @@ Tic Tac Toe Player
 
 import math
 from copy import deepcopy
+from util import Node, QueueFrontier
 
 X = "X"
 O = "O"
@@ -139,12 +140,11 @@ def calculate(board):
     return min(values)
 
 def calculate_prune(board):
-
-
+    frontier = QueueFrontier()
     node = board
     pl = player(board)
     while True:
         if terminal(board):
             return utility(board)
-        
+
 
