@@ -6,9 +6,9 @@ def main():
     empty = [[EMPTY, EMPTY, EMPTY],
              [EMPTY, EMPTY, EMPTY],
              [EMPTY, EMPTY, EMPTY]]
-    board = [[EMPTY, X, EMPTY],
-             [EMPTY, X, O],
-             [EMPTY, EMPTY, EMPTY]]
+    board = [[X, O, O],
+             [X, X, X],
+             [O, X, O]]
     print(winner(board))
 
 

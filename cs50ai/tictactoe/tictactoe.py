@@ -57,7 +57,7 @@ def winner(board):
     Returns the winner of the game, if there is one.
     """
     result = deepcopy(board)
-    result = [1 if cell == 'X' else 0 for row in board for cell in row]
+    result = [[1 if cell == 'X' else 0 for cell in row] for row in board]
     return result
 
 
