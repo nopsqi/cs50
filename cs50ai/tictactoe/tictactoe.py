@@ -112,11 +112,11 @@ def minimax(board):
     """
     # values = [(a, calculate(b)) for a in actions(board) for b in result(board, a)]
     # values = [result(board, a) for a in actions(board)]
-    r = []
+    res = []
     for ac in actions(board):
-        r.append((ac, calculate(result(board, ac))))
-
-    return r
+        res.append((ac, calculate(result(board, ac))))
+    if pl == 
+    return res[][0]
 
 def calculate(board):
     if terminal(board):
