@@ -18,13 +18,13 @@ def main():
     # board = [[O,X,EMPTY],
     #          [O,O,X],
     #          [O,EMPTY,X]]
-    board = [[X,O,EMPTY],
-             [O,O,X],
-             [X,EMPTY,EMPTY]]
-    for b in [result(board, c) for c in actions(board)]:
-        for row in b:
-            print(row)
-        print()
+    # board = [[X,O,EMPTY],
+    #          [O,O,X],
+    #          [X,EMPTY,EMPTY]]
+    board = [[X, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
+    print(calculate(board))
 
 
 if __name__ == "__main__":
