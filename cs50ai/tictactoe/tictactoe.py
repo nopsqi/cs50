@@ -37,7 +37,8 @@ def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
-    raise NotImplementedError
+    
+    return "action"
 
 
 def result(board, action):
@@ -78,9 +79,7 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    frontier = StackFrontier()
-    start = Node(state=board, parent=None, action=None)
-    return "minimax"
+    raise NotImplementedError
 
 
 def to_tuple(board):
