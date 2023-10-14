@@ -108,7 +108,6 @@ def minimax(board):
     p = player(board)
     if p == X:
         return max()
-    raise NotImplementedError
 
 
 def to_tuple(board):

@@ -8,8 +8,8 @@ def main():
              [EMPTY, EMPTY, EMPTY]]
     board = [[X, O, X],
              [X, X, O],
-             [O, X, O]]
-    print(utility(board))
+             [O, EMPTY, EMPTY]]
+    print(minimax(board))
 
 
 if __name__ == "__main__":
