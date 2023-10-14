@@ -43,6 +43,10 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
+    result = board.copy()
+    board[0][0] = X
+    print(board)
+    print(result)
     raise NotImplementedError
 
 
