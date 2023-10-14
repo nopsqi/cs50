@@ -22,7 +22,7 @@ def main():
     #          [O,O,X],
     #          [X,EMPTY,EMPTY]]
     board = [[X, EMPTY, EMPTY],
-             [EMPTY, EMPTY, EMPTY],
+             [X, O, EMPTY],
              [EMPTY, EMPTY, EMPTY]]
     print(calculate(board))
 
