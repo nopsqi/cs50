@@ -117,8 +117,8 @@ def minimax(board):
     pl = player(board)
     res = []
     for ac in actions(board):
-        print(ac)
-        res.append((ac, calculate(result(board, ac))))
+        if ac is not None:
+            res.append((ac, calculate(result(board, ac))))
 
     i = [r[1] for r in res]
     if pl == X:
