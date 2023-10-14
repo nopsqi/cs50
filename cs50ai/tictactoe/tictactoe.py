@@ -150,8 +150,14 @@ def calculate_prune(board):
 
         node = frontier.remove()
 
-        if terminal(node.state):
+        if pl == X:
+            value = -2
+        else:
+            value = 2
+
+        if terminal(node.state) and pl == X:
             
+
 
 def to_tupe(board):
     return ((cell for cell in row) for row in board)
