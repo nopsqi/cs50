@@ -141,10 +141,17 @@ def calculate(board):
 
 def calculate_prune(board):
     frontier = QueueFrontier()
-    node = board
+    start = Node(state=)
+    frontier.add(start)
     pl = player(board)
     while True:
-        if terminal(board):
-            return utility(board)
+        if frontier.empty():
+            return None
 
+        node = frontier.remove()
 
+        if terminal(node.state):
+            
+
+def to_tupe(board):
+    return ((cell for cell in row) for row in board)
