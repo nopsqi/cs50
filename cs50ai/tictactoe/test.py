@@ -3,11 +3,11 @@ from util import *
 
 
 def main():
-    # board = [[EMPTY, EMPTY, EMPTY],
-    #          [EMPTY, EMPTY, EMPTY],
-    #          [EMPTY, EMPTY, EMPTY]]
+    empty = [[EMPTY, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY],
+             [EMPTY, EMPTY, EMPTY]]
     board = [[EMPTY, X, EMPTY],
-             [EMPTY, EMPTY, O],
+             [EMPTY, X, O],
              [EMPTY, EMPTY, EMPTY]]
     print(actions(board))
 

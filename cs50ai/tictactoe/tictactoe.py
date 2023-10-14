@@ -38,7 +38,6 @@ def actions(board):
     Returns set of all possible actions (i, j) available on the board.
     """
     return set((i, j) for i, row in enumerate(board) for j, cell in enumerate(row) if cell is None)
-    return "action"
 
 
 def result(board, action):
