@@ -56,10 +56,9 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
-    for i, row in enumerate(board):
-        for j, cell in enumerate(row):
-
-    raise NotImplementedError
+    result = deepcopy(board)
+    result = [1 if cell == 'X' else 0 for row in board for cell in row]
+    return result
 
 
 def terminal(board):

@@ -9,7 +9,7 @@ def main():
     board = [[EMPTY, X, EMPTY],
              [EMPTY, X, O],
              [EMPTY, EMPTY, EMPTY]]
-    print(actions(board))
+    print(winner(board))
 
 
 if __name__ == "__main__":
