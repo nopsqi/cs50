@@ -156,7 +156,7 @@ def calculate_prune(board):
             value = 2
 
         if terminal(node.state) and pl == X:
-            
+            pass
 
 
 def to_tupe(board):
