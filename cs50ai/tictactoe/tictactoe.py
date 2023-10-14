@@ -131,15 +131,15 @@ def calculate(board):
     if terminal(board):
         return utility(board)
 
-    # values = [calculate(b) for b in [result(board, a) for a in actions(board)]]
-    boards = [result(board, a) for a in actions(board)]
-
+    values = [calculate(b) for b in [result(board, a) for a in actions(board)]]
 
     pl = player(board)
     if pl == X:
-        values = -2
-        for b in boards:
-            if calculate(b)
+        return max(values)
+    return min(values)
 
-    #     return max(values)
-    # return min(values)
+def calculate_prune(board):
+    boards = [result(board, a) for a in actions(boards)]
+
+    pl = player(board)
+    while True:
