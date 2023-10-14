@@ -9,6 +9,9 @@ def main():
     board = [[X, O, X],
              [O, EMPTY, O],
              [X, EMPTY, EMPTY]]
+    # board = [[X, EMPTY, EMPTY],
+    #          [EMPTY, EMPTY, EMPTY],
+    #          [EMPTY, EMPTY, EMPTY]]
     # board = [[X, O, X],
     #          [X, X, O],
     #          [O, X, EMPTY]]
