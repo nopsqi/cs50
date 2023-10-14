@@ -110,12 +110,4 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    if terminal(board):
-        return utility(board)
-
-    # values = [minimax(b) for b in [result(board, a) for a in actions(board)]]
-
-    pl = player(board)
-    if pl == X:
-        return max(1)
-    return min(0)
+    
