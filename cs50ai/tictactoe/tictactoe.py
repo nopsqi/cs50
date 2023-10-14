@@ -115,7 +115,7 @@ def minimax(board):
     # values = [result(board, a) for a in actions(board)]
     for v in values:
         print(v)
-        print()
+        print("space")
     return None
 
 def calculate(board):
