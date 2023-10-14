@@ -116,9 +116,14 @@ def minimax(board):
     res = []
     for ac in actions(board):
         res.append((ac, calculate(result(board, ac))))
+
+    i = [r[1] for r in res]
     if pl == X:
-        index = max[r[1] for r in res]
-    return res[][0]
+        i = i.index(max(i))
+    else:
+        i = i.index(min(i))
+
+    return res[i][0]
 
 def calculate(board):
     if terminal(board):
