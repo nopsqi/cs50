@@ -56,7 +56,7 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
-    r = [[1 if cell == X else 0 if cell == -1 else 0 for cell in row] for row in board]
+    r = [[1 if cell == X else -1 if cell == O else 0 for cell in row] for row in board]
     states = {}
     states["row"] = [1] * 3
     states["column"] = [1] * 3
