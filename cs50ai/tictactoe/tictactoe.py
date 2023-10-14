@@ -105,9 +105,8 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    p = player(board)
-    act = actions(board)
-    resu
+    pl = player(board)
+    re = [result(board, a) for a in actions(board)]
 
 
 def to_tuple(board):
