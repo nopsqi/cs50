@@ -56,7 +56,7 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
-    r = [[1 if cell == X else 0 if cell == O else -1 for cell in row] for row in board]
+    r = [[1 if cell == X else 0 if cell == -1 else 0 for cell in row] for row in board]
     states = {}
     states["row"] = [0] * 3
     states["column"] = [0] * 3
@@ -65,15 +65,16 @@ def winner(board):
     j_prev = 3
     for i, row in enumerate(r):
         for j, cell in enumerate(row):
-            states["row"][i] += cell
-            states["column"][j] += cell
+            states["row"][i] *= cell
+            states["column"][j] *= cell
             if i == j:
-                states["diagonal"][0] += cell
+                states["diagonal"][0] *= cell
             if i == i_prev + 1 and j == j_prev - 1:
-                states["diagonal"][1] += cell
+                states["diagonal"][1] *= cell
                 j_prev = j
                 i_prev = i
     states = sum(states.values(), [])
+    return states
     if 3 in states:
         return X
     if 0 in states:
