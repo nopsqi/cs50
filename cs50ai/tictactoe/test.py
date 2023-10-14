@@ -18,7 +18,7 @@ def main():
     # board = [[O,X,EMPTY],
     #          [O,O,X],
     #          [O,EMPTY,X]]
-    print(calculate(board))
+    print(minimax(board))
 
 
 if __name__ == "__main__":
