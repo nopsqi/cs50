@@ -47,8 +47,6 @@ def result(board, action):
     result = deepcopy(board)
     p = player(board)
     result[action[0]][action[1]] = p
-    print(result)
-    raise NotImplementedError
     return result
 
 
