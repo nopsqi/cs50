@@ -137,8 +137,8 @@ def ab_pruning(board):
         return None
 
     start = Node(state=board, parent=None, utility=None, level=0, action=None)
-    # frontier = StackFrontier()
-    frontier = QueueFrontier()
+    frontier = StackFrontier()
+    # frontier = QueueFrontier()
     frontier.add(start)
     num_explored = 0
     address_counter = letters_counter()
