@@ -160,13 +160,6 @@ def minimax_prune(board):
                 node.parent.utility = utility
                 node = node.parent
 
-
-        
-
-
-
-
-
     return
 
 
