@@ -133,6 +133,7 @@ def minimax_prune(board):
     """
     Returns the optimal action for the current player on the board.
     """
+    return
     if terminal(board):
         return None
 
@@ -157,8 +158,12 @@ def minimax_prune(board):
         if terminal(node.state) or node.level == 2:
             print(node.state)
 
-        for 
+        ac = actions(node.state)
+        for a, b in zip(ac, [result(node.state, a) for a in ac]):
 
+
+def func(board):
+    
 
 
 def calculate(board):
