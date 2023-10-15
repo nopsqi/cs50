@@ -19,9 +19,12 @@ def main():
     # board = [[X,O,EMPTY],
     #          [O,O,X],
     #          [X,EMPTY,EMPTY]]
-    board = [[X, O, X],
-             [X, O, EMPTY],
-             [O, EMPTY, EMPTY]]
+    # board = [[X, O, X],
+    #          [X, O, EMPTY],
+    #          [O, EMPTY, EMPTY]]
+    board = [[O, X, X],
+             [X, X, O],
+             [O, O, X]]
     print(minimax_prune(board))
 
 
