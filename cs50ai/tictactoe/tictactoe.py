@@ -151,7 +151,7 @@ def calculate_prune(node):
         if None not in [node.parent, node.parent.utility]:
             utilities = []
             for n in nodes:
-                if n.parent.utility calculate_prune(n)
+                if node.parent.utility calculate_prune(n)
 
         node.utility = max(calculate_prune(n) for n in nodes)
         return node.utility
