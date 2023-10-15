@@ -107,6 +107,28 @@ def utility(board):
     return 0
 
 
+def minimax_done(board):
+    """
+    Returns the optimal action for the current player on the board.
+    """
+    if terminal(board):
+        return None
+
+    pl = player(board)
+    res = []
+    for ac in actions(board):
+        if ac is not None:
+            res.append((ac, calculate(result(board, ac))))
+
+    i = [r[1] for r in res]
+    if pl == X:
+        i = i.index(max(i))
+    else:
+        i = i.index(min(i))
+
+    return res[i][0]
+
+
 def minimax(board):
     """
     Returns the optimal action for the current player on the board.
