@@ -176,12 +176,11 @@ def ab_pruning(board):
             print(f"{padding}{row}")
         print()
 
-        if terminal(node.state) or node.level > 0:
-            continue
 
         for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
-            child = Node(state=b, parent=node, utility=None, level=node.level+1, action=a)
-            frontier.add(child)
+            if node.level < 1:
+                child = Node(state=b, parent=node, utility=None, level=node.level+1, action=a)
+                frontier.add(child)
 
 
 def calculate(board):
