@@ -141,6 +141,8 @@ def ab_pruning(board):
     frontier = QueueFrontier()
     frontier.add(start)
     num_explored = 0
+    addresses = {}
+    address_counter = 0
 
     while True:
         if frontier.empty():
