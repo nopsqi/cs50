@@ -132,9 +132,19 @@ def calculate(board):
     if terminal(board):
         return utility(board)
 
-    values = [calculate(b) for b in [result(board, a) for a in actions(board)]]
+    # values = [calculate(b) for b in [result(board, a) for a in actions(board)]]
+    values = []
+    boards = [result(board, a) for a in actions(board)]
+    for b in boards:
+        if not BOARD_DICTIONARY.get(to_tuple(board)):
+            BOARD_DICTIONARY[to_tuple(board)] = calculate(board)
+        values.append(BOARD_DICTIONARY[to_tuple(board)])
 
     pl = player(board)
     if pl == X:
         return max(values)
     return min(values)
+
+
+def to_tuple(board):
+    return ((cell for cell in row) for row in board)
