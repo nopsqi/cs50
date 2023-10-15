@@ -148,7 +148,7 @@ def calculate_prune(node):
     pl == player(node.state)
     nodes = [Node(state=result(node.state, a), parent=node, utility=None, action=a) for a in actions(node.state)]
     if pl == X:
-        if node.parent is not None and node.parent:
+        if None not in [node.utility, node.parent.utility]:
             utilities = []
             for n in nodes:
 
