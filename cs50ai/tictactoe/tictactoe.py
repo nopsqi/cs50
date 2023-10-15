@@ -152,23 +152,21 @@ def prune(board, alpha, beta):
     pl = player(board)
 
     if pl == X:
-        max_utility = -math.inf
-        for b in boards:
-            util = prune(b, alpha, beta)
-            max_utility = max(max_utility, util)
-            alpha = max(alpha, util)
-            if beta <= alpha:
-                break
-        return max_utility
+        eval_util = -math.inf
     else:
-        min_utility = math.inf
-        for b in boards:
-            util = prune(b, alpha, beta)
-            min_utility = min(min_utility, util)
+        eval_util = math.inf
+
+    for b in boards:
+        util = prune(b, alpha, beta)
+        if pl == X:
+            eval_util = max(eval_util, util)
+            alpha = max(alpha, util)
+        else:
+            eval_util = min(eval_util, util)
             beta = min(beta, util)
-            if beta <= alpha:
-                break
-        return min_utility
+        if beta <= alpha:
+            break
+    return eval_util
 
 
 def to_tuple(board):
