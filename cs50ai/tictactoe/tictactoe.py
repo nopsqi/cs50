@@ -152,10 +152,6 @@ def ab_pruning(board):
         num_explored += 1
 
         p = player(node.state)
-        if p == X:
-            value = -2
-        else:
-            value = 2
 
         padding = " " * node.level * 14
         if node.parent is not None:
@@ -176,9 +172,11 @@ def ab_pruning(board):
             print(f"{padding}{row}")
         print()
 
-        for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
-            if node.parent.value is None:
-                node.parent.value = max()
+        if node.parent.utility is None:
+            node.parent.utility = max(calculate(b) for b in [result(node.state, a) for a in actions(node.state)])
+        else:
+            for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
+                if 
 
 
         for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
