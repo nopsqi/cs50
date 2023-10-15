@@ -26,7 +26,7 @@ def main():
     # board = [[O, X, X],
     #          [X, X, O],
     #          [O, X, O]]
-    print(prune(board, -math.inf, math.inf))
+    print(calculate(board))
 
 
 if __name__ == "__main__":
