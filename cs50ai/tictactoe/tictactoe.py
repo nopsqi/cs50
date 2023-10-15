@@ -153,12 +153,16 @@ def calculate_prune(node):
         if pl == O:
             return max(values)
     if node.parent and node.parent.utility is not None:
+        utilities = []
         for b in [result(node.state, a) for a in actions(node.state)]:
             utility = calculate(b)
             if pl == X and node.parent.utiity < utility:
                 break
             if pl == O and node.parent.utiity > utility:
                 break
+            utilities.append(utility)
+        if pl == X:
+            node.parent.utility = 
 
 
 def to_tupe(board):
