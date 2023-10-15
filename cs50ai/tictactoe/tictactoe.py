@@ -129,7 +129,7 @@ def minimax(board):
     return res[i][0]
 
 
-def minimax_prune(board):
+def ab_pruning(board):
     """
     Returns the optimal action for the current player on the board.
     """
