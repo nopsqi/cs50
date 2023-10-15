@@ -163,6 +163,8 @@ def calculate_prune(node):
         node.utility = max(calculate_prune(n) for n in nodes)
         return node.utility
     if pl == O:
+        if node.parent is not None and node.parent.utility is None:
+            node.parent.utility = max(calculate_prune(n) for n in nodes)
         if node.parent is not None and node.parent.utility is not None:
             utilities = [2]
             for n in nodes:
