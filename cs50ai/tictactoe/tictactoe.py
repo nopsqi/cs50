@@ -129,68 +129,6 @@ def minimax(board):
     return res[i][0]
 
 
-def ab_pruning(board):
-    """
-    Returns the optimal action for the current player on the board.
-    """
-    if terminal(board):
-        return None
-
-    start = Node(state=board, parent=None, utility=None, level=0, action=None, optimal_action=None)
-    frontier = StackFrontier()
-    # frontier = QueueFrontier()
-    frontier.add(start)
-    num_explored = 0
-    address_counter = letters_counter()
-    addresses = {}
-
-    while True:
-        if frontier.empty():
-            return None
-
-        node = frontier.remove()
-        num_explored += 1
-
-        p = player(node.state)
-
-        padding = " " * node.level * 14
-        if node.parent is not None:
-            if addresses.get(id(node.parent)) is None:
-                addresses[id(node.parent)] = next(address_counter)
-            print(f"{padding}parent: {addresses.get(id(node.parent))}")
-        if addresses.get(id(node)) is None:
-            addresses[id(node)] = next(address_counter)
-        print(f"{padding}node: {addresses.get(id(node))}")
-        print(f"{padding}turn: {p}")
-        print(f"{padding}action: {node.action}")
-        if terminal(node.state):
-            padding_t = (" " * (node.level - 1) * 14) + "t" + (" " * 13)
-            print(f"{padding_t}winner: {winner(node.state)}")
-        if node.level == 0 or terminal(node.state) or node.level == 2:
-            print(f"{padding}utility: {calculate(node.state)}")
-        for row in node.state:
-            print(f"{padding}{row}")
-        print()
-
-        if node.level == 1:
-            if node.parent.utility is None:
-                node.parent.utility = min(calculate(b) for b in [result(node.state, a) for a in actions(node.state)])
-            else:
-                utilities = []
-                for b in [result(node.state, a) for a in actions(node.state)]:
-                    if calculate(b) <= node.parent.utility:
-                        utilities = []
-                        break
-                    utilities.append(calculate(b))
-                if len(utilities) != 0:
-                    node.parent.utility = min(utilities)
-
-        for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
-            if node.level < 1:
-                child = Node(state=b, parent=node, utility=None, level=node.level+1, action=a, optimal_action=None)
-                frontier.add(child)
-
-
 def calculate(board):
     if terminal(board):
         return utility(board)
@@ -201,6 +139,19 @@ def calculate(board):
     if pl == X:
         return max(values)
     return min(values)
+
+
+def calculate_prune(node):
+    if terminal(node.state):
+        return utility(node.state)
+
+    pl = player(node.state)
+    if node.parent is None and pl == X:
+        values = [calculate(b) for b in [result(board, a) for a in actions(board)]]
+        return max(values)
+    if node.parent is None and pl == O:
+        values = [calculate(b) for b in [result(board, a) for a in actions(board)]]
+        return min(values)
 
 
 def to_tupe(board):
