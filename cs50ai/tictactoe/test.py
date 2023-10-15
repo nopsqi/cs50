@@ -20,9 +20,9 @@ def main():
     # board = [[X,O,EMPTY],
     #          [O,O,X],
     #          [X,EMPTY,EMPTY]]
-    board = [[X, O, X],
+    board = [[X, EMPTY, EMPTY],
              [X, O, EMPTY],
-             [EMPTY, EMPTY, EMPTY]]
+             [O, EMPTY, EMPTY]]
     # board = [[O, X, X],
     #          [X, X, O],
     #          [O, X, O]]
