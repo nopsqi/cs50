@@ -116,7 +116,8 @@ def minimax(board):
     res = []
     for ac in actions(board):
         if ac is not None:
-            res.append((ac, calculate_prune(result(board, ac))))
+            # res.append((ac, calculate(result(board, ac))))
+            res.append((ac, calculate_prune(Node(state=result(board, ac), parent=))))
 
     i = [r[1] for r in res]
     if pl == X:
