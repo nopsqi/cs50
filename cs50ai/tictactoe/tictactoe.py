@@ -157,14 +157,12 @@ def minimax_prune(board):
         if terminal(node.state) or node.level == 2:
             print(node.state)
 
-        acts = actions(node.state)
-        for a, b in zip(acts, [result(node.state, ac) for ac in acts]):
+        for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
             pass
 
 
 def func(board):
-    ac = actions(board)
-    array = [(a, b) for a, b in zip(ac, [result(board, c) for c in ac])]
+    array = [(a, result(board, a)) for a in actions(board)]
     return array
 
 
