@@ -24,8 +24,6 @@ def player(board):
     """
     Returns player who has the next turn on a board.
     """
-    if not any(any(row) for row in board):
-        return X
     sum_x = sum(sum(1 for r in row if r == X) for row in board)
     sum_o = sum(sum(1 for r in row if r == O) for row in board)
     if sum_x > sum_o:
