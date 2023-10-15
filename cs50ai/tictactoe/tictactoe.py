@@ -142,6 +142,7 @@ def calculate(board):
 
 
 def calculate_prune(node):
+    print(node.utility)
     if terminal(node.state):
         node.utility = node.parent.utility = utility(node.state)
         return utility(node.state)
