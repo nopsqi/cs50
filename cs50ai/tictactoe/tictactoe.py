@@ -136,10 +136,20 @@ def minimax(board):
     if terminal(board):
         return None
 
-    start = Node(state=board, parent=None, utility=None, action=None)
+    start = Node(state=board, parent=None, utility=None, level=0, action=None)
     frontier = StackFrontier()
     frontier.add(start)
     num_explored = 0
+
+    while True:
+        if frontier.empty():
+            return None
+
+        node = frontier.remove()
+        num_explored += 1
+
+        if :
+
 
     return
 
