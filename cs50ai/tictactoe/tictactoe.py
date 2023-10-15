@@ -162,6 +162,7 @@ def ab_pruning(board):
             print(f"{padding}turn: {p}")
             print(f"{padding}winner: {winner(node.state)}")
             print(f"{padding}action: {node.action}")
+            print(f"{padding}utility: {calculate(node.state)}")
             for row in node.state:
                 print(f"{padding}{row}")
             print()
