@@ -21,7 +21,7 @@ def main():
     #          [X,EMPTY,EMPTY]]
     board = [[X, O, X],
              [X, O, EMPTY],
-             [O, EMPTY, EMPTY]]
+             [EMPTY, EMPTY, EMPTY]]
     # board = [[O, X, X],
     #          [X, X, O],
     #          [O, X, O]]
