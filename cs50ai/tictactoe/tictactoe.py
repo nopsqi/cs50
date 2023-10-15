@@ -172,16 +172,17 @@ def ab_pruning(board):
             print(f"{padding}{row}")
         print()
 
-        if node.parent.utility is None:
-            node.parent.utility = min(calculate(b) for b in [result(node.state, a) for a in actions(node.state)])
-        else:
-            utilities = []
-            for b in [result(node.state, a) for a in actions(node.state)]:
-                if calculate(b) <= node.parent.utility:
-                    utilities = []
-                    break
-                utilities.append(calculate(b))
-        node.parent.utility = min(utilities)
+        if node.level == 1:
+            if node.parent.utility is None:
+                node.parent.utility = min(calculate(b) for b in [result(node.state, a) for a in actions(node.state)])
+            else:
+                utilities = []
+                for b in [result(node.state, a) for a in actions(node.state)]:
+                    if calculate(b) <= node.parent.utility:
+                        utilities = []
+                        break
+                    utilities.append(calculate(b))
+            node.parent.utility = min(utilities)
 
         for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
             if node.level < 1:
