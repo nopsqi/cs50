@@ -154,7 +154,10 @@ def calculate_prune(node):
             return max(values)
     if node.parent and node.parent.utility is not None:
         for b in [result(node.state, a) for a in actions(node.state)]:
-            if pl == X and node.parent.utiity < calculate(b):
+            utility = calculate(b)
+            if pl == X and node.parent.utiity < utility:
+                break
+            if pl == O and node.parent.utiity > utility:
                 break
 
 
