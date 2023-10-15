@@ -148,7 +148,7 @@ def minimax(board):
         node = frontier.remove()
         num_explored += 1
 
-        if :
+        if 
 
 
     return
