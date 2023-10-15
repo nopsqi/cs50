@@ -51,9 +51,7 @@ def letters_counter():
             yield ''.join(combination)
 
 
-def print_node(node):
-    address_counter = letters_counter()
-    addresses = {}
+def print_node(node, addresses, address_counter, p):
     padding = " " * node.level * 14
     if node.parent is not None:
         if addresses.get(id(node.parent)) is None:
