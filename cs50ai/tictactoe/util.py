@@ -1,3 +1,6 @@
+import string
+from itertools import product
+
 class Node():
     def __init__(self, state, parent, utility, level, action):
         self.state = state
@@ -38,3 +41,11 @@ class QueueFrontier(StackFrontier):
             node = self.frontier[0]
             self.frontier = self.frontier[1:]
             return node
+
+
+def letters_counter():
+    letters = string.ascii_uppercase  # 'A' to 'Z'
+
+    for r in range(1, 4):  # Generate up to 3-letter combinations (adjust as needed)
+        for combination in product(letters, repeat=r):
+            yield ''.join(combination)

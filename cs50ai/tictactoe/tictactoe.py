@@ -4,7 +4,7 @@ Tic Tac Toe Player
 
 import math
 from copy import deepcopy
-from util import Node, QueueFrontier, StackFrontier
+from util import Node, QueueFrontier, StackFrontier, letters_counter
 
 X = "X"
 O = "O"
@@ -141,8 +141,8 @@ def ab_pruning(board):
     frontier = QueueFrontier()
     frontier.add(start)
     num_explored = 0
+    address_counter = letters_counter()
     addresses = {}
-    address_counter = 0
 
     while True:
         if frontier.empty():
