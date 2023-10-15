@@ -154,11 +154,11 @@ def ab_pruning(board):
         else:
             value = 2
 
-        if terminal(node.state) or node.level == 2:
-            for row in node.state:
-                print(" " * node.level * 3, end="")
-                print(row)
-            print()
+        # if terminal(node.state) or node.level == 2:
+        for row in node.state:
+            print(" " * node.level * 3, end="")
+            print(row)
+        print()
 
         for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
             if node.level != 2:
