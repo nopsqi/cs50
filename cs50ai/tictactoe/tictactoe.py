@@ -141,6 +141,8 @@ def ab_pruning(board):
     # frontier = QueueFrontier()
     frontier.add(start)
     num_explored = 0
+    address_counter = letters_counter()
+    addresses = {}
 
     while True:
         if frontier.empty():
@@ -155,7 +157,7 @@ def ab_pruning(board):
         else:
             value = 2
 
-        print_node(node)
+        print_node(node, addresses, address_counter, p)
 
         if terminal(node.state) or node.level == 2:
             continue
