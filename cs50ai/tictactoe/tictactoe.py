@@ -139,24 +139,24 @@ def calculate(board):
         return max(values)
     return min(values)
 
-# def calculate_prune(board):
-#     frontier = QueueFrontier()
-#     start = Node(state=)
-#     frontier.add(start)
-#     pl = player(board)
-#     while True:
-#         if frontier.empty():
-#             return None
+def calculate_prune(board):
+    frontier = QueueFrontier()
+    start = Node(state=)
+    frontier.add(start)
+    pl = player(board)
+    while True:
+        if frontier.empty():
+            return None
 
-#         node = frontier.remove()
+        node = frontier.remove()
 
-#         if pl == X:
-#             value = -2
-#         else:
-#             value = 2
+        if pl == X:
+            value = -2
+        else:
+            value = 2
 
-#         if terminal(node.state) and pl == X:
-#             pass
+        if terminal(node.state) and pl == X:
+            pass
 
 
 def to_tupe(board):
