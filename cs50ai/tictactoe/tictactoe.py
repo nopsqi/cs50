@@ -142,36 +142,15 @@ def calculate(board):
 
 
 def calculate_prune(node):
-    print(node.utility)
     if terminal(node.state):
-        node.utility = node.parent.utility = utility(node.state)
-        return utility(node.state)
+        node.utility = node.parent.state = utility(node.state)
 
-    pl = player(node.state)
-    if node.parent and node.parent.utility is None:
-        values = [calculate_prune(Node(state=result(node.state, a), parent=node, utility=None, action=a)) for a in actions(node.state)]
-        if pl == X:
-            node.parent.utility = min(values)
-        if pl == O:
-            node.parent.utility = max(values)
-    if node.parent and node.parent.utility is not None:
-        utilities = []
-        for a, b in [(a, result(node.state, a)) for a in actions(node.state)]:
-            uti = calculate_prune(Node(state=b, parent=node, utility=None, action=a))
-            if pl == X and node.parent.utility < uti:
-                break
-            if pl == O and node.parent.utility > uti:
-                break
-            utilities.append(uti)
-        if pl == X:
-            utilities = utilities if len(utilities) != 0 else [-2]
-            node.parent.utility = max(node.parent.utility, min(utilities))
-        if pl == O:
-            utilities = utilities if len(utilities) != 0 else [2]
-            node.parent.utility = min(node.parent.utility, max(utilities))
-    else:
-        for a, b in [(a, result(node.state, a)) for a in actions(node.state)]:
-            calculate_prune(Node(state=b, parent=node, utility=None, action=a))
+    pl == player(node.state)
+        nodes = [Node(state=result(node.state, a), parent=node, utility=None, action=a) for a in actions(node.state)]
+    if pl == X:
+        node.utility = max(calculate_prune(n) for n in nodes)
+    if pl == O:
+        node.utility = min(calculate_prune(n) for n in nodes)
 
 
 def to_tupe(board):
