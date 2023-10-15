@@ -162,7 +162,7 @@ def ab_pruning(board):
         print(f"{padding}action: {node.action}")
         if winner(node.state):
             print(f"{padding}winner: {winner(node.state)}")
-        if node.level == 0 and (terminal(node.state) or node.level == 2):
+        if node.level == 0 or terminal(node.state) or node.level == 2:
             print(f"{padding}utility: {calculate(node.state)}")
 
         for row in node.state:
