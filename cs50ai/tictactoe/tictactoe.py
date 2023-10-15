@@ -112,14 +112,11 @@ def minimax(board):
     if terminal(board):
         return None
 
-    board_node = Node(state=board, parent=None, utility=None, action=None)
-
     pl = player(board)
     res = []
     for ac in actions(board):
         if ac is not None:
-            # res.append((ac, calculate(result(board, ac))))
-            res.append((ac, calculate_prune(Node(state=result(board, ac), parent=board_node, utility=None, action=ac))))
+            res.append((ac, calculate(result(board, ac))))
 
     i = [r[1] for r in res]
     if pl == X:
@@ -140,49 +137,3 @@ def calculate(board):
     if pl == X:
         return max(values)
     return min(values)
-
-
-def calculate_prune(node):
-    if terminal(node.state):
-        node.utility = node.parent.state = utility(node.state)
-        return node.utility
-
-    pl = player(node.state)
-    nodes = [Node(state=result(node.state, a), parent=node, utility=None, action=a) for a in actions(node.state)]
-    if pl == X:
-        if node.parent is not None and node.parent.utility is None:
-            node.parent.utility = min(calculate_prune(n) for n in nodes)
-        if node.parent is not None and node.parent.utility is not None:
-            utilities = [-2]
-            for n in nodes:
-                util = calculate_prune(n)
-                if util < node.parent.utility:
-                    break
-                utilities.append(util)
-            node.utility = max(utilities)
-            node.parent.utility = min(node.parent.utility, node.utility)
-            return node.utility
-
-        node.utility = max(calculate_prune(n) for n in nodes)
-        return node.utility
-    if pl == O:
-        if node.parent is not None and node.parent.utility is None:
-            node.utility = node.parent.utility = max(calculate_prune(n) for n in nodes)
-            return node.utility
-        if node.parent is not None and node.parent.utility is not None:
-            utilities = [2]
-            for n in nodes:
-                util = calculate_prune(n)
-                if util < node.parent.utility:
-                    break
-                utilities.append(util)
-            node.utility = min(utilities)
-            node.parent.utility = max(node.parent.utility, node.utility)
-            return node.utility
-
-        node.utility = min(calculate_prune(n) for n in nodes)
-        return node.utility
-
-
-def to_tupe(board):
-    return ((cell for cell in row) for row in board)
