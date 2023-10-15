@@ -164,7 +164,8 @@ def minimax_prune(board):
 
 
 def func(board):
-    array = [result(board, ac) for ac in actions(board)]
+    ac = actions(board)
+    array = [(a, b) for zip(ac, [result(board, c) for c in ac])]
     return array
 
 
