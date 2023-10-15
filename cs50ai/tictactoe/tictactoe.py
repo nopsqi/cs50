@@ -116,7 +116,8 @@ def minimax(board):
     res = []
     for ac in actions(board):
         if ac is not None:
-            res.append((ac, calculate(result(board, ac))))
+            # res.append((ac, calculate(result(board, ac))))
+            res.append((ac, prune(result(board, ac), -math.inf, math.inf)))
 
     i = [r[1] for r in res]
     if pl == X:
@@ -131,7 +132,6 @@ def calculate(board):
     if terminal(board):
         return utility(board)
 
-    # values = [calculate(b) for b in [result(board, a) for a in actions(board)]]
     values = []
     for b in [result(board, a) for a in actions(board)]:
         if not BOARD_DICTIONARY.get(to_tuple(b)):
