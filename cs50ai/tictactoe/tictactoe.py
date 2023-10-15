@@ -158,7 +158,7 @@ def minimax_prune(board):
             print(node.state)
 
         for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
-            pass
+            child = Node(state=b, parent=node, position=a, )
 
 
 def func(board):
