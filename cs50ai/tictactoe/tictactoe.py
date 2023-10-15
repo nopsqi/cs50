@@ -156,11 +156,11 @@ def ab_pruning(board):
             value = 2
 
 
-        print(" " * node.level * 3, end="")
-        print(f"player: {p}")
+        padding = " " * node.level * 3
+        print(f"{padding}player: {p}")
+        print(f"{padding}winner: {winner(node.state)}")
         for row in node.state:
-            print(" " * node.level * 3, end="")
-            print(row)
+            print(f"{padding}{row}")
         print()
         if terminal(node.state) or node.level == 2:
             continue
