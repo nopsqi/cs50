@@ -162,8 +162,8 @@ def ab_pruning(board):
             addresses[id(node.parent)] = next(address_counter)
         if addresses.get(id(node)) is None:
             addresses[id(node)] = next(address_counter)
-        print(f"{padding}parent: {id(node.parent)}")
-        print(f"{padding}node: {id(node)}")
+        print(f"{padding}parent: {addresses.get(id(node.parent))}")
+        print(f"{padding}node: {addresses.get(id(node))}")
         print(f"{padding}turn: {p}")
         print(f"{padding}action: {node.action}")
         if winner(node.state):

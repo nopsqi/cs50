@@ -26,9 +26,7 @@ def main():
     # board = [[O, X, X],
     #          [X, X, O],
     #          [O, X, O]]
-    # ab_pruning(board)
-    comb = letters_counter()
-    print(next(comb))
+    ab_pruning(board)
 
 
 if __name__ == "__main__":
