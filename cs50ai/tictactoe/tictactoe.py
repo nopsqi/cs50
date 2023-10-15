@@ -133,7 +133,6 @@ def minimax_prune(board):
     """
     Returns the optimal action for the current player on the board.
     """
-    return
     if terminal(board):
         return None
 
