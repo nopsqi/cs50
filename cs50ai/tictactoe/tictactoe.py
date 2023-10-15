@@ -175,10 +175,13 @@ def ab_pruning(board):
         if node.parent.utility is None:
             node.parent.utility = min(calculate(b) for b in [result(node.state, a) for a in actions(node.state)])
         else:
+            utilities = []
             for b in [result(node.state, a) for a in actions(node.state)]:
                 if calculate(b) <= node.parent.utility:
+                    utilities = []
                     break
-                node.parent.utility:
+                utilities.append(calculate(b))
+        no
 
 
         for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
