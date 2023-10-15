@@ -147,11 +147,11 @@ def calculate_prune(node):
 
     pl = player(node.state)
     if node.parent and node.parent.utility is None:
-        values = [calculate(b) for b in [result(node.state, a) for a in actions(node.state)]]
+        values = [calculate(Node(state=b, parent=node, utility=None, action= c)) for b in [result(node.state, a) for a in actions(node.state)]]
         if pl == X:
-            return min(values)
+            node.parent.utility = min(values)
         if pl == O:
-            return max(values)
+            node.parent.utility = max(values)
     if node.parent and node.parent.utility is not None:
         utilities = []
         for b in [result(node.state, a) for a in actions(node.state)]:
