@@ -158,6 +158,10 @@ def ab_pruning(board):
             value = 2
 
         padding = " " * node.level * 14
+        if addresses.get(id(node.parent)) is None:
+            addresses[id(node.parent)] = next(address_counter)
+        if addresses.get(id(node)) is None:
+            addresses[id(node)] = next(address_counter)
         print(f"{padding}parent: {id(node.parent)}")
         print(f"{padding}node: {id(node)}")
         print(f"{padding}turn: {p}")

@@ -1,4 +1,5 @@
 from tictactoe import *
+from util import *
 
 def main():
     empty = [[EMPTY, EMPTY, EMPTY],
@@ -26,14 +27,8 @@ def main():
     #          [X, X, O],
     #          [O, X, O]]
     # ab_pruning(board)
-
-
-def generate_combinations():
-    letters = string.ascii_uppercase  # 'A' to 'Z'
-
-    for r in range(1, 4):  # Generate up to 3-letter combinations (adjust as needed)
-        for combination in product(letters, repeat=r):
-            yield ''.join(combination)
+    comb = letters_counter()
+    print(next(comb))
 
 
 if __name__ == "__main__":
