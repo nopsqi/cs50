@@ -157,8 +157,8 @@ def minimax_prune(board):
         if terminal(node.state) or node.level == 2:
             print(node.state)
 
-        ac = actions(node.state)
-        for a, b in zip(ac, [result(node.state, a) for a in ac]):
+        acts = actions(node.state)
+        for a, b in zip(acts, [result(node.state, ac) for ac in acts]):
             pass
 
 
