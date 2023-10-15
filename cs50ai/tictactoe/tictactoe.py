@@ -156,16 +156,17 @@ def ab_pruning(board):
             value = 2
 
         padding = " " * node.level * 3
+        print(f"{padding}parent: {id(node.parent)}")
+        print(f"{padding}node: {id(node)}")
+        print(f"{padding}turn: {p}")
+        print(f"{padding}winner: {winner(node.state)}")
+        print(f"{padding}action: {node.action}")
         if terminal(node.state) or node.level == 2:
-            print(f"{padding}parent: {id(node.parent)}")
-            print(f"{padding}node: {id(node)}")
-            print(f"{padding}turn: {p}")
-            print(f"{padding}winner: {winner(node.state)}")
-            print(f"{padding}action: {node.action}")
             print(f"{padding}utility: {calculate(node.state)}")
-            for row in node.state:
-                print(f"{padding}{row}")
-            print()
+        for row in node.state:
+            print(f"{padding}{row}")
+        print()
+
         if terminal(node.state) or node.level == 2:
             continue
 
