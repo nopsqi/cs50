@@ -187,7 +187,7 @@ def ab_pruning(board):
 
         for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
             if node.level < 1:
-                child = Node(state=b, parent=node, utility=None, level=node.level+1, action=a)
+                child = Node(state=b, parent=node, utility=None, level=node.level+1, action=a, optimal_action=None)
                 frontier.add(child)
 
 
