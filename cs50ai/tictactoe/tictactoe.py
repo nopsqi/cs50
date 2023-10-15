@@ -157,8 +157,9 @@ def ab_pruning(board):
 
 
         padding = " " * node.level * 3
-        print(f"{padding}player: {p}")
+        print(f"{padding}turn: {p}")
         print(f"{padding}winner: {winner(node.state)}")
+        print(f"{padding}action: {node.action}")
         for row in node.state:
             print(f"{padding}{row}")
         print()
