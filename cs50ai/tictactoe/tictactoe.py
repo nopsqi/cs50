@@ -155,6 +155,9 @@ def ab_pruning(board):
         else:
             value = 2
 
+
+        print(" " * node.level * 3, end="")
+        print(f"player: {p}")
         for row in node.state:
             print(" " * node.level * 3, end="")
             print(row)
