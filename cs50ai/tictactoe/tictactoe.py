@@ -112,12 +112,14 @@ def minimax(board):
     if terminal(board):
         return None
 
+    board_node = Node(state=board, parent=None, utility=None, action=None)
+
     pl = player(board)
     res = []
     for ac in actions(board):
         if ac is not None:
             # res.append((ac, calculate(result(board, ac))))
-            res.append((ac, calculate_prune(Node(state=result(board, ac), parent=board, utility=None, action=ac))))
+            res.append((ac, calculate_prune(Node(state=result(board, ac), parent=board_node, utility=None, action=ac))))
 
     i = [r[1] for r in res]
     if pl == X:
