@@ -136,9 +136,9 @@ def calculate(board):
     values = []
     boards = [result(board, a) for a in actions(board)]
     for b in boards:
-        if not BOARD_DICTIONARY.get(to_tuple(board)):
-            BOARD_DICTIONARY[to_tuple(board)] = calculate(board)
-        values.append(BOARD_DICTIONARY[to_tuple(board)])
+        if not BOARD_DICTIONARY.get(to_tuple(b)):
+            BOARD_DICTIONARY[to_tuple(b)] = calculate(b)
+        values.append(BOARD_DICTIONARY[to_tuple(b)])
 
     pl = player(board)
     if pl == X:
