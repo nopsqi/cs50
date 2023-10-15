@@ -159,6 +159,7 @@ def minimax_prune(board):
             while node.parent is not None:
                 node.parent.utility = utility
                 node = node.parent
+                
 
 
 
