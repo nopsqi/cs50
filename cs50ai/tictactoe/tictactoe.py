@@ -144,5 +144,9 @@ def calculate(board):
     return min(values)
 
 
+def prune(board):
+    
+
+
 def to_tuple(board):
     return tuple(tuple(cell for cell in row) for row in board)
