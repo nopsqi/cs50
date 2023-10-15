@@ -157,6 +157,7 @@ def ab_pruning(board):
 
 
         padding = " " * node.level * 3
+        print(f"{padding}parent: {id(node.parent)}")
         print(f"{padding}turn: {p}")
         print(f"{padding}winner: {winner(node.state)}")
         print(f"{padding}action: {node.action}")
