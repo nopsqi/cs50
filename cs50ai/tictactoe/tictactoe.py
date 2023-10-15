@@ -136,19 +136,12 @@ def minimax(board):
     if terminal(board):
         return None
 
-    pl = player(board)
-    res = []
-    for ac in actions(board):
-        if ac is not None:
-            res.append((ac, calculate(result(board, ac))))
+    nodes = [b for b in [result(board, ac) for ac in actions(board)]]
+    childs =[b for b in [result(board, ac) for ac in actions(board)]]
+    for node in nodes:
+        print(node)
 
-    i = [r[1] for r in res]
-    if pl == X:
-        i = i.index(max(i))
-    else:
-        i = i.index(min(i))
-
-    return res[i][0]
+    return NotImplementedError
 
 
 def calculate(board):
