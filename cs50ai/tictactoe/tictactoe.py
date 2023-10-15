@@ -149,8 +149,17 @@ def minimax_prune(board):
         num_explored += 1
 
         p = player(node.state)
+        if p == X:
+            value = -2
+        else:
+            value = 2
+
         if terminal(node.state) or node.level == 2:
-            node.utility = calculate(node.state)
+            utility = calculate(node.state)
+            while node.parent is not None:
+                node.parent.utility = utility
+                node = node.parent
+
 
 
 
