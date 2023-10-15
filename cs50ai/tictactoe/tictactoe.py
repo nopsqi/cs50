@@ -181,7 +181,7 @@ def ab_pruning(board):
                     utilities = []
                     break
                 utilities.append(calculate(b))
-        no
+        node.parent.utility = min(utilities)
 
 
         for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
