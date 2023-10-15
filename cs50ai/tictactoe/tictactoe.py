@@ -155,7 +155,7 @@ def calculate_prune(node):
     if node.parent and node.parent.utility is not None:
         utilities = []
         for a, b in [(a, result(node.state, a)) for a in actions(node.state)]:
-            utility = calculate(Node(state=b, a), parent=node, utility=None, action=a))
+            utility = calculate(Node(state=b, parent=node, utility=None, action=a))
             if pl == X and node.parent.utiity < utility:
                 break
             if pl == O and node.parent.utiity > utility:
