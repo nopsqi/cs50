@@ -156,9 +156,9 @@ def calculate_prune(node):
         utilities = []
         for a, b in [(a, result(node.state, a)) for a in actions(node.state)]:
             uti = calculate_prune(Node(state=b, parent=node, utility=None, action=a))
-            if pl == X and node.parent.utiity < uti:
+            if pl == X and node.parent.utility < uti:
                 break
-            if pl == O and node.parent.utiity > uti:
+            if pl == O and node.parent.utility > uti:
                 break
             utilities.append(uti)
         if pl == X:
