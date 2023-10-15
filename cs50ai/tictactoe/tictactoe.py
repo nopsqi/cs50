@@ -155,6 +155,7 @@ def calculate_prune(node):
                 if util < node.parent.utility:
                     break
                 utilities.append(util)
+            node.utility = 
             node.parent.utility = max(node.parent.utility, min(utilities))
 
         node.utility = max(calculate_prune(n) for n in nodes)
