@@ -144,8 +144,31 @@ def calculate(board):
     return min(values)
 
 
-def prune(board):
-    
+def prune(board, alpha, beta):
+    if termnal(board):
+        return utility(board)
+
+    boards = [result(board, a) for a in actions(board)]
+    pl = player(board)
+
+    if pl ==X:
+        max_utility = -math.inf
+        for b in boards:
+            util = prune(b, aplha, beta)
+            max_utility = max(max_utility, util)
+            alpha = max(alpha, util)
+            if beta <= alpha:
+                break
+        return max_utility
+    else:
+        min_utility = math.inf
+        for b in boards:
+            util = prune(b, alpha, beta)
+            min_utility = min(min_utility, util)
+            beta = min(beta, util)
+            if beta <= alpha:
+                break
+        return min_utility
 
 
 def to_tuple(board):
