@@ -148,9 +148,10 @@ def calculate_prune(node):
     pl == player(node.state)
     nodes = [Node(state=result(node.state, a), parent=node, utility=None, action=a) for a in actions(node.state)]
     if pl == X:
-        if None not in [node.utility, node.parent.utility]:
+        if None not in [node.parent, node.parent.utility]:
             utilities = []
             for n in nodes:
+                if n.parent.utility calculate_prune(n)
 
         node.utility = max(calculate_prune(n) for n in nodes)
         return node.utility
