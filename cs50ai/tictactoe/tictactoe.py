@@ -144,6 +144,7 @@ def calculate(board):
 def calculate_prune(node):
     if terminal(node.state):
         node.utility = node.parent.state = utility(node.state)
+        return node.utility
 
     pl = player(node.state)
     nodes = [Node(state=result(node.state, a), parent=node, utility=None, action=a) for a in actions(node.state)]
