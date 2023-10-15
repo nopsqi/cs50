@@ -1,5 +1,4 @@
 from tictactoe import *
-from util import *
 import math
 
 def main():
