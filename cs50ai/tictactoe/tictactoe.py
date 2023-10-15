@@ -163,10 +163,10 @@ def calculate_prune(node):
                 break
             utilities.append(uti)
         if pl == X:
-            utilities = utilities if len(utilities) != 0 else -2
+            utilities = utilities if len(utilities) != 0 else [-2]
             node.parent.utility = max(node.parent.utility, min(utilities))
         if pl == O:
-            utilities = utilities if len(utilities) != 0 else 2
+            utilities = utilities if len(utilities) != 0 else [2]
             node.parent.utility = min(node.parent.utility, max(utilities))
     else:
         for a, b in [(a, result(node.state, a)) for a in actions(node.state)]:
