@@ -159,9 +159,9 @@ def ab_pruning(board):
         print(f"{padding}parent: {id(node.parent)}")
         print(f"{padding}node: {id(node)}")
         print(f"{padding}turn: {p}")
+        print(f"{padding}action: {node.action}")
         if winner(node.state):
             print(f"{padding}winner: {winner(node.state)}")
-        print(f"{padding}action: {node.action}")
         print(f"{padding}utility: {calculate(node.state)}")
         for row in node.state:
             print(f"{padding}{row}")
