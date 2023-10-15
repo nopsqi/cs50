@@ -133,8 +133,7 @@ def calculate(board):
 
     # values = [calculate(b) for b in [result(board, a) for a in actions(board)]]
     values = []
-    boards = [result(board, a) for a in actions(board)]
-    for b in boards:
+    for b in [result(board, a) for a in actions(board)]:
         if not BOARD_DICTIONARY.get(to_tuple(b)):
             BOARD_DICTIONARY[to_tuple(b)] = calculate(b)
         values.append(BOARD_DICTIONARY[to_tuple(b)])
