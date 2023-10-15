@@ -136,7 +136,7 @@ def ab_pruning(board):
     if terminal(board):
         return None
 
-    start = Node(state=board, parent=None, utility=None, level=0, action=None)
+    start = Node(state=board, parent=None, utility=None, level=0, action=None, optimal_action=None)
     frontier = StackFrontier()
     # frontier = QueueFrontier()
     frontier.add(start)

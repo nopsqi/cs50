@@ -2,12 +2,13 @@ import string
 from itertools import product
 
 class Node():
-    def __init__(self, state, parent, utility, level, action):
+    def __init__(self, state, parent, utility, level, action, optimal_action):
         self.state = state
         self.parent = parent
         self.utility = utility
         self.level = level
         self.action = action
+        self.optimal_action = optimal_action
 
 
 class StackFrontier():
