@@ -147,4 +147,4 @@ def calculate(board):
 
 
 def to_tuple(board):
-    return ((cell for cell in row) for row in board)
+    return tuple(tuple(cell for cell in row) for row in board)
