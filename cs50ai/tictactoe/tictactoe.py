@@ -154,13 +154,15 @@ def ab_pruning(board):
         else:
             value = 2
 
+        print(" " * node.level, end="")
         print(node.state)
         if terminal(node.state) or node.level == 2:
-            print(node.level)
+            pass
 
         for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
-            child = Node(state=b, parent=node, utility=None, level=node.level+1, action=a)
-            frontier.add(child)
+            if node.level != 2:
+                child = Node(state=b, parent=node, utility=None, level=node.level+1, action=a)
+                frontier.add(child)
 
 
 def func(board):
