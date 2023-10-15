@@ -150,7 +150,7 @@ def minimax_prune(board):
 
         p = player(node.state)
         if terminal(node.state) or node.level == 2:
-            node.utility = calculate
+            node.utility = calculate(node.state)
 
 
 
