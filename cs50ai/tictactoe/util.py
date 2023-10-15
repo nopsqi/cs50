@@ -1,5 +1,5 @@
 class Node():
-    def __init__(self, state, parent, position, utility, level, action):
+    def __init__(self, state, parent, utility, level, action):
         self.state = state
         self.parent = parent
         self.utility = utility
