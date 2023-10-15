@@ -9,6 +9,7 @@ from util import Node, QueueFrontier, StackFrontier, letters_counter
 X = "X"
 O = "O"
 EMPTY = None
+BOARD_DICTIONARY = {}
 
 
 def initial_state():
