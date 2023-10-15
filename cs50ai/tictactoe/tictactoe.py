@@ -164,7 +164,7 @@ def ab_pruning(board):
             print(f"{padding}action: {node.action}")
             for row in node.state:
                 print(f"{padding}{row}")
-        print()
+            print()
         if terminal(node.state) or node.level == 2:
             continue
 
