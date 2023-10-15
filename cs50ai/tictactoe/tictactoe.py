@@ -141,8 +141,6 @@ def ab_pruning(board):
     # frontier = QueueFrontier()
     frontier.add(start)
     num_explored = 0
-    address_counter = letters_counter()
-    addresses = {}
 
     while True:
         if frontier.empty():
@@ -166,11 +164,6 @@ def ab_pruning(board):
             if node.level != 2:
                 child = Node(state=b, parent=node, utility=None, level=node.level+1, action=a)
                 frontier.add(child)
-
-
-def func(board):
-    array = [(a, result(board, a)) for a in actions(board)]
-    return array
 
 
 def calculate(board):

@@ -52,6 +52,8 @@ def letters_counter():
 
 
 def print_node(node):
+    address_counter = letters_counter()
+    addresses = {}
     padding = " " * node.level * 14
     if node.parent is not None:
         if addresses.get(id(node.parent)) is None:
