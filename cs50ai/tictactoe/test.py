@@ -26,7 +26,9 @@ def main():
     # board = [[O, X, X],
     #          [X, X, O],
     #          [O, X, O]]
-    calculate_prune(Node(state=board, parent=None, utility=None, action=None))
+    node = Node(state=board, parent=None, utility=None, action=None)
+    calculate_prune(node)
+    print(node.utility)
 
 
 if __name__ == "__main__":
