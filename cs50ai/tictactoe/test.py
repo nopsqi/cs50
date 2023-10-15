@@ -22,7 +22,7 @@ def main():
     board = [[X, O, X],
              [X, O, EMPTY],
              [O, EMPTY, EMPTY]]
-    print(minimax(board))
+    print(minimax_prune(board))
 
 
 if __name__ == "__main__":

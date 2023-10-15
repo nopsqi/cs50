@@ -107,7 +107,7 @@ def utility(board):
     return 0
 
 
-def minimax_done(board):
+def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
@@ -129,7 +129,7 @@ def minimax_done(board):
     return res[i][0]
 
 
-def minimax(board):
+def minimax_prune(board):
     """
     Returns the optimal action for the current player on the board.
     """
@@ -148,7 +148,7 @@ def minimax(board):
         node = frontier.remove()
         num_explored += 1
 
-        if 
+        break
 
 
     return
