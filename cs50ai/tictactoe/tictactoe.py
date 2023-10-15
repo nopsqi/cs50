@@ -148,7 +148,6 @@ def prune(board, alpha, beta):
     if terminal(board):
         return utility(board)
 
-    boards = [result(board, a) for a in actions(board)]
     pl = player(board)
 
     if pl == X:
@@ -156,7 +155,7 @@ def prune(board, alpha, beta):
     else:
         eval_util = math.inf
 
-    for b in boards:
+    for b in [result(board, a) for a in actions(board)]:
         util = prune(b, alpha, beta)
         if pl == X:
             eval_util = max(eval_util, util)
