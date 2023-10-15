@@ -176,7 +176,9 @@ def ab_pruning(board):
             print(f"{padding}{row}")
         print()
 
-        for 
+        for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
+            if node.parent.value is None:
+                node.parent.value = max()
 
 
         for a, b in [(act, result(node.state, act)) for act in actions(node.state)]:
