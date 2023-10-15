@@ -4,7 +4,7 @@ Tic Tac Toe Player
 
 import math
 from copy import deepcopy
-from util import Node, QueueFrontier, StackFrontier, letters_counter
+from util import Node, QueueFrontier, StackFrontier, letters_counter, print_node
 
 X = "X"
 O = "O"
@@ -157,24 +157,7 @@ def ab_pruning(board):
         else:
             value = 2
 
-        padding = " " * node.level * 14
-        if node.parent is not None:
-            if addresses.get(id(node.parent)) is None:
-                addresses[id(node.parent)] = next(address_counter)
-            print(f"{padding}parent: {addresses.get(id(node.parent))}")
-        if addresses.get(id(node)) is None:
-            addresses[id(node)] = next(address_counter)
-        print(f"{padding}node: {addresses.get(id(node))}")
-        print(f"{padding}turn: {p}")
-        print(f"{padding}action: {node.action}")
-        if terminal(node.state):
-            padding_t = (" " * (node.level - 1) * 14) + "t" + (" " * 13)
-            print(f"{padding_t}winner: {winner(node.state)}")
-        if node.level == 0 or terminal(node.state) or node.level == 2:
-            print(f"{padding}utility: {calculate(node.state)}")
-        for row in node.state:
-            print(f"{padding}{row}")
-        print()
+        print_node(node)
 
         if terminal(node.state) or node.level == 2:
             continue
