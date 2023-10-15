@@ -128,6 +128,7 @@ def minimax(board):
 
     return res[i][0]
 
+
 def calculate(board):
     if terminal(board):
         return utility(board)
@@ -138,25 +139,6 @@ def calculate(board):
     if pl == X:
         return max(values)
     return min(values)
-
-def calculate_prune(board):
-    frontier = QueueFrontier()
-    start = Node(state=)
-    frontier.add(start)
-    pl = player(board)
-    while True:
-        if frontier.empty():
-            return None
-
-        node = frontier.remove()
-
-        if pl == X:
-            value = -2
-        else:
-            value = 2
-
-        if terminal(node.state) and pl == X:
-            pass
 
 
 def to_tupe(board):
