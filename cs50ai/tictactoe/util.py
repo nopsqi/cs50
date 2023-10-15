@@ -46,6 +46,6 @@ class QueueFrontier(StackFrontier):
 def letters_counter():
     letters = string.ascii_uppercase  # 'A' to 'Z'
 
-    for r in range(1, 4):  # Generate up to 3-letter combinations (adjust as needed)
+    for r in range(2, 4):  # Generate up to 3-letter combinations (adjust as needed)
         for combination in product(letters, repeat=r):
             yield ''.join(combination)
