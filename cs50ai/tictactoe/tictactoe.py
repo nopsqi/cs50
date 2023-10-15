@@ -160,10 +160,11 @@ def minimax_prune(board):
 
         ac = actions(node.state)
         for a, b in zip(ac, [result(node.state, a) for a in ac]):
+            pass
 
 
 def func(board):
-    array = []
+    array = [result(board, ac) for ac in actions(board)]
     return array
 
 
