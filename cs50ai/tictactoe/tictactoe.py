@@ -155,7 +155,7 @@ def ab_pruning(board):
         else:
             value = 2
 
-        padding = " " * node.level * 3
+        padding = " " * node.level * 14
         print(f"{padding}parent: {id(node.parent)}")
         print(f"{padding}node: {id(node)}")
         print(f"{padding}turn: {p}")
