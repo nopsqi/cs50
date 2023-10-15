@@ -163,7 +163,8 @@ def minimax_prune(board):
 
 
 def func(board):
-    
+    array = []
+    return array
 
 
 def calculate(board):
