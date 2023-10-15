@@ -145,16 +145,16 @@ def calculate(board):
 
 
 def prune(board, alpha, beta):
-    if termnal(board):
+    if terminal(board):
         return utility(board)
 
     boards = [result(board, a) for a in actions(board)]
     pl = player(board)
 
-    if pl ==X:
+    if pl == X:
         max_utility = -math.inf
         for b in boards:
-            util = prune(b, aplha, beta)
+            util = prune(b, alpha, beta)
             max_utility = max(max_utility, util)
             alpha = max(alpha, util)
             if beta <= alpha:

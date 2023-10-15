@@ -1,5 +1,6 @@
 from tictactoe import *
 from util import *
+import math
 
 def main():
     empty = [[EMPTY, EMPTY, EMPTY],
@@ -26,7 +27,7 @@ def main():
     # board = [[O, X, X],
     #          [X, X, O],
     #          [O, X, O]]
-    print(calculate(board))
+    print(prune(board, -math.inf, math.inf))
 
 
 if __name__ == "__main__":
