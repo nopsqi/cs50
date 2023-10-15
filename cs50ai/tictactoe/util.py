@@ -2,7 +2,6 @@ class Node():
     def __init__(self, state, parent, value, action):
         self.state = state
         self.parent = parent
-        self.value = value
         self.action = action
 
 

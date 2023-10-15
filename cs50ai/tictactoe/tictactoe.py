@@ -4,7 +4,7 @@ Tic Tac Toe Player
 
 import math
 from copy import deepcopy
-from util import Node, QueueFrontier
+from util import Node, QueueFrontier, StackFrontier
 
 X = "X"
 O = "O"
@@ -136,12 +136,12 @@ def minimax(board):
     if terminal(board):
         return None
 
-    nodes = [b for b in [result(board, ac) for ac in actions(board)]]
-    childs =[b for b in [result(board, ac) for ac in actions(board)]]
-    for node in nodes:
-        print(node)
+    start = Node(state=board, parent=None, action=None)
+    frontier = StackFrontier()
+    frontier.add(start)
+    num_explored = 0
 
-    return NotImplementedError
+    return
 
 
 def calculate(board):

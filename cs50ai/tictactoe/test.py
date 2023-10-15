@@ -1,6 +1,4 @@
 from tictactoe import *
-from util import *
-
 
 def main():
     empty = [[EMPTY, EMPTY, EMPTY],
