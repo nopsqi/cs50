@@ -162,7 +162,9 @@ def calculate_prune(node):
                 break
             utilities.append(utility)
         if pl == X:
-            node.parent.utility = 
+            node.parent.utility = max(node.parent.utility, min(utilities))
+        if pl == O:
+            node.parent.utility = min(node.parent.utility, max(utilities))
 
 
 def to_tupe(board):
