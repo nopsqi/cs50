@@ -148,9 +148,11 @@ def calculate_prune(node):
     pl == player(node.state)
         nodes = [Node(state=result(node.state, a), parent=node, utility=None, action=a) for a in actions(node.state)]
     if pl == X:
-        return node.utility = max(calculate_prune(n) for n in nodes)
+        node.utility = max(calculate_prune(n) for n in nodes)
+        return node.utility
     if pl == O:
-        return node.utility = min(calculate_prune(n) for n in nodes)
+        node.utility = min(calculate_prune(n) for n in nodes)
+        return node.utility
 
 
 def to_tupe(board):
