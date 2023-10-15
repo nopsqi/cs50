@@ -167,7 +167,8 @@ def ab_pruning(board):
         print(f"{padding}node: {addresses.get(id(node))}")
         print(f"{padding}turn: {p}")
         print(f"{padding}action: {node.action}")
-        if terminal(node.state) or winner(node.state):
+        if terminal(node.state):
+            padding = (" " )
             print(f"{padding}winner: {winner(node.state)}")
         if node.level == 0 or terminal(node.state) or node.level == 2:
             print(f"{padding}utility: {calculate(node.state)}")
