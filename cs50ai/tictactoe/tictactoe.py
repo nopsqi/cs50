@@ -136,7 +136,7 @@ def minimax_prune(board):
     if terminal(board):
         return None
 
-    start = Node(state=board, parent=None, utility=None, level=0, action=None)
+    start = Node(state=board, parent=None, position=None,  utility=None, level=0, action=None)
     frontier = StackFrontier()
     frontier.add(start)
     num_explored = 0
@@ -159,7 +159,7 @@ def minimax_prune(board):
             while node.parent is not None:
                 node.parent.utility = utility
                 node = node.parent
-                
+
 
 
 
