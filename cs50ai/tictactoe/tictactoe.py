@@ -4,7 +4,6 @@ Tic Tac Toe Player
 
 import math
 from copy import deepcopy
-from util import Node, QueueFrontier, StackFrontier, letters_counter
 
 X = "X"
 O = "O"
