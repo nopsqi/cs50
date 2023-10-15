@@ -168,7 +168,7 @@ def ab_pruning(board):
         print(f"{padding}turn: {p}")
         print(f"{padding}action: {node.action}")
         if terminal(node.state):
-            padding = (" " * (node.level - 1)) + "t" + (" " * 13)
+            padding = (" " * (node.level)) + "t" + (" " * 13)
             print(f"{padding}winner: {winner(node.state)}")
         if node.level == 0 or terminal(node.state) or node.level == 2:
             print(f"{padding}utility: {calculate(node.state)}")
