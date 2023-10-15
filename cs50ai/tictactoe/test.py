@@ -24,8 +24,8 @@ def main():
     #          [O, EMPTY, EMPTY]]
     board = [[O, X, X],
              [X, X, O],
-             [O, O, X]]
-    print(minimax_prune(board))
+             [O, X, O]]
+    print(calculate(board))
 
 
 if __name__ == "__main__":

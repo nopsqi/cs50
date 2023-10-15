@@ -148,7 +148,8 @@ def minimax_prune(board):
         node = frontier.remove()
         num_explored += 1
 
-        break
+        if terminal(node.state) or node.level == 2:
+            
 
 
     return
