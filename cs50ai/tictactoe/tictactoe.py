@@ -142,16 +142,14 @@ def calculate(board):
 
 
 def calculate_prune(node):
-    print(terminal(node.state))
     if terminal(node.state):
-        uti = utility(node.state)
-        node.utility = uti
-        node.parent.utility = uti
+        node.utility = node.parent.utility = utility(node.state)
         return utility(node.state)
 
     pl = player(node.state)
     if node.parent and node.parent.utility is None:
         values = [calculate_prune(Node(state=result(node.state, a), parent=node, utility=None, action=a)) for a in actions(node.state)]
+        print(values)
         if pl == X:
             node.parent.utility = min(values)
         if pl == O:
