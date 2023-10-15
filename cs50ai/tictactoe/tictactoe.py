@@ -155,12 +155,10 @@ def minimax_prune(board):
             value = 2
 
         if terminal(node.state) or node.level == 2:
-            utility = calculate(node.state)
-            while node.parent is not None:
-                node.parent.utility = utility
-                node = node.parent
+            print(node.state)
 
-    return
+        for 
+
 
 
 def calculate(board):
