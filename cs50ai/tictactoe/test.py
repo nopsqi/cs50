@@ -25,7 +25,7 @@ def main():
     # board = [[O, X, X],
     #          [X, X, O],
     #          [O, X, O]]
-    print(func(board))
+    print(minimax_prune(board))
 
 
 if __name__ == "__main__":
