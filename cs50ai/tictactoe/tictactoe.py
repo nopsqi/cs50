@@ -116,7 +116,7 @@ def minimax(board):
     res = []
     for ac in actions(board):
         if ac is not None:
-            res.append((ac, calculate(result(board, ac))))
+            res.append((ac, calculate_prune(result(board, ac))))
 
     i = [r[1] for r in res]
     if pl == X:
@@ -164,7 +164,8 @@ def calculate_prune(node):
         return node.utility
     if pl == O:
         if node.parent is not None and node.parent.utility is None:
-            node.parent.utility = max(calculate_prune(n) for n in nodes)
+            node.utility = node.parent.utility = max(calculate_prune(n) for n in nodes)
+            return node.utility
         if node.parent is not None and node.parent.utility is not None:
             utilities = [2]
             for n in nodes:
