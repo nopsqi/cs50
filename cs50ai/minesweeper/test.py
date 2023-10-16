@@ -15,6 +15,7 @@ def main():
         if position is None:
             continue
         count = game.nearby_mines(position)
+        print(position, count)
         ai.add_knowledge(position, count)
 
 
