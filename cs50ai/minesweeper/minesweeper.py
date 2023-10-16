@@ -185,6 +185,10 @@ class MinesweeperAI():
                     cells.add((i, j))
         return cells
 
+    def learn(self):
+        for a, b in itertools.combinations(self.knowledge):
+            pass
+
     def add_knowledge(self, cell, count):
         """
         Called when the Minesweeper board tells us, for a given
