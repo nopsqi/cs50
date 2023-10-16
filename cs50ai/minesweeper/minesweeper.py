@@ -200,8 +200,9 @@ class MinesweeperAI():
         """
         n_cells = self.nearby_cells(cell)
         sentence = Sentence(n_cells, count)
+        if sentence not in self.knowledge:
+            self.knowledge.append(sentence)
 
-        self.knowledge(sentence)
         self.moves_made.add(cell)
         self.mark_safe(cell)
         print(sentence)
