@@ -212,8 +212,7 @@ class MinesweeperAI():
             self.knowledge.append(sentence)
 
         self.mark_safe(cell)
-        print(sentence)
-        raise NotImplementedError
+        print(self.knowledge)
 
     def make_safe_move(self):
         """
