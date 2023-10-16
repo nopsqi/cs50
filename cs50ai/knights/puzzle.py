@@ -94,7 +94,7 @@ knowledge3 = And(
         AKnight
     )),
 
-    Implication()
+    Implication(AKnight, )
 )
 
 
