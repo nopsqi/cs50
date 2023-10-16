@@ -43,24 +43,24 @@ knowledge2 = And(
     Or(BKnight, BKnave),
     Not(And(BKnight, BKnave)),
 
+    Implication(AKnight, Or(
+        And(AKnight, BKnight),
+        And(AKnave, BKnave)
+    )),
+    Implication(AKnave, Not(Or(
+        And(AKnight, BKnight),
+        And(AKnave, BKnave)
+    ))),
 
-    Or(
-        Implication(AKnight, And(AKnight, BKnight)),
-        Implication(AKnight, And(AKnave, BKnave))
-    ),
-    Or(
-        Implication(AKnave, Not(And(AKnight, BKnight))),
-        Implication(AKnave, Not(And(AKnave, BKnave)))
-    ),
+    Implication(BKnight, Or(
+        And(AKnight, BKnight),
+        And(AKnave, BKnave)
+    )),
+    Implication(AKnave, Not(Or(
+        And(AKnight, BKnight),
+        And(AKnave, BKnave)
+    ))),
 
-    Or(
-        Implication(BKnight, And(AKnight, BKnave)),
-        Implication(BKnight, And(AKnave, BKnight))
-    ),
-    Or(
-        Implication(BKnave, Not(And(AKnight, BKnave))),
-        Implication(BKnave, Not(And(AKnave, BKnight)))
-    )
 )
 
 # Puzzle 3
