@@ -53,8 +53,8 @@ knowledge2 = And(
         And(AKnave, BKnave)
     )),
     Implication(AKnave, Or(
-        Not(And(AKnight, BKnight)),
-        Not(And(AKnave, BKnave))
+        And(AKnight, BKnave),
+        Or(AKnave, BKnight)
     )),
 
     Implication(BKnight, Or(
