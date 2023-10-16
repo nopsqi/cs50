@@ -35,16 +35,17 @@ class Minesweeper():
 
     def print_board(self, moves):
         letter = (l for l in 'abcdefghijklmnopqrstuvwxyz')
+        l = 'a'
         for i in range(self.height):
             print("--" * self.width + "-")
             for j in range(self.width):
-                a = 
+                l = next(letter)
                 if self.board[i][j]:
                     print("|X", end="")
                 elif (i, j) in moves:
                     print(f"|{moves[(i, j)]}", end="")
                 else:
-                    print("| ", end="")
+                    print(f"|{l}", end="")
             print("|")
         print("--" * self.width + "-")
 
