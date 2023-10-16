@@ -128,6 +128,7 @@ class Sentence():
         """
         if cell in self.cells:
             self.__mines.add(cell)
+            self.cells.discard(cell)
 
     def mark_safe(self, cell):
         """
@@ -136,6 +137,7 @@ class Sentence():
         """
         if cell in self.cells:
             self.__safes.add(cell)
+            self.cells.discard(cell)
 
 class MinesweeperAI():
     """
