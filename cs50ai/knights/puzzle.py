@@ -13,6 +13,7 @@ CKnave = Symbol("C is a Knave")
 # A says "I am both a knight and a knave."
 knowledge0 = And(
     Or(AKnight, AKnave),
+    Biconditional(AKnight, Not(AKnave)),
 
     Implication(AKnight, And(AKnight, AKnave)),
     Implication(AKnave, Or(AKnave, AKnight))
@@ -23,9 +24,9 @@ knowledge0 = And(
 # B says nothing.
 knowledge1 = And(
     Or(AKnight, AKnave),
+    Biconditional(AKnight, Not(AKnave)),
     Or(BKnight, BKnave),
-
-    Or(AKnight, AKnave, BKnight, BKnave),
+    Biconditional(BKnight, Not(BKnave)),
 
     Implication(AKnight, And(AKnave, BKnave)),
     Implication(AKnave, Or(AKnight, BKnight))
