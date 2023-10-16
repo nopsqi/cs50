@@ -105,6 +105,7 @@ class Sentence():
         """
         Returns the set of all cells in self.cells known to be mines.
         """
+        print(self.cells)
         raise NotImplementedError
 
     def known_safes(self):
@@ -182,8 +183,6 @@ class MinesweeperAI():
             5) add any new sentences to the AI's knowledge base
                if they can be inferred from existing knowledge
         """
-        print(cell)
-        print(count)
         raise NotImplementedError
 
     def make_safe_move(self):
