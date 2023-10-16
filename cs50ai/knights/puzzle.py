@@ -88,7 +88,13 @@ knowledge3 = And(
     Implication(AKnight, Or(
         AKnight,
         AKnave
-    ))
+    )),
+    Implication(AKnave, Or(
+        AKnave,
+        AKnight
+    )),
+
+    Implication()
 )
 
 
