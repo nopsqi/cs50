@@ -201,7 +201,6 @@ class MinesweeperAI():
             if b.cells >= a.cells:
                 sentence = Sentence(b.cells - a.cells, b.count - a.count)
                 print(sentence)
-            print(a, b)
             continue
 
 
