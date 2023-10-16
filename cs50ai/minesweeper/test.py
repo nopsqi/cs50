@@ -4,11 +4,10 @@ import itertools
 
 def main():
     game = Minesweeper()
-    mines = game.mines
     position = None
     count = 0
     for p in itertools.product(range(8), repeat=2):
-        if p in mines:
+        if p in game.mines:
             continue
         position = p
         count = game.nearby_mines(position)
