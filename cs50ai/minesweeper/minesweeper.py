@@ -120,7 +120,6 @@ class Sentence():
         Updates internal knowledge representation given the fact that
         a cell is known to be a mine.
         """
-        self.cells.add(cell)
         self.__mines.add(cell)
 
     def mark_safe(self, cell):
@@ -128,7 +127,6 @@ class Sentence():
         Updates internal knowledge representation given the fact that
         a cell is known to be safe.
         """
-        self.cells.discard(cell)
         self.__safes.add(cell)
 
 class MinesweeperAI():
@@ -202,7 +200,7 @@ class MinesweeperAI():
         """
         n_cells = self.nearby_cells(cell)
         sentence = Sentence(n_cells, count)
-        
+
         self.knowledge(sentence)
         self.moves_made.add(cell)
         self.mark_safe(cell)
