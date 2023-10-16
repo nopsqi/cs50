@@ -190,7 +190,8 @@ class MinesweeperAI():
 
     def learn(self):
         for a, b in itertools.combinations(self.knowledge, 2):
-            if 
+            if a <= b:
+                
 
 
     def add_knowledge(self, cell, count):
