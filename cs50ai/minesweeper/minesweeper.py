@@ -201,10 +201,10 @@ class MinesweeperAI():
                if they can be inferred from existing knowledge
         """
         n_cells = self.nearby_cells(cell)
-        sentence = (n_cells, count)
+        sentence = Sentence(n_cells, count)
         self.moves_made.add(cell)
         self.mark_safe(cell)
-        print(sentence.cells)
+        print(sentence)
         raise NotImplementedError
 
     def make_safe_move(self):
