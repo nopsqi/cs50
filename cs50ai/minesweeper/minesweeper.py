@@ -33,14 +33,14 @@ class Minesweeper():
         # At first, player has found no mines
         self.mines_found = set()
 
-    def print_board(self, moves, count):
+    def print_board(self, moves):
         for i in range(self.height):
             print("--" * self.width + "-")
             for j in range(self.width):
                 if self.board[i][j]:
                     print("|X", end="")
                 elif (i, j) in moves:
-                    print(f"|{count}", end="")
+                    print(f"|{moves[(i, j)]}", end="")
                 else:
                     print("| ", end="")
             print("|")
