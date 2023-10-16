@@ -183,7 +183,7 @@ class MinesweeperAI():
                if they can be inferred from existing knowledge
         """
         self.move_made.add(cell)
-        sel
+        self.mark_save(cell)
         raise NotImplementedError
 
     def make_safe_move(self):
