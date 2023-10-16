@@ -4,6 +4,8 @@ import itertools
 
 def main():
     game = Minesweeper()
+    game.mines = {(7, 4), (2, 1), (3, 7), (5, 7), (0, 6), (2, 3), (6, 3), (3, 5)}
+    print(game.mines)
     position = None
     count = 0
     for p in itertools.product(range(8), repeat=2):
