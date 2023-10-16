@@ -125,7 +125,8 @@ class Sentence():
         Updates internal knowledge representation given the fact that
         a cell is known to be safe.
         """
-        self.cells
+        if cell not in self.cells:
+            self.cells
 
 
 class MinesweeperAI():
