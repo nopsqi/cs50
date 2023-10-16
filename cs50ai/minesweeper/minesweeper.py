@@ -34,6 +34,7 @@ class Minesweeper():
         self.mines_found = set()
 
     def print_board(self, moves):
+        
         for i in range(self.height):
             print("--" * self.width + "-")
             for j in range(self.width):
