@@ -200,10 +200,10 @@ class MinesweeperAI():
             5) add any new sentences to the AI's knowledge base
                if they can be inferred from existing knowledge
         """
+        n_cells = self.nearby_cells(cell)
+        sentence = (n_cells, count)
         self.moves_made.add(cell)
         self.mark_safe(cell)
-        n_cells = self.nearby_cells(cell)
-        sentence = Sentence(n_cells, count)
         print(sentence.cells)
         raise NotImplementedError
 
