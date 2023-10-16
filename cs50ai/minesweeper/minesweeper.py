@@ -193,10 +193,10 @@ class MinesweeperAI():
 
     def learn(self):
         for a, b in itertools.combinations(self.knowledge, 2):
-            if a >= b:
+            if a.cells >= b.cells:
                 sentence = Sentence(a.cells - b.cells, a.count - b.count)
                 print(sentence)
-            if b >= a:
+            if b.cells >= a.cells:
                 sentence = Sentence(b.cells - a.cells, b.count - a.count)
                 print(sentence)
             continue
