@@ -18,7 +18,7 @@ def main():
             status = None
             continue
         count = game.nearby_mines(position)
-        status = f"{position} {count}"
+        status = f"{position} {count}\n{}"
         ai.add_knowledge(position, count)
 
 
