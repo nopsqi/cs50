@@ -103,6 +103,9 @@ class Sentence():
     def __str__(self):
         return f"{self.cells} = {self.count}"
 
+    def __repr__(self):
+        return self.__str__()
+
     def known_mines(self):
         """
         Returns the set of all cells in self.cells known to be mines.
