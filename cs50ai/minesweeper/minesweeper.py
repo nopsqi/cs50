@@ -215,7 +215,8 @@ class MinesweeperAI():
             self.knowledge.append(sentence)
 
         self.mark_safe(cell)
-        print(self.knowledge)
+        for sentence in self.knowledge:
+            print(sentence)
 
     def make_safe_move(self):
         """
