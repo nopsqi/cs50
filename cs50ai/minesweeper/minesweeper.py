@@ -100,7 +100,7 @@ class Sentence():
     def __eq__(self, other):
         return self.cells == other.cells and self.count == other.count
 
-    def __sub__(self. other):
+    def __sub__(self, other):
         return Sentence(self.cells - other.cells)
 
     def __str__(self):
