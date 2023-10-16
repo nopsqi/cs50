@@ -17,7 +17,7 @@ def main():
             continue
         positions.append(position)
         count = game.nearby_mines(position)
-        game.print_board(positions)
+        game.print_board(positions, count)
         print(position, count)
         ai.add_knowledge(position, count)
 
