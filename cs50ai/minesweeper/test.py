@@ -1,5 +1,6 @@
 import itertools
 import string
+import os
 from minesweeper import Minesweeper, MinesweeperAI
 
 
@@ -8,17 +9,13 @@ def main():
     game = Minesweeper(height=size, width=size, mines=3)
     ai = MinesweeperAI()
     encoder = {letter: move for letter, move in zip(string.ascii_lowercase, itertools.product(range(size), repeat=2))}
-    status = None
     while True:
+        os.system("clear")
         game.print()
-        if status is not None:
-            print(status)
         position = encoder.get(input("Move: "))
         if position is None:
-            status = None
             continue
         count = game.nearby_mines(position)
-        status = f"{position} {count}\n{}"
         ai.add_knowledge(position, count)
 
 
