@@ -3,8 +3,8 @@ import itertools
 
 
 def main():
-    game = Minesweeper()
-    game.mines = {(7, 4), (2, 1), (3, 7), (5, 7), (0, 6), (2, 3), (6, 3), (3, 5)}
+    game = Minesweeper(height=3, width=3, mines=3)
+    game.mines = {(0, 0), (1, 1), (2, 2)}
     print(game.mines)
     position = None
     count = 0
