@@ -200,7 +200,8 @@ class MinesweeperAI():
         self.moves_made.add(cell)
         self.mark_safe(cell)
         n_cells = self.nearby_cells(cell)
-        print(n_cells)
+        sentence = Sentence(n_cells, count)
+        print(sentence)
         raise NotImplementedError
 
     def make_safe_move(self):
