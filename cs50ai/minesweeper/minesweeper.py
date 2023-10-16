@@ -237,7 +237,7 @@ class MinesweeperAI():
                if they can be inferred from existing knowledge
         """
         self.moves_made.add(cell)
-        n_cells = self.nearby_cells(cell)
+        n_cells = self.nearby_cells(cell) - self.moves_made
         sentence = Sentence(n_cells, count)
         if sentence not in self.knowledge:
             self.knowledge.append(sentence)
