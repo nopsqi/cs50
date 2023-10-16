@@ -16,7 +16,8 @@ knowledge0 = And(
     Not(And(AKnight, AKnave)),
 
     Implication(AKnight, And(AKnight, AKnave)),
-    Implication(AKnave, Not(And(AKnight, AKnave)))
+    # Implication(AKnave, Not(And(AKnight, AKnave)))
+    Implication(AKnave, Or(AKnight, AKnave))
 )
 
 # Puzzle 1
