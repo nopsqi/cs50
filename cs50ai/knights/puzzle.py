@@ -54,7 +54,7 @@ knowledge2 = And(
     )),
     Implication(AKnave, Or(
         And(AKnight, BKnave),
-        Or(AKnave, BKnight)
+        And(AKnave, BKnight)
     )),
 
     Implication(BKnight, Or(
@@ -62,8 +62,8 @@ knowledge2 = And(
         And(AKnave, BKnight)
     )),
     Implication(BKnave, Or(
-        Not(And(AKnight, BKnave)),
-        Not(And(AKnave, BKnight))
+        And(AKnight, BKnight),
+        And(AKnave, BKnave)
     )),
 )
 
@@ -74,31 +74,21 @@ knowledge2 = And(
 # C says "A is a knight."
 knowledge3 = And(
     Or(AKnight, AKnave),
-    Not(And(AKnight, AKnave)),
+    Biconditional(AKnight, Not(AKnave)),
+    Biconditional(AKnave, Not(AKnight)),
 
     Or(BKnight, BKnave),
-    Not(And(BKnight, BKnave)),
+    Biconditional(BKnight, Not(BKnave)),
+    Biconditional(BKnave, Not(BKnight)),
 
     Or(CKnight, CKnave),
-    Not(And(CKnight, CKnave)),
+    Biconditional(CKnight, Not(CKnave)),
+    Biconditional(CKnave, Not(CKnight)),
 
     Implication(AKnight, Or(
-        AKnight, AKnave
-    )),
-    Implication(AKnave, Or(
-        Not(AKnight), Not(AKnave)
-    )),
-
-    Implication(BKnight, And(
-        Implication(AKnight, AKnave),
-        Implication(AKnave, Not(AKnave))
-    )),
-
-    Implication(BKnight, CKnight),
-    Implication(BKnave, Not(CKnight)),
-
-    Implication(CKnight, AKnight),
-    Implication(CKnave, Not(AKnight))
+        AKnight,
+        AKnave
+    ))
 )
 
 
