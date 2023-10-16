@@ -187,7 +187,7 @@ class MinesweeperAI():
 
     def learn(self):
         for a, b in itertools.combinations(self.knowledge):
-            pass
+            
 
     def add_knowledge(self, cell, count):
         """
