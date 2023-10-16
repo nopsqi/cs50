@@ -94,7 +94,11 @@ knowledge3 = And(
         AKnight
     )),
 
-    Implication(AKnight, )
+    Implication(BKnight, CKnave),
+    Implication(BKnave, CKnight),
+
+    Implication(CKnight, AKnight),
+    Implication(CKnave, AKnave),
 )
 
 
