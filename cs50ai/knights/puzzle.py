@@ -23,8 +23,9 @@ knowledge0 = And(
 # B says nothing.
 knowledge1 = And(
     Or(AKnight, AKnave),
-
     Or(BKnight, BKnave),
+
+    Or(AKnight, AKnave, BKnight, BKnave),
 
     Implication(AKnight, And(AKnave, BKnave)),
     Implication(AKnave, Or(AKnight, BKnight))
