@@ -1,23 +1,21 @@
-from minesweeper import Minesweeper, MinesweeperAI
 import itertools
+import string
+from minesweeper import Minesweeper, MinesweeperAI
 
 
 def main():
-    game = Minesweeper(height=3, width=3, mines=3)
-    game.mines = {(0, 0), (1, 1), (2, 2)}
-    position = None
-    count = 0
-    for p in itertools.product(range(8), repeat=2):
-        if p in game.mines:
+    size = 3
+    game = Minesweeper(height=size, width=size, mines=3)
+    encoder = {letter: move for letter, move in zip(string.ascii_lowercase, itertools.product(range(size), repeat=2))}
+    while True:
+        game.print()
+        position = encoder.get(input("Move: "))
+        if position is None:
             continue
-        position = p
         count = game.nearby_mines(position)
-        break
-    count = game.nearby_mines(position)
-    game.print()
-    print(count)
-    # ai = MinesweeperAI()
-    # ai.add_knowledge((3, 1), 3)
+        print(position, count)
+        # ai = MinesweeperAI()
+        # ai.add_knowledge((3, 1), 3)
 
 
 if __name__ == "__main__":
