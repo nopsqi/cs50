@@ -33,6 +33,19 @@ class Minesweeper():
         # At first, player has found no mines
         self.mines_found = set()
 
+    def print_board(self, moves):
+        for i in range(self.height):
+            print("--" * self.width + "-")
+            for j in range(self.width):
+                if self.board[i][j]:
+                    print("|X", end="")
+                if (i, j) in moves:
+                    print("|M", end="")
+                else:
+                    print("| ", end="")
+            print("|")
+        print("--" * self.width + "-")
+
     def print(self):
         """
         Prints a text-based representation
