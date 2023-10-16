@@ -9,15 +9,15 @@ def main():
     game = Minesweeper(height=size, width=size, mines=3)
     ai = MinesweeperAI()
     encoder = {letter: move for letter, move in zip(string.ascii_lowercase, itertools.product(range(size), repeat=2))}
-    counts = {}
+    positions = {}
     game.print()
     while True:
         position = encoder.get(input("Move: "))
-        if position is None:
+        if position is None or position in positions:
             continue
         count = game.nearby_mines(position)
-        counts[position] = count
-        game.print_board(counts)
+        positions[position] = count
+        game.print_board(positions)
         print(position, count)
         ai.add_knowledge(position, count)
 
