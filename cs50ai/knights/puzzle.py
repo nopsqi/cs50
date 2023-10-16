@@ -14,7 +14,7 @@ CKnave = Symbol("C is a Knave")
 knowledge0 = And(
     Or(AKnight, AKnave),
     Not(And(AKnight, AKnave)),
-    Biconditional(AKnight, AKnight),
+    # Biconditional(AKnight, AKnight),
     Implication(AKnight, And(AKnight, AKnave)),
     Implication(AKnave, Not(And(AKnight, AKnave)))
 )
