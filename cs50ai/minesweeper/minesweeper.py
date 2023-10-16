@@ -243,7 +243,9 @@ class MinesweeperAI():
             self.knowledge.append(sentence)
 
         self.mark_safe(cell)
-        self.learn()
+        for sentence in self.knowledge:
+            print(sentence)
+        # self.learn()
 
     def make_safe_move(self):
         """
