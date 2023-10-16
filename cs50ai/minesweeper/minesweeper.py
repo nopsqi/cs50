@@ -39,7 +39,7 @@ class Minesweeper():
             for j in range(self.width):
                 if self.board[i][j]:
                     print("|X", end="")
-                if (i, j) in moves:
+                elif (i, j) in moves:
                     print("|M", end="")
                 else:
                     print("| ", end="")
