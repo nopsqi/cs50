@@ -10,7 +10,7 @@ def main():
     ai = MinesweeperAI()
     encoder = {letter: move for letter, move in zip(string.ascii_lowercase, itertools.product(range(size), repeat=2))}
     positions = {}
-    game.print()
+    game.print_board(positions)
     while True:
         position = encoder.get(input("Move: "))
         if position is None or position in positions:
