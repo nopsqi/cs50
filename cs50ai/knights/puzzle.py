@@ -43,6 +43,10 @@ knowledge2 = And(
     Not(And(BKnight, BKnave)),
 
     Or(
+        And(AKnight, )
+    ),
+
+    Or(
         Implication(AKnight, And(AKnight, BKnight)),
         Implication(AKnight, And(AKnave, BKnave))
     ),
