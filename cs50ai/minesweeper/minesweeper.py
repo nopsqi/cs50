@@ -202,6 +202,7 @@ class MinesweeperAI():
         """
         n_cells = self.nearby_cells(cell)
         sentence = Sentence(n_cells, count)
+        
         self.knowledge(sentence)
         self.moves_made.add(cell)
         self.mark_safe(cell)
