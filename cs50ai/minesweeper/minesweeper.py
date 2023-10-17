@@ -217,9 +217,9 @@ class MinesweeperAI():
     def learn(self):
         for a, b in itertools.combinations(self.knowledge, 2):
             sentence = None
-            if a.cells >= b.cells:
+            if a.cells > b.cells:
                 sentence = Sentence(a.cells - b.cells, a.count - b.count)
-            if b.cells >= a.cells:
+            if b.cells > a.cells:
                 sentence = Sentence(b.cells - a.cells, b.count - a.count)
             if sentence is not None:
                 self.knowledge.append(sentence)
