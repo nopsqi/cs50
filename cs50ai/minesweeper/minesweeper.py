@@ -230,17 +230,6 @@ class MinesweeperAI():
                 for cell in mines:
                     self.mark_mine(cell)
 
-            temp = set()
-            for cell in a.known_safes():
-                temp.add(cell)
-            for cell in temp:
-                self.mark_safe(cell)
-
-            for cell in a.known_mines():
-                temp.add(cell)
-            for cell in temp:
-                self.mark_mine(cell)
-
             sentence = None
             if a.cells > b.cells:
                 sentence = Sentence(a.cells - b.cells, a.count - b.count)
@@ -272,8 +261,8 @@ class MinesweeperAI():
             self.knowledge.append(sentence)
 
         self.mark_safe(cell)
-        self.learn()
         self.cleanup()
+        self.learn()
         for sentence in self.knowledge:
             print(sentence)
             print("mines: ", sentence.known_mines())
