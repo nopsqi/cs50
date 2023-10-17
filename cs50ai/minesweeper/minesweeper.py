@@ -267,7 +267,6 @@ class MinesweeperAI():
             print("learning")
             knowledge_copy = self.knowledge.copy()
             self.learn()
-        self.learn()
         for sentence in self.knowledge:
             print(sentence)
             print("mines: ", sentence.known_mines())
