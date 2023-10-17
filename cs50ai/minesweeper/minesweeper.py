@@ -143,6 +143,7 @@ class Sentence():
         a cell is known to be a mine.
         """
         if cell in self.cells:
+            self.count -= 1
             self.__mines.add(cell)
             self.cells.discard(cell)
 
