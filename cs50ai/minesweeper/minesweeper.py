@@ -113,6 +113,9 @@ class Sentence():
         self.__mines = set()
         self.__safes = set()
 
+    def __hash__(self):
+        return hash(frozenset(self.cells))
+
     def __eq__(self, other):
         return self.cells == other.cells and self.count == other.count
 
@@ -174,7 +177,7 @@ class MinesweeperAI():
         self.safes = set()
 
         # List of sentences about the game known to be true
-        self.knowledge = []
+        self.knowledge = set()
 
     def mark_mine(self, cell):
         """
