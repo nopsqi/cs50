@@ -107,9 +107,9 @@ def iterate_pagerank(corpus, damping_factor):
     return 0
 
 def iterative(corpus, page, damping_factor):
-    links = (link for link in corpus if page in corpus[link])
-    if len(links) == 0:
-        links = corpus.keys()
+    contain_page = (key for key in corpus if page in corpus[key])
+    if len(contain_page) == 0:
+        contain_page = corpus.keys()
     return ((1 - damping_factor) / N) + damping_factor * sum(iterative())
 
 if __name__ == "__main__":
