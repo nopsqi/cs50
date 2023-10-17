@@ -92,7 +92,7 @@ def sample_pagerank(corpus, damping_factor, n):
             t_model = transition_model(corpus, page, damping_factor)
             t_models[page] = t_model
 
-    return {key: round(value / n, 3) for key, value in result.items()}
+    return dict(sorted({key: round(value / n, 3) for key, value in result.items()}.items()))
 
 
 def iterate_pagerank(corpus, damping_factor):
