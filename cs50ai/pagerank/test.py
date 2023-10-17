@@ -1,10 +1,7 @@
+import pytest
 from pagerank import *
 
 
-def main():
-    c = crawl("corpus1")
-    print(c)
-
-
-if __name__ == "__main__":
-    main()
+def test_transition_model():
+    corpus = crawl("corpus0")
+    assert transition_model(corpus, )
