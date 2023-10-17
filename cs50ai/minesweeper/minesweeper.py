@@ -263,7 +263,7 @@ class MinesweeperAI():
 
         self.mark_safe(cell)
         knowledge_copy = None
-        for _ in range(5):
+        while self.knowledge != knowledge_copy:
             print("learning")
             knowledge_copy = self.knowledge.copy()
             self.learn()
