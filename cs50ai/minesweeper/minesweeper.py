@@ -217,6 +217,13 @@ class MinesweeperAI():
 
     def learn(self):
         for a, b in itertools.combinations(self.knowledge, 2):
+            if a.count == 0 and len(a.cells) != 0:
+                for cell in a.cells:
+                    self.mark_safe(cell)
+            if len(a.cells) == a.count and a.count != 0:
+                for cell in a.cells:
+                    self.mark_mine(cell)
+
             sentence = None
             if a.cells > b.cells:
                 sentence = Sentence(a.cells - b.cells, a.count - b.count)
@@ -224,6 +231,7 @@ class MinesweeperAI():
                 sentence = Sentence(b.cells - a.cells, b.count - a.count)
             if sentence is not None:
                 self.knowledge.append(sentence)
+                self.learn()
             continue
 
     def add_knowledge(self, cell, count):
