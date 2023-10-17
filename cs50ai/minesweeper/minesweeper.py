@@ -288,4 +288,4 @@ class MinesweeperAI():
             1) have not already been chosen, and
             2) are not known to be mines
         """
-        return (set(itertools.product(range(self.height))))
+        return (set(itertools.product(range(self.height), range(self.width))) - self.moves_made - self.mines).pop
