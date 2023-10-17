@@ -20,6 +20,7 @@ def main():
         game.print_board(positions)
         print(position, count)
         ai.add_knowledge(position, count)
+        print(ai.mines)
 
 
 if __name__ == "__main__":
