@@ -213,7 +213,7 @@ class MinesweeperAI():
     def cleanup(self):
         temp = self.knowledge.copy()
         self.knowledge = []
-        [self.knowledge.append(item) for item in temp if (item not in self.knowledge or len(item.cells) == 0 and item.count == 0)]
+        [self.knowledge.append(item) for item in temp if (item not in self.knowledge or (len(item.cells) == 0 and item.count == 0))]
 
     def learn(self):
         for a, b in itertools.combinations(self.knowledge, 2):
