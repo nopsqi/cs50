@@ -226,7 +226,7 @@ class MinesweeperAI():
             if len(a.cells) == a.count and a.count != 0:
                 mines = set()
                 for cell in a.cells:
-                    
+                    mines.add(cell)
                 for cell in mines:
                     self.mark_mine(cell)
 
