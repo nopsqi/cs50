@@ -113,9 +113,6 @@ class Sentence():
         self.__mines = set()
         self.__safes = set()
 
-    def __hash__(self):
-        return hash(self.cells)
-
     def __eq__(self, other):
         return self.cells == other.cells and self.count == other.count
 
@@ -177,7 +174,7 @@ class MinesweeperAI():
         self.safes = set()
 
         # List of sentences about the game known to be true
-        self.knowledge = set()
+        self.knowledge = []
 
     def mark_mine(self, cell):
         """
@@ -220,7 +217,7 @@ class MinesweeperAI():
             if b.cells >= a.cells:
                 sentence = Sentence(b.cells - a.cells, b.count - a.count)
             if sentence is not None:
-                self.knowledge.add(sentence)
+                self.knowledge.append(sentence)
             continue
 
 
@@ -243,7 +240,8 @@ class MinesweeperAI():
         self.moves_made.add(cell)
         n_cells = self.nearby_cells(cell) - self.moves_made
         sentence = Sentence(n_cells, count)
-        self.knowledge.add(sentence)
+        if sentence not in self.knowledge:
+            self.knowledge.append(sentence)
 
         self.mark_safe(cell)
         self.learn()
