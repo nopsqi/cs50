@@ -209,6 +209,9 @@ class MinesweeperAI():
                     cells.add((i, j))
         return cells
 
+    def remove_duplicate(self):
+
+
     def learn(self):
         for a, b in itertools.combinations(self.knowledge, 2):
             sentence = None
@@ -219,8 +222,6 @@ class MinesweeperAI():
             if sentence is not None:
                 self.knowledge.append(sentence)
             continue
-
-
 
     def add_knowledge(self, cell, count):
         """
