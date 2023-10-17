@@ -21,6 +21,7 @@ def main():
         print(position, count)
         ai.add_knowledge(position, count)
         print(ai.mines)
+        print(ai.safes)
 
 
 if __name__ == "__main__":

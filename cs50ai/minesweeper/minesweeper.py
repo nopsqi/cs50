@@ -264,13 +264,12 @@ class MinesweeperAI():
         self.mark_safe(cell)
         knowledge_copy = None
         while self.knowledge != knowledge_copy:
-            print("learning")
             knowledge_copy = self.knowledge.copy()
             self.learn()
-        for sentence in self.knowledge:
-            print(sentence)
-            print("mines: ", sentence.known_mines())
-            print("safes: ", sentence.known_safes())
+        # for sentence in self.knowledge:
+        #     print(sentence)
+        #     print("mines: ", sentence.known_mines())
+        #     print("safes: ", sentence.known_safes())
 
     def make_safe_move(self):
         """
