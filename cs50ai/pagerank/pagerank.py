@@ -68,9 +68,9 @@ def transition_model(corpus, page, damping_factor):
     page_probability = random_probability / (list_length + 1)
     link_probability += page_probability
     result = {l: round(link_probability, 2) for l in links}
-    result[page] = round(page_probability, 2)
+    result[page] = round(page_probability, 3)
 
-    return result
+    return dict(sorted(result.items()))
 
 
 def sample_pagerank(corpus, damping_factor, n):
