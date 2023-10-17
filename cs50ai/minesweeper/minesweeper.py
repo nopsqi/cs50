@@ -209,8 +209,10 @@ class MinesweeperAI():
                     cells.add((i, j))
         return cells
 
-    def remove_duplicate(self):
-
+    def cleanup(self):
+        temp = self.knowledge.copy()
+        self.knowledge = []
+        [self.knowledge.append(item) for item in temp if item not in self.knowledge]
 
     def learn(self):
         for a, b in itertools.combinations(self.knowledge, 2):
@@ -246,6 +248,7 @@ class MinesweeperAI():
 
         self.mark_safe(cell)
         self.learn()
+        self.cleanup()
         for sentence in self.knowledge:
             print(sentence)
 
