@@ -177,6 +177,8 @@ class MinesweeperAI():
         # List of sentences about the game known to be true
         self.knowledge = []
 
+        self.available_moves = set(itertools.product(range(self.height), range(self.width)))
+
     def mark_mine(self, cell):
         """
         Marks a cell as a mine, and updates all knowledge
@@ -288,4 +290,7 @@ class MinesweeperAI():
             1) have not already been chosen, and
             2) are not known to be mines
         """
-        return (set(itertools.product(range(self.height), range(self.width))) - self.moves_made - self.mines).pop()
+        try:
+            return (self.available_moves - self.moves_made - self.mines).pop()
+        except:
+            return None
