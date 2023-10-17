@@ -261,8 +261,10 @@ class MinesweeperAI():
             self.knowledge.append(sentence)
 
         self.mark_safe(cell)
-        self.cleanup()
-        self.learn()
+        knowledge_copy = self.knowledge.copy()
+        while self.knowledge != knowledge_copy:
+            self.cleanup()
+            self.learn()
         for sentence in self.knowledge:
             print(sentence)
             print("mines: ", sentence.known_mines())
