@@ -106,8 +106,9 @@ def iterate_pagerank(corpus, damping_factor):
     """
     starting_value = 1 / len(corpus)
     rank = {page: starting_value for page in corpus}
+    contain_page = {page: {p for p in corpus if } for page in corpus}
     while True:
-        
+        new_rank =
     return 0
 
 def iterative(corpus, page, damping_factor):
