@@ -86,9 +86,11 @@ def sample_pagerank(corpus, damping_factor, n):
     page = random.choice(list(corpus))
     t_model = transition_model(corpus, page, damping_factor)
     for _ in range(n):
-        page = 
+        page = random.choices(list(t_model.keys()), list(t_model.values()))[0]
+        result[page] += 1
+        t_model = transition_model(corpus, page, damping_factor)
 
-    return 0
+    return result
 
 
 def iterate_pagerank(corpus, damping_factor):
