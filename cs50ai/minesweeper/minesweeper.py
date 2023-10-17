@@ -217,7 +217,7 @@ class MinesweeperAI():
             if b.cells >= a.cells:
                 sentence = Sentence(b.cells - a.cells, b.count - a.count)
             if sentence is not None:
-                self.knowledge.append(sentence)
+                self.knowledge.add(sentence)
             continue
 
 
@@ -240,8 +240,7 @@ class MinesweeperAI():
         self.moves_made.add(cell)
         n_cells = self.nearby_cells(cell) - self.moves_made
         sentence = Sentence(n_cells, count)
-        if sentence not in self.knowledge:
-            self.knowledge.append(sentence)
+        self.knowledge.add(sentence)
 
         self.mark_safe(cell)
         self.learn()
