@@ -104,7 +104,13 @@ def iterate_pagerank(corpus, damping_factor):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
+
+    pagerank =
+
+def iterative(corpus, page, damping_factor):
     
+    return 0
+    return ((1 - damping_factor) / N) + damping_factor * sum()
 
 if __name__ == "__main__":
     main()
