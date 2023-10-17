@@ -273,7 +273,7 @@ class MinesweeperAI():
 
         self.mark_safe(cell)
         self.learn()
-        # self.cleanup()
+        self.cleanup()
         for sentence in self.knowledge:
             print(sentence)
             print("mines: ", sentence.known_mines())
