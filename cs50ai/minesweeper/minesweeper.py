@@ -231,7 +231,7 @@ class MinesweeperAI():
                 sentence = Sentence(b.cells - a.cells, b.count - a.count)
             if sentence is not None:
                 self.knowledge.append(sentence)
-                self.learn()
+                # self.learn()
             continue
 
     def add_knowledge(self, cell, count):
