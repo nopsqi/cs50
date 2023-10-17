@@ -6,7 +6,7 @@ from minesweeper import Minesweeper, MinesweeperAI
 
 def main():
     size = 5
-    game = Minesweeper(height=size, width=size, mines=3)
+    game = Minesweeper(height=size, width=size, mines=9)
     ai = MinesweeperAI(height=size, width=size)
     encoder = {letter: move for letter, move in zip(string.ascii_lowercase, itertools.product(range(size), repeat=2))}
     positions = {}
@@ -21,8 +21,8 @@ def main():
         print(position, count)
         ai.add_knowledge(position, count)
         print(ai.safes)
-        print(ai.moves)
-        print(ai.safes - ai.moves)
+        print(ai.moves_made)
+        print(ai.safes - ai.moves_made)
 
 
 if __name__ == "__main__":
