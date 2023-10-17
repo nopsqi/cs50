@@ -114,7 +114,7 @@ class Sentence():
         self.__safes = set()
 
     def __hash__(self):
-        return hash(frozenset(self.cells))
+        return hash(self.cells)
 
     def __eq__(self, other):
         return self.cells == other.cells and self.count == other.count
