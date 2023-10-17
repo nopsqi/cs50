@@ -62,13 +62,11 @@ def transition_model(corpus, page, damping_factor):
         probability = damping_factor / len(corpus)
         return {p: probability for p in corpus}
 
-    list_length = len(links)
     random_probability = 1 - damping_factor
-    link_probability = damping_factor / list_length
-    page_probability = random_probability / (list_length + 1)
+    link_probability = damping_factor / len(links)
+    page_probability = random_probability / len(corpus)
     link_probability += page_probability
-    result = {l: round(link_probability, 3) for l in links}
-    result[page] = round(page_probability, 3)
+    result = {p: round(link_probability, 3) if p in links else round(page_probability) for p in corpus}
 
     return dict(sorted(result.items()))
 
