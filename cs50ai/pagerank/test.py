@@ -4,4 +4,4 @@ from pagerank import *
 
 def test_transition_model():
     corpus = crawl("corpus0")
-    assert transition_model(corpus, )
+    assert transition_model(corpus, "1.html", DAMPING) == 5
