@@ -7,7 +7,7 @@ from minesweeper import Minesweeper, MinesweeperAI
 def main():
     size = 3
     game = Minesweeper(height=size, width=size, mines=3)
-    game.mines = [(0, 1), (0, 2), (2, 2)]
+    game.mines = set([(0, 1), (0, 2), (2, 2)])
     ai = MinesweeperAI(height=size, width=size)
     encoder = {letter: move for letter, move in zip(string.ascii_lowercase, itertools.product(range(size), repeat=2))}
     positions = {}
