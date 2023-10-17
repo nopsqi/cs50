@@ -67,8 +67,8 @@ def transition_model(corpus, page, damping_factor):
     link_probability = damping_factor / list_length
     page_probability = random_probability / (list_length + 1)
     link_probability += page_probability
-    result = {l: link_probability for l in links}
-    result[page] = page_probability
+    result = {l: round(link_probability, 2) for l in links}
+    result[page] = round(page_probability, 2)
 
     return result
 
