@@ -216,7 +216,6 @@ class MinesweeperAI():
         [self.knowledge.append(item) for item in temp if item not in self.knowledge]
 
     def learn(self):
-        self.cleanup()
         for a, b in itertools.combinations(self.knowledge, 2):
             if a.count == 0 and len(a.cells) != 0:
                 safes = set()
@@ -249,7 +248,6 @@ class MinesweeperAI():
                 sentence = Sentence(b.cells - a.cells, b.count - a.count)
             if sentence is not None:
                 self.knowledge.append(sentence)
-                self.learn()
             continue
 
     def add_knowledge(self, cell, count):
