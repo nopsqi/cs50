@@ -218,17 +218,11 @@ class MinesweeperAI():
     def learn(self):
         for a, b in itertools.combinations(self.knowledge, 2):
             if a.count == 0 and len(a.cells) != 0:
-                safes = set()
                 for cell in a.cells:
-                    safes.add(cell)
-                for cell in safes:
-                    self.mark_safe(cell)
+                    a.mark_safe(cell)
             if len(a.cells) == a.count and a.count != 0:
-                mines = set()
                 for cell in a.cells:
-                    mines.add(cell)
-                for cell in mines:
-                    self.mark_mine(cell)
+                    a.mark_mine(cell)
 
             temp = set()
             for cell in a.known_safes():
