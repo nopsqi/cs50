@@ -20,9 +20,10 @@ def main():
         game.print_board(positions)
         print(position, count)
         ai.add_knowledge(position, count)
-        print(ai.safes)
-        print(ai.moves_made)
-        print(ai.safes - ai.moves_made)
+        print("mines: ", ai.mines)
+        print("safes: ", ai.safes)
+        print("moves: ", ai.moves_made)
+        print("next : ", ai.safes - ai.moves_made)
 
 
 if __name__ == "__main__":
