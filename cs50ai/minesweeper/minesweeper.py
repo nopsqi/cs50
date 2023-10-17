@@ -221,9 +221,13 @@ class MinesweeperAI():
                 safes = set()
                 for cell in a.cells:
                     safes.add(cell)
-                
+                for cell in safes:
+                    self.mark_safe(cell)
             if len(a.cells) == a.count and a.count != 0:
+                mines = set()
                 for cell in a.cells:
+                    
+                for cell in mines:
                     self.mark_mine(cell)
 
             sentence = None
