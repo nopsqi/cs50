@@ -83,10 +83,10 @@ def sample_pagerank(corpus, damping_factor, n):
     PageRank values should sum to 1.
     """
     result = {key: 0 for key in corpus}
-    page = None
+    page = random.choice(list(corpus))
+    t_model = transition_model(corpus, page, damping_factor)
+    print(t_model)
     for _ in range(n):
-        if page is None:
-            page = random.choice(list(corpus))
         page = random.choices(list(t_model.keys()), list(t_model.values()))[0]
         result[page] += 1
         t_model = transition_model(corpus, page, damping_factor)
