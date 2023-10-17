@@ -251,6 +251,8 @@ class MinesweeperAI():
         self.cleanup()
         for sentence in self.knowledge:
             print(sentence)
+            print("mines: ", sentence.known_mines())
+            print("safes: ", sentence.known_safes())
 
     def make_safe_move(self):
         """
