@@ -63,7 +63,8 @@ def transition_model(corpus, page, damping_factor):
         return {p: probability for p in corpus}
 
     result = {}
-    probability = damping_factor
+    link_probability = damping_factor / len(links)
+    page_probability = 
 
     return result
 
