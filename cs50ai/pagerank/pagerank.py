@@ -111,7 +111,7 @@ def iterative(corpus, page, damping_factor):
     contain_page = [key for key in corpus if page in corpus[key]]
     if len(contain_page) == 0:
         contain_page = corpus.keys()
-    return ((1 - damping_factor) / corpus_length) + damping_factor * sum(iterative(i)/(len(corpus[i] if corpus[i] > 0 else corpus_length)) for i in contain_page)
+    return ((1 - damping_factor) / corpus_length) + damping_factor * sum(iterative(corpus, i, damping_factor)/(len(corpus[i] if corpus[i] > 0 else corpus_length)) for i in contain_page)
 
 if __name__ == "__main__":
     main()
