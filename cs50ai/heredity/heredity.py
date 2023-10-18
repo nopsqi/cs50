@@ -145,6 +145,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
     print(one_gene)
     print(two_genes)
     print(have_trait)
+    zero_probs = {p: PROBS["gene"][0] * PROBS["trait"][people[p]["trait"]] for p in zero_gene}
     return 0
 
 
