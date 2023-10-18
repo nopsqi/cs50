@@ -140,7 +140,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         * everyone in set `have_trait` has the trait, and
         * everyone not in set` have_trait` does not have the trait.
     """
-    zero_gene = {person for person in people if person not in one_gene | two_genes}
+    zero_gene = {p for p in people if p not in one_gene | two_genes}
 
 
     def calculate(person, people=people, zero_gene=zero_gene, one_gene=one_gene, two_genes=two_genes, have_trait=have_trait):
@@ -157,11 +157,11 @@ def joint_probability(people, one_gene, two_genes, have_trait):
 
 
     probs = lambda data: {p: calculate(p) for p in data}
-    print("0 \t", zero_gene, end="\t")
-    print(probs(zero_gene).values())
-    print("1 \t", one_gene)
-    print("2 \t", two_genes)
-    print("t \t", have_trait)
+    # print("0 \t", zero_gene, end="\t")
+    # print(probs(zero_gene).values())
+    # print("1 \t", one_gene)
+    # print("2 \t", two_genes)
+    # print("t \t", have_trait)
 
     return reduce(lambda x, y: x * y, itertools.chain(probs(zero_gene).values(), probs(one_gene).values(), probs(two_genes).values()))
 
@@ -176,8 +176,9 @@ def update(probabilities, one_gene, two_genes, have_trait, p):
     index = lambda p: 0 if p in zero_gene else 1 if p in one_gene else 2 if p in two_genes else None
 
 
-    zero_gene = {person for person in probabilities if person not in one_gene | two_genes}
+    zero_gene = {p for p in probabilities if p not in one_gene | two_genes}
 
+    print(zero_gene | one_gene | two_genes)
     for person in zero_gene | one_gene | two_genes:
         probabilities[person]["gene"][index(person)] += p
         probabilities[person]["trait"][person in have_trait] += p
