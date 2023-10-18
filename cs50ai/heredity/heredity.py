@@ -1,4 +1,5 @@
 import csv
+from functools import reduce
 import itertools
 import sys
 
