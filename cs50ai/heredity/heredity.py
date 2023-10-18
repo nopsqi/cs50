@@ -144,9 +144,12 @@ def joint_probability(people, one_gene, two_genes, have_trait):
 
     def calculate(person, people=people, zero_gene=zero_gene, one_gene=one_gene, two_genes=two_genes, have_trait=have_trait):
         index = lambda p: 0 if p in zero_gene else 1 if p in one_gene else 2 if p in two_genes else None
-        num_gene = index(person)
+        person_gene = index(person)
+
         if not (people[person]["father"] and people[person]["mother"]):
-            return PROBS["gene"][num_gene] * PROBS["trait"][num_gene][person in have_trait]
+            return PROBS["gene"][person_gene] * PROBS["trait"][person_gene][person in have_trait]
+
+        
 
 
     zero_probs = {p: calculate(p) for p in zero_gene}
