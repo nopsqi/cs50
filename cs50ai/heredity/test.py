@@ -20,10 +20,28 @@ def main():
         for person in people
     }
     names = set(people)
-    p_set = powerset(names)
-    joint = joint_probability(people, {"Harry"}, {"James"}, {"James"})
-    print(p_set)
-    print(joint)
+    for have_trait in powerset(names):
+
+        # Check if current set of people violates known information
+        fails_evidence = any(
+            (people[person]["trait"] is not None and
+             people[person]["trait"] != (person in have_trait))
+            for person in names
+        )
+        if fails_evidence:
+            continue
+
+        # Loop over all sets of people who might have the gene
+        for one_gene in powerset(names):
+            for two_genes in powerset(names - one_gene):
+
+                # Update probabilities with new joint probability
+                p = joint_probability(people, one_gene, two_genes, have_trait)
+                print(p)
+                update(probabilities, one_gene, two_genes, have_trait, p)
+
+    # Ensure probabilities sum to 1
+    normalize(probabilities)
 
 
 if __name__ == "__main__":

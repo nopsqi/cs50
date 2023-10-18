@@ -157,6 +157,10 @@ def joint_probability(people, one_gene, two_genes, have_trait):
 
 
     probs = lambda data: {p: calculate(p) for p in data}
+    print(zero_gene)
+    print(one_gene)
+    print(two_genes)
+
     return reduce(lambda x, y: x * y, itertools.chain(probs(zero_gene).values(), probs(one_gene).values(), probs(two_genes).values()))
 
 
