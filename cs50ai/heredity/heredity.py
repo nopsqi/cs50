@@ -164,7 +164,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
     print(zero_probs)
     print(one_probs)
     print(two_probs)
-    return 0
+    return reduce(lambda x, y: x * y, itertools.chain(zero_probs.values(), one_probs.values(), two_probs.values()))
 
 
 def update(probabilities, one_gene, two_genes, have_trait, p):
