@@ -112,7 +112,7 @@ def iterate_pagerank(corpus, damping_factor):
 
     for _ in range(10):
         new_rank = {
-            r: (( 1 - damping_factor ) / length["corpus"]) + damping_factor * sum(pr for pr in rank[contain_page[r]]) for r in rank
+            r: (( 1 - damping_factor ) / length["corpus"]) + damping_factor * sum(rank[pr] for pr in contain_page[r]) for r in rank
         }
         rank = new_rank
         print(rank)
