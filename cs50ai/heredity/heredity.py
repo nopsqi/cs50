@@ -140,7 +140,8 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         * everyone not in set` have_trait` does not have the trait.
     """
     zero_gene = {p for p in people if p not in one_gene | two_genes}
-    zero_probs = {p: PROBS["gene"][0] * PROBS["trait"][0][False] for p in zero_gene}
+    zero_probs = {p: PROBS["gene"][0] * PROBS["trait"][0][p in have_trait] for p in zero_gene}
+    two_probs = {p: PROBS["gene"][2] * PROBS["trait"][2][p in have_trait] for p in two_genes}
     print(zero_probs)
     return 0
 
