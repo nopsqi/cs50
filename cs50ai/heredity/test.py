@@ -37,7 +37,8 @@ def main():
 
                 # Update probabilities with new joint probability
                 p = joint_probability(people, one_gene, two_genes, have_trait)
-                # print(p)
+                if one_gene == {"Harry"} and two_genes == {"James"} and have_trait == {"James"}:
+                    print(p)
                 update(probabilities, one_gene, two_genes, have_trait, p)
 
     # Ensure probabilities sum to 1
