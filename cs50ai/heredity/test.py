@@ -21,7 +21,7 @@ def main():
     }
     names = set(people)
     p_set = powerset(names)
-    joint = joint_probability(people, {"Harry"}, {"James"}, {"Harry", "James"})
+    joint = joint_probability(people, {"Harry"}, {"James"}, {"James"})
     print(joint)
 
 
