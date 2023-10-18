@@ -2,6 +2,7 @@ import os
 import random
 import re
 import sys
+import math
 
 DAMPING = 0.85
 SAMPLES = 10000
@@ -109,7 +110,7 @@ def iterate_pagerank(corpus, damping_factor):
     starting_value = 1 / length["corpus"]
     rank = {page: starting_value for page in corpus}
     contain_page = {page: {p for p in corpus if page in corpus[p]} for page in corpus}
-    diff = 
+    diff = {page: math.inf for page in corpus}
 
     for _ in range(1000):
         # new_rank = {
@@ -117,7 +118,7 @@ def iterate_pagerank(corpus, damping_factor):
         # }
         for page in rank:
             rank[page] = (( 1 - damping_factor ) / length["corpus"]) + damping_factor * sum(rank[pr] / length[pr] for pr in contain_page[page])
-        print(rank)
+        
 
     return 0
 
