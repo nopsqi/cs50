@@ -160,9 +160,6 @@ def joint_probability(people, one_gene, two_genes, have_trait):
     zero_probs = probs(zero_gene)
     one_probs = probs(one_gene)
     two_probs = probs(two_genes)
-    print(zero_probs)
-    print(one_probs)
-    print(two_probs)
     return reduce(lambda x, y: x * y, itertools.chain(zero_probs.values(), one_probs.values(), two_probs.values()))
 
 
@@ -173,8 +170,7 @@ def update(probabilities, one_gene, two_genes, have_trait, p):
     Which value for each distribution is updated depends on whether
     the person is in `have_gene` and `have_trait`, respectively.
     """
-    raise NotImplementedError
-
+    
 
 def normalize(probabilities):
     """
