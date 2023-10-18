@@ -23,7 +23,7 @@ def main():
     p_set = powerset(names)
     joint = joint_probability(people, {"Harry"}, {"James"}, {"James"})
     print(p_set)
-    print(powerset(names - {"James", "Lily"}))
+    print(joint)
 
 
 if __name__ == "__main__":
