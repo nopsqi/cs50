@@ -157,7 +157,8 @@ def joint_probability(people, one_gene, two_genes, have_trait):
 
 
     probs = lambda data: {p: calculate(p) for p in data}
-    print("0 \t", zero_gene)
+    print("0 \t", zero_gene, end="\t")
+    print(probs(zero_gene).values())
     print("1 \t", one_gene)
     print("2 \t", two_genes)
     print("t \t", have_trait)
