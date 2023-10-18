@@ -149,7 +149,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         if not (people[person]["father"] and people[person]["mother"]):
             return PROBS["gene"][person_gene] * PROBS["trait"][person_gene][person in have_trait]
 
-        
+        parents = {parent for parent in }
 
 
     zero_probs = {p: calculate(p) for p in zero_gene}
