@@ -113,9 +113,6 @@ def iterate_pagerank(corpus, damping_factor):
     diff = {page: math.inf for page in corpus}
 
     while any(d > 0.001 for d in diff.values()):
-        # new_rank = {
-        #     r: (( 1 - damping_factor ) / length["corpus"]) + damping_factor * sum(rank[pr] for pr in contain_page[r]) for r in rank
-        # }
         rank_prev = rank.copy()
         for page in rank:
             rank[page] = (( 1 - damping_factor ) / length["corpus"]) + damping_factor * sum(rank[pr] / length[pr] for pr in contain_page[page])
