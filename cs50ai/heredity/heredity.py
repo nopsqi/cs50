@@ -150,6 +150,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
             return PROBS["gene"][person_gene] * PROBS["trait"][person_gene][person in have_trait]
 
         not_mutated = 1 - PROBS["mutation"]
+        case {}
 
 
     zero_probs = {p: calculate(p) for p in zero_gene}
