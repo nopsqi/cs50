@@ -170,7 +170,7 @@ def update(probabilities, one_gene, two_genes, have_trait, p):
     index = lambda p: 0 if p in zero_gene else 1 if p in one_gene else 2 if p in two_genes else None
 
 
-    zero_gene = {p for p in people if p not in one_gene | two_genes}
+    zero_gene = {p for p in probabilities if p not in one_gene | two_genes}
 
     for person in zero_gene | one_gene | two_genes:
         probabilities[person]["gene"][index(person)] += p
