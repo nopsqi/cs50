@@ -187,6 +187,7 @@ def normalize(probabilities):
         return {probability: distribution[probability] / total for probability in distribution}
 
 
+    print(id(probabilities))
     probabilities = {
         person: {
             probability: calculate(probabilities[person][probability])
@@ -194,6 +195,7 @@ def normalize(probabilities):
         }
         for person in probabilities
     }
+    print(id(probabilities))
 
 
 if __name__ == "__main__":
