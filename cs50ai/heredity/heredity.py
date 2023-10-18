@@ -189,9 +189,7 @@ def normalize(probabilities):
 
     probabilities = {
         person: {
-            probability: {
-                calculate(probabilities[person][probability])
-            }
+            probability: calculate(probabilities[person][probability])
             for probability in probabilities[person]
         }
         for person in probabilities
