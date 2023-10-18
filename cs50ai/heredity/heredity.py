@@ -139,14 +139,18 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         * everyone in set `have_trait` has the trait, and
         * everyone not in set` have_trait` does not have the trait.
     """
-    def calculate(person, num_gene, people=people, have_trait=have_trait):
+    zero_gene = {p for p in people if p not in one_gene | two_genes}
+
+
+    def calculate(person, people=people, zero_gene=zero_gene, one_gene=one_gene, two_genes=two_genes, have_trait=have_trait):
+        index = lambda p: 0 if p in zero_gene else 1 if p in one_gene else 2
+        num_gene = index(person)
         if not (people[person]["father"] and people[person]["mother"]):
             return PROBS["gene"][num_gene] * PROBS["trait"][num_gene][person in have_trait]
 
 
-    zero_gene = {p for p in people if p not in one_gene | two_genes}
-    zero_probs = {p: calculate(p, 0) for p in zero_gene}
-    two_probs = {p: calculate(p, 2) for p in two_genes}
+    zero_probs = {p: calculate(p) for p in zero_gene}
+    two_probs = {p: calculate(p) for p in two_genes}
     print(zero_probs)
     print(two_probs)
     return 0
