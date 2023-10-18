@@ -188,7 +188,7 @@ def normalize(probabilities):
 
 
     for person in probabilities:
-        probabilities[person] = {}
+        probabilities[person] = {kind: calculate(probabilities[person][kind]) for kind in probabilities[person]}
 
 
 if __name__ == "__main__":
