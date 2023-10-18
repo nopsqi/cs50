@@ -187,7 +187,11 @@ def normalize(probabilities):
         return {p: distribution[p] / total for p in distribution}
 
 
-    
+    probabilities = {
+        p: {
+
+        }
+    }
 
 
 if __name__ == "__main__":
