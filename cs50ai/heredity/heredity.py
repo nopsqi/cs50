@@ -162,6 +162,8 @@ def joint_probability(people, one_gene, two_genes, have_trait):
     # print("1 \t", one_gene)
     # print("2 \t", two_genes)
     # print("t \t", have_trait)
+    if one_gene == {"Harry", "Lilly", "James"} and have_trait == {"James"}:
+        print(probs(one_gene))
 
     return reduce(lambda x, y: x * y, itertools.chain(probs(zero_gene).values(), probs(one_gene).values(), probs(two_genes).values()))
 
@@ -178,8 +180,6 @@ def update(probabilities, one_gene, two_genes, have_trait, p):
 
     zero_gene = {p for p in probabilities if p not in one_gene | two_genes}
 
-    # print({0: zero_gene, 1: one_gene, 2: two_genes, 3: have_trait})
-    print(one_gene)
     for person in zero_gene | one_gene | two_genes:
         probabilities[person]["gene"][index(person)] += p
         probabilities[person]["trait"][person in have_trait] += p
