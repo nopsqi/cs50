@@ -42,6 +42,7 @@ def main():
 
     # Ensure probabilities sum to 1
     normalize(probabilities)
+    print(probabilities)
 
 
 if __name__ == "__main__":
