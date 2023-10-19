@@ -143,10 +143,10 @@ class CrosswordCreator():
             (x, y) = arcs.pop(0)
             if revise(x, y):
                 if len(self.domains[x]) == 0:
-                    return false
+                    return False
                 for z in self.crossword.neigbors - set(y):
                     arcs.append(z)
-        return true
+        return True
 
 
     def assignment_complete(self, assignment):
