@@ -12,10 +12,11 @@ def main():
     #     print(row)
     # for key, value in crossword.overlaps.items():
     #     print(key, value)
-    for var in crossword.variables:
-        print(var.cells)
-    print(crossword.neighbors(Variable(4, 1, 'across', 4)))
-    print(crossword.words)
+    # for var in crossword.variables:
+    #     print(var.cells)
+    # print(crossword.neighbors(Variable(4, 1, 'across', 4)))
+    # print(crossword.words)
+    print(creator.enforce_node_consistency())
 
 
 if __name__ == "__main__":
