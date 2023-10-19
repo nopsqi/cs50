@@ -8,7 +8,8 @@ def main():
 
     crossword = Crossword(structure, words)
     creator = CrosswordCreator(crossword)
-    print(crossword.neighbors(crossword.variables.pop()))
+    for row in crossword.overlaps:
+        print(row)
 
 
 if __name__ == "__main__":
