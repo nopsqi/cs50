@@ -219,9 +219,9 @@ class CrosswordCreator():
         for var in self.crossword.variables - set(assignment):
             couter[len(self.domains[var])].append(var)
         if len(counter[min(counter)]) == 1:
-            return counter[max(counter)][0]
+            return counter[min(counter)][0]
 
-        vars = counter[max(counter)]
+        vars = counter[min(counter)]
         counter = {}
         for var in vars:
             counter[len(self.crossword.neighbors(var))].append(var)
