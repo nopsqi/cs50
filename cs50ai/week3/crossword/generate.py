@@ -176,7 +176,7 @@ class CrosswordCreator():
 
         for x, y in pairs:
             if None in [assignment.get(x), assignment.get(y)]:
-                return False
+                continue
 
             if x.length != len(assignment[x]):
                 return False
