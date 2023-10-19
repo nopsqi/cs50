@@ -140,7 +140,11 @@ class CrosswordCreator():
             #         arcs.append(set(arc))
             # arcs = [tuple(arc) for arc in arcs]
             while len(arcs) != 0:
-                
+                (x, y) = arcs.pop(0)
+                if revise(x, y):
+                    if len(self.domains[x]) == 0:
+                        return false
+                    
 
 
     def assignment_complete(self, assignment):
