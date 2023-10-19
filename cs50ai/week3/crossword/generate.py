@@ -101,7 +101,6 @@ class CrosswordCreator():
         """
         for var in self.domains:
             self.domains[var] = {word for word in self.domains[var] if len(word) == var.length}
-        print(self.domains)
 
     def revise(self, x, y):
         """
