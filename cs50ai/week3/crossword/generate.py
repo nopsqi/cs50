@@ -140,12 +140,12 @@ class CrosswordCreator():
             #         arcs.append(set(arc))
             # arcs = [tuple(arc) for arc in arcs]
         while len(arcs) != 0:
-            print(arcs)
             (x, y) = arcs.pop(0)
             if self.revise(x, y):
                 if len(self.domains[x]) == 0:
                     return False
-                for z in self.crossword.neighbors - set(y):
+                print(self.crossword.neighbors(x) - y)
+                for z in self.crossword.neighbors(x) - set(y):
                     arcs.append(z)
         return True
 
