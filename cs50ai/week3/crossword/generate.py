@@ -215,7 +215,10 @@ class CrosswordCreator():
         degree. If there is a tie, any of the tied variables are acceptable
         return values.
         """
-        
+        counter = {}
+        for var in self.crossword.variables - set(assignment):
+            couter[len(self.domains[var])].append(var)
+        if counter[max(counter)]
 
     def backtrack(self, assignment):
         """
