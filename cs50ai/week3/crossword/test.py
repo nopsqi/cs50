@@ -16,9 +16,10 @@ def main():
     #     print(var.cells)
     # print(crossword.neighbors(Variable(4, 1, 'across', 4)))
     # print(crossword.words)
-    creator.enforce_node_consistency()
-    creator.revise(Variable(0, 1, "across", 3), Variable(0, 1, "down", 5))
-    print(creator.ac3())
+    # creator.enforce_node_consistency()
+    # creator.revise(Variable(0, 1, "across", 3), Variable(0, 1, "down", 5))
+    # print(creator.ac3())
+    print(crossword.neighbors(Variable(0, 1, "across", 3)))
 
 
 if __name__ == "__main__":
