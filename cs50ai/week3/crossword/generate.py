@@ -135,7 +135,9 @@ class CrosswordCreator():
         if arcs is None:
             arcs = []
             arcs = [set(arc) for arc in self.crossword.overlaps if self.crossword.overlaps[arc] is not None and set(arc) not in arcs]
-        print(arcs)
+            arcs = [tuple(arc) for arc in arcs]
+        for arc in arcs:
+            print(arc, self.crossword.overlaps[arc])
 
 
     def assignment_complete(self, assignment):
