@@ -168,16 +168,18 @@ class CrosswordCreator():
         if any(x == y for x, y in itertools.combinations(assignment.values(), 2)):
             return False
 
-        overlaps = []
+        pairs = []
         for pair in self.crossword.overlaps:
-            if set(pair) not in overlaps:
-                overlaps.append(set(pair))
-        overlaps = [tuple(pair) for pair in overlaps]
+            if set(pair) not in pairs:
+                pairs.append(set(pair))
+        pairs = [tuple(pair) for pair in pairs]
 
-        for x, y in overlaps:
+        for x, y in pairs:
             if None in [assignment.get(x), assigment.get(y)]:
                 return False
-            if 
+
+            overlap = self.crossword.overlaps[x, y]
+            if
 
 
     def order_domain_values(self, var, assignment):
