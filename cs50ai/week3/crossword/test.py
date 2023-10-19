@@ -18,6 +18,7 @@ def main():
     # print(crossword.words)
     creator.enforce_node_consistency()
     creator.revise(Variable(0, 1, "across", 3), Variable(0, 1, "down", 5))
+    creator.ac3()
 
 
 if __name__ == "__main__":
