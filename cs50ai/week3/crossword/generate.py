@@ -217,13 +217,19 @@ class CrosswordCreator():
         """
         counter = {}
         for var in self.crossword.variables - set(assignment):
-            couter[len(self.domains[var])].append(var)
+            if counter.get(len(self.domains[var])) is None:
+                counter.get(len(self.domains[var])) = [var]
+                continue
+            counter[len(self.domains[var])].append(var)
         if len(counter[min(counter)]) == 1:
             return counter[min(counter)][0]
 
         vars = counter[min(counter)]
         counter = {}
         for var in vars:
+            if counter.get(len(self.domains[var])) is None:
+                counter.get(len(self.domains[var])) = [var]
+                continue
             counter[len(self.crossword.neighbors(var))].append(var)
         if len(counter[max(counter)]) == 1:
             return counter[max(counter)][0]
