@@ -40,7 +40,7 @@ def main():
                 update(probabilities, one_gene, two_genes, have_trait, p)
 
     # Ensure probabilities sum to 1
-    normalize(probabilities)
+    # normalize(probabilities)
     print(probabilities)
 
 
