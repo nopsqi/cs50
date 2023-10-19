@@ -12,6 +12,8 @@ def main():
     #     print(row)
     # for key, value in crossword.overlaps.items():
     #     print(key, value)
+    for var in crossword.variables:
+        print(var.cells)
     print(crossword.neighbors(Variable(4, 1, 'across', 4)))
 
 
