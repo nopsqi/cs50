@@ -115,6 +115,7 @@ class CrosswordCreator():
         for xd in self.domains[x]:
             
 
+
     def ac3(self, arcs=None):
         """
         Update `self.domains` such that each variable is arc consistent.
