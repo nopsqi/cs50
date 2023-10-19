@@ -171,7 +171,7 @@ class CrosswordCreator():
                 overlaps.append(set(pair))
         overlaps = [tuple(pair) for pair in overlaps]
 
-        
+        if any()
 
 
     def order_domain_values(self, var, assignment):
