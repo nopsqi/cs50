@@ -203,7 +203,8 @@ class CrosswordCreator():
             if y in assignment:
                 continue
 
-            
+            for word in self.domains[var]:
+                counter[word] = counter[word] + 1 if counter.get(word) is not None and word in 
 
 
     def select_unassigned_variable(self, assignment):
