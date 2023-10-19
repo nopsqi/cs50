@@ -198,7 +198,12 @@ class CrosswordCreator():
         The first value in the list, for example, should be the one
         that rules out the fewest values among the neighbors of `var`.
         """
-        
+        counter = {}
+        for y in self.crossword.neighbors(var):
+            if y in assignment:
+                continue
+
+            
 
 
     def select_unassigned_variable(self, assignment):
