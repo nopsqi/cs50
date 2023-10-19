@@ -114,8 +114,8 @@ class CrosswordCreator():
         revised = False
         overlap = self.crossword.overlaps[x, y]
         for xd in self.domains[x]:
-            if any(xd[overlap[0]] == yd[overlap[1]] for yd in self.domains[y]):
-                
+            if not any(xd[overlap[0]] == yd[overlap[1]] for yd in self.domains[y]):
+                pass
         return revised
 
 
