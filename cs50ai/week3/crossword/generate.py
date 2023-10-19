@@ -227,8 +227,8 @@ class CrosswordCreator():
         vars = counter[min(counter)]
         counter = {}
         for var in vars:
-            if counter.get(len(self.domains[var])) is None:
-                counter.get(len(self.domains[var])) = [var]
+            if counter.get(len(self.crossword.neighbors[var])) is None:
+                counter.get(len(self.crossword.neighbors[var])) = [var]
                 continue
             counter[len(self.crossword.neighbors(var))].append(var)
         if len(counter[max(counter)]) == 1:
