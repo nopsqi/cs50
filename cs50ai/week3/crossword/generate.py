@@ -1,4 +1,6 @@
 import sys
+import itertools
+import functools
 
 from crossword import *
 
@@ -130,7 +132,9 @@ class CrosswordCreator():
         Return True if arc consistency is enforced and no domains are empty;
         return False if one or more domains end up empty.
         """
-        
+        for key in self.crossword.overlaps:
+            print(key, self.crossword.overlaps[key])
+
 
 
     def assignment_complete(self, assignment):
