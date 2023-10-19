@@ -151,9 +151,9 @@ def joint_probability(people, one_gene, two_genes, have_trait):
 
         parent_case = {0: PROBS["mutation"], 1: 0.5, 2: 1 - PROBS["mutation"]}
         person_case = {
-            0: lambda _: (1 - parent_case[index(people[person]["father"])]) * (1 - parent_case[index(people[person]["mother"])]),
-            1: lambda _: (1 - parent_case[index(people[person]["father"])]) * parent_case[index(people[person]["mother"])] + (1 - parent_case[index(people[person]["mother"])]) * parent_case[index(people[person]["father"])],
-            2: lambda _: parent_case[index(people[person]["father"])] * parent_case[index(people[person]["mother"])]
+            0: lambda: (1 - parent_case[index(people[person]["father"])]) * (1 - parent_case[index(people[person]["mother"])]),
+            1: lambda: (1 - parent_case[index(people[person]["father"])]) * parent_case[index(people[person]["mother"])] + (1 - parent_case[index(people[person]["mother"])]) * parent_case[index(people[person]["father"])],
+            2: lambda: parent_case[index(people[person]["father"])] * parent_case[index(people[person]["mother"])]
         }
 
         return PROBS["trait"][index(person)][person in have_trait] * person_case[index(person)]()
