@@ -200,6 +200,11 @@ class CrosswordCreator():
         """
         counter = {}
         for y in self.crossword.neighbors(var) - set(assignment):
+            for word in self.domains[var]:
+                if word not in self.domains[y]:
+                    continue
+                counter[word] = counter[word] + 1 if counter.get(word) is not None else 0
+        return 
 
 
 
