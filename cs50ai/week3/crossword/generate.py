@@ -168,13 +168,13 @@ class CrosswordCreator():
         if any(x == y for x, y in itertools.combinations(assignment.values(), 2)):
             return False
 
-        pairs = []
-        for pair in self.crossword.overlaps:
-            if set(pair) not in pairs:
-                pairs.append(set(pair))
-        pairs = [tuple(pair) for pair in pairs]
-
+        history = []
         for x, y in itertools.product([x], self.crossword.neighbors(x)):
+            if set(x, y) in history:
+                continue
+
+            history.append(set(x, y))
+
             if None in [assignment.get(x), assignment.get(y)]:
                 continue
 
