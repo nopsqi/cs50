@@ -199,9 +199,7 @@ class CrosswordCreator():
         that rules out the fewest values among the neighbors of `var`.
         """
         counter = {}
-        for y in self.crossword.neighbors(var):
-            if y in assignment:
-                continue
+        for y in self.crossword.neighbors(var) - set(assignment):
 
             for word in self.domains[var]:
                 if word in self.domains[y]:
