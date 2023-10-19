@@ -151,7 +151,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
 
         parent_case = {0: PROBS["mutation"], 1: 0.5, 2: 1 - PROBS["mutation"]}
         person_case = {
-            0: lambda 
+            0: lambda parent_case[index]
         }
 
 
