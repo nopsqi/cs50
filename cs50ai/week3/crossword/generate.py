@@ -175,11 +175,20 @@ class CrosswordCreator():
         pairs = [tuple(pair) for pair in pairs]
 
         for x, y in pairs:
-            if None in [assignment.get(x), assigment.get(y)]:
+            if None in [assignment.get(x), assignment.get(y)]:
+                return False
+
+            if x.length != length(assignment[x]):
+                return False
+
+            if y.length != length(assignment[y]):
                 return False
 
             overlap = self.crossword.overlaps[x, y]
-            if
+            if assignment[x][overlap[0]] != assignment[y][overlap[1]]:
+                return False
+
+        return True
 
 
     def order_domain_values(self, var, assignment):
