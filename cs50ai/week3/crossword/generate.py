@@ -144,7 +144,7 @@ class CrosswordCreator():
             if self.revise(x, y):
                 if len(self.domains[x]) == 0:
                     return False
-                print(self.crossword.neighbors(x) - y)
+                print(set(y))
                 for z in self.crossword.neighbors(x) - set(y):
                     arcs.append(z)
         return True
