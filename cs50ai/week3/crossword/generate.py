@@ -178,10 +178,10 @@ class CrosswordCreator():
             if None in [assignment.get(x), assignment.get(y)]:
                 return False
 
-            if x.length != length(assignment[x]):
+            if x.length != len(assignment[x]):
                 return False
 
-            if y.length != length(assignment[y]):
+            if y.length != len(assignment[y]):
                 return False
 
             overlap = self.crossword.overlaps[x, y]
