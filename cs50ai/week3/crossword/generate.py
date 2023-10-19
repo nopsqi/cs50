@@ -133,10 +133,8 @@ class CrosswordCreator():
         return False if one or more domains end up empty.
         """
         if arcs is None:
-            arcs = [arc for arc in self.crossword.overlaps if self.crossword.overlaps[arc] is not None]
-        for key in self.crossword.overlaps:
-            print(key, self.crossword.overlaps[key])
-
+            arcs = [set(arc) for arc in self.crossword.overlaps if self.crossword.overlaps[arc] is not None and set(arc) not in arcs]
+        print(arcs)
 
 
     def assignment_complete(self, assignment):
