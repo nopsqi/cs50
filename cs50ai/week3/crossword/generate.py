@@ -141,8 +141,8 @@ class CrosswordCreator():
             # arcs = [tuple(arc) for arc in arcs]
 
         while len(arcs) != 0:
+            print(len(arcs))
             x, y = arcs.pop(0)
-            print(arcs)
             if self.revise(x, y):
                 if len(self.domains[x]) == 0:
                     return False
