@@ -12,6 +12,7 @@ def main():
         print(row)
     for key, value in crossword.overlaps.items():
         print(key, value)
+    print(crossword.neighbors(Variable))
 
 
 if __name__ == "__main__":
