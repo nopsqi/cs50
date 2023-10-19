@@ -151,8 +151,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
             return PROBS["gene"][person_gene] * PROBS["trait"][person_gene][person in have_trait]
 
         not_mutated = 1 - PROBS["mutation"]
-        case = {0: PROBS["mutation"] * PROBS["mutation"], 2: not_mutated * not_mutated}
-        case[1] = case[2]
+        case = {0: PROBS["mutation"] * PROBS["mutation"], 1: 2 * PROBS["mutation"] * not_mutated, 2: not_mutated * not_mutated}
 
         return PROBS["trait"][person_gene][person in have_trait] * (case[index(people[person]["father"])] + case[index(people[person]["mother"])])
         # return case[index(people[person]["father"])] + case[index(people[person]["mother"])]
