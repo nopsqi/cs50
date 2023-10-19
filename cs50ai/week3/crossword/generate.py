@@ -218,7 +218,10 @@ class CrosswordCreator():
         counter = {}
         for var in self.crossword.variables - set(assignment):
             couter[len(self.domains[var])].append(var)
-        if counter[max(counter)]
+        if len(counter[max(counter)]) == 1:
+            return counter[max(counter)][0]
+
+        
 
     def backtrack(self, assignment):
         """
