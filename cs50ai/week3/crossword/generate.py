@@ -112,9 +112,11 @@ class CrosswordCreator():
         False if no revision was made.
         """
         print(self.domains[y])
+        print(self.domains[x])
         revised = False
         overlap = self.crossword.overlaps[x, y]
-        for xd in self.domains[x]:
+        x_domains = self.domains[x].copy()
+        for xd in x_domains:
             if not any(xd[overlap[0]] == yd[overlap[1]] for yd in self.domains[y]):
                 self.domains[x].remove(xd)
         print(self.domains[x])
