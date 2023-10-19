@@ -132,6 +132,8 @@ class CrosswordCreator():
         Return True if arc consistency is enforced and no domains are empty;
         return False if one or more domains end up empty.
         """
+        if arcs is None:
+            arcs = 
         for key in self.crossword.overlaps:
             print(key, self.crossword.overlaps[key])
 
