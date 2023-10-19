@@ -112,7 +112,8 @@ class CrosswordCreator():
         False if no revision was made.
         """
         revised = False
-        for 
+        for xd in self.domains[x]:
+            
 
     def ac3(self, arcs=None):
         """
