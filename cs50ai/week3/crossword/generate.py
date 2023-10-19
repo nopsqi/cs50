@@ -174,8 +174,7 @@ class CrosswordCreator():
                 pairs.append(set(pair))
         pairs = [tuple(pair) for pair in pairs]
 
-        for x in assignment:
-            for y in self.crossword.neighbors(x):
+        for x, y in itertools.product([x], self.crossword.neighbors(x)):
             if None in [assignment.get(x), assignment.get(y)]:
                 continue
 
