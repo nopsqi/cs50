@@ -8,7 +8,7 @@ def main():
 
     crossword = Crossword(structure, words)
     creator = CrosswordCreator(crossword)
-    print(crossword.words)
+    print(crossword.variables)
 
 
 if __name__ == "__main__":
