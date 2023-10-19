@@ -15,6 +15,7 @@ def main():
     for var in crossword.variables:
         print(var.cells)
     print(crossword.neighbors(Variable(4, 1, 'across', 4)))
+    print(crossword.words)
 
 
 if __name__ == "__main__":
