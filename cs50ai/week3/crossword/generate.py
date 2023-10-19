@@ -203,7 +203,7 @@ class CrosswordCreator():
             if y in assignment:
                 continue
 
-            
+            for word in self.domains
 
 
     def select_unassigned_variable(self, assignment):
