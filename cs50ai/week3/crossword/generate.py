@@ -113,7 +113,7 @@ class CrosswordCreator():
         """
         revised = False
         for xd in self.domains[x]:
-            if any(xd[self.crossword.overlap])
+            print(xd[self.crossword.overlaps[x]])
         return revised
 
 
