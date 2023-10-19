@@ -100,7 +100,7 @@ class CrosswordCreator():
          constraints; in this case, the length of the word.)
         """
         for var in self.domains:
-            self.domains[var] = {}
+            self.domains[var] = {word for word in self.domains[var] if len(word) == var.lenght}
 
     def revise(self, x, y):
         """
