@@ -139,15 +139,16 @@ class CrosswordCreator():
             #     if self.crossword.overlaps[arc] is not None and set(arc) not in arcs:
             #         arcs.append(set(arc))
             # arcs = [tuple(arc) for arc in arcs]
-        # while len(arcs) != 0:
-        #     (x, y) = arcs.pop(0)
-        #     if self.revise(x, y):
-        #         if len(self.domains[x]) == 0:
-        #             return False
-        #         print(set(y))
-        #         for z in self.crossword.neighbors(x) - set(y):
-        #             arcs.append(z)
-        # return True
+
+        while len(arcs) != 0:
+            x, y = arcs.pop(0)
+            print(arcs)
+            if self.revise(x, y):
+                if len(self.domains[x]) == 0:
+                    return False
+                for z in self.crossword.neighbors(x) - {y}:
+                    arcs.append(z)
+        return True
 
 
     def assignment_complete(self, assignment):
