@@ -133,8 +133,8 @@ class CrosswordCreator():
         return False if one or more domains end up empty.
         """
         if arcs is None:
-            arcs = []
             arcs = [arc for arc in self.crossword.overlaps if self.crossword.overlaps[arc] is not None]
+            # arcs = []
             # for arc in self.crossword.overlaps:
             #     if self.crossword.overlaps[arc] is not None and set(arc) not in arcs:
             #         arcs.append(set(arc))
@@ -165,6 +165,12 @@ class CrosswordCreator():
         Return True if `assignment` is consistent (i.e., words fit in crossword
         puzzle without conflicting characters); return False otherwise.
         """
+        overlaps = []
+        for pair in self.crossword.overlaps:
+            if set(pair) not in overlaps:
+                overlaps.append(set(pair))
+        overlaps = [tuple(pair) for pair in overlaps]
+
         
 
 
