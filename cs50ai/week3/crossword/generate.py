@@ -165,13 +165,19 @@ class CrosswordCreator():
         Return True if `assignment` is consistent (i.e., words fit in crossword
         puzzle without conflicting characters); return False otherwise.
         """
+        if any(x == y for x, y in itertools.combinations(assignment.values(), 2)):
+            return False
+
         overlaps = []
         for pair in self.crossword.overlaps:
             if set(pair) not in overlaps:
                 overlaps.append(set(pair))
         overlaps = [tuple(pair) for pair in overlaps]
 
-        if any()
+        for x, y in overlaps:
+            if None in [assignment.get(x), assigment.get(y)]:
+                return False
+            if 
 
 
     def order_domain_values(self, var, assignment):
