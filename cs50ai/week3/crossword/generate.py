@@ -114,6 +114,7 @@ class CrosswordCreator():
         revised = False
         print(x)
         print(y)
+        return revised
 
 
 
