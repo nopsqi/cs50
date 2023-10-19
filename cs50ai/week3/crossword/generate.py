@@ -134,13 +134,11 @@ class CrosswordCreator():
         """
         if arcs is None:
             arcs = []
-            arcs = [{arc} for arc in self.crossword.overlaps if self.crossword.overlaps[arc] is not None and {arc} not in arcs]
+            arcs = [arc for arc in self.crossword.overlaps if self.crossword.overlaps[arc] is not None]
             # for arc in self.crossword.overlaps:
             #     if self.crossword.overlaps[arc] is not None and set(arc) not in arcs:
             #         arcs.append(set(arc))
             # arcs = [tuple(arc) for arc in arcs]
-            for arc in arcs:
-                print(arc)
         # while len(arcs) != 0:
         #     (x, y) = arcs.pop(0)
         #     if self.revise(x, y):
