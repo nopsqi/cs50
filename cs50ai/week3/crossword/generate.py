@@ -1,6 +1,6 @@
 import sys
 import itertools
-import functools
+import random
 
 from crossword import *
 
@@ -234,8 +234,7 @@ class CrosswordCreator():
         if len(counter[max(counter)]) == 1:
             return counter[max(counter)][0]
 
-        vars = counter[max(counter)]
-        return random.choice(vars)
+        return random.choice(counter[max(counter)])
 
     def backtrack(self, assignment):
         """
