@@ -138,9 +138,9 @@ class CrosswordCreator():
             # for arc in self.crossword.overlaps:
             #     if self.crossword.overlaps[arc] is not None and set(arc) not in arcs:
             #         arcs.append(set(arc))
-            arcs = [tuple(arc) for arc in arcs]
+            # arcs = [tuple(arc) for arc in arcs]
             for arc in arcs:
-                print(arc, self.crossword.overlaps[arc])
+                print(arc)
         # while len(arcs) != 0:
         #     (x, y) = arcs.pop(0)
         #     if self.revise(x, y):
