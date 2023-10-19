@@ -113,7 +113,7 @@ class CrosswordCreator():
         """
         revised = False
         for xd in self.domains[x]:
-            if 
+            if any(xd)
         return revised
 
 
