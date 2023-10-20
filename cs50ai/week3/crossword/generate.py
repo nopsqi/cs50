@@ -161,9 +161,7 @@ class CrosswordCreator:
         Return True if `assignment` is complete (i.e., assigns a value to each
         crossword variable); return False otherwise.
         """
-        if set(assignment) >= self.crossword.variables:
-            return True
-        return False
+        returnt set(assignment) >= self.crossword.variables
 
     def consistent(self, assignment):
         """
@@ -238,11 +236,11 @@ class CrosswordCreator:
 
         If no assignment is possible, return None.
         """
-        if set(assignment) >= self.crossword.variables:
+        if self.assignment_complete(assignment):
             return assignment
         var = self.select_unassigned_variable(assignment)
         for word in self.order_domain_values(var, assignment):
-            
+
 
 
 def main():
