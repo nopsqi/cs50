@@ -238,7 +238,9 @@ class CrosswordCreator:
 
         If no assignment is possible, return None.
         """
-        raise NotImplementedError
+        if set(assignment) >= self.crossword.variables:
+            return assignment
+        
 
 
 def main():
