@@ -236,7 +236,7 @@ class CrosswordCreator():
 
         # return random.choice(counter[max(counter)])
 
-        return sorted()
+        return sorted(self.crossword.variables - set(assignment), key=lambda var: (-len(self.domains[var]), len(self.crossword.neighbors(var))))
 
     def backtrack(self, assignment):
         """
