@@ -161,7 +161,7 @@ class CrosswordCreator:
         Return True if `assignment` is complete (i.e., assigns a value to each
         crossword variable); return False otherwise.
         """
-        returnt set(assignment) >= self.crossword.variables
+        return set(assignment) >= self.crossword.variables
 
     def consistent(self, assignment):
         """
@@ -172,8 +172,8 @@ class CrosswordCreator:
             return False
 
         history = []
-        for x, y in itertools.chain(*[itertools.product(var, self.crossowrd.neighbors(var) & set(assignment)) for var in assignment]):
-            if set(x, y) in history:
+        for x, y in itertools.chain(*[itertools.product([var], self.crossword.neighbors(var) & set(assignment)) for var in assignment]):
+            if set((x, y)) in history:
                 continue
 
             history.append(set(x, y))
@@ -243,8 +243,8 @@ class CrosswordCreator:
             new_assignment = assignment.copy()
             new_assignment[var] = word
             if self.consistent(new_assignment):
-                self.ac3(itertools.product(self.crossword.neighbors(var), [var]))
-                result = self.backtrack(assignment)
+                self.ac3(list(itertools.product(self.crossword.neighbors(var), [var])))
+                result = self.backtrack(new_assignment)
                 if result is not None:
                     return result
         return None
