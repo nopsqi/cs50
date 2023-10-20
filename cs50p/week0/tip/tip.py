@@ -6,11 +6,11 @@ def main():
 
 
 def dollars_to_float(d):
-    return d.removeprefix("$")
+    return float(d.removeprefix("$").replace(",", "."))
 
 
 def percent_to_float(p):
-    # TODO
+    return float(p.removesuffix("%")) / 100
 
 
 main()
