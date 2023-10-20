@@ -240,6 +240,9 @@ class CrosswordCreator:
             return assignment
         var = self.select_unassigned_variable(assignment)
         for word in self.order_domain_values(var, assignment):
+            assignment[var] = word
+            if not self.consistent(assignment):
+                
 
 
 
