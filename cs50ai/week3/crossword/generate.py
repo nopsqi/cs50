@@ -226,7 +226,7 @@ class CrosswordCreator:
                 -len(self.domains[var]),
                 len(self.crossword.neighbors(var)),
             ),
-        )[0]
+        )[-1]
 
     def backtrack(self, assignment):
         """
