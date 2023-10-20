@@ -8,18 +8,11 @@ def main():
 
     crossword = Crossword(structure, words)
     creator = CrosswordCreator(crossword)
-    # for row in crossword.structure:
-    #     print(row)
-    # for key, value in crossword.overlaps.items():
-    #     print(key, value)
-    # for var in crossword.variables:
-    #     print(var.cells)
     # print(crossword.neighbors(Variable(4, 1, 'across', 4)))
     # print(crossword.words)
     # creator.enforce_node_consistency()
     # creator.revise(Variable(0, 1, "across", 3), Variable(0, 1, "down", 5))
     # print(creator.ac3())
-    print(crossword.neighbors(Variable(0, 1, "across", 3)))
 
 
 if __name__ == "__main__":
