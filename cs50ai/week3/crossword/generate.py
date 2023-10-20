@@ -242,8 +242,12 @@ class CrosswordCreator:
         for word in self.order_domain_values(var, assignment):
             assignment[var] = word
             if not self.consistent(assignment):
-                
-
+                del assignment[var]
+                continue
+            result = self.backtrack(assignment)
+            if not result:
+                return result
+        return False
 
 
 def main():
