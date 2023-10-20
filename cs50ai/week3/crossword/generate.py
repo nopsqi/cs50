@@ -1,6 +1,5 @@
 import sys
 import itertools
-import random
 
 from crossword import *
 
