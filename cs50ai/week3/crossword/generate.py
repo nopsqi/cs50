@@ -210,7 +210,7 @@ class CrosswordCreator:
                 counter[word] = (
                     counter[word] + 1 if counter.get(word) is not None else 0
                 )
-        return sorted(counter, key=lambda k: counter[k])
+        return sorted(self.domains[var], key=lambda word: sum(word in domain for domain in )])
 
     def select_unassigned_variable(self, assignment):
         """
