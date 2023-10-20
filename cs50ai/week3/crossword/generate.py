@@ -174,7 +174,7 @@ class CrosswordCreator:
             return False
 
         history = []
-        for x, y in [itertools.product(x, neighbor) for neighbor in ]
+        for x, y in [itertools.product(x, neighbor)]
             if set(x, y) in history:
                 continue
 
