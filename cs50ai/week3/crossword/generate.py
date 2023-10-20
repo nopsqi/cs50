@@ -240,14 +240,13 @@ class CrosswordCreator:
             return assignment
         var = self.select_unassigned_variable(assignment)
         for word in self.order_domain_values(var, assignment):
-            assignment[var] = word
-            if not self.consistent(assignment):
-                del assignment[var]
-                continue
-            result = self.backtrack(assignment)
-            if not result:
-                return result
-        return False
+            new_assignment = assignment.copy()
+            new_assignment[var] = word
+            if self.consistent(new_assignment):
+                result = self.backtrack(assignment)
+                if result is not None:
+                    return result
+        return None
 
 
 def main():
