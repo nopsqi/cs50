@@ -243,6 +243,7 @@ class CrosswordCreator:
             new_assignment = assignment.copy()
             new_assignment[var] = word
             if self.consistent(new_assignment):
+                
                 result = self.backtrack(assignment)
                 if result is not None:
                     return result
