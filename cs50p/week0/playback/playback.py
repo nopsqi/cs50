@@ -1,1 +1,1 @@
-print(input(), sep="...")
+print(input().replace(" ", "..."))
