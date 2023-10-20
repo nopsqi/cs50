@@ -176,7 +176,7 @@ class CrosswordCreator:
             if set((x, y)) in history:
                 continue
 
-            history.append(set(x, y))
+            history.append(set((x, y)))
 
             if None in [assignment.get(x), assignment.get(y)]:
                 continue
