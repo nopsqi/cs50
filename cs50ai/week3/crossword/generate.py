@@ -240,7 +240,9 @@ class CrosswordCreator:
         """
         if set(assignment) >= self.crossword.variables:
             return assignment
-        
+        var = self.select_unassigned_variable(assignment)
+        for word in self.order_domain_values(var, assignment):
+            
 
 
 def main():
