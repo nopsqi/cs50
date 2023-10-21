@@ -9,4 +9,5 @@ while True:
         if z == 1:
             print("F")
         else:
-            print(f"{z * 100:.0f}%)
+            print(f"{(z * 100):.0f}%")
+        break
