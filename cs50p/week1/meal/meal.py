@@ -8,7 +8,9 @@ def main():
                 print("dinner time")
 
 def convert(time):
-    hour, minute = int(time.split(":")[0])
+    hour, minute = time.split(":")
+    hour = int(hour)
+    minute = float(minute.split(" ")[0])
     match time.split(" ")[-1]:
         case "a.m.":
             if 6 < hour < 9:
