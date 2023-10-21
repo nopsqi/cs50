@@ -13,7 +13,8 @@ def convert(time):
     minute = float(minute.split(" ")[0])
     match time.split(" ")[-1]:
         case "a.m.":
-            
+            if hour == 12:
+                hour = 0
         case "p.m.":
         case _:
 
