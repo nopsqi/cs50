@@ -10,7 +10,7 @@ while True:
             continue
         if z < 0.02:
             print("E")
-        elif z > 0.99:
+        elif z > 0.98:
             print("F")
         else:
             print(f"{(z * 100):.0f}%")
