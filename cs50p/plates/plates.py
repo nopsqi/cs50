@@ -13,10 +13,6 @@ def is_valid(s):
         return False
     if not (1 < len(s) < 7):
         return False
-    if s[-1].isalpha():
-        for l in s[:-1]:
-            if l.isdigit():
-                return False
     first = None
     for l in s:
         if l.isdigit():
@@ -24,6 +20,9 @@ def is_valid(s):
             break
     if first == 0:
         return False
+    for l in s[s.index(first):]:
+        if l.isalpha():
+            return False
 
     return True
 
