@@ -7,6 +7,8 @@ def main():
 
 
 def is_valid(s):
+    if not s.isalnum():
+        return False
     if not s[:2].isalpha():
         return False
     if not (1 < len(s) < 7):
@@ -15,8 +17,15 @@ def is_valid(s):
         for l in s[:-1]:
             if l.isdigit():
                 return False
-    if not s.isalnum():
+    first = None
+    for l in s:
+        if l.isdigit():
+            first = int(l)
+            break
+    if first == 0:
         return False
+
+    return True
 
 
 main()
