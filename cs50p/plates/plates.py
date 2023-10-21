@@ -15,6 +15,8 @@ def is_valid(s):
         for l in s[:-1]:
             if l.isdigit():
                 return False
+    if not s.isalnum():
+        return False
 
 
 main()
