@@ -1,2 +1,3 @@
-case input("Greeting: "):
-    case 
+greet = input("Greeting: ")
+
+print(greet.startswith("h"))
