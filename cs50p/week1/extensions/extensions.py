@@ -3,6 +3,8 @@ match input("File name: ").strip().split(".")[-1].lower():
         print("image/gif")
     case "jpg":
         print("image/jpeg")
+    case "jpeg":
+        print("image/jpeg")
     case "png":
         print("image/png")
     case "pdf":
