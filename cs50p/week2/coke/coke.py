@@ -1,4 +1,7 @@
 amount = 50
 while True:
-    print(f"Insert Coin: {amount}")
+    if amount < 1:
+        print("Amount Due: 0")
+        break
+    print(f"Amount Due: {amount}")
     amount -= int(input("Insert Coin: "))
