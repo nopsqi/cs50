@@ -1,6 +1,12 @@
 
 while True:
-    x, _, y = input("Fraction: ").split("/")
+    x, y = input("Fraction: ").split("/")
     try:
-        print(x / y)
+        z = x / y
     except Exception:
+        pass
+    else:
+        if z == 1:
+            print("F")
+        else:
+            print(z)
