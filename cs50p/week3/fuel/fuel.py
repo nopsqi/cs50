@@ -7,9 +7,9 @@ while True:
         pass
     else:
         if z < 2:
-            print("F")
-        elif z > 0.99:
             print("E")
+        elif z > 0.99:
+            print("F")
         else:
             print(f"{(z * 100):.0f}%")
         break
