@@ -7,6 +7,6 @@ match y:
     case "-":
         print(x - z)
     case "*":
-        print(x - z)
+        print(x * z)
     case "/":
         print(x / z)
