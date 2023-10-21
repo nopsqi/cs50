@@ -4,4 +4,4 @@ while True:
     coin = int(input("Insert Coin: "))
     if coin not in [5, 10, 25]:
         continue
-    
+    if amount - coin 
