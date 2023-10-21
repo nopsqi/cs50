@@ -14,6 +14,6 @@ months = [
 ]
 
 while True:
+    year = month = day = None
     date = input("Date: ")
     if len(date.split("/")) == 3:
-        
