@@ -20,4 +20,4 @@ data = {
     "tangerine": 50,
     "watermelon": 80
 }
-print(f"Calories: {}")
+print(f"Calories: {data[input("Item: ")]}")
