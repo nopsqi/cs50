@@ -1,3 +1,8 @@
 greet = input("Greeting: ")
 
-print(greet.startswith("h"))
+if greet.startswith("Hello"):
+    print("$0")
+elif greet.startswith("H"):
+    print("$20")
+else:
+    print("$100")
