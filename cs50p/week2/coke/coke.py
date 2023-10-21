@@ -3,7 +3,7 @@ print(f"Amount Due: {coin}")
 while True:
     amount = int(input("Insert Coin: "))
     if amount == coin:
-        print("Change Owed: 0}")
+        print("Change Owed: 0")
         break
     if amount > coin:
         print(f"Change Owed: {coin}")
