@@ -20,10 +20,8 @@ def is_valid(s):
             break
     if first == "0":
         return False
-    if first is not None:
-        for l in s[s.index(first):]:
-            if l.isalpha():
-                return False
+    if first is not None and not s[s.index(first):].isdigit():
+        return False
 
     return True
 
