@@ -7,7 +7,9 @@ def main():
 
 
 def is_valid(s):
-    if s[:2].is
+    if not s[:2].isalpha():
+        return False
+    if
 
 
 main()
