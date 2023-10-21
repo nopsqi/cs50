@@ -16,9 +16,9 @@ def is_valid(s):
     first = None
     for l in s:
         if l.isdigit():
-            first = int(l)
+            first = l
             break
-    if first == 0:
+    if first == "0":
         return False
     if first is not None:
         for l in s[s.index(first):]:
