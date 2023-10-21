@@ -15,7 +15,7 @@ months = [
 
 while True:
     year = month = day = None
-    date = input("Date: ")
+    date = input("Date: ").strip()
     mdy = date.split("/")
     if len(mdy) == 3:
         month, day, year = mdy
@@ -24,7 +24,7 @@ while True:
         month, day = mdy[0].split(" ")
         year = mdy[1].strip()
         try:
-            month = month.index(month)
+            month = month.index(month.capitalize())
         except ValueError:
             continue
     if None in [year, month, day]:
