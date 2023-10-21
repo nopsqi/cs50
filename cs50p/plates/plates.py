@@ -20,7 +20,7 @@ def is_valid(s):
             break
     if first == 0:
         return False
-    if fist is not None:
+    if first is not None:
         for l in s[s.index(first):]:
             if l.isalpha():
                 return False
