@@ -1,10 +1,10 @@
 def main():
     time = convert(input("What time is it? ").strip().lower())
-    if 6.9 < hour < 9.1:
+    if 6.9 < time < 9.1:
         print("breakfast time")
-    elif 11.9 < hour < 14.1:
+    elif 11.9 < time < 14.1:
         print("lunch time")
-    elif 17.9 < hour < 20.1:
+    elif 17.9 < time < 20.1:
         print("dinner time")
 
 def convert(time):
