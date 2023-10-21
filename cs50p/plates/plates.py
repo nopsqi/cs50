@@ -11,7 +11,10 @@ def is_valid(s):
         return False
     if not (1 < len(s) < 7):
         return False
-    if 
+    if s[-1].isalpha():
+        for l in s[:-1]:
+            if l.isdigit():
+                return False
 
 
 main()
