@@ -14,6 +14,8 @@ price = 0
 while True:
     try:
         price += menu[input("Item: ").title()]
+    except EOFError:
+        break
     except Exception:
         pass
     else:
