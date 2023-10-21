@@ -9,17 +9,11 @@ def main():
 
 def convert(time):
     hour, minute = time.split(":")
-    hour = int(hour)
+    hour = float(hour)
     minute = float(minute.split(" ")[0])
     match time.split(" ")[-1]:
         case "a.m.":
-            if 6 < hour < 9:
-                print("breakfast time")
         case "p.m.":
-            if hour == 12 and hour == 1:
-                print("lunch time")
-            elif 5 < hour < 8:
-                print("dinner time")
         case _:
 
 
