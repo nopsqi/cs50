@@ -1,4 +1,5 @@
 coin = 50
+print(f"Amount Due: {coin}")
 while True:
     amount = int(input("Insert Coin: "))
     if amount >= coin:
