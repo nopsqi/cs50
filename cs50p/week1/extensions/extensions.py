@@ -1,4 +1,4 @@
-match input("File name: ").split(".")[-1]:
+match input("File name: ").split(".")[-1].lower():
     case "gif":
         print("image/gif")
     case "jpg":
