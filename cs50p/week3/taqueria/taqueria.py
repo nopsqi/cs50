@@ -19,4 +19,4 @@ while True:
     except Exception:
         pass
     else:
-        print(f"Total: ${price}")
+        print(f"Total: ${price:.2f}")
