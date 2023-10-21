@@ -16,7 +16,7 @@ while True:
         price += menu[input("Item: ").title()]
     except EOFError:
         break
-    except Exception:
+    except KeyError:
         pass
     else:
         print(f"Total: ${price:.2f}")
