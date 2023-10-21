@@ -6,7 +6,7 @@ while True:
     except Exception:
         pass
     else:
-        if z == 1:
+        if z < 2:
             print("F")
         elif z == 0:
             print("E")
