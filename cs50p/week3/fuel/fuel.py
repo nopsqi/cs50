@@ -9,4 +9,4 @@ while True:
         if z == 1:
             print("F")
         else:
-            print(z)
+            print(f"{z * 100:.0f}%)
