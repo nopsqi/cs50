@@ -19,14 +19,12 @@ while True:
     mdy = date.split("/")
     if len(mdy) == 3:
         month, day, year = mdy
-        if month.isdigit() and int(month) > len(months):
-            continue
     mdy = date.split(",")
     if len(mdy) == 2:
         month, day = mdy[0].split(" ")
         year = mdy[1].strip()
         try:
-            month = str(month.index(month))
+            month = month.index(month)
         except ValueError:
             continue
     if None in [year, month, day]:
@@ -36,6 +34,9 @@ while True:
         month = int(month)
         day = int(day)
     except ValueError:
+        continue
+
+    if month > 12 or day > 30:
         continue
 
     print(f"{year}-{month:02}-{day:02}")
