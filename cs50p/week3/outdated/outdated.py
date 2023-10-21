@@ -19,7 +19,7 @@ while True:
     mdy = date.split("/")
     if len(mdy) == 3:
         month, day, year = mdy
-        if int(month) > len(months):
+        if month.isdigit() and int(month) > len(months):
             continue
     mdy = date.split(",")
     if len(mdy) == 2:
@@ -31,4 +31,4 @@ while True:
             continue
     if None in [year, month, day]:
         continue
-    print(f"{year}-{month:02}-{day:.02}")
+    print(f"{year}-{month:02}-{day:02}")
