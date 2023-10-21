@@ -5,9 +5,6 @@ while True:
     if coin not in [5, 10, 25]:
         continue
     amount -= coin
-    if amount == 0:
-        print(f"Change Owed: {amount}")
-        break
-    if amount < 0:
-        print(f"Change Owed: {amount + coin}")
+    if amount < 1:
+        print(f"Change Owed: {abs(amount)}")
         break
