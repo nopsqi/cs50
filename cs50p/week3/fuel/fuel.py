@@ -3,9 +3,11 @@ while True:
     try:
         x, y = input("Fraction: ").split("/")
         z = int(x) / int(y)
-    except Exception:
+    except (ValueError, ZeroDivisionError):
         pass
     else:
+        if z > 1:
+            continue
         if z < 2:
             print("E")
         elif z > 0.99:
