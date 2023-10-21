@@ -2,7 +2,7 @@
 while True:
     x, y = input("Fraction: ").split("/")
     try:
-        z = float(x) / float(y)
+        z = int(x) / int(y)
     except Exception:
         pass
     else:
