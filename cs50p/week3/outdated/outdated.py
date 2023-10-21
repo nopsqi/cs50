@@ -22,6 +22,7 @@ while True:
     mdy = date.split(",")
     if len(mdy) == 2:
         month, day = mdy[0].split(" ")
+        print(month)
         year = mdy[1].strip()
         try:
             month = month.index(month.capitalize())
