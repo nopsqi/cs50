@@ -1,5 +1,7 @@
+
 for s in input("camelCase: ").strip():
     if s.isupper():
-        print(f"_{s.lower()}")
+        print(f"_{s.lower()}", end="")
         continue
-    print(s)
+    print(s, end="")
+print()
