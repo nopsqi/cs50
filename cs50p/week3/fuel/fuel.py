@@ -8,7 +8,7 @@ while True:
     else:
         if z > 1:
             continue
-        if z < 2:
+        if z < 0.02:
             print("E")
         elif z > 0.99:
             print("F")
