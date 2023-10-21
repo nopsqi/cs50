@@ -1,12 +1,7 @@
-coin = 50
-print(f"Amount Due: {coin}")
+amount = 50
 while True:
-    amount = int(input("Insert Coin: "))
-    if amount == coin:
-        print("Change Owed: 0")
-        break
-    if amount > coin:
-        print(f"Change Owed: {coin}")
-        break
-    coin -= amount
-    print(f"Amount Due: {coin}")
+    print(f"Amount Due: {amount}")
+    coin = int(input("Insert Coin: "))
+    if coin not in [5, 10, 25]:
+        continue
+    
