@@ -1,0 +1,2 @@
+case input("Greeting: "):
+    case 
