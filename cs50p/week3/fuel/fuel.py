@@ -1,6 +1,7 @@
 
 while True:
     x, y = input("Fraction: ").split("/")
+    if 
     try:
         z = float(x) / float(y)
     except Exception:
