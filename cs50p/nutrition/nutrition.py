@@ -20,4 +20,6 @@ data = {
     "tangerine": 50,
     "watermelon": 80
 }
-print(f"Calories: {data[input('Item: ').strip().lower()]}")
+item = input('Item: ').strip().lower()
+if data.get(item) is not None:
+    print(f"Calories: {data[item]}")
