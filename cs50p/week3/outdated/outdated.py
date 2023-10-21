@@ -31,4 +31,12 @@ while True:
             continue
     if None in [year, month, day]:
         continue
+    try:
+        year = int(year)
+        month = int(month)
+        day = int(day)
+    except ValueError:
+        continue
+
     print(f"{year}-{month:02}-{day:02}")
+    break
