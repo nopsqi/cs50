@@ -13,7 +13,7 @@ menu = {
 price = 0
 while True:
     try:
-        price += float(input("Item: "))
+        price += menu[input("Item: ").title()]
     except Exception:
         pass
     else:
