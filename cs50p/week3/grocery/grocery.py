@@ -4,7 +4,7 @@ while True:
     try:
         item = input()
     except EOFError:
-        grocery_list = {k: v for k, v in sorted(grocery_list.items(), key=lambda item: )}
+        grocery_list = {k: v for k, v in sorted(grocery_list.items(), key=lambda item: item[0])}
         for item in grocery_list:
             print(grocery_list[item], item.upper())
         break
