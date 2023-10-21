@@ -10,3 +10,11 @@ menu = {
     "Tortilla Salad": 8.00
 }
 
+price = 0
+while True:
+    try:
+        price += float(input("Item: "))
+    except Exception:
+        pass
+    else:
+        print(f"Total: {price:.2f}")
