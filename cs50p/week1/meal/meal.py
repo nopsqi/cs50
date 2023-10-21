@@ -3,6 +3,7 @@ def main():
 
 
 def convert(time):
+    match time.split(" ")[-1]
     
 
 
