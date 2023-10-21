@@ -24,8 +24,7 @@ while True:
         month, day = mdy[0].split(" ")
         year = mdy[1].strip()
         try:
-            month = month.index(month.capitalize())
-            print(month)
+            month = months.index(month.capitalize())
         except ValueError:
             continue
     if None in [year, month, day]:
