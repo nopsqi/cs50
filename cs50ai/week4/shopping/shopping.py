@@ -103,7 +103,7 @@ def load_data(filename):
             for row in reader
         ]
         print(header)
-        print(datas[0])
+        print(datas[447])
     return 0, 1
 
 
