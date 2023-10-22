@@ -44,10 +44,7 @@ def get_level():
 
 def generate_integer(level):
     level = level - 1
-    start = 10 ** level
-    end = start * 9
-    start = 0 if start == 1 else start
-    return random.randint(start, end)
+    return random.randint(0 if 10 ** level == 1 else 10 ** level, 10 ** (level + 1) - 1)
 
 
 if __name__ == "__main__":
