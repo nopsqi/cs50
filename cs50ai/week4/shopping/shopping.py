@@ -96,14 +96,14 @@ def load_data(filename):
             # ]
             data = [
                 d
-                if header[i] not in is_int + is_float else
                 for i, d in enumerate(row)
+                if header[i] not in is_int + is_float
             ]
             evidence.append(data[:-1])
             labels.append(data[-1])
         print(evidence[0])
         e = OneHotEncoder().fit(evidence)
-        print(len(e.transform(evidence[:2]).toarray()))
+        print(e.transform(evidence[:2]).toarray())
         print(labels[0])
     return 0, 1
 
