@@ -7,4 +7,6 @@ while True:
     try:
         names.append(input("Name: "))
     except EOFError:
-        
+        break
+
+print(p.join(names))
