@@ -5,7 +5,7 @@ def main():
     actuals = []
     answers = []
     level = get_level()
-    for i in range(5):
+    for i in range(10):
         x = generate_integer(level)
         y = generate_integer(level)
         actuals.append(x + y)
