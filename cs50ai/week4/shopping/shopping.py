@@ -66,8 +66,6 @@ def load_data(filename):
         "Browser",
         "Region",
         "TrafficType",
-        "VisitorType",
-        "Weekend",
     ]
     is_float = [
         "Administrative_Duration",
