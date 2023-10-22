@@ -95,6 +95,7 @@ def load_data(filename):
             ]
             for row in reader
         ]
+        
         encoder = OrdinalEncoder().fit_transform(
             [
                 [
