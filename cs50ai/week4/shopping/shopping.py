@@ -69,7 +69,7 @@ def load_data(filename):
         evidence = []
         labels = []
         for row in reader:
-            data = [int(d)]
+            data = [int(d) if header[i] in is_int ]
             break
         print(evidence)
         print(labels)
