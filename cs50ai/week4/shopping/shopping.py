@@ -130,8 +130,7 @@ def evaluate(labels, predictions):
     sensitivity = 0
     specificity = 0
     for l, p in zip(labels, predictions):
-    print(len(labels))
-    print(len(predictions))
+        if l == 1 
     raise Exception
 
 
