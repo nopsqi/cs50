@@ -5,7 +5,6 @@ import sys
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 
 TEST_SIZE = 0.4
 
@@ -102,10 +101,7 @@ def load_data(filename):
         ]
         evidence = [data[:-1] for data in datas]
         labels = [data[-1] for data in datas]
-        print(header)
-        print(evidence[0])
-        print(labels[0])
-    return 0, 1
+    return evidence, labels
 
 
 def train_model(evidence, labels):
