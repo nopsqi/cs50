@@ -106,7 +106,9 @@ def load_data(filename):
         encoder = OrdinalEncoder().fit(features)
         print(header)
         print(datas[5462])
-        print(encoder.categories_)
+        categories = encoder.categories_
+        print(categories)
+        encoder.set_params(categories=)
         print(encoder.transform([features[5462]]))
     return 0, 1
 
