@@ -69,7 +69,7 @@ def load_data(filename):
         evidence = []
         labels = []
         for row in reader:
-            data = [int(d) if header[i] in is_int ]
+            data = [int(d) if header[i] in is_int else float(d) if header[i] in is_float else d for i, d in enumerate(row)]
             break
         print(evidence)
         print(labels)
