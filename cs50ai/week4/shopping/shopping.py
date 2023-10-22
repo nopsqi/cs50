@@ -105,8 +105,8 @@ def load_data(filename):
                 for data in datas
             ]
         )
-        print(encoder)
-        print(data[0])
+        print(encoder.categories_)
+        print(datas[0])
     return 0, 1
 
 
