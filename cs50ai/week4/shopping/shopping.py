@@ -96,6 +96,7 @@ def load_data(filename):
             ]
             evidence.append(data[:-1])
             labels.append(data[-1])
+        print(evidence[0])
         evidence = OrdinalEncoder().fit_transform(evidence)
         print(evidence[0])
         print(labels[0])
