@@ -1,6 +1,7 @@
 import csv
 import sys
 
+import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
@@ -107,7 +108,7 @@ def load_data(filename):
         print(header)
         print(datas[5462])
         categories = encoder.categories_
-        print(categories[0].argsort())
+        print(np.argsort(categories[0], key=lambda item: item))
         encoder.set_params(categories=categories)
         print(encoder.transform([features[5462]]))
     return 0, 1
