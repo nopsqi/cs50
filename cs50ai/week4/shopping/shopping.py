@@ -60,7 +60,7 @@ def load_data(filename):
     is 1 if Revenue is true, and 0 otherwise.
     """
     is_int = ["Administrative", "Informational", "ProductRelated", "Month", "OperatingSystems", "Browser", "Region", "TrafficType", "VisitorType", "Weekend"]
-    is_float = []
+    is_float = ["Administrative_Duration", "Informational_Duration", "ProductRelated_Duration", "BounceRates", "ExitRates", "PageValues", "SpecialDay"]
 
     with open(filename, "r") as f:
         reader = csv.reader(f)
