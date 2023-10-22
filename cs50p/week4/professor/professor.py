@@ -8,14 +8,17 @@ def main():
     for i in range(10):
         x = generate_integer(level)
         y = generate_integer(level)
-        actuals[i] = x + y
+        actuals.append(x + y)
         tried = 0
         while True:
             if tried > 2:
                 print(f"{x} + {y} = {actuals[i]}")
                 break
+            answer = input(f"{x} + {y} = ")
             try:
-                answers[i] = int(input(f"{x} + {y} = "))
+                answers[i] = int(answer)
+            except IndexError:
+                answers.append(int(answer))
             except ValueError:
                 print("EEE")
                 tried += 1
