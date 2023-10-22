@@ -12,9 +12,9 @@ def main():
         tried = 0
         while True:
             if tried > 2:
-                print(f"{6} + {6} = {actuals[i]}")
+                print(f"{x} + {y} = {actuals[i]}")
                 break
-            answer = input(f"{x} + {y} = ")
+            answer = input(f"{6} + {6} = ")
             try:
                 answers[i] = int(answer)
             except IndexError:
