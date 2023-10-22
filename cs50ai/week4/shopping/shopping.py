@@ -135,7 +135,9 @@ def evaluate(labels, predictions):
             purchase += 1
             if l == p:
                 sensitivity += 1
-        if l == 0
+        if l == p == 0:
+            specificity += 1
+    
     raise Exception
 
 
