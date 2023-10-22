@@ -105,8 +105,8 @@ def load_data(filename):
                 for data in datas
             ]
         )
-        print(encoder[])
-        print(datas[0])
+        print(datas[205])
+        print(encoder[205])
     return 0, 1
 
 
