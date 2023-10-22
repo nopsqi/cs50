@@ -105,7 +105,7 @@ def load_data(filename):
         print(evidence[0])
         e = OneHotEncoder().fit(evidence)
         print(e.categories_)
-        print(len(e.transform(evidence[:2]).toarray()[0]))
+        print(e.transform(evidence[:2]).toarray()[0])
         print(labels[0])
     return 0, 1
 
