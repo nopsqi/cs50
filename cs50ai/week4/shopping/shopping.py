@@ -1,3 +1,4 @@
+import calendar
 import csv
 import sys
 
@@ -60,6 +61,7 @@ def load_data(filename):
     labels should be the corresponding list of labels, where each label
     is 1 if Revenue is true, and 0 otherwise.
     """
+    months = list(calendar.month_name)[:-1]
     is_int = [
         "Administrative",
         "Informational",
