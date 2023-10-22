@@ -9,5 +9,6 @@ try:
 except ValueError:
     sys.exit("Command-line argument is not a number")
 
+try:
 response = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
-print(json.dumps(response.json(), indent=2))
+print(f"{(response.json()["bpi"]["USD"] * number):,}")
