@@ -98,23 +98,6 @@ def load_data(filename):
             ]
             for row in reader
         ]
-        features = [
-            [cell for i, cell in enumerate(data) if header[i] not in is_int + is_float]
-            for data in datas
-        ]
-        encoder = OrdinalEncoder().fit(features)
-        print(header)
-        print(datas[5462])
-        categories = encoder.categories_
-        dtype = categories[0].dtype
-        categories[0] = np.array(sorted(
-                categories[0],
-                key=lambda c: [i for i, month in enumerate(months) if c in month][0],
-        ), dtype=dtype)
-        print(categories)
-        encoder.set_params(categories=categories)
-        print(features[5462])
-        print(encoder.transform([features[5462]]))
     return 0, 1
 
 
