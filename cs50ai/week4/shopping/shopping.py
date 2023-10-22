@@ -103,7 +103,8 @@ def load_data(filename):
         evidence = [data[:-1] for data in datas]
         labels = [data[-1] for data in datas]
         print(header)
-        print()
+        print(evidence[0])
+        print(labels[0])
     return 0, 1
 
 
