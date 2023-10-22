@@ -137,7 +137,7 @@ def evaluate(labels, predictions):
                 sensitivity += 1
         if l == p == 0:
             specificity += 1
-    return (sensitivity / purchase, specificity / (len()))
+    return (sensitivity / purchase, specificity / (len(labels) - purchase))
 
 
 if __name__ == "__main__":
