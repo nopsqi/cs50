@@ -95,11 +95,9 @@ def load_data(filename):
             ]
             for row in reader
         ]
-        print(evidence[0])
-        e = OrdinalEncoder().fit(evidence)
-        print(e.categories_)
-        print(e.transform(evidence[:2])[0])
-        print(labels[0])
+        e
+        print(header)
+        print(data[0])
     return 0, 1
 
 
