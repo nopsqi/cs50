@@ -95,10 +95,17 @@ def load_data(filename):
             ]
             for row in reader
         ]
-        encoder = OrdinalEncoder().fit_transform(
-            [[cell for i, cell in enumerate(data)] for data in datas]
+        encoder = OrdinalEncoder().fit(
+            [
+                [
+                    cell
+                    for i, cell in enumerate(data)
+                    if header[i] not in is_int + is_float
+                ]
+                for data in datas
+            ]
         )
-        print(header)
+        print(encoder)
         print(data[0])
     return 0, 1
 
