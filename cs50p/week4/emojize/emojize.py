@@ -7,3 +7,4 @@ for i, t in enumerate(text):
         print(emojize(f":{t}:"), end="")
     else:
         print(t, end="")
+print()
