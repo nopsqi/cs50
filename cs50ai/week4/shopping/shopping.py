@@ -106,14 +106,14 @@ def load_data(filename):
         print(header)
         print(datas[5462])
         categories = encoder.categories_
-        print(categories)
         dtype = categories[0].dtype
         categories[0] = np.array(sorted(
                 categories[0],
                 key=lambda c: [i for i, month in enumerate(months) if c in month][0],
         ), dtype=dtype)
         print(categories)
-        # encoder.set_params(categories=categories)
+        encoder.set_params(categories=categories)
+        print(features[5462])
         print(encoder.transform([features[5462]]))
     return 0, 1
 
