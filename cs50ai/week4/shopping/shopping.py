@@ -96,9 +96,10 @@ def load_data(filename):
             ]
             evidence.append(data[:-1])
             labels.append(data[-1])
-        print(evidence[0])
+            break
+        print(evidence)
         evidence = OneHotEncoder().fit_transform(evidence)
-        print(len(evidence[0].toarray()[0]))
+        print(evidence[0])
         print(labels[0])
     return 0, 1
 
