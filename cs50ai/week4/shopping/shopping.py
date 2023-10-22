@@ -103,7 +103,8 @@ def load_data(filename):
             evidence.append(data)
             labels.append(data[-1])
         print(evidence[0])
-        e = OneHotEncoder().fit([["Jan",]])
+        e = OneHotEncoder().fit(evidence)
+        print(e.categories_)
         print(len(e.transform(evidence[:2]).toarray()[0]))
         print(labels[0])
     return 0, 1
