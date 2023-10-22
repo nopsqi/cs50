@@ -137,8 +137,7 @@ def evaluate(labels, predictions):
                 sensitivity += 1
         if l == p == 0:
             specificity += 1
-    
-    raise Exception
+    return (sensitivity / purchase, specificity / (len()))
 
 
 if __name__ == "__main__":
