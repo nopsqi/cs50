@@ -107,7 +107,7 @@ def load_data(filename):
         print(header)
         print(datas[5462])
         print(encoder.categories_)
-        print(encoder.transform(features[5462]))
+        print(encoder.transform([features[5462]]))
     return 0, 1
 
 
