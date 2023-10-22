@@ -11,13 +11,18 @@ def main():
         actuals.append(x + y)
         tried = 0
         while True:
+            if tried > 1:
+                print(f"{x} + {y} = {actuals[i]}")
+                break
             try:
                 answers.append(int(input(f"{x} + {y} = ")))
             except ValueError:
-                if tried > 1:
-                    break
                 print("EEE")
                 tried += 1
+                continue
+            if answers[i] != actuals[i]:
+                print("EEE")
+                tried +=1
                 continue
             break
     print(f"Score: {sum(actual == answer for actual, answer in zip(actuals, answers))}")
