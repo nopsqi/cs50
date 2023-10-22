@@ -106,6 +106,9 @@ def load_data(filename):
         print(header)
         print(datas[5462])
         categories = encoder.categories_
+        print(months)
+        print(categories[0])
+        print([i for i])
         print(
             sorted(
                 categories[0],
