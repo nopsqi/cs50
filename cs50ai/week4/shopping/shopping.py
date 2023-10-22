@@ -65,9 +65,10 @@ def load_data(filename):
 
         evidence = []
         labels = []
-        for row in in reader:
-            evidence.append(row[:])
-    return 0
+        for row in reader:
+            print(len(row[:-1]))
+            break
+    return 0, 1
 
 
 def train_model(evidence, labels):
