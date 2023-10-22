@@ -103,12 +103,11 @@ def load_data(filename):
             ]
             for data in datas
         ]
-        encoder = OrdinalEncoder().fit_transform(
-        )
+        encoder = OrdinalEncoder().fit(features)
         print(header)
         print(datas[5462])
-        # print(encoder.categories_)
-        print(encoder[5462])
+        print(encoder.categories_)
+        print(encoder.transform(features[5462]))
     return 0, 1
 
 
