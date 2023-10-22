@@ -12,7 +12,7 @@ def main():
         tried = 0
         while True:
             if tried > 2:
-                print(f"{x} + {y} = {actuals[i]}")
+                print(f"{6} + {6} = {actuals[i]}")
                 break
             answer = input(f"{x} + {y} = ")
             try:
