@@ -107,7 +107,10 @@ def load_data(filename):
         print(datas[5462])
         categories = encoder.categories_
         print(
-            sorted(categories[0], key=lambda c: [i for i, month in enumerate(months) if c in month][0])
+            sorted(
+                categories[0],
+                key=lambda c: [i for i, month in enumerate(months) if c in month][0],
+            )
         )
         encoder.set_params(categories=categories)
         print(encoder.transform([features[5462]]))
