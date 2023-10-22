@@ -9,4 +9,4 @@ while True:
     except EOFError:
         break
 
-print(p.join(names))
+print("Adieu, adieu, to", p.join(names))
