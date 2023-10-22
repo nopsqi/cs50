@@ -108,7 +108,7 @@ def load_data(filename):
         print(header)
         print(datas[5462])
         categories = encoder.categories_
-        print(sorted(categories[0], key=lambda ))
+        print(categories)
         encoder.set_params(categories=categories)
         print(encoder.transform([features[5462]]))
     return 0, 1
