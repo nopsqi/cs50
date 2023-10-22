@@ -95,7 +95,8 @@ def load_data(filename):
                 if header[i] in is_float
                 else [i for i, month in enumerate(months) if data in month][0]
                 if header[i] == "Month"
-                else 
+                else int(data == "Returning_Visitor")
+                if header[i] == "VisitorType"
                 for i, data in enumerate(row)
             ]
             for row in reader
