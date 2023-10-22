@@ -61,7 +61,7 @@ def load_data(filename):
     labels should be the corresponding list of labels, where each label
     is 1 if Revenue is true, and 0 otherwise.
     """
-    months = list(calendar.month_name)[:-1]
+    months = list(calendar.month_name)[1:]
     is_int = [
         "Administrative",
         "Informational",
@@ -106,16 +106,13 @@ def load_data(filename):
         print(header)
         print(datas[5462])
         categories = encoder.categories_
-        print(months)
-        print(categories[0])
-        print([[i for i, month in enumerate(months) if c in month] for c in categories[0]])
-        print(
-            sorted(
+        print(categories)
+        categories[0] = np.array(sorted(
                 categories[0],
                 key=lambda c: [i for i, month in enumerate(months) if c in month][0],
-            )
-        )
-        encoder.set_params(categories=categories)
+        ))
+        print(categories)
+        # encoder.set_params(categories=categories)
         print(encoder.transform([features[5462]]))
     return 0, 1
 
