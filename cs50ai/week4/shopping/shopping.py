@@ -95,9 +95,11 @@ def load_data(filename):
                 for i, d in enumerate(row)
             ]
             evidence.append(data[:-1])
+            labels.append(data[-1])
             break
-        print(evidence)
-        print(labels)
+        
+        print(evidence[0])
+        print(labels[0])
     return 0, 1
 
 
