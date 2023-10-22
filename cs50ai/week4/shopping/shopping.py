@@ -59,12 +59,7 @@ def load_data(filename):
     labels should be the corresponding list of labels, where each label
     is 1 if Revenue is true, and 0 otherwise.
     """
-    def is_float(n):
-        try:
-            float(n)
-        except ValueError:
-            return False
-        return True
+    is_float
 
     with open(filename, "r") as f:
         reader = csv.reader(f)
