@@ -21,10 +21,13 @@ def main():
 
 def get_level():
     while True:
+        level = input("Level: ")
         try:
-            return int(input("Level: "))
+            level = int(level)
         except ValueError:
             pass
+        if 0 < level < 4:
+            return level
 
 
 def generate_integer(level):
