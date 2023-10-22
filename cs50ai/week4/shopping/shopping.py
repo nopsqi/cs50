@@ -84,7 +84,7 @@ def load_data(filename):
 
         evidence = []
         labels = []
-        data = [
+        datas = [
             [
                 int(d)
                 if header[i] in is_int
@@ -95,7 +95,9 @@ def load_data(filename):
             ]
             for row in reader
         ]
-        e
+        encoder = OrdinalEncoder().fit_transform(
+            [[cell for i, cell in enumerate(data)] for data in datas]
+        )
         print(header)
         print(data[0])
     return 0, 1
