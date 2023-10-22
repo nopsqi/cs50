@@ -3,6 +3,7 @@ import sys
 
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import 
 
 TEST_SIZE = 0.4
 
@@ -92,7 +93,6 @@ def load_data(filename):
                 else d
                 for i, d in enumerate(row)
             ]
-            print(data)
             break
         print(evidence)
         print(labels)
