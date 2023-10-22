@@ -84,18 +84,18 @@ def load_data(filename):
 
         evidence = []
         labels = []
+        data = []
         for row in reader:
-            data = [
+            data.append([
                 int(d)
                 if header[i] in is_int
                 else float(d)
                 if header[i] in is_float
                 else d
                 for i, d in enumerate(row)
-            ]
+            ])
             break
-        print(evidence)
-        print(labels)
+        print(data)
     return 0, 1
 
 
