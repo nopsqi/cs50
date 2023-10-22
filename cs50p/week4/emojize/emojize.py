@@ -1,6 +1,6 @@
 from emoji import emojize
 
-text = input("Input: ")
-emoji = text.
+before, emoji, after = input("Input: ").split(":")
+if
 
 print(emojize())
