@@ -63,7 +63,10 @@ def load_data(filename):
         reader = csv.reader(f)
         next(reader)
 
-        
+        evidence = []
+        labels = []
+        for row in in reader:
+            
     return 0
 
 
