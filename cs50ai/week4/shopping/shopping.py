@@ -127,8 +127,8 @@ def evaluate(labels, predictions):
     representing the "true negative rate": the proportion of
     actual negative labels that were accurately identified.
     """
+    print(len(labels))
     print(len(predictions))
-    print(len())
     raise Exception
 
 
