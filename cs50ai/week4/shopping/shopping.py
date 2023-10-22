@@ -3,7 +3,7 @@ import sys
 
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.preprocessing import 
+from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 
 TEST_SIZE = 0.4
 
