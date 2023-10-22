@@ -99,7 +99,8 @@ def load_data(filename):
                 for i, d in enumerate(row)
                 if header[i] not in is_int + is_float
             ]
-            evidence.append(data[:-1])
+            # evidence.append(data[:-1])
+            evidence.append(data)
             labels.append(data[-1])
         print(evidence[0])
         e = OneHotEncoder().fit(evidence)
