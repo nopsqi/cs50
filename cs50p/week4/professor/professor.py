@@ -14,7 +14,7 @@ def main():
             if tried > 2:
                 print(f"{x} + {y} = {actuals[i]}")
                 break
-            answer = input(f"{6} + {6} = ")
+            answer = input(f"{y} + {y} = ")
             try:
                 answers[i] = int(answer)
             except IndexError:
