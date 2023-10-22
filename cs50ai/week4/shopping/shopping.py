@@ -96,10 +96,9 @@ def load_data(filename):
             ]
             evidence.append(data[:-1])
             labels.append(data[-1])
-            break
         evidence = OrdinalEncoder().fit_transform(evidence)
-        print(evidence[0])
-        print(labels[0])
+        print(evidence[:5])
+        print(labels[:5])
     return 0, 1
 
 
