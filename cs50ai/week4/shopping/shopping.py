@@ -85,8 +85,6 @@ def load_data(filename):
         reader = csv.reader(f)
         header = next(reader)
 
-        evidence = []
-        labels = []
         datas = [
             [
                 int(data)
@@ -102,8 +100,10 @@ def load_data(filename):
             ]
             for row in reader
         ]
+        evidence = [data[:-1] for data in datas]
+        labels = [data[-1] for data in datas]
         print(header)
-        print(datas[447])
+        print()
     return 0, 1
 
 
