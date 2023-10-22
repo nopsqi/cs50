@@ -95,7 +95,7 @@ def load_data(filename):
             ]
             for row in reader
         ]
-        encoder = OrdinalEncoder().fit(
+        encoder = OrdinalEncoder().fit_transform(
             [
                 [
                     cell
@@ -106,9 +106,9 @@ def load_data(filename):
             ]
         )
         print(header)
-        print(datas[192])
-        print(encoder.categories_)
-        # print(encoder[192])
+        print(datas[5452])
+        # print(encoder.categories_)
+        print(encoder[5452])
     return 0, 1
 
 
