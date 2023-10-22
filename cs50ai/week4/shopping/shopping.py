@@ -64,13 +64,12 @@ def load_data(filename):
 
     with open(filename, "r") as f:
         reader = csv.reader(f)
-        print(next(reader))
+        header = next(reader)
 
         evidence = []
         labels = []
         for row in reader:
-            evidence.append(tuple(int()))
-            labels.append(row[-1])
+            data = [int(d)]
             break
         print(evidence)
         print(labels)
