@@ -66,7 +66,7 @@ def load_data(filename):
         evidence = []
         labels = []
         for row in in reader:
-            
+            evidence.append(row[:])
     return 0
 
 
