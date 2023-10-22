@@ -8,4 +8,5 @@ try:
 except ValueError:
     sys.exit("Command-line argument is not a number")
 
-response = requests
+response = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+print(response)
