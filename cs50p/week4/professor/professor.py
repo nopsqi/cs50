@@ -14,7 +14,7 @@ def main():
             try:
                 answers.append(int(input(f"{x} + {y} = ")))
             except ValueError:
-                if tried > 2:
+                if tried > 1:
                     break
                 print("EEE")
                 tried += 1
