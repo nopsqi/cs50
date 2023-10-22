@@ -127,11 +127,15 @@ def evaluate(labels, predictions):
     representing the "true negative rate": the proportion of
     actual negative labels that were accurately identified.
     """
-    
+    purchase = 0
     sensitivity = 0
     specificity = 0
     for l, p in zip(labels, predictions):
-        if l == 1 nd l == p:
+        if l == 1:
+            purchase += 1
+            if l == p:
+                sensitivity += 1
+        if l == 0
     raise Exception
 
 
