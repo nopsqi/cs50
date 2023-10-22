@@ -12,4 +12,4 @@ else:
     sys.exit("usage: python figlet.py [-f, --f font]")
 
 
-print(figlet.getFonts())
+figlet.setFont(font=font)
