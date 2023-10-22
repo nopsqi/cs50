@@ -11,7 +11,7 @@ def main():
         actuals.append(x + y)
         while True:
             try:
-                answers.append(int(input(f"{x} + {y}")))
+                answers.append(int(input(f"{x} + {y} = ")))
             except ValueError:
                 print("EEE")
                 continue
@@ -27,7 +27,7 @@ def get_level():
 
 
 def generate_integer(level):
-    return random.randint(level ** 10, (level ** 10) * 9)
+    return random.randint(10 ** level, (10 ** level) * 9)
 
 
 if __name__ == "__main__":
