@@ -97,10 +97,13 @@ def load_data(filename):
                 if header[i] == "Month"
                 else int(data == "Returning_Visitor")
                 if header[i] == "VisitorType"
+                else int(data == "TRUE")
                 for i, data in enumerate(row)
             ]
             for row in reader
         ]
+        print(header)
+        print(datas[0])
     return 0, 1
 
 
