@@ -107,7 +107,7 @@ def load_data(filename):
         )
         print(header)
         print(datas[192])
-        print(encoder.get_params())
+        print(encoder.categories_)
         # print(encoder[192])
     return 0, 1
 
