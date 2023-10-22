@@ -9,11 +9,15 @@ def main():
         x = generate_integer(level)
         y = generate_integer(level)
         actuals.append(x + y)
+        tried = 0
         while True:
             try:
                 answers.append(int(input(f"{x} + {y} = ")))
             except ValueError:
+                if tried > 2:
+                    break
                 print("EEE")
+                tried += 1
                 continue
             break
     print(f"Score: {sum(actual == answer for actual, answer in zip(actuals, answers))}")
@@ -25,7 +29,7 @@ def get_level():
         try:
             level = int(level)
         except ValueError:
-            pass
+            continue
         if 0 < level < 4:
             return level
 
