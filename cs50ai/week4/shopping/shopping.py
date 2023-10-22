@@ -84,9 +84,8 @@ def load_data(filename):
 
         evidence = []
         labels = []
-        data = []
-        for row in reader:
-            data = [
+        data = [
+            [
                 int(d)
                 if header[i] in is_int
                 else float(d)
@@ -94,14 +93,8 @@ def load_data(filename):
                 else d
                 for i, d in enumerate(row)
             ]
-            # data = [
-            #     d
-            #     for i, d in enumerate(row)
-            #     if header[i] not in is_int + is_float
-            # ]
-            evidence.append(data[:-1])
-            # evidence.append(data)
-            labels.append(data[-1])
+            for row in reader
+        ]
         print(evidence[0])
         e = OrdinalEncoder().fit(evidence)
         print(e.categories_)
