@@ -1,3 +1,6 @@
 from emoji import emojize
 
-print(emojize(input("Input: ")))
+text = input("Input: ")
+
+
+print(emojize())
