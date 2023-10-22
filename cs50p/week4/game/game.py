@@ -1,3 +1,5 @@
 import random
 
-number = 
+while True:
+    try:
+        number = random.randint(1, )
