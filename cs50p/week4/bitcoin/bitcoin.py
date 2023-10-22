@@ -10,5 +10,8 @@ except ValueError:
     sys.exit("Command-line argument is not a number")
 
 try:
-response = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
-print(f"{(response.json()["bpi"]["USD"] * number):,}")
+    response = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+except requests.RequestException:
+    sys.exit("Failed to fetch BTC price")
+
+print(f"${(response.json()['bpi']['USD']['rate_float'] * number):,.4f}")
