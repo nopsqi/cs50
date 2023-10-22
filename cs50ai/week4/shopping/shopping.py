@@ -89,12 +89,12 @@ def load_data(filename):
         labels = []
         datas = [
             [
-                int(d)
+                int(data)
                 if header[i] in is_int
-                else float(d)
+                else float(data)
                 if header[i] in is_float
-                else d
-                for i, d in enumerate(row)
+                else data
+                for i, data in enumerate(row)
             ]
             for row in reader
         ]
