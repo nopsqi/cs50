@@ -3,11 +3,17 @@ import random
 
 def main():
     actual = []
-    answer = []
+    answers = []
     level = get_level()
     for i in range(10):
-        print(f"{generate_integer(level)} + {generate_integer})
-
+        x = generate_integer(level)
+        y = generate_integer(level)
+        try:
+            answers.append(int(input(f"{x} + {y}")))
+        except ValueError:
+            print("EEE")
+            continue
+        
 
 
 def get_level():
