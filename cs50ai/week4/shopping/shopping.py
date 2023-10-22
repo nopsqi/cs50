@@ -103,9 +103,9 @@ def load_data(filename):
             evidence.append(data)
             labels.append(data[-1])
         print(evidence[0])
-        e = OneHotEncoder().fit(evidence)
+        e = OrdinalEncoder().fit(evidence)
         print(e.categories_)
-        print(e.transform(evidence[:2]).toarray()[0])
+        print(e.transform(evidence[:2])[0])
         print(labels[0])
     return 0, 1
 
