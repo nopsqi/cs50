@@ -11,7 +11,7 @@ def main():
         actuals.append(x + y)
         tried = 0
         while True:
-            if tried > 1:
+            if tried > 2:
                 print(f"{x} + {y} = {actuals[i]}")
                 break
             try:
