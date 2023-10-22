@@ -108,7 +108,7 @@ def load_data(filename):
         categories = encoder.categories_
         print(months)
         print(categories[0])
-        print([i for i])
+        print([[i for i, month in enumerate(months) if c in month] for c in categories[0]])
         print(
             sorted(
                 categories[0],
