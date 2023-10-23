@@ -19,8 +19,8 @@ def main():
     with open(sys.argv[1]) as file:
         reader = csv.reader(file)
         header = next(reader)
-        print(header)
-        print(dir(reader))
+        data = []
+        for row in reader:
 
 
 if __name__ == "__main__":
