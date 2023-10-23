@@ -17,7 +17,8 @@ def main():
             break
 
 
-def convert()
+def convert(fraction):
+    
 
 
 if __name__ == "__main__":
