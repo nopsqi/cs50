@@ -1,5 +1,6 @@
 import csv
 import sys
+from tabulate import tabulate
 
 
 def main():
@@ -16,9 +17,10 @@ def main():
         sys.exit("File does not exist")
 
     with open(sys.argv[1]) as file:
-        reader = csv.reader(sys.argv[1])
+        reader = csv.reader(file)
         header = next(reader)
         print(header)
+        print(dir(reader))
 
 
 if __name__ == "__main__":
