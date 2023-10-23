@@ -1,4 +1,5 @@
 import sys
+import csv
 
 
 def main():
@@ -13,6 +14,12 @@ def main():
         sys.exit(f"Cound not read {sys.argv[1]}")
 
     destination = open(sys.argv[2], "a")
+
+    reader = csv.reader(source)
+    header = next(reader)
+    writer = csv.writer(destination)
+    for row in reader:
+        
 
 
     source.close()
