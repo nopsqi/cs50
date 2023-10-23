@@ -16,6 +16,7 @@ def main():
 
     count = 0
     for line in file:
+        line = line.strip()
         if line[0] != '#' and line != '\n':
             count += 1
     print(count)
