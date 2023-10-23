@@ -1,8 +1,7 @@
 def main():
     while True:
         try:
-            percent = convert(input("Fraction: ").strip())
-            status = gauge(percent)
+            status = gauge(convert(input("Fraction: ").strip()))
         except (ValueError, ZeroDivisionError):
             continue
 
@@ -17,14 +16,12 @@ def convert(fraction):
 
 def gauge(percentage):
     if z > 100:
-        return 
-    if z < 0.02:
-        print("E")
-    elif z > 0.98:
-        print("F")
-    else:
-        print(f"{(z * 100):.0f}%")
-    break
+        return None
+    if z < 2:
+        return "E"
+    if z > 98:
+        return "F"
+    return f"{percentage}%"
 
 
 if __name__ == "__main__":
