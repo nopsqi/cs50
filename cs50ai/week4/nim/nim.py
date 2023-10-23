@@ -3,8 +3,7 @@ import random
 import time
 
 
-class Nim():
-
+class Nim:
     def __init__(self, initial=[1, 3, 5, 7]):
         """
         Initialize game board.
@@ -70,8 +69,7 @@ class Nim():
             self.winner = self.player
 
 
-class NimAI():
-
+class NimAI:
     def __init__(self, alpha=0.5, epsilon=0.1):
         """
         Initialize AI with an empty Q-learning dictionary,
@@ -130,7 +128,9 @@ class NimAI():
         Q-value in `self.q`. If there are no available actions in
         `state`, return 0.
         """
-        return max(self.q.get((state, action), 0) for action in Nim.available_actions(state))
+        return max(
+            self.q.get((state, action), 0) for action in Nim.available_actions(state)
+        )
 
     def choose_action(self, state, epsilon=True):
         """
@@ -147,17 +147,16 @@ class NimAI():
         If multiple actions have the same Q-value, any of those
         options is an acceptable return value.
         """
-        actions = sorted(Nim.available_actions(state), key=lambda action: self.q.get((state, action), 0))
+        actions = sorted(
+            Nim.available_actions(state),
+            key=lambda action: self.q.get((state, action), 0),
+        )
 
         if not epsilon:
             return actions[-1]
         else:
             return random.choices(
-                [
-                    random.choice(actions),
-                    actions[-1]
-                ],
-                [self.epsilon, 1 - self.epsilon]
+                [random.choice(actions), actions[-1]], [self.epsilon, 1 - self.epsilon]
             )
 
 
@@ -174,14 +173,10 @@ def train(n):
         game = Nim()
 
         # Keep track of last move made by either player
-        last = {
-            0: {"state": None, "action": None},
-            1: {"state": None, "action": None}
-        }
+        last = {0: {"state": None, "action": None}, 1: {"state": None, "action": None}}
 
         # Game loop
         while True:
-
             # Keep track of current state and action
             state = game.piles.copy()
             action = player.choose_action(game.piles)
@@ -201,7 +196,7 @@ def train(n):
                     last[game.player]["state"],
                     last[game.player]["action"],
                     new_state,
-                    1
+                    1,
                 )
                 break
 
@@ -211,7 +206,7 @@ def train(n):
                     last[game.player]["state"],
                     last[game.player]["action"],
                     new_state,
-                    0
+                    0,
                 )
 
     print("Done training")
@@ -236,7 +231,6 @@ def play(ai, human_player=None):
 
     # Game loop
     while True:
-
         # Print contents of piles
         print()
         print("Piles:")
