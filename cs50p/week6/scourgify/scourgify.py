@@ -16,14 +16,14 @@ def main():
     destination = open(sys.argv[2], "a")
 
     reader = csv.DictReader(source)
-    header = next(reader)
-    writer = csv.writer(destination)
+    writer = csv.DictWriter(destination, fieldnames=["first", "last", "house"])
+    writer.writeheader()
     for row in reader:
-
+        
 
 
     source.close()
-    destination.cose()
+    destination.close()
 
 
 if __name__ == "__main__":
