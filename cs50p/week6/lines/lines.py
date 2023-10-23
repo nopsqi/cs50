@@ -13,8 +13,11 @@ def main():
         file = open(sys.argv[1])
     except FileNotFoundError:
         sys.exit("File does not exist")
-    else:
-        for line in file
+
+    count = 0
+    for line in file:
+        if line[0] not in ['\n', ]
+
 
 
 if __name__ == "__main__":
