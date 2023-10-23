@@ -12,6 +12,7 @@ def main():
 
 def convert(fraction):
     x, y = fraction.split("/")
+    return int(x) / int(y)
 
 
 def gauge(percentage):
