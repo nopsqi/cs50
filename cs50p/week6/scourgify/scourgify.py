@@ -10,7 +10,13 @@ def main():
     try:
         source = open(sys.argv[1])
     except FileNotFoundError:
-        sys.exit("Cound not read {})
+        sys.exit(f"Cound not read {sys.argv[1]}")
+
+    destination = open(sys.argv[2], "w")
+    
+
+    source.close()
+    destination.cose()
 
 
 if __name__ == "__main__":
