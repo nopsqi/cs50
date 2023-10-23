@@ -1,5 +1,5 @@
 def main():
-    print("Outputshorten(input("Input: ")))
+    print("Output:", shorten(input("Input: ")))
 
 
 def shorten(word):
@@ -9,6 +9,7 @@ def shorten(word):
             continue
         short.append(w)
     return "".join(short)
+
 
 if __name__ == "__main__":
     main()
