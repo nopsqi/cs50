@@ -1,15 +1,14 @@
 def main():
     text = input("Input: ")
-    print("Output:", end=" ")
 
 
 def shorten(word):
+    short = []
     for w in word:
         if w.lower() in ['a', 'i', 'u', 'e', 'o']:
             continue
-        print(w, end="")
-    print()
-
+        short.append(w)
+    return "".join(short)
 
 if __name__ == "__main__":
     main()
