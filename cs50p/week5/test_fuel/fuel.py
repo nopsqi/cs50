@@ -22,9 +22,9 @@ def gauge(percentage):
         return None
     if percentage > 98:
         return "F"
-    if z < 2:
+    if percentage < 2:
         return "E"
-    return f"{percentage}%"
+    return f"{percentage:.0f}%"
 
 
 if __name__ == "__main__":
