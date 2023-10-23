@@ -19,7 +19,7 @@ def main():
             sys.exit("Input and output have diferent extensions")
 
         try:
-            images.append(Image.open(arg, mode="w"))
+            images.append(Image.open(arg))
         except FileNotFoundError:
             sys.exit(f"File {arg} doesn't exist")
 
