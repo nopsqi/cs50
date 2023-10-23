@@ -12,12 +12,12 @@ def main():
 
 def convert(fraction):
     x, y = fraction.split("/")
-    return int(x) / int(y)
+    return (int(x) / int(y)) * 100
 
 
 def gauge(percentage):
-    if z > 1:
-        continue
+    if z > 100:
+        return 
     if z < 0.02:
         print("E")
     elif z > 0.98:
