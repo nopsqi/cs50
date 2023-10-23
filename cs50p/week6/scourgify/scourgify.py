@@ -9,8 +9,8 @@ def main():
 
     try:
         source = open(sys.argv[1])
-    except:
-        
+    except FileNotFoundError:
+        sys.exit("Cound not read {})
 
 
 if __name__ == "__main__":
