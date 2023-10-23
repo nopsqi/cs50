@@ -128,9 +128,9 @@ class NimAI:
         Q-value in `self.q`. If there are no available actions in
         `state`, return 0.
         """
-        return max(
-            self.q.get((tuple(state), tuple(action)), 0) for action in Nim.available_actions(state)
-        )
+        qs = [self.q.get((tuple(state), tuple(action)), 0) for action in Nim.available_actions(state)]
+        print(qs)
+        return max(qs)
 
     def choose_action(self, state, epsilon=True):
         """
