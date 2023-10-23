@@ -11,7 +11,10 @@ def main():
 
     try:
         file = open(sys.argv[1])
-    except: 
+    except FileNotFoundError:
+        sys.exit("File does not exist")
+    else:
+        for line in file
 
 
 if __name__ == "__main__":
