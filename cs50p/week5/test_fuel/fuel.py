@@ -1,14 +1,17 @@
 def main():
     while True:
         try:
-            percent = convert(input("Fraction: "))
+            percent = convert(input("Fraction: ").strip())
             status = gauge(percent)
         except (ValueError, ZeroDivisionError):
             continue
-        
+
+        print(status)
+        break
 
 
 def convert(fraction):
+    x, y = fraction.split("/")
 
 
 def gauge(percentage):
