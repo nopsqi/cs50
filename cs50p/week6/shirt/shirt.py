@@ -20,7 +20,8 @@ def main():
 
         try:
             images.append(Image.open(arg, mode="w"))
-        exce
+        except FileNotFoundError:
+            sys.exit("File )
 
 
 def is_valid(filename):
