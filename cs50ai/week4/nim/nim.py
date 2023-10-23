@@ -212,6 +212,7 @@ def train(n):
                 )
 
     print("Done training")
+    print(player.q)
 
     # Return the trained AI
     return player
