@@ -1,3 +1,4 @@
+import csv
 import sys
 
 
@@ -15,7 +16,9 @@ def main():
         sys.exit("File does not exist")
 
     with open(sys.argv[1]) as file:
-        reader = 
+        reader = csv.reader(sys.argv[1])
+        header = next(reader)
+        print(header)
 
 
 if __name__ == "__main__":
