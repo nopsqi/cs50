@@ -10,3 +10,7 @@ def test_convert():
         convert("cat/2")
     with pytest.raises(ValueError):
         convert("3/cat")
+    with pytest.raises(ValueError):
+        convert("dog/cat")
+    with pytest.raises(ZeroDivisionError):
+        convert("3/0")
