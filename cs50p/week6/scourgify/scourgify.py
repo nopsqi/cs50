@@ -13,7 +13,7 @@ def main():
     except FileNotFoundError:
         sys.exit(f"Cound not read {sys.argv[1]}")
 
-    destination = open(sys.argv[2], "a")
+    destination = open(sys.argv[2], "w")
 
     reader = csv.DictReader(source)
     writer = csv.DictWriter(destination, fieldnames=["first", "last", "house"])
