@@ -7,6 +7,8 @@ def main():
     if len(sys.argv) < 2:
         sys.exit("Too few command-line arguments")
 
+    shirt = Image.open(")
+
     if not is_valid(sys.argv[1]):
         sys.exit("Invalid File")
     extension = os.path.splitext(sys.argv[1])[-1].lower()
@@ -23,7 +25,6 @@ def main():
         except FileNotFoundError:
             sys.exit(f"File {arg} doesn't exist")
 
-    print(images[0])
 
 def is_valid(filename):
     if os.path.splitext(filename)[-1].lower() in [".jpg", ".jpeg", ".png"]:
