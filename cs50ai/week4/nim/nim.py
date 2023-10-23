@@ -151,7 +151,6 @@ class NimAI:
             list(Nim.available_actions(state)),
             key=lambda action: self.q.get((tuple(state), tuple(action)), 0)
         )
-        print(random.choice(actions))
 
         if not epsilon:
             return actions[-1]
