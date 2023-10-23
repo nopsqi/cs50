@@ -19,3 +19,8 @@ def test_convert_error():
         convert("3/0")
     with pytest.raises(ZeroDivisionError):
         convert("0/0")
+
+
+def test_gauge():
+    assert gauge(100) == "F"
+    assert gague
