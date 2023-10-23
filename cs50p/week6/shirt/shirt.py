@@ -7,7 +7,9 @@ def main():
         sys.exit("Too few command-line arguments")
 
     if is_valid(sys.argv[1]):
-        extension =
+        extension = os.split.text(sys.argv[1])[-1].lower()
+    else:
+        
     for arg in sys.argv:
 
 
