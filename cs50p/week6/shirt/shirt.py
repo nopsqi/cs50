@@ -7,7 +7,7 @@ def main():
     if len(sys.argv) < 2:
         sys.exit("Too few command-line arguments")
 
-    shirt = Image.open(")
+    shirt = Image.open("shirt.png")
 
     if not is_valid(sys.argv[1]):
         sys.exit("Invalid File")
