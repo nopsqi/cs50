@@ -12,8 +12,8 @@ def main():
     except FileNotFoundError:
         sys.exit(f"Cound not read {sys.argv[1]}")
 
-    destination = open(sys.argv[2], "w")
-    
+    destination = open(sys.argv[2], "a")
+
 
     source.close()
     destination.cose()
