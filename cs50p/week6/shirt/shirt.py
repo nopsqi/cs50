@@ -1,5 +1,6 @@
 import os
 import sys
+from PIL import Image
 
 
 def main():
@@ -9,6 +10,7 @@ def main():
     if not is_valid(sys.argv[1]):
         sys.exit("Invalid File")
     extension = os.split.text(sys.argv[1])[-1].lower()
+    images = []
 
     for arg in sys.argv[1:]:
         if not is_valid(arg):
