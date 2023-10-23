@@ -16,8 +16,9 @@ def main():
 
     count = 0
     for line in file:
-        if line[0] not in ['\n', ]
-
+        if line[0] not in ['\n', '#']:
+            count += 1
+    print(count)
 
 
 if __name__ == "__main__":
