@@ -6,10 +6,9 @@ def main():
     if len(sys.argv) < 2:
         sys.exit("Too few command-line arguments")
 
-    extension =
+    if is_valid(sys.argv[1]):
+        extension =
     for arg in sys.argv:
-        if not is_valid(arg):
-            sys.exit("Invalid input")
 
 
 def is_valid(filename):
