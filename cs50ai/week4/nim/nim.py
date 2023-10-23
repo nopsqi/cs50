@@ -148,9 +148,10 @@ class NimAI:
         options is an acceptable return value.
         """
         actions = sorted(
-            Nim.available_actions(state),
+            list(Nim.available_actions(state)),
             key=lambda action: self.q.get((tuple(state), tuple(action)), 0)
         )
+        print(actions)
 
         if not epsilon:
             return actions[-1]
