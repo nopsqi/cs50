@@ -18,7 +18,9 @@ def main():
         if os.split.text(arg)[-1].lower() != extension:
             sys.exit("Input and output have diferent extensions")
 
-        
+        try:
+            images.append(Image.open(arg, mode="w"))
+        exce
 
 
 def is_valid(filename):
