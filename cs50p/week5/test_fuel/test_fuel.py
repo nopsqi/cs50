@@ -2,10 +2,13 @@ import pytest
 from fuel import convert, gauge
 
 
-def test_convert():
+def test_convert_normal():
     assert convert("3/4") == 75
     assert convert("2/2") == 100
     assert convert("0/3") == 0
+
+
+def test_convert_error():
     with pytest.raises(ValueError):
         convert("cat/2")
     with pytest.raises(ValueError):
