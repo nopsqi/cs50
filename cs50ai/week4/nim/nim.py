@@ -149,7 +149,7 @@ class NimAI:
         """
         actions = sorted(
             list(Nim.available_actions(state)),
-            key=lambda action: self.q.get((tuple(state), tuple(action)), 0)
+            key=lambda action: self.q.get((state, action), 0)
         )
 
         if not epsilon:
@@ -157,7 +157,7 @@ class NimAI:
         else:
             return random.choices(
                 [random.choice(actions), actions[-1]], [self.epsilon, 1 - self.epsilon]
-            )
+            )[0]
 
 
 def train(n):
