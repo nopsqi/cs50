@@ -23,4 +23,7 @@ def test_convert_error():
 
 def test_gauge():
     assert gauge(100) == "F"
-    assert gague
+    assert gauge(75) == "75%"
+    assert gauge(1) == "E"
+    assert gauge() == "E"
+    assert gauge(110) == None
