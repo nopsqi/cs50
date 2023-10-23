@@ -5,8 +5,8 @@ def main():
         except (ValueError, ZeroDivisionError):
             continue
 
-        if status is None:
-            continue
+        # if status is None:
+        #     continue
 
         print(status)
         break
@@ -18,8 +18,8 @@ def convert(fraction):
 
 
 def gauge(percentage):
-    if percentage > 100:
-        return None
+    # if percentage > 100:
+    #     return None
     if percentage > 98:
         return "F"
     if percentage < 2:
