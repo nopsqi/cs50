@@ -8,7 +8,9 @@ def main():
         sys.exit("Too few command-line arguments")
 
     try:
-        file = open()
+        source = open(sys.argv[1])
+    except:
+        
 
 
 if __name__ == "__main__":
