@@ -147,11 +147,18 @@ class NimAI():
         If multiple actions have the same Q-value, any of those
         options is an acceptable return value.
         """
-        actions = sorted([(state, action) for action in Nim.available_actions(state)], key=lambda key: self.q.get(key, 0))
+        actions = sorted(Nim.available_actions(state), key=lambda action: self.q.get((state, action), 0))
 
         if not epsilon:
             return actions[-1]
-        else 
+        else:
+            return random.choices(
+                [
+                    random.choice(actions),
+                    actions[-1]
+                ],
+                [self.epsilon, 1 - self.epsilon]
+            )
 
 
 def train(n):
