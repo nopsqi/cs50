@@ -7,6 +7,6 @@ def test_convert():
     assert convert("2/2") == 100
     assert convert("0/3") == 0
     with pytest.raises(ValueError):
-        convert("cat/3")
+        convert("cat/2")
+    with pytest.raises(ValueError):
         convert("3/cat")
-        convert("0/0")
