@@ -14,7 +14,8 @@ def main():
     except FileNotFoundError:
         sys.exit("File does not exist")
 
-    
+    with open(sys.argv[1]) as file:
+        reader = 
 
 
 if __name__ == "__main__":
