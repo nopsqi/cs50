@@ -9,10 +9,14 @@ def main():
     if not is_valid(sys.argv[1]):
         sys.exit("Invalid File")
     extension = os.split.text(sys.argv[1])[-1].lower()
+
     for arg in sys.argv[1:]:
         if not is_valid(arg):
             sys.exit("Invalid File")
-        if os.split.text(arg)
+        if os.split.text(arg)[-1].lower() != extension:
+            sys.exit("Input and output have diferent extensions")
+
+        
 
 
 def is_valid(filename):
