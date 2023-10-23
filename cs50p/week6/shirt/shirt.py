@@ -21,7 +21,7 @@ def main():
         try:
             images.append(Image.open(arg, mode="w"))
         except FileNotFoundError:
-            sys.exit("File )
+            sys.exit(f"File {arg} doesn't exist")
 
 
 def is_valid(filename):
