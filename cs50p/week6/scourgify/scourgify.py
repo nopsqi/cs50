@@ -15,11 +15,11 @@ def main():
 
     destination = open(sys.argv[2], "a")
 
-    reader = csv.reader(source)
+    reader = csv.DictReader(source)
     header = next(reader)
     writer = csv.writer(destination)
     for row in reader:
-        
+
 
 
     source.close()
