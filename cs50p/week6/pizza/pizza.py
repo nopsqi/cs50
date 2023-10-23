@@ -19,7 +19,7 @@ def main():
     with open(sys.argv[1]) as file:
         reader = csv.reader(file)
         header = next(reader)
-        print(tabulate(reader, headers=header))
+        print(tabulate(reader, headers=header, tablefmt="grid"))
 
 
 if __name__ == "__main__":
