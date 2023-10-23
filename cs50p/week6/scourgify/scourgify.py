@@ -19,8 +19,8 @@ def main():
     writer = csv.DictWriter(destination, fieldnames=["first", "last", "house"])
     writer.writeheader()
     for row in reader:
-        first, last = row["name"].split(",")
-        writer.writerow()
+        last, first = row["name"].split(",")
+        writer.writerow({"first": first, "last": last, "house": row["house"]})
 
 
     source.close()
