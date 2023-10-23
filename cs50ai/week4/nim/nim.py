@@ -149,7 +149,7 @@ class NimAI:
         """
         actions = sorted(
             list(Nim.available_actions(state)),
-            key=lambda action: self.q.get((state, action), 0)
+            key=lambda action: self.q.get((state, tuple(action)), 0)
         )
 
         if not epsilon:
