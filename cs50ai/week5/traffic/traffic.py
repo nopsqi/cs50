@@ -96,8 +96,8 @@ def get_model():
         loss="categorical_crossentropy",
         metrics=["accuracy"]
     )
-    print(model.summary())
-    raise NotImplementedError
+
+    return model
 
 
 if __name__ == "__main__":
