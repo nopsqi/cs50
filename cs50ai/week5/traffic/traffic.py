@@ -10,6 +10,7 @@ EPOCHS = 10
 IMG_WIDTH = 30
 IMG_HEIGHT = 30
 NUM_CATEGORIES = 43
+# NUM_CATEGORIES = 3
 TEST_SIZE = 0.4
 
 
@@ -79,14 +80,14 @@ def get_model():
     """
     model = tf.keras.models.Sequential([
         tf.keras.layers.Conv2D(
-            8, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
+            32, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
         ),
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
-        tf.keras.layers.Conv2D(16, (3, 3), activation="relu"),
+        tf.keras.layers.Conv2D(64, (3, 3), activation="relu"),
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
-        tf.keras.layers.Conv2D(32, (3, 3), activation="relu"),
+        tf.keras.layers.Conv2D(238, (3, 3), activation="relu"),
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
         tf.keras.layers.Flatten(),
@@ -94,14 +95,14 @@ def get_model():
         tf.keras.layers.Dense(128, activation="relu"),
         tf.keras.layers.Dropout(0.5),
 
-        tf.keras.layers.Dense(3, activation="softmax")
+        tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax")
     ])
     model.compile(
         optimizer="adam",
         loss="categorical_crossentropy",
         metrics=["accuracy"]
     )
-    # print(model.summary())
+    print(model.summary())
     # raise Exception
     return model
 
