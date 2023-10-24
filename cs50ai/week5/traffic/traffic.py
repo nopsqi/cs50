@@ -104,8 +104,8 @@ def get_model():
         loss="categorical_crossentropy",
         metrics=["accuracy"]
     )
-    # print(model.summary())
-    # raise Exception
+    print(model.summary())
+    raise Exception
     return model
 
 
