@@ -7,10 +7,7 @@ def main():
 
 
 def validate(ip):
-    ...
-
-
-...
+    return re.search(r"[0-2]", ip) is not None
 
 
 if __name__ == "__main__":
