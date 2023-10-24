@@ -62,9 +62,14 @@ def load_data(data_dir):
     labels = []
     i = 0
     for directory in sorted(os.listdir(data_dir)):
-        for image in sorted(os.listdir(os.path.join(data_dir, directory))):
-            if os.path.splitext(image)[-1] == ".ppm":
-                print(cv2.imread(os.path.join(data_dir, directory, image)))
+        for imagename in sorted(os.listdir(os.path.join(data_dir, directory))):
+            if os.path.splitext(imagename)[-1] == ".ppm":
+                image = cv2.imread(os.path.join(data_dir, directory, imagename))
+                print(image.shape)
+                print(image[29][28])
+                image.resize((IMG_HEIGHT, IMG_WIDTH, image.shape[2]))
+                print(image.shape)
+                print(image[28])
                 labels.append(int(directory))
             break
         if i == 0:
