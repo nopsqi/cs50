@@ -60,19 +60,15 @@ def load_data(data_dir):
     """
     images = []
     labels = []
-    i = 0
     for directory in sorted(os.listdir(data_dir)):
         for imagename in sorted(os.listdir(os.path.join(data_dir, directory))):
             if os.path.splitext(imagename)[-1] == ".ppm":
                 image = cv2.imread(os.path.join(data_dir, directory, imagename))
                 image.resize((IMG_HEIGHT, IMG_WIDTH, image.shape[2]))
-                
+                images.append(image)
                 labels.append(int(directory))
-            break
-        if i == 0:
-            break
-        i += 1
-    print(labels)
+    print(len(labels))
+    print(len(images))
     raise NotImplementedError
 
 
