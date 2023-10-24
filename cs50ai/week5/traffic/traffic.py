@@ -82,7 +82,12 @@ def get_model():
             32, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
         )
     ])
-    print(model.summary)
+    model.compile(
+        optimizer="adam",
+        loss="categorical_crossentropy",
+        metrics=["accuracy"]
+    )
+    print(model.summary())
     raise NotImplementedError
 
 
