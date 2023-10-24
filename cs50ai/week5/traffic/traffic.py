@@ -79,15 +79,18 @@ def get_model():
     """
     model = tf.keras.models.Sequential([
         tf.keras.layers.Conv2D(
-            15, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
+            5, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
         ),
-
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
         tf.keras.layers.Conv2D(
-            15, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
+            5, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
         ),
+        tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
+        tf.keras.layers.Conv2D(
+            5, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
+        ),
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
         tf.keras.layers.Flatten(),
