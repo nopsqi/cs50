@@ -9,14 +9,9 @@ mnist = tf.keras.datasets.mnist
 x_train, x_test = x_train / 255.0, x_test / 255.0
 y_train = tf.keras.utils.to_categorical(y_train)
 y_test = tf.keras.utils.to_categorical(y_test)
-print(x_train.shape)
-print(x_train[0].shape)
 x_train = x_train.reshape(
     x_train.shape[0], x_train.shape[1], x_train.shape[2], 1
 )
-print(x_train.shape)
-print(x_train[0].shape)
-raise Exception
 x_test = x_test.reshape(
     x_test.shape[0], x_test.shape[1], x_test.shape[2], 1
 )
