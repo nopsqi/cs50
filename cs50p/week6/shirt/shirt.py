@@ -16,9 +16,7 @@ def main():
     except FileNotFoundError:
         sys.exit("Invalid input")
 
-    extension = os.path.splitext(sys.argv[1])[-1]
-
-    if os.path.splitext(sys.argv[2])[-1] != extension:
+    if os.path.splitext(sys.argv[2])[-1] != os.path.splitext(sys.argv[1])[-1]:
         sys.exit("Input and output have different extensions")
 
     try:
