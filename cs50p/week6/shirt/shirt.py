@@ -11,18 +11,22 @@ def main():
 
     shirt = Image.open("shirt.png")
 
-    if not is_valid(sys.argv[1]):
-        sys.exit("Invalid input")
     try:
-        before = Image.open()
+        before = Image.open(sys.argv[1])
     except FileNotFoundError:
-        sys.exit()
+        sys.exit("Invalid input")
 
+    extension = os.path.splitext(sys.argv[1])[-1]
 
-def is_valid(filename):
-    if os.path.splitext(filename)[-1].lower() in [".jpg", ".jpeg", ".png"]:
-        return True
-    return False
+    if os.path.splitext(sys.argv[2])[-1] != extension:
+        sys.exit("Input and output have different extensions")
+
+    try:
+        after = Image.open(sys.argv[2])
+    except FileNotFoundError:
+        sys.exit("Invalid input")
+
+    
 
 
 if __name__ == "__main__":
