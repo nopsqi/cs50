@@ -63,10 +63,12 @@ def load_data(data_dir):
     i = 0
     for directory in sorted(os.listdir(data_dir)):
         for image in sorted(os.listdir(os.path.join(data_dir, directory))):
-            print(image)
+            if os.path.splitext(image)[-1] == ".ppm":
+                labels.append(int(directory))
         if i == 1:
             break
         i += 1
+    print(labels)
     raise NotImplementedError
 
 
