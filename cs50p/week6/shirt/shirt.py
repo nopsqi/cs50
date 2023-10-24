@@ -26,7 +26,7 @@ def main():
     except FileNotFoundError:
         sys.exit("Invalid input")
 
-    
+    print(dir(before))
 
 
 if __name__ == "__main__":
