@@ -68,9 +68,6 @@ def load_data(data_dir):
                 images.append(image)
                 labels.append(int(directory))
 
-    cv2.imshow("My image", images[0])
-    cv2.waitKey(0)
-    raise Exception
     return images, labels
 
 
@@ -82,12 +79,21 @@ def get_model():
     """
     model = tf.keras.models.Sequential([
         tf.keras.layers.Conv2D(
-            32, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
+            15, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
+        ),
+
+        tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+
+        tf.keras.layers.Conv2D(
+            15, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
         ),
 
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
         tf.keras.layers.Flatten(),
+
+        tf.keras.layers.Dense(128, activation="relu"),
+        tf.keras.layers.Dropout(0.5),
 
         tf.keras.layers.Dense(128, activation="relu"),
         tf.keras.layers.Dropout(0.5),
