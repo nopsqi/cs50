@@ -95,6 +95,9 @@ def get_model():
         tf.keras.layers.Dense(128, activation="relu"),
         tf.keras.layers.Dropout(0.5),
 
+        tf.keras.layers.Dense(128, activation="relu"),
+        tf.keras.layers.Dropout(0.5),
+
         tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax")
     ])
     model.compile(
