@@ -68,6 +68,8 @@ def load_data(data_dir):
                 images.append(image)
                 labels.append(int(directory))
 
+    cv2.imshow("My image", images[0])
+    raise Exception
     return images, labels
 
 
