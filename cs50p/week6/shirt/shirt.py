@@ -20,7 +20,7 @@ def main():
         sys.exit("Input and output have different extensions")
 
     before = ImageOps.fit(before, size=shirt.size)
-    # before.paste(shirt)
+    before.paste(shirt)
     before.save(sys.argv[2])
 
 
