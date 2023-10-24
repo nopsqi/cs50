@@ -104,7 +104,7 @@ def get_model():
         tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax")
     ])
     model.compile(
-        optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),
+        optimizer=tf.keras.optimizers.Adam(learning_rate=0.003),
         loss="categorical_crossentropy",
         metrics=["accuracy"]
     )
