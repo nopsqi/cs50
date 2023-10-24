@@ -58,11 +58,14 @@ def load_data(data_dir):
     be a list of integer labels, representing the categories for each of the
     corresponding `images`.
     """
-    for root, directories, files in os.walk(data_dir):
+    i = 0
+    for directories in 
         print(root)
         print(directories)
         print(files)
-        break
+        if i == 1:
+            break
+        i += 1
     raise NotImplementedError
 
 
