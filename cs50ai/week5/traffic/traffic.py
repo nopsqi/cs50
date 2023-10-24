@@ -67,9 +67,8 @@ def load_data(data_dir):
                 image.resize((IMG_HEIGHT, IMG_WIDTH, image.shape[2]))
                 images.append(image)
                 labels.append(int(directory))
-    print(len(labels))
-    print(len(images))
-    raise NotImplementedError
+
+    return images, labels
 
 
 def get_model():
