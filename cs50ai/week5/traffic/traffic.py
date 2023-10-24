@@ -58,11 +58,12 @@ def load_data(data_dir):
     be a list of integer labels, representing the categories for each of the
     corresponding `images`.
     """
+    images = []
+    labels = []
     i = 0
-    for directories in 
-        print(root)
-        print(directories)
-        print(files)
+    for directory in sorted(os.listdir(data_dir)):
+        for image in sorted(os.listdir(os.path.join(data_dir, directory))):
+            print(image)
         if i == 1:
             break
         i += 1
