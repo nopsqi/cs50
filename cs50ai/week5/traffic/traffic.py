@@ -77,6 +77,12 @@ def get_model():
     `input_shape` of the first layer is `(IMG_WIDTH, IMG_HEIGHT, 3)`.
     The output layer should have `NUM_CATEGORIES` units, one for each category.
     """
+    model = tf.keras.models.Sequential([
+        tf.keras.layers.Conv2D(
+            32, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
+        )
+    ])
+    print(model.summary)
     raise NotImplementedError
 
 
