@@ -58,7 +58,7 @@ def load_data(data_dir):
     be a list of integer labels, representing the categories for each of the
     corresponding `images`.
     """
-    
+    data = [(image, label) for labels in os.listdir(data_dir) ]
     raise NotImplementedError
 
 
