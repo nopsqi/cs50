@@ -6,7 +6,7 @@ import tensorflow as tf
 
 from sklearn.model_selection import train_test_split
 
-EPOCHS = 10
+EPOCHS = 30
 IMG_WIDTH = 30
 IMG_HEIGHT = 30
 NUM_CATEGORIES = 43
@@ -79,14 +79,14 @@ def get_model():
     """
     model = tf.keras.models.Sequential([
         tf.keras.layers.Conv2D(
-            32, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
+            15, (3, 3), activation="relu", input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
         ),
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
-        tf.keras.layers.Conv2D(32, (3, 3), activation="relu"),
+        tf.keras.layers.Conv2D(15, (3, 3), activation="relu"),
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
-        tf.keras.layers.Conv2D(32, (3, 3), activation="relu"),
+        tf.keras.layers.Conv2D(15, (3, 3), activation="relu"),
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
         tf.keras.layers.Flatten(),
@@ -94,8 +94,8 @@ def get_model():
         tf.keras.layers.Dense(128, activation="relu"),
         tf.keras.layers.Dropout(0.5),
 
-        tf.keras.layers.Dense(128, activation="relu"),
-        tf.keras.layers.Dropout(0.5),
+        # tf.keras.layers.Dense(128, activation="relu"),
+        # tf.keras.layers.Dropout(0.5),
 
         tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax")
     ])
