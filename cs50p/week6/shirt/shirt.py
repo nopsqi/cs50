@@ -1,6 +1,6 @@
 import os
 import sys
-from PIL import Image
+from PIL import Image, ImageOps
 
 
 def main():
@@ -19,7 +19,8 @@ def main():
     if os.path.splitext(sys.argv[2])[-1] != os.path.splitext(sys.argv[1])[-1]:
         sys.exit("Input and output have different extensions")
 
-    print(shirt.size)
+    print(before.size)
+    before = ImageOps.fit(before, size=shirt.size)
     print(before.size)
 
 
