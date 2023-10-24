@@ -19,12 +19,8 @@ def main():
     if os.path.splitext(sys.argv[2])[-1] != os.path.splitext(sys.argv[1])[-1]:
         sys.exit("Input and output have different extensions")
 
-    try:
-        after = Image.open(sys.argv[2])
-    except FileNotFoundError:
-        sys.exit("Invalid input")
-
-    print(dir(before))
+    print(shirt.size)
+    print(before.size)
 
 
 if __name__ == "__main__":
