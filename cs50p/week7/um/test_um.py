@@ -8,5 +8,8 @@ def test_lowercase():
 
 def test_mix():
     assert count("Um?") == 1
-    assert count("Um, thanks for the album") == 1
     assert count("Um, thanks, um...") == 2
+
+
+def test_
+    assert count("Um, thanks for the album") == 1
