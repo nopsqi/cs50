@@ -23,6 +23,16 @@ def convert(s):
 
     for i, t in enumerate(time):
         hour = int(t[0])
+        minute = int(t[1]) if t[1] else 0
+        meridiem = t[2]
+
+        match meridiem:
+            case "AM":
+                hour = hour if hour != 12 else 0
+            case "PM":
+                hour = hour + 12 if hour != 12 else hour
+
+        time[i] = 
 
 
 
