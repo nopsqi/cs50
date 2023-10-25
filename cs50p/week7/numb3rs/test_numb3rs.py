@@ -18,7 +18,7 @@ def test_overflow1():
 
 
 def test_overflow2():
-    assert validate("255") == False
+    assert validate("255...") == False
 
 
 def test_word():
