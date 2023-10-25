@@ -24,3 +24,10 @@ def test_wrong_minute():
         convert("9:05 AM to 5:00 PM")
     with pytest.raises(ValueError):
         convert("9:00 AM to 5:09 PM")
+
+
+def test_same_meridiem():
+    with pytest.raises(ValueError):
+        convert("9:00 AM to 5:00 AM")
+    with pytest.raises(ValueError):
+        convert("9:00 PM to 5:00 PM")

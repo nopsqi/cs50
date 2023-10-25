@@ -3,9 +3,7 @@ import sys
 
 
 def main():
-    # print(convert(input("Hours: ")))
-    print(convert("9:00 AM to 5 PM"))
-    # convert("9:00 AM - 5 PM")
+    print(convert(input("Hours: ")))
 
 
 def convert(s):
