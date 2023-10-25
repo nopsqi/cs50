@@ -10,14 +10,14 @@ def main():
 
 def convert(s):
     if (
-        time := re.match(
+        re.match(
             r"(0?[0-9]|1[1-2])(?:\:([0-5][0-9]))? *(am|pm) to (0?[0-9]|1[1-2])(?:\:([0-5][0-9]))? *(am|pm)",
             s,
             re.IGNORECASE,
         )
-    ) is None:
+        is None
+    ):
         raise ValueError
-    time = 
     return
     for i, t in enumerate(time):
         hour = int(t[0])
