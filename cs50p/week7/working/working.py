@@ -8,8 +8,8 @@ def main():
 
 
 def convert(s):
-    time = re.findall(r"(0?[0-9]|1[1-2])(?:\:([0-5][0-9]))? *(am|pm)", s, re.IGNORECASE)
-    print(time)
+    time = re.match(r"(0?[0-9]|1[1-2])(?:\:([0-5][0-9]))? *(am|pm) to (0?[0-9]|1[1-2])(?:\:([0-5][0-9]))? *(am|pm)", s, re.IGNORECASE)
+    print(time.groups())
     return
     for i, t in enumerate(time):
 
