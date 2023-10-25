@@ -8,7 +8,7 @@ def main():
 
 
 def convert(s):
-    time = re.match(r"(^[1-9][0-9])", s)
+    time = re.match(r"(^1?[0-9])", s)
 
 
 if __name__ == "__main__":
