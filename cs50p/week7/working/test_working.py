@@ -16,18 +16,6 @@ def test_mix():
 
 def test_not_in_range():
     with pytest.raises(ValueError):
-        convert("10:53 AM to 5:00 PM")
-
-
-def test_wrong_minute():
+        convert("10:63 AM to 5:00 PM")
     with pytest.raises(ValueError):
-        convert("9:05 AM to 5:00 PM")
-    with pytest.raises(ValueError):
-        convert("9:00 AM to 5:09 PM")
-
-
-def test_same_meridiem():
-    with pytest.raises(ValueError):
-        convert("9:00 AM to 5:00 AM")
-    with pytest.raises(ValueError):
-        convert("9:00 PM to 5:00 PM")
+        convert("14:63 AM to 5:00 PM")
