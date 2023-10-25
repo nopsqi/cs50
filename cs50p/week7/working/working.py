@@ -9,9 +9,10 @@ def main():
 
 
 def convert(s):
+    regex = r"(0?(?:5|9))(?:\:00)? *(am|pm)"
     if (
         re.match(
-            r"(0?(?:5|9))(?:\:00)? *(am|pm) to (0?(?:5|9))(?:\:00)? *(am|pm)",
+            r"^" +  regex + r" to " + regex + r"$",
             s,
             re.IGNORECASE,
         )
@@ -19,7 +20,7 @@ def convert(s):
     ):
         raise ValueError
 
-    time = re.findall(r"(0?(?:5|9))(?:\:00)? *(am|pm)", s, re.IGNORECASE)
+    time = re.findall(regex, s, re.IGNORECASE)
     for i, t in enumerate(time):
         time[i] = f"{int(t[0]) if t[1] == 'AM' else int(t[0]) + 12:02}:00"
 
