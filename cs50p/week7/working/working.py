@@ -8,7 +8,7 @@ def main():
 
 
 def convert(s):
-    
+    time = re.match(r"(^)", s)
 
 
 if __name__ == "__main__":
