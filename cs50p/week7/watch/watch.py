@@ -9,7 +9,7 @@ def main():
 
 
 def parse(s):
-    link = re.match(r"^<iframe.*src=\"([^\"]+)\".*></iframe>$", s)
+    link = re.match(r"^<iframe.*src=\"(.*you[^\"]+)\".*></iframe>$", s)
     print(link.groups())
 
 
