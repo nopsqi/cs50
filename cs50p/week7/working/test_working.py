@@ -16,4 +16,4 @@ def test_mix():
 
 def test_not_in_range():
     with pytest.raises(ValueError):
-        convert("10)
+        convert("10:53 AM to 5:00 PM")
