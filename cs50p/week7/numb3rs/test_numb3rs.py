@@ -10,12 +10,15 @@ def test_subnet():
 
 
 def test_overflow():
-    assert validate("267.0.0.0") == False
     assert validate("512.512.512.512") == False
 
 
 def test_overflow1():
     assert validate("1.2.3.1000") == False
+
+
+def test_overflow2():
+    assert validate("267.0.0.0") == False
 
 
 def test_word():
