@@ -3,7 +3,8 @@ import sys
 
 
 def main():
-    print(convert(input("Hours: ")))
+    # print(convert(input("Hours: ")))
+    print(convert("9:00 AM to 5:00 PM"))
 
 
 def convert(s):
@@ -20,13 +21,9 @@ def convert(s):
 
     time = re.findall(regex, s, re.IGNORECASE)
 
-    if time[0][1] == time[1][1]:
-        raise ValueError
-
     for i, t in enumerate(time):
-        time[i] = f"{int(t[0]) if t[1] == 'AM' else int(t[0]) + 12:02}:00"
+        hour = int(t[0])
 
-    return f"{time[0]} to {time[1]}"
 
 
 if __name__ == "__main__":
