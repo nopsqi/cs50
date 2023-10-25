@@ -6,10 +6,10 @@ def test_lowercase():
     assert count("thanks, um...") == 1
 
 
-def test_mix():
+def test_uppercase():
     assert count("Um?") == 1
     assert count("Um, thanks, um...") == 2
 
 
-def test_
+def test_substring():
     assert count("Um, thanks for the album") == 1
