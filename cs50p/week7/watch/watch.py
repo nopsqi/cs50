@@ -12,7 +12,7 @@ def main():
 def parse(s):
     if not (link := re.match(r"^<iframe.*src=\".*you[^\"]+/([^\"/]+)\".*></iframe>$", s)):
         return link
-    return f"https;//youtu.be/{link.group(1)}"
+    return f"https://youtu.be/{link.group(1)}"
 
 
 if __name__ == "__main__":
