@@ -8,7 +8,7 @@ def main():
 
 
 def convert(s):
-    regex = r"(0?[0-9]|1[1-2])(?:\:([0-5][0-9]))? *(am|pm)"
+    regex = r"(0?[0-9]|1[1-2])(?:\:([0-5][0-9]))? +(am|pm)"
     if (
         re.match(
             r"^" +  regex + r" to " + regex + r"$",
