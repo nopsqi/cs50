@@ -14,6 +14,11 @@ def test_mix():
     assert convert("9:00 AM to 5 PM") == "09:00 to 17:00"
 
 
+def test_invalid_format():
+    with pytest.raises(ValueError):
+        assert convert("7:35 Am 4:22 PM")
+
+
 def test_error_hour():
     with pytest.raises(ValueError):
         convert("13 AM to 5:00 PM")
