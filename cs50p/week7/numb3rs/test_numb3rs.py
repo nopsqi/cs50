@@ -18,7 +18,7 @@ def test_overflow1():
 
 
 def test_overflow2():
-    assert validate("267.0.0.0") == False
+    assert validate("1000.1.2.3") == False
 
 
 def test_word():
