@@ -7,7 +7,7 @@ def main():
 
 
 def parse(s):
-    return re.search(r"^<iframe src=\"(.+)\"></iframe>$", s).groups(1)[0]
+    return re.search(r"^<iframe.*src=\"(.+)\".*></iframe>$", s).groups(1)[0]
 
 
 if __name__ == "__main__":
