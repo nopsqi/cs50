@@ -12,12 +12,18 @@ def convert(s):
     for i, t in enumerate(time):
         if t[0] not in [5, 9]:
             raise ValueError
+
         hour = int(t[0])
-        munute = int(t[0]) if t[0] else 0
-        
-        match t[2].lower():
-            case am:
-                hour = t[0] if t[0] !=
+        minute = int(t[1]) if t[1] else 0
+        meridiem = t[2].lower()
+
+        match meridiem:
+            case 'am':
+                hour = hour if hour != 12 else 0
+            case 'pm:
+                hour = hour + 12 if hour != 12 else hour
+
+            return f"{hour:02}:{minute:02} to
 
 
 if __name__ == "__main__":
