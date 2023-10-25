@@ -7,7 +7,12 @@ def main():
 
 
 def parse(s):
-    return re.search(r"^<iframe.*src=\"([^\"]*)\".*></iframe>$", s).groups(1)[0]
+    try:
+        link = re.search(r"^<iframe.*src=\"([^\"]+)\".*></iframe>$", s).groups(1)[0]
+    except IndexError:
+        return None
+
+    
 
 
 if __name__ == "__main__":
