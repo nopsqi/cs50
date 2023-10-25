@@ -32,7 +32,9 @@ def convert(s):
             case "PM":
                 hour = hour + 12 if hour != 12 else hour
 
-        time[i] = 
+        time[i] = f"{hour:02}:{minute:02}"
+
+    return time[0] + " to " + time[1]
 
 
 
