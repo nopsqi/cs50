@@ -12,9 +12,12 @@ def convert(s):
     for i, t in enumerate(time):
         if t[0] not in [5, 9]:
             raise ValueError
+        hour = int(t[0])
+        munute = int(t[0]) if t[0] else 0
+        
         match t[2].lower():
             case am:
-                hour = 
+                hour = t[0] if t[0] !=
 
 
 if __name__ == "__main__":
