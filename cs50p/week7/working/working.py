@@ -10,8 +10,6 @@ def main():
 def convert(s):
     time = re.findall(r"(0?[0-9]|1[1-2])(?:\:([0-5][0-9]))? *(am|pm)", s, re.IGNORECASE)
     for i, t in enumerate(time):
-        if t[0] not in [5, 9]:
-            raise ValueError
 
         hour = int(t[0])
         minute = int(t[1]) if t[1] else 0
@@ -20,10 +18,11 @@ def convert(s):
         match meridiem:
             case 'am':
                 hour = hour if hour != 12 else 0
-            case 'pm:
+            case 'pm':
                 hour = hour + 12 if hour != 12 else hour
 
-            return f"{hour:02}:{minute:02} to
+        time[i] = f"{hour:02}:{minute:02}"
+    print(time)
 
 
 if __name__ == "__main__":
