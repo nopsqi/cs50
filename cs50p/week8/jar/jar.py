@@ -23,7 +23,11 @@ class Jar:
 
     @property
     def size(self):
-        ...
+        return self._size
+
+    @size.setter
+    def size(self, n):
+        
 
 
 if __name__ == "__main__":
