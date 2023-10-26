@@ -81,7 +81,7 @@ def np_chunk(tree):
     noun phrases as subtrees.
     """
     print(dir(tree))
-    print(tree.pos())
+    print(tree.leaves())
     npc = []
     frontier = []
     frontier.append(tree)
