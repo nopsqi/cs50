@@ -7,7 +7,8 @@ def main():
     # pdf.set_text_color(255, 255, 255)
     pdf.set_page_background("shirtificate.png")
     pdf.add_page()
-    print(pdf.h, pdf.w)
+    pdf.set_y(pdf.h / 2)
+    pdf.set_x(pdf.w / 2)
     pdf.cell(text="John Harvard took CS50")
     pdf.output("shirtificate.pdf")
 
