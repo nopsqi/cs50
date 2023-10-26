@@ -78,7 +78,9 @@ def np_chunk(tree):
     noun phrases as subtrees.
     """
     for leave in tree.subtrees():
-        
+        print(leave)
+        for l in leave.subtrees():
+            print("\t", l)
     # npc = []
     # frontier = [tree]
     # visited = []
