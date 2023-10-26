@@ -86,12 +86,16 @@ def np_chunk(tree):
         if len(frontier) == 0:
             break
         node = frontier.pop(0)
-        if node not in visited and node.label == "NP":
+        if node not in visited:
             visited.append(node)
         else:
             continue
         if all(leave.label != "NP" for leave in node.subtrees()):
-            
+            npc.append(node)
+        for leave in node.subtrees():
+            if leave.label == "NP":
+                frontier.append(leave)
+    print(npc)
     raise NotImplementedError
 
 
