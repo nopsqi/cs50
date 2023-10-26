@@ -19,7 +19,7 @@ S -> NP VP
 
 AP -> A | Adj | A AP | Adj AP
 NP -> N | Det NP | AP NP | N PP
-PP -> P NP
+PP -> P NP | Adv NP
 VP -> V | V NP | V NP PP
 """
 
