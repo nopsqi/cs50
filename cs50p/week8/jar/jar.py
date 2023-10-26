@@ -17,7 +17,9 @@ class Jar:
 
     @capacity.setter
     def capacity(self, n):
-        
+       if int(n) < 0:
+           raise ValueError
+       self._capacity = int(n)
 
     @property
     def size(self):
