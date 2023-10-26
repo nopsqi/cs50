@@ -89,14 +89,12 @@ def np_chunk(tree):
             visited.append(node)
         else:
             continue
-        if node.label() == "NP":
-            print(list(node.subtrees()))
-        if node.label() == "NP" and all(leave.label() != "NP" for leave in node.subtrees()):
+        if node.label() == "NP" and sum(leave.label() == "NP" for leave in node.subtrees()) == 1:
             npc.append(node)
         for leave in node.subtrees():
             if leave.label() == "NP":
                 frontier.append(leave)
-    raise NotImplementedError
+    return npc
 
 
 if __name__ == "__main__":
