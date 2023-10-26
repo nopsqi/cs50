@@ -37,4 +37,6 @@ class Jar:
 
 if __name__ == "__main__":
     jar = Jar(15)
+    jar.deposit(5)
+    jar.withdraw(2)
     print(jar)
