@@ -88,18 +88,17 @@ def np_chunk(tree):
         if len(frontier) == 0:
             break
         node = frontier.pop(0)
-        if node not in visited and isinstance(node, nltk.Tree):
+        if node not in visited:
             visited.append(node)
         else:
             continue
         if (
             node.label() == "NP"
-            and all(leave.label() != "NP" for leave in node)
+            and sum(leave.label() == "NP" for leave in node.subtrees()) == 1
         ):
             npc.append(node)
-        for leave in node:
+        for leave in node.subtrees(lambda t: t.label() == "NP"):
             frontier.append(leave)
-    print(npc)
     return npc
 
 
