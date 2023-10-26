@@ -90,7 +90,7 @@ def np_chunk(tree):
             visited.append(node)
         else:
             continue
-        if node.label == "NP"
+        if node.
     raise NotImplementedError
 
 
