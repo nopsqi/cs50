@@ -4,13 +4,14 @@ class Jar:
         self.size = 0
 
     def __str__(self):
-        ...
+        if
+        return "🍪" * self.size
 
     def deposit(self, n):
         self.size += n
 
     def withdraw(self, n):
-        ...
+        self.size -= n
 
     @property
     def capacity(self):
@@ -36,4 +37,5 @@ class Jar:
 
 
 if __name__ == "__main__":
-
+    jar = Jar(15)
+    print(jar)
