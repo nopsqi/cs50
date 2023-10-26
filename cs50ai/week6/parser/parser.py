@@ -77,16 +77,14 @@ def np_chunk(tree):
     whose label is "NP" that does not itself contain any other
     noun phrases as subtrees.
     """
-    print(dir(tree))
-    print(list(tree.subtrees())[0].leaf_treeposition())
-    # npc = []
-    # frontier = [tree]
-    # visited = []
-    # while True:
-    #     if len(frontier) == 0:
-    #         break
-    #     node = frontier.pop(0)
-    #     if
+    npc = []
+    frontier = [tree]
+    visited = []
+    while True:
+        if len(frontier) == 0:
+            break
+        node = frontier.pop(0)
+        if
     raise NotImplementedError
 
 
