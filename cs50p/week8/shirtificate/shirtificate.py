@@ -6,7 +6,7 @@ def main():
     pdf.set_font("Helvetica")
     pdf.set_page_background("shirtificate.png")
     pdf.add_page()
-    pdf.cell(text="9")
+    pdf.cell(50, 50, "John Harvard took CS50")
     pdf.output("shirtificate.pdf")
 
 
