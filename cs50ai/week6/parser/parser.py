@@ -80,8 +80,6 @@ def np_chunk(tree):
     whose label is "NP" that does not itself contain any other
     noun phrases as subtrees.
     """
-    print(dir(tree))
-    print(tree.leaves())
     npc = []
     frontier = []
     frontier.append(tree)
@@ -102,6 +100,7 @@ def np_chunk(tree):
         for leave in node.subtrees():
             if leave.label() == "NP":
                 frontier.append(leave)
+    print(tree.height())
     return npc
 
 
