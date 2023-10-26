@@ -84,7 +84,11 @@ def np_chunk(tree):
         if len(frontier) == 0:
             break
         node = frontier.pop(0)
-        visited.append(node)
+        if node not in visited:
+            visited.append(node)
+        else:
+            continue
+        if node.label == "NP"
     raise NotImplementedError
 
 
