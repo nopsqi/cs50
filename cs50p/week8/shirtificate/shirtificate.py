@@ -2,9 +2,9 @@ from fpdf import FPDF
 
 
 def main():
-    pdf = FPDF()
+    pdf = FPDF(orientation="portrait", format="a4")
     pdf.set_font("Helvetica")
-    pdf.add_page(format=(210 * (1 - i/10), 297 * (1 - i/10)))
+    pdf.add_page()
     pdf.cell(text="9")
     pdf.output("shirtificate.pdf")
 
