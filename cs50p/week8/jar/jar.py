@@ -28,9 +28,11 @@ class Jar:
 
     @size.setter
     def size(self, n):
-        if self._size >= self._capacity:
+        if n > self._capacity:
             raise ValueError("Not enough space")
-        self._size += n
+        if n < 0:
+            raise ValueError("Not enough cookies")
+        self._size = n
 
 
 if __name__ == "__main__":
