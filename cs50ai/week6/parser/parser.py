@@ -90,7 +90,8 @@ def np_chunk(tree):
             visited.append(node)
         else:
             continue
-        if node.
+        if all(leave.label != "NP" for leave in node.subtrees()):
+            
     raise NotImplementedError
 
 
