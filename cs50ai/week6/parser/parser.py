@@ -28,7 +28,6 @@ parser = nltk.ChartParser(grammar)
 
 
 def main():
-
     # If filename specified, read sentence from file
     if len(sys.argv) == 2:
         with open(sys.argv[1]) as f:
@@ -67,7 +66,11 @@ def preprocess(sentence):
     and removing any word that does not contain at least one alphabetic
     character.
     """
-    return [word for word in nltk.tokenize.word_tokenize(sentence.strip().lower()) if any(w.isalpha() for w in word)]
+    return [
+        word
+        for word in nltk.tokenize.word_tokenize(sentence.strip().lower())
+        if any(w.isalpha() for w in word)
+    ]
 
 
 def np_chunk(tree):
@@ -89,7 +92,10 @@ def np_chunk(tree):
             visited.append(node)
         else:
             continue
-        if node.label() == "NP" and sum(leave.label() == "NP" for leave in node.subtrees()) == 1:
+        if (
+            node.label() == "NP"
+            and sum(leave.label() == "NP" for leave in node.subtrees()) == 1
+        ):
             npc.append(node)
         for leave in node.subtrees():
             if leave.label() == "NP":
