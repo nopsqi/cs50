@@ -62,7 +62,7 @@ def preprocess(sentence):
     and removing any word that does not contain at least one alphabetic
     character.
     """
-    raise NotImplementedError
+    return [word for word in sentence.lower().split(" ") if word]
 
 
 def np_chunk(tree):
