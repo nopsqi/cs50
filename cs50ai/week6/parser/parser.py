@@ -78,7 +78,8 @@ def np_chunk(tree):
     noun phrases as subtrees.
     """
     print(dir(tree))
-    print(tree.leaves())
+    print(tree.label())
+    print(tree.subtrees())
     raise NotImplementedError
 
 
