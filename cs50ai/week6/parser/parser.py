@@ -86,11 +86,12 @@ def np_chunk(tree):
         if len(frontier) == 0:
             break
         node = frontier.pop(0)
+        print(node)
         if node not in visited:
             visited.append(node)
         else:
             continue
-        if all(leave.label != "NP" for leave in node.subtrees()):
+        if node.label == "NP" and all(leave.label != "NP" for leave in node.subtrees()):
             npc.append(node)
         for leave in node.subtrees():
             if leave.label == "NP":
