@@ -88,7 +88,7 @@ def np_chunk(tree):
         if len(frontier) == 0:
             break
         node = frontier.pop(0)
-        if node not in visited:
+        if node not in visited and isinstance(node, nltk.Tree):
             visited.append(node)
         else:
             continue
