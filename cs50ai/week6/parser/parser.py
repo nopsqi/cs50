@@ -79,18 +79,18 @@ def np_chunk(tree):
     """
     for leave in tree.subtrees():
         print(leave)
-    # npc = []
-    # frontier = [tree]
-    # visited = []
-    # while True:
-    #     if len(frontier) == 0:
-    #         break
-    #     node = frontier.pop(0)
-    #     if node not in visited:
-    #         visited.append(node)
-    #     else:
-    #         continue
-    #     if node.label == "NP"
+    npc = []
+    frontier = [tree]
+    visited = []
+    while True:
+        if len(frontier) == 0:
+            break
+        node = frontier.pop(0)
+        if node not in visited and node.label == "NP":
+            visited.append(node)
+        else:
+            continue
+        if node.label == "NP"
     raise NotImplementedError
 
 
