@@ -46,8 +46,7 @@ def get_mask_token_index(mask_token_id, inputs):
     `None` if not present in the `inputs`.
     """
     print(mask_token_id)
-    print(dir(inputs))
-    print(inputs.get(103))
+    print(type(inputs))
     raise NotImplementedError
 
 
