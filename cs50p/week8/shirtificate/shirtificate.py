@@ -9,7 +9,8 @@ def main():
     pdf.add_page()
     pdf.set_y(pdf.h / 2)
     pdf.set_x(pdf.w / 2)
-    pdf.cell(text="John Harvard took CS50")
+    cell = pdf.cell(text="John Harvard took CS50")
+    print(type(cell))
     pdf.output("shirtificate.pdf")
 
 
