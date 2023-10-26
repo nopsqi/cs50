@@ -8,8 +8,7 @@ def main():
     pdf.set_page_background("shirtificate.png")
     pdf.add_page()
     pdf.set_y(pdf.h / 2)
-    pdf.set_x(pdf.w / 2)
-    cell = pdf.cell(text="John Harvard took CS50")
+    cell = pdf.cell(w=pdf.w, text="John Harvard took CS50", border=1, align="C")
     print(type(cell))
     pdf.output("shirtificate.pdf")
 
