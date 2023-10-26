@@ -89,7 +89,8 @@ def np_chunk(tree):
             visited.append(node)
         else:
             continue
-        print(node)
+        if node.label() == "NP":
+            print(list(node.subtrees()))
         if node.label() == "NP" and all(leave.label() != "NP" for leave in node.subtrees()):
             npc.append(node)
         for leave in node.subtrees():
