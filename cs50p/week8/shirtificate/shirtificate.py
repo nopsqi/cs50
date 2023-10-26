@@ -6,7 +6,7 @@ def main():
     pdf.set_font("Helvetica", size=30)
     # pdf.set_text_color(255, 255, 255)
     pdf.add_page()
-    pdf.image("shirtificate.png", x=Align.C, w=(pdf.w - pdf.l_margin - pdf.r_margin), keep_aspect_ratio=True)
+    pdf.image("shirtificate.png", x=Align.C, w=(pdf.w - pdf.l_margin - pdf.r_margin))
     pdf.set_y(pdf.h / 2)
     pdf.cell(w=(pdf.w - pdf.l_margin - pdf.r_margin), text="John Harvard took CS50", border=1, align="C")
     print(pdf.l_margin)
