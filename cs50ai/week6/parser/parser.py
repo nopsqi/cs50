@@ -99,7 +99,7 @@ def np_chunk(tree):
             npc.append(node)
         for leave in node.subtrees(lambda t: t.label() == "NP"):
             frontier.append(leave)
-    for leave in tree.subtrees():
+    for leave in tree.subtrees(lambda t: t.height() == tree.height() - 1):
         print(leave, leave.height())
     return npc
 
