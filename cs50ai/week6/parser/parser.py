@@ -94,12 +94,12 @@ def np_chunk(tree):
             continue
         if (
             node.label() == "NP"
-            and sum(leave.label() == "NP" for leave in node.subtrees()) == 1
+            and all(leave.label() != "NP" for leave in node)
         ):
             npc.append(node)
         for leave in node.subtrees(lambda t: t.label() == "NP"):
             frontier.append(leave)
-    print(dir(tree))
+    print(npc)
     return npc
 
 
