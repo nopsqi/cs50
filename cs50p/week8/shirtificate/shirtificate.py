@@ -10,15 +10,15 @@ def main():
     pdf.set_y(pdf.h / 10)
     pdf.set_font_size(40)
     pdf.set_text_color(0, 0, 0)
-    pdf.cell(w=(pdf.w - pdf.l_margin - pdf.r_margin), text="CS50 Shirtificate", border=1, align=Align.C)
+    pdf.cell(w=(pdf.w - pdf.l_margin - pdf.r_margin), text="CS50 Shirtificate", border=0, align=Align.C)
 
-    pdf.set_y(pdf.get_y() + 10)
+    pdf.set_y(pdf.get_y() + (pdf.h / 10))
     pdf.image("shirtificate.png", x=Align.C, w=(pdf.w - pdf.l_margin - pdf.r_margin))
 
-    pdf.set_y(pdf.h / 2)
+    pdf.set_y((pdf.h / 2) - (pdf.h / 10))
     pdf.set_font_size(25)
     pdf.set_text_color(255, 255, 255)
-    pdf.cell(w=(pdf.w - pdf.l_margin - pdf.r_margin), text="John Harvard took CS50", border=1, align="C")
+    pdf.cell(w=(pdf.w - pdf.l_margin - pdf.r_margin), text=f"{input('Name: ').strip()} took CS50", border=0, align="C")
 
     pdf.output("shirtificate.pdf")
 
