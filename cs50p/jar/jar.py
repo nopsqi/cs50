@@ -13,7 +13,7 @@ class Jar:
 
     @property
     def capacity(self):
-        ...
+        return self._capacity
 
     @property
     def size(self):
@@ -21,4 +21,4 @@ class Jar:
 
 
 if __name__ == "__main__":
-    
+
