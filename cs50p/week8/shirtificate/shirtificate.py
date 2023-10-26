@@ -3,8 +3,9 @@ from fpdf import FPDF, Align
 
 def main():
     pdf = FPDF(orientation="portrait", format="a4")
+    pdf.set_margin(13)
     pdf.set_font("Helvetica", size=30)
-    # pdf.set_text_color(255, 255, 255)
+    pdf.set_text_color(255, 255, 255)
     pdf.add_page()
     pdf.image("shirtificate.png", x=Align.C, w=(pdf.w - pdf.l_margin - pdf.r_margin))
     pdf.set_y(pdf.h / 2)
