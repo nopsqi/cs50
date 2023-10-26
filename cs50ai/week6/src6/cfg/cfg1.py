@@ -3,7 +3,7 @@ import nltk
 grammar = nltk.CFG.fromstring("""
     S -> NP VP
 
-    AP -> A | AP AP
+    AP -> A | A AP
     NP -> N | D NP | AP NP | N PP
     PP -> P NP
     VP -> V | V NP | V NP PP
