@@ -48,7 +48,8 @@ def get_mask_token_index(mask_token_id, inputs):
     """
     print(inputs)
     print(dir(inputs))
-    for i in inputs:
+    print(inputs.values())
+    for i in inputs.values():
         print(i)
     raise NotImplementedError
 
