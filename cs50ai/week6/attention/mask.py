@@ -17,7 +17,8 @@ PIXELS_PER_WORD = 200
 
 
 def main():
-    text = input("Text: ")
+    # text = input("Text: ")
+    text = "We turned down a narrow lane and passed through a small [MASK]."
 
     # Tokenize input
     tokenizer = AutoTokenizer.from_pretrained(MODEL)
@@ -46,6 +47,7 @@ def get_mask_token_index(mask_token_id, inputs):
     `None` if not present in the `inputs`.
     """
     print(inputs)
+    print(dir(inputs))
     for i in inputs:
         print(i)
     raise NotImplementedError
