@@ -46,7 +46,7 @@ def get_mask_token_index(mask_token_id, inputs):
     Return the index of the token with the specified `mask_token_id`, or
     `None` if not present in the `inputs`.
     """
-    print(dir(inputs["input_ids"]))
+    print(dir(inputs["input_ids"].numpy()[0]))
     raise NotImplementedError
 
 
