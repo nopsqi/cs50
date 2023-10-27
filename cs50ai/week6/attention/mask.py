@@ -1,4 +1,5 @@
 import sys
+import numpy as np
 import tensorflow as tf
 
 from PIL import Image, ImageDraw, ImageFont
@@ -46,7 +47,7 @@ def get_mask_token_index(mask_token_id, inputs):
     Return the index of the token with the specified `mask_token_id`, or
     `None` if not present in the `inputs`.
     """
-    print(dir(inputs["input_ids"].numpy()[0]))
+    print(np.where(inputs["input_ids"].numpy()[0] == mask_token_id))
     raise NotImplementedError
 
 
