@@ -47,7 +47,7 @@ def get_mask_token_index(mask_token_id, inputs):
     Return the index of the token with the specified `mask_token_id`, or
     `None` if not present in the `inputs`.
     """
-    return None if not (index := np.where(inputs["input_ids"].numpy()[0] == mask_token_id)[0]) else index.item()
+    return (index := np.where(inputs["input_ids"].numpy()[0] == mask_token_id)[0]).item() if index else None
 
 
 
