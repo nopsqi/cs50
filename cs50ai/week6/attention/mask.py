@@ -61,7 +61,6 @@ def get_color_for_attention_score(attention_score):
     return tuple([round(255 * attention_score)] * 3)
 
 
-
 def visualize_attentions(tokens, attentions):
     """
     Produce a graphical representation of self-attention scores.
@@ -72,14 +71,15 @@ def visualize_attentions(tokens, attentions):
     include both the layer number (starting count from 1) and head number
     (starting count from 1).
     """
-    for attention in attentions:
-        for head in attention[0]
-    generate_diagram(
-        1,
-        1,
-        tokens,
-        attentions[0][0][0]
-    )
+    for i in range(len(attentions)):
+        for j in range(len(attentions[i])):
+            for k in range(len(attentions[i][j]))
+                generate_diagram(
+                    i + 1,
+                    k + 1,
+                    tokens,
+                    attentions[i][j][k]
+                )
 
 
 def generate_diagram(layer_number, head_number, tokens, attention_weights):
