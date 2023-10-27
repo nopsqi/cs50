@@ -78,8 +78,8 @@ def visualize_attentions(tokens, attentions):
     #     tokens,
     #     attentions[0][0][0]
     # )
-    print(tokens)
-    print(attentions)
+    print(len(tokens))
+    print(len(attentions))
 
 
 def generate_diagram(layer_number, head_number, tokens, attention_weights):
