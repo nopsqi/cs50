@@ -18,8 +18,7 @@ PIXELS_PER_WORD = 200
 
 
 def main():
-    # text = input("Text: ")
-    text = "We turned down a narrow lane and passed through a small [MASK]."
+    text = input("Text: ")
 
     # Tokenize input
     tokenizer = AutoTokenizer.from_pretrained(MODEL)
