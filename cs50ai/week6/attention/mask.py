@@ -48,7 +48,8 @@ def get_mask_token_index(mask_token_id, inputs):
     `None` if not present in the `inputs`.
     """
     print(inputs)
-    print(np.where(inputs["input_ids"].numpy()[0] == mask_token_id))
+    print(np.where(inputs["input_ids"].numpy()[0] == 1)[0].item())
+    print(dir(np.where(inputs["input_ids"].numpy()[0] == mask_token_id)[0]))
     raise NotImplementedError
 
 
