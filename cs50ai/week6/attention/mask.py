@@ -47,10 +47,9 @@ def get_mask_token_index(mask_token_id, inputs):
     Return the index of the token with the specified `mask_token_id`, or
     `None` if not present in the `inputs`.
     """
-    if (index := np.where(inputs["input_ids"].numpy()[0] == mask_token_id)[0]):
+    if index := np.where(inputs["input_ids"].numpy()[0] == mask_token_id)[0]:
         return index.item()
     return None
-
 
 
 def get_color_for_attention_score(attention_score):
@@ -73,13 +72,8 @@ def visualize_attentions(tokens, attentions):
     """
     for i in range(len(attentions)):
         for j in range(len(attentions[i])):
-            for k in range(len(attentions[i][j]))
-                generate_diagram(
-                    i + 1,
-                    k + 1,
-                    tokens,
-                    attentions[i][j][k]
-                )
+            for k in range(len(attentions[i][j])):
+                generate_diagram(i + 1, k + 1, tokens, attentions[i][j][k])
 
 
 def generate_diagram(layer_number, head_number, tokens, attention_weights):
@@ -106,7 +100,7 @@ def generate_diagram(layer_number, head_number, tokens, attention_weights):
             (image_size - PIXELS_PER_WORD, PIXELS_PER_WORD + i * GRID_SIZE),
             token,
             fill="white",
-            font=FONT
+            font=FONT,
         )
         token_image = token_image.rotate(90)
         img.paste(token_image, mask=token_image)
@@ -117,7 +111,7 @@ def generate_diagram(layer_number, head_number, tokens, attention_weights):
             (PIXELS_PER_WORD - width, PIXELS_PER_WORD + i * GRID_SIZE),
             token,
             fill="white",
-            font=FONT
+            font=FONT,
         )
 
     # Draw each word
