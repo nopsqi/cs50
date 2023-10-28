@@ -7,6 +7,10 @@
     border: none;
 } */
 
+body {
+    font-size: 32px;
+}
+
 .navbar {
     text-align: right;
 }
@@ -24,7 +28,7 @@
 }
 
 .logo {
-    font-size: 1em;
+    font-size: 64px;
     display: flex;
     justify-content: center;
 }
