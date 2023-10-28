@@ -11,3 +11,7 @@ html, body, header, main {
 .navbar {
     text-align: right;
 }
+
+.simple-field {
+    text-align: center;
+}
