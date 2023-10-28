@@ -18,4 +18,5 @@ html, body, header, main {
 
 .logo {
     font-size: 64px;
+    font-weight: bold;
 }
