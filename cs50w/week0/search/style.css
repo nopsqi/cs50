@@ -3,7 +3,7 @@
     margin: 10px;
 }
 
-html, body, header, main {
+html, body, header {
     border: none;
     margin: 0;
 }
@@ -13,6 +13,8 @@ html, body, header, main {
 }
 
 .simple-field {
+    /* height: vh;
+    width: vw; */
     text-align: center;
 }
 
