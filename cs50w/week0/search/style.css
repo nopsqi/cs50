@@ -16,6 +16,10 @@ html, body, header, main {
     text-align: center;
 }
 
+.simple-field input {
+    border-radius: 25px;
+}
+
 .logo {
     font-size: 64px;
     display: flex;
