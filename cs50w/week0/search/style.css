@@ -1,9 +1,8 @@
 * {
     border: 1px solid black;
-    padding: 3px;
-    margin: 3px;
+    margin: 10px;
 }
 
 navbar {
-
+    text-align: center;
 }
