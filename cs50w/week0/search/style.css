@@ -3,6 +3,11 @@
     margin: 10px;
 }
 
+html, body, header, main {
+    border: none;
+    margin: 0;
+}
+
 .navbar {
     text-align: right;
 }
