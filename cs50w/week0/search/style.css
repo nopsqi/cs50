@@ -13,7 +13,9 @@
 
 .simple-field {
     height: 100vh;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .simple-field input {
