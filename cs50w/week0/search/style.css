@@ -13,7 +13,7 @@
 
 .simple-field {
     height: 100vh;
-    display: flex;
+    margin: auto;
 }
 
 .simple-field input {
