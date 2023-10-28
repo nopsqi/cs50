@@ -3,18 +3,15 @@
     margin: 10px;
 }
 
-html, body, header {
+/* html, body, header {
     border: none;
-    margin: 0;
-}
+} */
 
 .navbar {
     text-align: right;
 }
 
 .simple-field {
-    height: 95vh;
-    width: 95vw;
     text-align: center;
 }
 
