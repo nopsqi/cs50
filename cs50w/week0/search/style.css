@@ -44,5 +44,13 @@ a {
 }
 
 .advance-field table {
-    width: 50%;
+    width: 60%;
+}
+
+.advance-field table .label {
+    width: 30%
+}
+
+.advance-field table input {
+    width: 90%;
 }
