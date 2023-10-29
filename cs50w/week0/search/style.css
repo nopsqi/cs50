@@ -57,3 +57,8 @@ a {
 .advance-field table .advance-button {
     text-align: right;
 }
+
+.advance-button button {
+    background-color: blue;
+    color: white;
+}
