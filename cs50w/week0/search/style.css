@@ -40,5 +40,9 @@ a {
 }
 
 .advance-field {
-    
+    padding: 20px 10px;
+}
+
+.advance-field table {
+    width: 50%;
 }
