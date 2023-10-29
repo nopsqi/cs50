@@ -62,3 +62,7 @@ a {
     background-color: blue;
     color: white;
 }
+
+.advance-button button:hover {
+    background-color: mediumblue;
+}
