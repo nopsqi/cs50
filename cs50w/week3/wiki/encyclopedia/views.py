@@ -10,5 +10,7 @@ def index(request):
 
 
 def entry_page(request):
-    return render(request, )
+    return render(request, f"encyclopedia/entry_page.html, {
+        "entry": 
+    })
 
