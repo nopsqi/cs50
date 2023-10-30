@@ -10,5 +10,5 @@ def index(request):
 
 
 def entry_page(request):
-    return render()
+    return render(request, )
 
