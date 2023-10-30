@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from . import util
 
@@ -11,6 +11,6 @@ def index(request):
 
 def entry_page(request, title):
     return render(request, f"encyclopedia/entry_page.html", {
-        "entry": util.get_entry(title)
+        "entry": get_object_or_404(util.get_entry(title))
     })
 
