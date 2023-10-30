@@ -9,8 +9,8 @@ def index(request):
     })
 
 
-def entry_page(request):
-    return render(request, f"encyclopedia/entry_page.html, {
-        "entry": 
+def entry_page(request, title):
+    return render(request, f"encyclopedia/entry_page.html", {
+        "entry": util.get_entry(title)
     })
 
