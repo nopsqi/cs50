@@ -41,4 +41,3 @@ def search_entry(title):
     if not (result := [re.sub(r"\.md$", "", filename) for filename in default_storage.listdir("entries")[1] if (re.search(title, filename, re.IGNORECASE) and filename.endswith(".md"))]):
         return None
     return result
-
