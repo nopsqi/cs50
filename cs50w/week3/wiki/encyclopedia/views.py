@@ -1,5 +1,6 @@
 import random
 from django import forms
+from django.core.exceptions import ValidationError
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.http import Http404, HttpResponse, HttpResponseRedirect
@@ -16,7 +17,8 @@ class NewEntryForm(EditEntryForm):
     title = forms.CharField(label="Title: ", widget=forms.Textarea(attrs={"rows": 1}), validators=[validate_title])
 
     def validate_title(self, title):
-        if 
+        if util.get_entry(title):
+            raise ValidationError
 
 
 def index(request):
