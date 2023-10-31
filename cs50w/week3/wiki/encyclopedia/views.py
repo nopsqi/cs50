@@ -18,7 +18,7 @@ def entry(request, title):
         raise Http404("Entry doesn't exist")
     return render(request, "encyclopedia/entry.html", {
         "title": title,
-        "entry": entry
+        "entry": markdown2.markdown(entry)
     })
 
 
