@@ -37,4 +37,9 @@ def create(request):
 
 
 def edit(request, title):
-    ...
+    if request.method == "POST":
+        ...
+    return render(request, "encyclopedia/edit.html", {
+        "title": title,
+        "markdown": util.get_entry(title)
+    })
