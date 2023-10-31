@@ -7,9 +7,9 @@
 {% block body %}
     <h1>New Entry</h1>
     <form>
-        title:
-        <textarea name="title" rows="4" cols="50"></textarea>
-        Mardown:
+        <label for="title">Title:</label>
+        <textarea id="title" name="title" rows="4" cols="50"></textarea>
+        <label for="markdown">Markdown:</label>
         <textarea name="markdown" rows="4" cols="50"></textarea>
     </form>
 {% endblock %}
