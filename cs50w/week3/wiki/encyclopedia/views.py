@@ -47,4 +47,4 @@ def edit(request, title):
 
 
 def random(request):
-    
+    return HttpResponseRedirect(reverse("entry", args=[random]))
