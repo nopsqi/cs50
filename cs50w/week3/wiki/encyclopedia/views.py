@@ -9,11 +9,11 @@ from . import util
 
 
 class EditEntryForm(forms.Form):
-    content = form.CharField(label="Title: ", widget=forms.Textarea(attrs={"rows": 15}))
+    markdown = forms.CharField(label="Markdown: ", widget=forms.Textarea(attrs={"rows": 15}))
 
 
 class NewEntryForm(EditEntryForm):
-    title = form.CharField(widget=forms.Textarea(attrs={"rows": 1}))
+    title = forms.CharField(label="Title: ", widget=forms.Textarea(attrs={"rows": 1}), validators=[validate_title])
 
 
 def index(request):
