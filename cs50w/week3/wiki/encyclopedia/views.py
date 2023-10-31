@@ -9,7 +9,7 @@ from . import util
 
 
 class NewEntryForm(forms.Form):
-    title = form.CharField()
+    title = form.CharField(widget=forms.Textarea)
 
 
 def index(request):
