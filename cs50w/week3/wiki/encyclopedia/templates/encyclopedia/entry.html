@@ -6,7 +6,9 @@
 {% endblock %}
 
 {% block body %}
-    {% if }
+    {% if 'h1' not in entry %}
+        <h1>{{ title }}</h1>
+    {% endif %}
     {{ entry|safe }}
     <div class="flex-container">
         <a href="{% url 'edit' title %}">Edit</a>
