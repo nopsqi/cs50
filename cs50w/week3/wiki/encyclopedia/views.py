@@ -1,10 +1,15 @@
 import random
+from django import forms
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 import markdown2
 
 from . import util
+
+
+class NewEntryForm(forms.Form):
+    title = form.CharField()
 
 
 def index(request):
