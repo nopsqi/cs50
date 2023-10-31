@@ -21,6 +21,7 @@ def entry_page(request, title):
 def search(request):
     print(util.search_entry(request.GET["q"]))
     return render(request, "encyclopedia/search_result.html", {
-        "result": request.GET["q"]
+        "query": request.GET["q"],
+        "result": util.search_entry(request.GET["q"])
     })
 
