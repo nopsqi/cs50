@@ -14,7 +14,8 @@ class EditEntryForm(forms.Form):
 
 
 class NewEntryForm(EditEntryForm):
-    title = forms.CharField(label="Title: ", widget=forms.Textarea(attrs={"rows": 1}), validators=[validate_title])
+    def __init__(self):
+        title = forms.CharField(label="Title: ", widget=forms.Textarea(attrs={"rows": 1}), validators=[self.validate_title])
 
     @staticmethod
     def validate_title(title):
