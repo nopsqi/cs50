@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create
+{% endblock %}
+
+{% block body %}
+    <h1>New Entry</h1>
+    <form style="display: flex;">
+        title:
+        <textarea name="title" rows="4" cols="50"></textarea>
+        Mardown:
+        <textarea name="markdown" rows="4" cols="50"></textarea>
+    </form>
+{% endblock %}

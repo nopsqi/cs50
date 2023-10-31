@@ -13,7 +13,7 @@ def index(request):
 def entry_page(request, title):
     if not (entry := util.get_entry(title)):
         raise Http404("Entry doesn't exist")
-    return render(request, "encyclopedia/entry_page.html", {
+    return render(request, "encyclopedia/entry.html", {
         "title": title,
         "entry": entry
     })
