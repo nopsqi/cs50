@@ -51,7 +51,9 @@ def create(request):
             raise Http404(f"Entry with title {request.POST['title']} exist")
         util.save_entry(request.POST["title"], request.POST["markdown"])
         return HttpResponseRedirect(reverse("entry", args=[request.POST["title"]]))
-    return render(request, "encyclopedia/create.html")
+    return render(request, "encyclopedia/create.html", {
+        "form": NewEntryForm()
+    })
 
 
 def edit(request, title):
