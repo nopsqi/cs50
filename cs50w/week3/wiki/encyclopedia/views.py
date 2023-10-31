@@ -44,3 +44,7 @@ def edit(request, title):
         "title": title,
         "markdown": util.get_entry(title)
     })
+
+
+def random(request):
+    
