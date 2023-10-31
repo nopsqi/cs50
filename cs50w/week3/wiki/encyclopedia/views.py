@@ -29,6 +29,7 @@ def search(request):
 
 def create(request):
     if request.method == "POST":
+        print(request.POST)
         HttpResponseRedirect(reverse("create"))
     return render(request, "encyclopedia/create.html")
 
