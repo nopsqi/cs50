@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.http import Http404, HttpResponse, HttpResponseRedirect
@@ -46,5 +47,5 @@ def edit(request, title):
     })
 
 
-def random(request):
-    return HttpResponseRedirect(reverse("entry", args=[random]))
+def random_page():
+    return HttpResponseRedirect(reverse("entry", args=[random.choice(util.list_entries())]))
