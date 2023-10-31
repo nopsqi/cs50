@@ -41,3 +41,8 @@ textarea {
 .sidebar h2 {
     margin-top: 5px;
 }
+
+.flex-container {
+    display: flex;
+    
+}

@@ -56,6 +56,5 @@ def search_entry(title):
 
 def delete(title):
     filename = f"entries/{title}.md"
-    if default_storage.exists(filename):
-        default_storage.delete(filename)
-        
+    # if default_storage.exists(filename):
+    default_storage.delete(filename)
