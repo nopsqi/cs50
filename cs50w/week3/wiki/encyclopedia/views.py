@@ -38,7 +38,8 @@ def create(request):
 
 def edit(request, title):
     if request.method == "POST":
-        ...
+        util.save_entry(request.POST["title"], request.POST["markdown"])
+        return HttpResponseRedirect(reverse("entry", args=[request.POST["title"]]))
     return render(request, "encyclopedia/edit.html", {
         "title": title,
         "markdown": util.get_entry(title)
