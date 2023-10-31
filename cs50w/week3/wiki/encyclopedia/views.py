@@ -16,9 +16,10 @@ class EditEntryForm(forms.Form):
 class NewEntryForm(EditEntryForm):
     title = forms.CharField(label="Title: ", widget=forms.Textarea(attrs={"rows": 1}), validators=[validate_title])
 
-    def validate_title(self, title):
+    @staticmethod
+    def validate_title(title):
         if util.get_entry(title):
-            raise ValidationError
+            raise ValidationError(f"Value with title {title} exist")
 
 
 def index(request):
