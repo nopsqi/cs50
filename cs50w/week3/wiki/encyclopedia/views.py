@@ -16,11 +16,9 @@ def index(request):
 def entry(request, title):
     if not (entry := util.get_entry(title)):
         raise Http404("Entry doesn't exist")
-    entry = markdown2.markdown(entry)
     return render(request, "encyclopedia/entry.html", {
         "title": title,
-        "entry": entry,
-        "is_h1_exist": "h1" in entry
+        "entry": markdown2.markdown(entry),
     })
 
 
