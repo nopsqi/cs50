@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404, HttpResponse
+from django.urls import reverse
+from django.http import Http404, HttpResponse, HttpResponseRedirect
 
 from . import util
 
@@ -28,6 +29,6 @@ def search(request):
 
 def create(request):
     if request.method == "POST":
-        redirect()
+        HttpResponseRedirect(reverse("create"))
     return render(request, "encyclopedia/create.html")
 
