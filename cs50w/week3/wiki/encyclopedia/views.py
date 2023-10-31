@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404
+from django.http import Http404, HttpResponse
 
 from . import util
 
@@ -19,4 +19,5 @@ def entry_page(request, title):
 
 def search(request):
     if request.method == "GET":
-        
+        return HttpResponse(request.GET["q"])
+
