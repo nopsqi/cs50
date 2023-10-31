@@ -8,6 +8,9 @@ from . import util
 
 
 def index(request):
+    if "entries" not in request.session:
+        request.session["entries"] = []
+    print(request.session["entries"])
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
     })
