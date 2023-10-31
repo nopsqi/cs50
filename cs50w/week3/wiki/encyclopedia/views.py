@@ -15,6 +15,9 @@ class EditEntryForm(forms.Form):
 class NewEntryForm(EditEntryForm):
     title = forms.CharField(label="Title: ", widget=forms.Textarea(attrs={"rows": 1}), validators=[validate_title])
 
+    def validate_title(self, title):
+        if 
+
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
