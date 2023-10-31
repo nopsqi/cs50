@@ -31,6 +31,7 @@ def create(request):
     if request.method == "POST":
         if util.get_entry(request.POST["title"]):
             raise Http404(f"Entry with title {request.POST['title']} exist")
+        util.save_entry(request.POST["title"], request.POST["markdown"])
         HttpResponseRedirect(reverse("create"))
     return render(request, "encyclopedia/create.html")
 
