@@ -7,6 +7,7 @@
 {% block body %}
     <h1>New Entry</h1>
     <form aciton="{% url 'create'}" method="post">
+        {% csrf_token %}
         <label>Title:</label>
         <textarea name="title" rows="1"></textarea>
         <label>Markdown:</label>
