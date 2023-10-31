@@ -27,4 +27,7 @@ def search(request):
 
 
 def create(request):
+    if request.method == "POST":
+        redirect()
     return render(request, "encyclopedia/create.html")
+

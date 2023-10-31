@@ -12,6 +12,11 @@ h1 {
     padding-top: 20px;
 }
 
+input {
+    display: block;
+    margin: 10px 0px;
+}
+
 textarea {
     display: block;
     width: 80%;
