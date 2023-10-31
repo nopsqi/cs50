@@ -47,5 +47,5 @@ def edit(request, title):
     })
 
 
-def random_page():
+def random_page(request):
     return HttpResponseRedirect(reverse("entry", args=[random.choice(util.list_entries())]))
