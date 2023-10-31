@@ -8,9 +8,12 @@ import markdown2
 from . import util
 
 
-class NewEntryForm(forms.Form):
+class EditEntryForm(forms.Form):
+    content = form.CharField(label="Title: ", widget=forms.Textarea(attrs={"rows": 15}))
+
+
+class NewEntryForm(EditEntryForm):
     title = form.CharField(widget=forms.Textarea(attrs={"rows": 1}))
-    content = form.CharField(widget=forms.Textarea(attrs={"rows": 15}))
 
 
 def index(request):
