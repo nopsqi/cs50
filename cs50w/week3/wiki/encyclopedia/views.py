@@ -29,7 +29,8 @@ def search(request):
 
 def create(request):
     if request.method == "POST":
-        print(request.POST)
+        if util.get_entry(request.POST["title"]):
+            raise Http404(f"Entry with title {request.POST['title']} exist")
         HttpResponseRedirect(reverse("create"))
     return render(request, "encyclopedia/create.html")
 
