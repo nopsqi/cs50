@@ -38,4 +38,7 @@ def get_entry(title):
 
 
 def search_entry(title):
-    
+    if not (result := [filename for _, filename in default_storage.listdir("entries") if re.search(title, filename, re.IGNORECASE)]):
+        return None
+    return result
+
