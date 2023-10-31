@@ -35,3 +35,6 @@ def create(request):
         return HttpResponseRedirect(reverse("entry", args=[request.POST["title"]]))
     return render(request, "encyclopedia/create.html")
 
+
+def edit(request, title):
+    ...
