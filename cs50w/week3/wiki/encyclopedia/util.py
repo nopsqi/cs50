@@ -52,3 +52,7 @@ def search_entry(title):
     ):
         return None
     return result
+
+
+def delete(title):
+    get_entry(title)
