@@ -9,7 +9,8 @@ from . import util
 
 
 class NewEntryForm(forms.Form):
-    title = form.CharField(widget=forms.Textarea)
+    title = form.CharField(widget=forms.Textarea(attrs={"rows": 1}))
+    content = form.CharField(widget=forms.Textarea(attrs={"rows": 15}))
 
 
 def index(request):
