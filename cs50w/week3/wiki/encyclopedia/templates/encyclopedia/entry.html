@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ title }}</h1>
-    {{ entry }}
+    {{ entry|safe }}
     <a href="{% url 'edit' title %}">Edit</a>
 {% endblock %}
