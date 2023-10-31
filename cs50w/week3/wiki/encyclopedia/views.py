@@ -18,10 +18,13 @@ def entry_page(request, title):
         "entry": entry
     })
 
+
 def search(request):
-    print(util.search_entry(request.GET["q"]))
-    return render(request, "encyclopedia/search_result.html", {
+    return render(request, "encyclopedia/search.html", {
         "query": request.GET["q"],
         "result": util.search_entry(request.GET["q"])
     })
 
+
+def create(request):
+    return render(request, "encyclopedia/create.html")
