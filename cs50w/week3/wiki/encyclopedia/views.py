@@ -18,6 +18,6 @@ def entry_page(request, title):
     })
 
 def search(request):
-    if request.method == "GET":
-        return HttpResponse(request.GET["q"])
+    print(util.search_entry(request.GET["q"]))
+    return HttpResponse(request.GET["q"])
 
