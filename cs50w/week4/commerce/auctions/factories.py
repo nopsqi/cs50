@@ -7,7 +7,7 @@ def main():
         category = CategoryFactory()
 
 
-class UserFactory(factory.django.DjangoFactory):
+class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
 
@@ -16,7 +16,7 @@ class UserFactory(factory.django.DjangoFactory):
     password = "asdf"
 
 
-class CategoryFactory(factory.django.DjangoFactory):
+class CategoryFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Category
 
