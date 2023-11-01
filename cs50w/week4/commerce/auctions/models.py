@@ -9,6 +9,9 @@ class User(AbstractUser):
 class Category(models.Model):
     name = models.CharField(max_length=16)
 
+    class Meta:
+        verbose_name_plural = "Categories"
+
 
 class Listing(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="listings")
@@ -28,6 +31,9 @@ class Bid(models.Model):
 class BidHistory(Bid):
     timestamp = models.DateField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = "Bid History"
+        verbose_name_plural = "Bid Histories"
 
 class Comment(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
