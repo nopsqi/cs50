@@ -1,21 +1,21 @@
-import os
+# import os
 import factory
-from models import User, Category, Listing, Bid, BidHistory, Comment
+from models import Category, Listing, Bid, BidHistory, Comment
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'commerce.settings')
+    # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'commerce.settings')
     for _ in range(5):
         user = CategoryFactory()
 
 
-class UserFactory(factory.django.DjangoFactory):
-    class Meta:
-        model = User
+# class UserFactory(factory.django.DjangoFactory):
+#     class Meta:
+#         model = User
 
-    username = factory.Faker("user_name")
-    email = factory.Faker("email")
-    password = "asdf"
+#     username = factory.Faker("user_name")
+#     email = factory.Faker("email")
+#     password = "asdf"
 
 
 class CategoryFactory(factory.django.DjangoFactory):
