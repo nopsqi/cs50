@@ -13,13 +13,13 @@ class EditEntryForm(forms.Form):
     markdown = forms.CharField(label="Markdown: ", widget=forms.Textarea(attrs={"rows": 15}))
 
 
-class NewEntryForm(EditEntryForm):
-    title = forms.CharField(label="Title: ", widget=forms.Textarea(attrs={"rows": 1}), validators=[self.validate_title])
+def validate_title(title):
+    if util.get_entry(title):
+        raise ValidationError(f"Value with title {title} exist")
 
-    @staticmethod
-    def validate_title(title):
-        if util.get_entry(title):
-            raise ValidationError(f"Value with title {title} exist")
+
+class NewEntryForm(EditEntryForm):
+    title = forms.CharField(label="Title: ", widget=forms.Textarea(attrs={"rows": 1}), validators=[validate_title])
 
 
 def index(request):
