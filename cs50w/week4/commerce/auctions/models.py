@@ -26,7 +26,7 @@ class Bid(models.Model):
 
 
 class BidHistory(models.Model):
-    timestamp = models.DateField(auto_now=True, )
+    timestamp = models.DateField(auto_add_now=True)
 
 
 class Comment(models.Model):
