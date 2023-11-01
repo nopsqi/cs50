@@ -48,10 +48,15 @@ def search(request):
 
 def create(request):
     if request.method == "POST":
-        if util.get_entry(request.POST["title"]):
-            raise Http404(f"Entry with title {request.POST['title']} exist")
-        util.save_entry(request.POST["title"], request.POST["markdown"])
-        return HttpResponseRedirect(reverse("entry", args=[request.POST["title"]]))
+        form = NewEntryForm(request.POST)
+        if form.is_valid():
+            util.save_entry(form.cleaned_data["title"], form.cleaned_data["markdown"])
+            return HttpResponseRedirect(reverse("entry", args=[request.POST["title"]]))
+        else:
+            return render(request, "encyclopedia/create.html", {
+                "form": form
+            })
+
     return render(request, "encyclopedia/create.html", {
         "form": NewEntryForm()
     })
