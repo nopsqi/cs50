@@ -9,8 +9,6 @@
     <form aciton="{% url 'edit' title}" method="post">
         {% csrf_token %}
         <p>Title: {{ title }}</p>
-        <!-- <label>Markdown:</label>
-        <textarea name="markdown" rows="15">{{ markdown }}</textarea> -->
         {{ form }}
         <input type="submit">
     </form>

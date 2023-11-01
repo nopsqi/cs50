@@ -10,7 +10,9 @@ from . import util
 
 
 class EditEntryForm(forms.Form):
-    markdown = forms.CharField(label="Markdown", widget=forms.Textarea(attrs={"rows": 15}))
+    markdown = forms.CharField(
+        label="Markdown", widget=forms.Textarea(attrs={"rows": 15})
+    )
 
 
 def validate_title(title):
@@ -19,31 +21,38 @@ def validate_title(title):
 
 
 class NewEntryForm(EditEntryForm):
-    title = forms.CharField(label="Title", widget=forms.Textarea(attrs={"rows": 1}), validators=[validate_title])
+    title = forms.CharField(
+        label="Title",
+        widget=forms.Textarea(attrs={"rows": 1}),
+        validators=[validate_title],
+    )
 
     field_order = ["title", "markdown"]
 
 
 def index(request):
-    return render(request, "encyclopedia/index.html", {
-        "entries": util.list_entries()
-    })
+    return render(request, "encyclopedia/index.html", {"entries": util.list_entries()})
 
 
 def entry(request, title):
     if not (entry := util.get_entry(title)):
         raise Http404("Entry doesn't exist")
-    return render(request, "encyclopedia/entry.html", {
-        "title": title,
-        "entry": markdown2.markdown(entry),
-    })
+    return render(
+        request,
+        "encyclopedia/entry.html",
+        {
+            "title": title,
+            "entry": markdown2.markdown(entry),
+        },
+    )
 
 
 def search(request):
-    return render(request, "encyclopedia/search.html", {
-        "query": request.GET["q"],
-        "result": util.search_entry(request.GET["q"])
-    })
+    return render(
+        request,
+        "encyclopedia/search.html",
+        {"query": request.GET["q"], "result": util.search_entry(request.GET["q"])},
+    )
 
 
 def create(request):
@@ -53,13 +62,9 @@ def create(request):
             util.save_entry(form.cleaned_data["title"], form.cleaned_data["markdown"])
             return HttpResponseRedirect(reverse("entry", args=[request.POST["title"]]))
         else:
-            return render(request, "encyclopedia/create.html", {
-                "form": form
-            })
+            return render(request, "encyclopedia/create.html", {"form": form})
 
-    return render(request, "encyclopedia/create.html", {
-        "form": NewEntryForm()
-    })
+    return render(request, "encyclopedia/create.html", {"form": NewEntryForm()})
 
 
 def edit(request, title):
@@ -69,19 +74,29 @@ def edit(request, title):
             util.save_entry(title, form.cleaned_data["markdown"])
             return HttpResponseRedirect(reverse("entry", args=[title]))
         else:
-            return render(request, "encyclopedia/edit.html", {
-                "title": title,
-                "form": form,
-            })
+            return render(
+                request,
+                "encyclopedia/edit.html",
+                {
+                    "title": title,
+                    "form": form,
+                },
+            )
 
-    return render(request, "encyclopedia/edit.html", {
-        "title": title,
-        "form": EditEntryForm({"markdown": util.get_entry(title)}),
-    })
+    return render(
+        request,
+        "encyclopedia/edit.html",
+        {
+            "title": title,
+            "form": EditEntryForm({"markdown": util.get_entry(title)}),
+        },
+    )
 
 
 def random_page(request):
-    return HttpResponseRedirect(reverse("entry", args=[random.choice(util.list_entries())]))
+    return HttpResponseRedirect(
+        reverse("entry", args=[random.choice(util.list_entries())])
+    )
 
 
 def delete(request, title):
