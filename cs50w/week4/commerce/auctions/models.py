@@ -8,6 +8,7 @@ class User(AbstractUser):
 
 class Item(models.Model):
     name = models.CharField(max_length=64)
+    url = models.URLField()
 
 
 class Category(models.Model):
