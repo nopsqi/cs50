@@ -2,10 +2,6 @@ import factory
 from models import User, Category, Listing, Bid, BidHistory, Comment
 
 
-def main():
-    CategoryFactory.create_batch(10)
-
-
 class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
@@ -20,7 +16,3 @@ class CategoryFactory(factory.django.DjangoModelFactory):
         model = Category
 
     name = factory.Faker("word")
-
-
-if __name__ == "__main__":
-    main()
