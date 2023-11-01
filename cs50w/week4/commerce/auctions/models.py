@@ -6,26 +6,13 @@ class User(AbstractUser):
     pass
 
 
-class Item(models.Model):
+class Listing(models.Model):
     name = models.CharField(max_length=32)
     description = models.CharField(max_length=64)
     url = models.URLField()
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=16)
-
-
-class Listing(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user")
-    item_id = models.ForeignKey(Item, on_delete=models.CASCADE, related_name="item")
     starting_bid = models.IntegerField()
-    current_bid = models.IntegerField()
 
 
 class Bid(models.Model):
-    pass
-
-
-class Comment(models.Model):
-    pass
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
+    liting_id = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="listings")
