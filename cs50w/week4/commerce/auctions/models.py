@@ -17,7 +17,6 @@ class Listing(models.Model):
     url = models.URLField()
     category = models.ManyToManyField(Category, related_name="categories")
     starting_bid = models.IntegerField()
-    current_bid = models.ForeignKey(Bid, )
 
 
 class Bid(models.Model):
