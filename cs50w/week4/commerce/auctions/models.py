@@ -7,7 +7,7 @@ class User(AbstractUser):
 
 
 class Item(models.Model):
-    pass
+    name = models.CharField()
 
 
 class Category(models.Model):
