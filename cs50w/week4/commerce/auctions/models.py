@@ -6,7 +6,6 @@ class User(AbstractUser):
     pass
 
 
-class Item(models):
+class Item(models.Model):
     pass
-
 
