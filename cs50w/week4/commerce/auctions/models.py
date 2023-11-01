@@ -27,6 +27,7 @@ class Bid(models.Model):
 
 class BidHistory(models.Model):
     timestamp = models.DateField(auto_add_now=True)
+    user_id = models.ForeignKey(User)
 
 
 class Comment(models.Model):
