@@ -7,12 +7,13 @@ class User(AbstractUser):
 
 
 class Item(models.Model):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=32)
+    description = models.CharField(max_length=64)
     url = models.URLField()
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=32)
+    name = models.CharField(max_length=16)
 
 
 class Listing(models.Model):
