@@ -4,7 +4,7 @@ from .models import User, Category, Listing, Bid, BidHistory, Comment
 
 def main():
     for _ in range(10):
-        
+        user = UserFactory()
 
 
 class UserFactory(factory.django.DjangoFactory):
