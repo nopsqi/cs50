@@ -68,7 +68,7 @@ def edit(request, title):
         return HttpResponseRedirect(reverse("entry", args=[title]))
     return render(request, "encyclopedia/edit.html", {
         "title": title,
-        "form": {"markdown": util.get_entry(title)},
+        "form": EditEntryForm({"markdown": util.get_entry(title)}),
     })
 
 
