@@ -6,6 +6,10 @@ class User(AbstractUser):
     pass
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=16)
+
+
 class Listing(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
     name = models.CharField(max_length=32)
@@ -17,4 +21,9 @@ class Listing(models.Model):
 class Bid(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
     liting_id = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="listings")
-    
+    ammount = models.IntegerField()
+
+
+class Comment(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
+    comment = models.CharField(max_length=300)
