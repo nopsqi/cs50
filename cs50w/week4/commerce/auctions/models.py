@@ -19,13 +19,13 @@ class Listing(models.Model):
     description = models.CharField(max_length=64)
     url = models.URLField()
     categories = models.ManyToManyField(Category, related_name="lisings")
-    starting_bid = models.IntegerField()
+    starting_bid = models.DecimalField()
 
 
 class Bid(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bids")
     listing_id = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="bids")
-    ammount = models.IntegerField()
+    ammount = models.DecimalField(decimal_p)
 
 
 class BidHistory(Bid):
