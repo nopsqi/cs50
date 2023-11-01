@@ -21,6 +21,7 @@ class Listing(models.Model):
     
 
 
+
 class Bid(models.Model):
     pass
 
