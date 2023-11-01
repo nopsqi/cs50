@@ -6,4 +6,7 @@ class User(AbstractUser):
     pass
 
 
-class 
+class Item(models):
+    pass
+
+
