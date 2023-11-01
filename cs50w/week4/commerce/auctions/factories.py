@@ -1,10 +1,8 @@
-import os
 import factory
 from auctions.models import User, Category, Listing, Bid, BidHistory, Comment
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'commerce.settings')
     for _ in range(5):
         category = CategoryFactory()
 
