@@ -12,7 +12,7 @@ class Item(models.Model):
 
 
 class Category(models.Model):
-    pass
+    name = models.CharField(max_length=32)
 
 
 class Listing(models.Model):
