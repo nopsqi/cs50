@@ -7,7 +7,7 @@ class User(AbstractUser):
 
 
 class Item(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=64)
 
 
 class Category(models.Model):
