@@ -15,4 +15,4 @@ class CategoryFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Category
 
-    name = factory.Faker("sentence")
+    name = factory.Faker("word")
