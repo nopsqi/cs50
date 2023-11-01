@@ -1,5 +1,5 @@
 import factory
-from .models import User, Category, Listing, Bid, BidHistory, Comment
+from models import User, Category, Listing, Bid, BidHistory, Comment
 
 
 def main():
