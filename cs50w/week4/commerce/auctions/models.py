@@ -18,7 +18,6 @@ class Category(models.Model):
 class Listing(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user")
     item_id = models.ForeignKey(Item, on_delete=models.CASCADE, related_name="item")
-    
 
 
 class Bid(models.Model):
