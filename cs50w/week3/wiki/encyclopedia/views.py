@@ -64,8 +64,16 @@ def create(request):
 
 def edit(request, title):
     if request.method == "POST":
-        util.save_entry(title, request.POST["markdown"])
-        return HttpResponseRedirect(reverse("entry", args=[title]))
+        form = EditEntryForm(request.POST)
+        if form.is_valid():
+            util.save_entry(title, form.cleaned_data["markdown"])
+            return HttpResponseRedirect(reverse("entry", args=[title]))
+        else:
+            return render(request, "encyclopedia/edit.html", {
+                "title": title,
+                "form": form,
+            })
+
     return render(request, "encyclopedia/edit.html", {
         "title": title,
         "form": EditEntryForm({"markdown": util.get_entry(title)}),
