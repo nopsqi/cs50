@@ -17,7 +17,7 @@ class EditEntryForm(forms.Form):
 
 def validate_title(title):
     if util.get_entry(title):
-        raise ValidationError(f"Value with title {title} exist")
+        raise ValidationError(f"Entry with title {title} exist")
 
 
 class NewEntryForm(EditEntryForm):
