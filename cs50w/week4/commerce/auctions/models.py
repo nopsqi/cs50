@@ -17,3 +17,4 @@ class Listing(models.Model):
 class Bid(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
     liting_id = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="listings")
+    
