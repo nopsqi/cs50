@@ -16,7 +16,7 @@ class Category(models.Model):
 
 
 class Listing(models.Model):
-    pass
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, )
 
 
 class Bid(models.Model):
