@@ -25,6 +25,10 @@ class Bid(models.Model):
     ammount = models.IntegerField()
 
 
+class BidHistory(models.Model):
+    timestamp = models.DateField(auto_now=True, )
+
+
 class Comment(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
     comment = models.CharField(max_length=300)
