@@ -9,3 +9,6 @@ class User(AbstractUser):
 class Item(models.Model):
     pass
 
+
+class Category(models.Model):
+    pass
