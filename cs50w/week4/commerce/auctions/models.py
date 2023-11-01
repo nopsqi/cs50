@@ -7,6 +7,7 @@ class User(AbstractUser):
 
 
 class Listing(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
     name = models.CharField(max_length=32)
     description = models.CharField(max_length=64)
     url = models.URLField()
