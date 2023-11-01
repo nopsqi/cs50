@@ -7,3 +7,4 @@ class UserFactory(factory.django.DjangoFactory):
         model = User
 
     username = factory.Faker("user_name")
+    email = 
