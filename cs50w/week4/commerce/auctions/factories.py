@@ -1,10 +1,9 @@
 import factory
-from auctions.models import User, Category, Listing, Bid, BidHistory, Comment
+from models import User, Category, Listing, Bid, BidHistory, Comment
 
 
 def main():
-    for _ in range(5):
-        category = CategoryFactory()
+    CategoryFactory.create_batch(10)
 
 
 class UserFactory(factory.django.DjangoModelFactory):
