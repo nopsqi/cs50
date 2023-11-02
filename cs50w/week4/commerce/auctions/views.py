@@ -27,6 +27,10 @@ class ListingForm(forms.ModelForm):
                 "class": "form-control"
             })
 
+        self.fields["categories"].widget.attrs.update({
+            "class": "form-group"
+        })
+
 
 @login_required(login_url="login")
 def index(request):
