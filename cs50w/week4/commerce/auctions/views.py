@@ -10,9 +10,8 @@ from .models import User, Category, Listing
 
 
 class ListingForm(forms.ModelForm):
-    categories_checkbox = forms.ModelMultipleChoiceField(
+    categories_checkbox = forms.CheckboxSelectMultiple(
         queryset=Category.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
         required=True
     )
     class Meta:
