@@ -10,13 +10,9 @@ from .models import User, Category, Listing
 
 
 class ListingForm(forms.ModelForm):
-    categories_checkbox = forms.CheckboxSelectMultiple(
-        queryset=Category.objects.all(),
-        required=True
-    )
     class Meta:
         model = Listing
-        fields = ["name", "description", "url", "categories_checkbox", "starting_bid"]
+        fields = ["name", "description", "url", "categories", "starting_bid"]
         labels = {
             "url": "Image URL"
         }
