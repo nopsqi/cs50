@@ -22,4 +22,5 @@ class ListingFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Listing
 
-    user_id = 
+    user_id = factory.SubFactory(UserFactory)
+    
