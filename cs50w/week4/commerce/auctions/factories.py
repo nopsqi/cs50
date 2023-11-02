@@ -38,13 +38,12 @@ class ListingFactory(factory.django.DjangoModelFactory):
             for category in extracted:
                 self.categories.add(category)
         else:
-            categories = CategoryFactory.create_batch(factory.Faker("random_int", min=1, max=5))
+            categories = CategoryFactory.create_batch(random.randint(1, 5))
             self.categories.add(*categories)
 
 
 # UserFactory.create_batch(5)
 # CategoryFactory.create_batch(10)
 
-# for user in random.sample(list(User.objects.exclude(username="admin")), 3):
-#     for _ in range(5):
-#         listing = ListingFactory(user_id=user)
+for user in random.sample(list(User.objects.exclude(username="admin")), 3):
+    ListingFactory.create_batch(5, user_id=user)
