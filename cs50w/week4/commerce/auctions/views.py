@@ -28,7 +28,7 @@ class ListingForm(forms.ModelForm):
             })
 
         self.fields["categories"].widget.attrs.update({
-            "class": "form-group"
+            "class": "form-group" "d.flex"
         })
 
 
