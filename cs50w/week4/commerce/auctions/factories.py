@@ -25,6 +25,8 @@ class ListingFactory(factory.django.DjangoModelFactory):
     user_id = factory.SubFactory(UserFactory)
     name = factory.Faker("text", max_nb_chars=32)
     description = factory.Faker("text", max_nb_chars=64)
+    url = "https://fakeimg.pl/350x200/?text=Image"
+    starting_bid = factory.Faker("random_int", min=50, max=500000)
 
     @factory.post_generation
     def categories(self, create, extracted, **kwargs):
