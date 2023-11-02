@@ -90,8 +90,9 @@ def register(request):
 @login_required(login_url="login")
 def create(request):
     if request.method == "POST":
-        print(request.POST)
-        form = ListingForm(request.POST)
+        data = dict(request.POST)
+        data["user"] = request.user
+        form = ListingForm(data)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse("index"))
