@@ -12,7 +12,7 @@ from .models import User, Listing
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        
+        fields = ["name", "description", "url", "categories", "starting_bid"]
 
 
 @login_required(login_url="login")
@@ -76,7 +76,9 @@ def register(request):
 
 @login_required(login_url="login")
 def create(request):
-    return render(request, "auctions/create.html")
+    return render(request, "auctions/create.html", {
+        "form": ListingForm()
+    })
 
 
 @login_required(login_url="login")
