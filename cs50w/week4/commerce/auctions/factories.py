@@ -46,4 +46,4 @@ class ListingFactory(factory.django.DjangoModelFactory):
 # CategoryFactory.create_batch(10)
 
 for user in random.sample(list(User.objects.exclude(username="admin")), 3):
-    ListingFactory(user_id=user).create_batch(5)
+    ListingFactory.create_batch(5, user_id=user.id)
