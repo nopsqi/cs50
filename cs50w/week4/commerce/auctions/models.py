@@ -35,6 +35,7 @@ class Bid(models.Model):
 class BidHistory(models.Model):
     timestamp = models.DateField(auto_now_add=True)
     bid_id = models.ForeignKey(Bid, on_delete=models.DO_NOTHING, related_name="histories")
+    am
 
     class Meta:
         verbose_name = "Bid History"
