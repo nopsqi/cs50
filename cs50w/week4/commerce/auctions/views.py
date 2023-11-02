@@ -12,7 +12,7 @@ from .models import User, Category, Listing
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        fields = ["user", "name", "description", "url", "categories", "starting_bid"]
+        exclude = ["user"]
         labels = {
             "url": "Image URL"
         }
@@ -92,7 +92,7 @@ def create(request):
     if request.method == "POST":
         form = ListingForm(request.POST)
         if form.is_valid():
-            print(request.POST)
+            form.instance.user = request.user
             form.save()
             return HttpResponseRedirect(reverse("index"))
         else:
