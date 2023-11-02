@@ -15,7 +15,7 @@ class CategoryFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Category
 
-    name = factory.Faker("text", max_nb_chars=)
+    name = factory.Faker("word")
 
 
 class ListingFactory(factory.django.DjangoModelFactory):
@@ -23,4 +23,6 @@ class ListingFactory(factory.django.DjangoModelFactory):
         model = Listing
 
     user_id = factory.SubFactory(UserFactory)
-
+    name = factory.Faker("text", max_nb_chars=32)
+    description = factory.Faker("text", max_nb_chars=64)
+    categories = 
