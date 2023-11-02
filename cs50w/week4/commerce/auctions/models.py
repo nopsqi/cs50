@@ -25,7 +25,7 @@ class Listing(models.Model):
     starting_bid = models.DecimalField(max_digits=11, decimal_places=2)
 
     def __str__(self):
-        return f"
+        return f"{self.name} by {self.user_id.username}"
 
 
 class Bid(models.Model):
