@@ -51,12 +51,15 @@ class CommentFactory(factory.django.DjangoModelFactory):
     content = factory.Faker("text", max_nb_chars=300)
 
 
-# UserFactory.create_batch(5)
-# CategoryFactory.create_batch(10)
+UserFactory.create_batch(5)
+CategoryFactory.create_batch(10)
 
-# for user in random.sample(list(User.objects.exclude(username="admin")), 3):
-#     ListingFactory.create_batch(5, user=user, categories=random.sample(list(Category.objects.all()), 4))
+for user in random.sample(list(User.objects.exclude(username="administrator")), 3):
+    ListingFactory.create_batch(5, user=user, categories=random.sample(list(Category.objects.all()), 4))
 
-# for listing in Listing.objects.all():
-#     for user in User.objects.exclude(username="admin"):
-#         CommentFactory.create_batch(2, user=user, listing=listing)
+for listing in Listing.objects.all():
+    for user in User.objects.exclude(username="administrator"):
+        CommentFactory.create_batch(2, user=user, listing=listing)
+
+for listing in Listing.objects.all():
+    for
