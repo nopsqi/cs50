@@ -30,6 +30,7 @@ class ListingForm(forms.ModelForm):
 
 @login_required(login_url="login")
 def index(request):
+    
     return render(request, "auctions/index.html", {
         "listings": Listing.objects.exclude(user=request.user)
     })
