@@ -26,7 +26,7 @@ class ListingFactory(factory.django.DjangoModelFactory):
     user = factory.SubFactory(UserFactory)
     name = factory.Faker("text", max_nb_chars=32)
     description = factory.Faker("text", max_nb_chars=64)
-    url = "https://fakeimg.pl/350x200/?text=Image"
+    url = f"https://fakeimg.pl/400x400/?text={name}"
     starting_bid = factory.Faker("random_int", min=50, max=500000)
 
     @factory.post_generation
@@ -60,7 +60,3 @@ class CommentFactory(factory.django.DjangoModelFactory):
 # for listing in Listing.objects.all():
 #     for user in User.objects.exclude(username="admin"):
 #         CommentFactory.create_batch(2, user=user, listing=listing)
-
-for listing in Listing.objects.all():
-    listing.url = f"https://fakeimg.pl/500x500/?text={listing.name.replace(' ', '%20')}"
-    listing.save()
