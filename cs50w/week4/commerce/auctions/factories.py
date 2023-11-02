@@ -62,17 +62,22 @@ class CommentFactory(DjangoModelFactory):
     listing = factory.SubFactory(ListingFactory)
     content = factory.Faker("text", max_nb_chars=300)
 
+if User.objects.all().count() == 0:
+    UserFactory.create_batch(5)
 
-UserFactory.create_batch(5)
-CategoryFactory.create_batch(10)
+if Category.objects.all().count() == 0:
+    CategoryFactory.create_batch(10)
 
-for user in random.sample(list(User.objects.exclude(username="administrator")), 3):
-    ListingFactory.create_batch(5, user=user, categories=random.sample(list(Category.objects.all()), 4))
+if Listing.objects.all().count() == 0:
+    for user in random.sample(list(User.objects.exclude(username="administrator")), 3):
+        ListingFactory.create_batch(5, user=user, categories=random.sample(list(Category.objects.all()), 4))
 
-for listing in Listing.objects.all():
-    for user in User.objects.exclude(username=listing.user):
-        bid = BidFactory(user=user, listing=listing)
+if Bid.objects.all().count() == 0:
+    for listing in Listing.objects.all():
+        for user in User.objects.exclude(username=listing.user):
+            bid = BidFactory(user=user, listing=listing)
 
-for listing in Listing.objects.all():
-    for user in User.objects.exclude(username="administrator"):
-        CommentFactory.create_batch(2, user=user, listing=listing)
+if Comment.objects.all().count() == 0:
+    for listing in Listing.objects.all():
+        for user in User.objects.exclude(username="administrator"):
+            CommentFactory.create_batch(2, user=user, listing=listing)
