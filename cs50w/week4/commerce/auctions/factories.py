@@ -42,8 +42,10 @@ class ListingFactory(factory.django.DjangoModelFactory):
             self.categories.add(*categories)
 
 
-class CommentFactory(factory,django.DjangoModelFactory):
-    
+class CommentFactory(factory.django.DjangoModelFactory):
+    user = factory.SubFactory(UserFactory)
+    user = factory.SubFactory(ListingFactory)
+    content = factory.Faker("text", max_nb_chars=300)
 
 
 UserFactory.create_batch(5)
@@ -52,4 +54,5 @@ CategoryFactory.create_batch(10)
 for user in random.sample(list(User.objects.exclude(username="admin")), 3):
     ListingFactory.create_batch(5, user=user)
 
-
+for listing in Listing.objects.all():
+    for user in User.objects.
