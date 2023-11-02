@@ -49,7 +49,7 @@ class BidFactory(DjangoModelFactory):
 
     user = factory.SubFactory(UserFactory)
     listing = factory.SubFactory(ListingFactory)
-    amount = 
+    amount = factory.Faker("random_int", min=user.starting_bid, max=1000000)
 
 
 class CommentFactory(DjangoModelFactory):
@@ -68,9 +68,9 @@ for user in random.sample(list(User.objects.exclude(username="administrator")), 
     ListingFactory.create_batch(5, user=user, categories=random.sample(list(Category.objects.all()), 4))
 
 for listing in Listing.objects.all():
-    for user in User.objects.exclude(username="administrator"):
-        CommentFactory.create_batch(2, user=user, listing=listing)
+    for user in User.objects.exclude(username=listing.user):
+        bid = BidFactory(user=user, listing=listing)
 
 for listing in Listing.objects.all():
-    for user in User.objects.exclude(username=listing.user):
-
+    for user in User.objects.exclude(username="administrator"):
+        CommentFactory.create_batch(2, user=user, listing=listing)
