@@ -24,6 +24,9 @@ class Listing(models.Model):
     categories = models.ManyToManyField(Category, related_name="lisings")
     starting_bid = models.DecimalField(max_digits=11, decimal_places=2)
 
+    def __str__(self):
+        return f"
+
 
 class Bid(models.Model):
     last_bid = models.DateField(auto_now=True)
