@@ -35,4 +35,5 @@ class ListingFactory(factory.django.DjangoModelFactory):
             for category in extracted:
                 self.categories.add(category)
         else:
-            
+            categories = CategoryFactory.create_batch(factory.Faker("random_int", min=1, max=5))
+            self.
