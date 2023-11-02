@@ -51,4 +51,4 @@ class Comment(models.Model):
     content = models.CharField(max_length=300)
 
     def __str__(self):
-        return f"{self.user.username} at {self.listing.name} said {self.content[:10]}"
+        return f"{self.user.username} at {self.listing.name[:10]} said {self.content[:30]}"
