@@ -47,7 +47,7 @@ class BidHistory(models.Model):
         verbose_name_plural = "Bid Histories"
 
     def __str__(self):
-        f"{self.timestamp} {bid.user}
+        f"{self.timestamp} {self.bid.user.username} bid 
 
 
 class Comment(models.Model):
