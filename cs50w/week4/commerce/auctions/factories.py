@@ -62,4 +62,5 @@ class CommentFactory(factory.django.DjangoModelFactory):
 #         CommentFactory.create_batch(2, user=user, listing=listing)
 
 for listing in Listing.objects.all():
-    
+    listing.url = f"https://fakeimg.pl/350x200/?text={listing.name.replace()}"
+    print(listing.url)
