@@ -62,4 +62,4 @@ for listing in Listing.objects.all():
         CommentFactory.create_batch(2, user=user, listing=listing)
 
 for listing in Listing.objects.all():
-    for
+    for user in User.objects.exclude()
