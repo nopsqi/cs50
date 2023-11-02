@@ -12,7 +12,7 @@ from .models import User, Category, Listing
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        fields = [ "name", "description", "url", "categories", "starting_bid"]
+        fields = ["user", "name", "description", "url", "categories", "starting_bid"]
         labels = {
             "url": "Image URL"
         }
