@@ -14,13 +14,6 @@ def index(request):
     })
 
 
-@login_required(login_url="login")
-def mylistings(request, username):
-    return render(request, "auctions/index.html", {
-        "listings": Listing.objects.filter(user=User.objects.get(username=username))
-    })
-
-
 def login_view(request):
     if request.method == "POST":
 
@@ -71,3 +64,16 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "auctions/register.html")
+
+
+@login_required(login_url="login")
+def mylistings(request, username):
+    return render(request, "auctions/index.html", {
+        "listings": Listing.objects.filter(user=User.objects.get(username=username))
+    })
+
+
+def listing(request, id):
+    return render(request, "auctions/listing.html", {
+        "listing": Listing.objects.filter(pk=id).first()
+    })
