@@ -26,7 +26,7 @@ class Listing(models.Model):
 
 
 class Bid(models.Model):
-    timestamp = models.DateField(auto_now=True)
+    last_bid = models.DateField(auto_now=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bids")
     listing_id = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="bids")
     amount = models.DecimalField(max_digits=11, decimal_places=2)
