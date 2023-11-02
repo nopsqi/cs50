@@ -17,7 +17,7 @@ class Category(models.Model):
 
 
 class Listing(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="listings")
+    user= models.ForeignKey(User, on_delete=models.CASCADE, related_name="listings")
     name = models.CharField(max_length=32)
     description = models.CharField(max_length=64)
     url = models.URLField()
@@ -30,8 +30,8 @@ class Listing(models.Model):
 
 class Bid(models.Model):
     last_bid = models.DateField(auto_now=True)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bids")
-    listing_id = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="bids")
+    user= models.ForeignKey(User, on_delete=models.CASCADE, related_name="bids")
+    listing= models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="bids")
     amount = models.DecimalField(max_digits=11, decimal_places=2)
 
 
@@ -45,5 +45,5 @@ class BidHistory(models.Model):
         verbose_name_plural = "Bid Histories"
 
 class Comment(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
+    user= models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
     comment = models.CharField(max_length=300)

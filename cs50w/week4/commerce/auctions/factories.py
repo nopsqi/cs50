@@ -23,7 +23,7 @@ class ListingFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Listing
 
-    user_id = factory.SubFactory(UserFactory)
+    user = factory.SubFactory(UserFactory)
     name = factory.Faker("text", max_nb_chars=32)
     description = factory.Faker("text", max_nb_chars=64)
     url = "https://fakeimg.pl/350x200/?text=Image"
@@ -46,4 +46,6 @@ UserFactory.create_batch(5)
 CategoryFactory.create_batch(10)
 
 for user in random.sample(list(User.objects.exclude(username="admin")), 3):
-    ListingFactory.create_batch(5, user_id=user)
+    ListingFactory.create_batch(5, user=user)
+
+    
