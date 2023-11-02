@@ -16,6 +16,9 @@ class ListingForm(forms.ModelForm):
         labels = {
             "url": "Image URL"
         }
+        widgets = {
+            "categories": forms.CheckboxSelectMultiple
+        }
 
     def __init__(self, *args, **kwargs):
         super(ListingForm, self).__init__(*args, **kwargs)
