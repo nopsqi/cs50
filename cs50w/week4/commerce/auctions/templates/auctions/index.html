@@ -15,14 +15,13 @@
                         <p class="card-text">{{ listing.description }}</p>
                         <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                         <p class="card-text"></p>
-                            <span class="badge badge-pill badge-secondary">test</span>
-                        <!-- {% for category in listings.categories.all %}
+                        {% for category in listing.categories.all %}
                             <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
-                        {% endfor %} -->
-                        </p>
-                    </div>
+                        {% endfor %}
+                    </p>
                 </div>
             </div>
+        </div>
         </div>
     {% endfor %}
 {% endblock %}
