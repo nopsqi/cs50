@@ -28,4 +28,11 @@ class ListingFactory(factory.django.DjangoModelFactory):
 
     @factory.post_generation
     def categories(self, create, extracted, **kwargs):
-        
+        if not create:
+            return
+
+        if extracted:
+            for category in extracted:
+                self.categories.add(category)
+        else:
+            
