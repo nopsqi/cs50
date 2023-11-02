@@ -47,7 +47,7 @@ class CommentFactory(factory.django.DjangoModelFactory):
         model = Comment
 
     user = factory.SubFactory(UserFactory)
-    user = factory.SubFactory(ListingFactory)
+    listing = factory.SubFactory(ListingFactory)
     content = factory.Faker("text", max_nb_chars=300)
 
 

@@ -25,7 +25,7 @@ class Listing(models.Model):
     starting_bid = models.DecimalField(max_digits=11, decimal_places=2)
 
     def __str__(self):
-        return f"{self.name} by {self.user_id.username}"
+        return f"{self.name} by {self.user.username}"
 
 
 class Bid(models.Model):
@@ -51,4 +51,4 @@ class Comment(models.Model):
     content = models.CharField(max_length=300)
 
     def __str__(self):
-        return f"{user.username} at {listing.name} said {content[:10]}"
+        return f"{self.user.username} at {self.listing.name} said {self.content[:10]}"
