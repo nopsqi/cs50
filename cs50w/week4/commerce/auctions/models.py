@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.core.validators import MinValueValidator
 
 
 class User(AbstractUser):
@@ -22,7 +23,7 @@ class Listing(models.Model):
     description = models.CharField(max_length=64)
     url = models.URLField()
     categories = models.ManyToManyField(Category, related_name="lisings")
-    starting_bid = models.DecimalField(max_digits=11, decimal_places=2)
+    starting_bid = models.DecimalField(max_digits=11, decimal_places=2, validator=[MinValueValidator(0.01)])
 
     def __str__(self):
         return f"{self.name} by {self.user.username}"
