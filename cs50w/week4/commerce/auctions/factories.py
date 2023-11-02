@@ -45,6 +45,6 @@ class ListingFactory(factory.django.DjangoModelFactory):
 # UserFactory.create_batch(5)
 # CategoryFactory.create_batch(10)
 
-for user in random.sample(list(User.objects.exclude(username="admin")), 3):
-    for _ in range(5):
-        listing = ListingFactory(user_id=user)
+# for user in random.sample(list(User.objects.exclude(username="admin")), 3):
+#     for _ in range(5):
+#         listing = ListingFactory(user_id=user)
