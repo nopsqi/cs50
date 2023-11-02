@@ -1,5 +1,5 @@
 import factory
-from .models import User, Category, Listing, Bid, BidHistory, Comment
+from models import User, Category, Listing, Bid, BidHistory, Comment
 
 
 class UserFactory(factory.django.DjangoModelFactory):
@@ -39,3 +39,6 @@ class ListingFactory(factory.django.DjangoModelFactory):
         else:
             categories = CategoryFactory.create_batch(factory.Faker("random_int", min=1, max=5))
             self.categories.add(*categories)
+
+
+User.create_batch(5)
