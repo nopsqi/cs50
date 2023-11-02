@@ -16,3 +16,10 @@ class CategoryFactory(factory.django.DjangoModelFactory):
         model = Category
 
     name = factory.Faker("word")
+
+
+class ListingFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = Listing
+
+    user_id = 
