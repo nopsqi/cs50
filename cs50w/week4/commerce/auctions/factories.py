@@ -1,5 +1,5 @@
 import factory
-from .models import User, Category, Listing, Bid, BidHistory, Comment
+from auctions.models import User, Category, Listing, Bid, BidHistory, Comment
 
 
 class UserFactory(factory.django.DjangoModelFactory):
@@ -41,4 +41,4 @@ class ListingFactory(factory.django.DjangoModelFactory):
             self.categories.add(*categories)
 
 
-User.create_batch(5)
+UserFactory.create_batch(5)
