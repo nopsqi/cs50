@@ -90,7 +90,6 @@ def register(request):
 @login_required(login_url="login")
 def create(request):
     if request.method == "POST":
-        request.POST["user"] = request.user
         form = ListingForm(request.POST)
         if form.is_valid():
             form.save()
