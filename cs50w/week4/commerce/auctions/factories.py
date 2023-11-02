@@ -25,4 +25,7 @@ class ListingFactory(factory.django.DjangoModelFactory):
     user_id = factory.SubFactory(UserFactory)
     name = factory.Faker("text", max_nb_chars=32)
     description = factory.Faker("text", max_nb_chars=64)
-    categories = 
+
+    @factory.post_generation
+    def categories(self, create, extracted, **kwargs):
+        
