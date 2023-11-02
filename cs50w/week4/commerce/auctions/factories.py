@@ -1,3 +1,4 @@
+import random
 import factory
 from auctions.models import User, Category, Listing, Bid, BidHistory, Comment
 
@@ -41,4 +42,8 @@ class ListingFactory(factory.django.DjangoModelFactory):
             self.categories.add(*categories)
 
 
-UserFactory.create_batch(5)
+# UserFactory.create_batch(5)
+# CategoryFactory.create_batch(10)
+
+for user in random.sample(User.objects.exclude(username="admin"), 3):
+    print(user)
