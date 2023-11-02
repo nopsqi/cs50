@@ -42,6 +42,10 @@ class ListingFactory(factory.django.DjangoModelFactory):
             self.categories.add(*categories)
 
 
+class CommentFactory(factory,django.DjangoModelFactory):
+    
+
+
 UserFactory.create_batch(5)
 CategoryFactory.create_batch(10)
 

@@ -29,7 +29,7 @@ class Listing(models.Model):
 
 
 class Bid(models.Model):
-    last_bid = models.DateField(auto_now=True)
+    last_adtio = models.DateField(auto_now=True)
     user= models.ForeignKey(User, on_delete=models.CASCADE, related_name="bids")
     listing= models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="bids")
     amount = models.DecimalField(max_digits=11, decimal_places=2)
@@ -37,7 +37,7 @@ class Bid(models.Model):
 
 class BidHistory(models.Model):
     timestamp = models.DateField(auto_now_add=True)
-    bid_id = models.ForeignKey(Bid, on_delete=models.DO_NOTHING, related_name="histories")
+    bid= models.ForeignKey(Bid, on_delete=models.DO_NOTHING, related_name="histories")
     amount = models.DecimalField(max_digits=11, decimal_places=2)
 
     class Meta:
