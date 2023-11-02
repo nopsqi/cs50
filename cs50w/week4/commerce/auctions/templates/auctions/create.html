@@ -4,7 +4,7 @@
     <h1>New Listing</h1>
     <form action="{% url 'create' %}" method="post">
         {% csrf_token %}
-        <input type="hidden" name="user" value="{{ user }}">
+        <input type="hidden" name="user_id" value="{{ user }}">
         <div class="form-group">
             {{ form }}
         </div>
