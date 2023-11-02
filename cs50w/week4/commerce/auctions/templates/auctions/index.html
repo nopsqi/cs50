@@ -14,9 +14,13 @@
                         <h5 class="card-title"><a href="{% url 'listing' listing.id %}">{{ listing.name }}</a></h5>
                         <!-- <p class="card-text">{{ listing.description }}</p> -->
                         <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                        {% for category in listings.categories %}
-                            <p class="card-text"><span class="badge badge-pill badge-secondary">[{ category }]</span></p>
-                        {% endfor %}
+                        <p class="card-text"></p>
+                            <span class="badge badge-pill badge-secondary">test</span>
+                            <span class="badge badge-pill badge-secondary">{{ listing.categories }}</span>
+                        <!-- {% for category in listings.categories %}
+                            <span class="badge badge-pill badge-secondary">{{ category }}</span>
+                        {% endfor %} -->
+                        </p>
                     </div>
                 </div>
             </div>
