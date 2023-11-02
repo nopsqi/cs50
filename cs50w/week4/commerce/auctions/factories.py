@@ -1,9 +1,10 @@
 import random
 import factory
+from factory.django import DjangoModelFactory
 from auctions.models import User, Category, Listing, Bid, Comment
 
 
-class UserFactory(factory.django.DjangoModelFactory):
+class UserFactory(DjangoModelFactory):
     class Meta:
         model = User
 
@@ -12,14 +13,14 @@ class UserFactory(factory.django.DjangoModelFactory):
     password = "pbkdf2_sha256$600000$Nhn7kL55O0rKMEzGd59oTm$9XFB9m6u+Ro8fThSWtvpdyBNQ9Rle+f/40Aq0k92vDg="
 
 
-class CategoryFactory(factory.django.DjangoModelFactory):
+class CategoryFactory(DjangoModelFactory):
     class Meta:
         model = Category
 
     name = factory.Faker("word")
 
 
-class ListingFactory(factory.django.DjangoModelFactory):
+class ListingFactory(DjangoModelFactory):
     class Meta:
         model = Listing
 
@@ -42,7 +43,16 @@ class ListingFactory(factory.django.DjangoModelFactory):
             self.categories.add(*categories)
 
 
-class CommentFactory(factory.django.DjangoModelFactory):
+class BidFactory(DjangoModelFactory):
+    class Meta:
+        model = Bid
+
+    user = factory.SubFactory(UserFactory)
+    listing = factory.SubFactory(ListingFactory)
+    amount = 
+
+
+class CommentFactory(DjangoModelFactory):
     class Meta:
         model = Comment
 
@@ -62,4 +72,5 @@ for listing in Listing.objects.all():
         CommentFactory.create_batch(2, user=user, listing=listing)
 
 for listing in Listing.objects.all():
-    for user in User.objects.exclude()
+    for user in User.objects.exclude(username=listing.user):
+
