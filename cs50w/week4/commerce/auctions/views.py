@@ -89,6 +89,16 @@ def register(request):
 
 @login_required(login_url="login")
 def create(request):
+    if request.method == "POST":
+        form = ListingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse("index"))
+        else:
+            return render(request, "auctions/create.html", {
+                "form": form
+            })
+
     return render(request, "auctions/create.html", {
         "form": ListingForm()
     })
