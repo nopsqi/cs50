@@ -46,6 +46,9 @@ class BidHistory(models.Model):
         verbose_name = "Bid History"
         verbose_name_plural = "Bid Histories"
 
+    def __str__(self):
+        f"{self.timestamp} {bid.user}
+
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
