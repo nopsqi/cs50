@@ -13,6 +13,9 @@ class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
         fields = ["name", "description", "url", "categories", "starting_bid"]
+        labels = {
+            "url": "Image URL"
+        }
 
     def __init__(self, *args, **kwargs):
         super(ListingForm, self).__init__(*args, **kwargs)
