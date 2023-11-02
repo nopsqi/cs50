@@ -24,12 +24,8 @@ class ListingForm(forms.ModelForm):
         super(ListingForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update({
-                "class": "form-control"
+                "class": "form-group d-flex justify-content-around" if field == "categories" else "form-control"
             })
-
-        self.fields["categories"].widget.attrs.update({
-            "class": "form-group d-flex justify-content-around"
-        })
 
 
 @login_required(login_url="login")
