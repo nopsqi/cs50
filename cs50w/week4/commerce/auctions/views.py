@@ -10,7 +10,7 @@ from .models import User, Listing
 @login_required(login_url="login")
 def index(request):
     return render(request, "auctions/index.html", {
-        "listings": Listing.objects.all()
+        "listings": request.user.listings.all()
     })
 
 

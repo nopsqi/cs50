@@ -3,6 +3,8 @@
 {% block body %}
     <h2>Active Listings</h2>
     {% for listing in listings %}
-        <a href="">{{ listing.name }}</a>
+        <ul>
+            <li><a href="">{{ listing.name }}</a></li>
+        </ul>
     {% endfor %}
 {% endblock %}
