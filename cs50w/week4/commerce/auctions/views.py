@@ -14,6 +14,13 @@ def index(request):
     })
 
 
+@login_required(login_url="login")
+def mylistings(request, username):
+    return render(request, "auctions/index.html", {
+        "listings": Listing.objects.exclude(user=request.user)
+    })
+
+
 def login_view(request):
     if request.method == "POST":
 
