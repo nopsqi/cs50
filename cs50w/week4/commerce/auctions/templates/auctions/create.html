@@ -4,6 +4,7 @@
     <h1>New Listing</h1>
     <form>
         {% csrf_token %}
+        <input type="hidden" name="user" value="{{ user }}">
         <div class="form-group">
             {{ form }}
         </div>
