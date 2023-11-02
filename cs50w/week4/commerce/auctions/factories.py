@@ -27,7 +27,7 @@ class ListingFactory(DjangoModelFactory):
     user = factory.SubFactory(UserFactory)
     name = factory.Faker("text", max_nb_chars=32)
     description = factory.Faker("text", max_nb_chars=64)
-    url = f"https://fakeimg.pl/400x400/?text={self.name}"
+    url = factory.LazyAttribute(lambda o: f"https://fakeimg.pl/400x400/?text={o.name}")
     starting_bid = factory.Faker("random_int", min=50, max=500000)
 
     @factory.post_generation
