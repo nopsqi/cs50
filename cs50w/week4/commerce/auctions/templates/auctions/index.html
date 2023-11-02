@@ -12,10 +12,11 @@
                     <div class="card-body">
                         <p class="card-text"><small>{{ listing.user }}</small></p>
                         <h5 class="card-title"><a href="{% url 'listing' listing.id %}">{{ listing.name }}</a></h5>
-                        <!-- <p class="card-text">{{ listing.description }}</p> -->
+                        <p class="card-text">{{ listing.description }}</p>
                         <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                         <p class="card-text"></p>
-                        {% for category in listings.categories.all() %}
+                            <span class="badge badge-pill badge-secondary">test</span>
+                        {% for category in listings.categories.all %}
                             <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
                         {% endfor %}
                         </p>
