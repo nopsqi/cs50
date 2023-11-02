@@ -1,6 +1,6 @@
 import random
 import factory
-from auctions.models import User, Category, Listing, Bid, BidHistory, Comment
+from auctions.models import User, Category, Listing, Bid, Comment
 
 
 class UserFactory(factory.django.DjangoModelFactory):
