@@ -1,5 +1,7 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
+    <h1>{{ listing.name }}</h1>
     <img src="{{ listing.url }}" class="rounded mx-auto d-block" alt="{{ listing.description }}">
+    <p>{{ listing.description }}</p>
 {% endblock %}
