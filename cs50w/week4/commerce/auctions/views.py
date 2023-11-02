@@ -6,13 +6,18 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import User, Listing
+from .models import User, Category, Listing
 
 
 class ListingForm(forms.ModelForm):
+    categories_checkbox = forms.ModelMultipleChoiceField(
+        queryset=Category.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True
+    )
     class Meta:
         model = Listing
-        fields = ["name", "description", "url", "categories", "starting_bid"]
+        fields = ["name", "description", "url", "categories_checkbox", "starting_bid"]
         labels = {
             "url": "Image URL"
         }
