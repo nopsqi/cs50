@@ -49,7 +49,7 @@ class BidFactory(DjangoModelFactory):
 
     user = factory.SubFactory(UserFactory)
     listing = factory.SubFactory(ListingFactory)
-    amount = factory.Faker("random_int", min=user.starting_bid, max=1000000)
+    amount = factory.LazyAttribute(lambda o: factory.Faker("random_int", min=o.user.starting_bid, max=1000000))
 
 
 class CommentFactory(DjangoModelFactory):
