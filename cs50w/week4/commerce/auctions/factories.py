@@ -55,7 +55,7 @@ UserFactory.create_batch(5)
 CategoryFactory.create_batch(10)
 
 for user in random.sample(list(User.objects.exclude(username="admin")), 3):
-    ListingFactory.create_batch(5, user=user)
+    ListingFactory.create_batch(5, user=user, categories=random.sample(list(Category.objects.all()), 4))
 
 for listing in Listing.objects.all():
     for user in User.objects.exclude(username="admin"):
