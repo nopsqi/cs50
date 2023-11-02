@@ -33,7 +33,7 @@ class Bid(models.Model):
     last_modified = models.DateField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bids")
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="bids")
-    amount = models.DecimalField(max_digits=11, decimal_places=2)
+    amount = models.DecimalField(max_digits=11, decimal_places=2, validators=[MinValueValidator(0.01)])
 
 
 class BidHistory(models.Model):
