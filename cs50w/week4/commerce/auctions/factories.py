@@ -69,7 +69,8 @@ if Category.objects.all().count() == 0:
 
 if Listing.objects.all().count() == 0:
     for user in random.sample(list(User.objects.exclude(username="administrator")), 3):
-        ListingFactory.create_batch(5, user=user, categories=random.sample(list(Category.objects.all()), 4))
+        for _ in range(5)
+        ListingFactory(user=user, categories=random.sample(list(Category.objects.all()), 4))
 
 if Bid.objects.all().count() == 0:
     for listing in Listing.objects.all():
