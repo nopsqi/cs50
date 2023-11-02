@@ -108,6 +108,7 @@ def create(request):
 @login_required(login_url="login")
 def mylistings(request, username):
     return render(request, "auctions/index.html", {
+        "title": f"{username} Listings",
         "listings": Listing.objects.filter(user=User.objects.filter(username=username).first())
     })
 
