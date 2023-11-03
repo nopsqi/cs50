@@ -164,6 +164,7 @@ def delete(request):
 @login_required(login_url="login")
 def bid(request):
     if request.method == "POST":
+        print(request.POST.get("id"))
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
         if listing.user == request.user:
             return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
