@@ -164,8 +164,13 @@ def delete(request):
 @login_required(login_url="login")
 def bid(request):
     if request.method == "POST":
+        listing = get_object_or_404(Listing, id=request.POST.pop("id", None))
         form = BidForm(request.POST)
-        listing = get_object_or_404(Listing, id=request.POST.get("id"))
+        if not form.is_valid:
+            return render(request, "auctions/listing.html", {
+                "listing": listing,
+                "bid_form": form
+            })
         if listing.user == request.user:
             return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
         if (bid := Bid.objects.filter(user=request.user, listing=listing).first()):
