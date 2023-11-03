@@ -81,4 +81,4 @@ if Bid.objects.all().count() == 0:
 if Comment.objects.all().count() == 0:
     for listing in Listing.objects.all():
         for user in User.objects.all():
-            CommentFactory.create_batch(2, user=user, listing=listing)
+            CommentFactory.create_batch(1, user=user, listing=listing)
