@@ -17,7 +17,7 @@
                     <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
                 {% endfor %}
             </p>
-            {% if listing.user is not request.user %}
+            {% if listing.user != request.user %}
                 <form class="row">
                     {% csrf_token %}
                     <div class="col-sm-4">
