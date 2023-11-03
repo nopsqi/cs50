@@ -68,9 +68,10 @@ if Category.objects.all().count() == 0:
     CategoryFactory.create_batch(10)
 
 if Listing.objects.all().count() == 0:
+    n = Category.objects.all().count() // 2
     for user in random.sample(list(User.objects.all()), 3):
         for _ in range(5):
-            listing = ListingFactory(user=user, categories=random.sample(list(Category.objects.all()), random.randint()))
+            listing = ListingFactory(user=user, categories=random.sample(list(Category.objects.all()), random.randint(1, n + 1)))
 
 if Bid.objects.all().count() == 0:
     for listing in Listing.objects.all():
