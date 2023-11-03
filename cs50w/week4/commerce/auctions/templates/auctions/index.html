@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-md-3 text-right">
                             <p class="card-text font-weight-bold">${{ listing.current_bid }}</p>
-                            {% if request.user == listing.uesr %}
+                            {% if request.user == listing.user %}
                                 <p class="card-text"><a href="">Close Bid</a></p>
                                 <p class="card-text"><a href="">Delete</a></p>
                             {% else %}
