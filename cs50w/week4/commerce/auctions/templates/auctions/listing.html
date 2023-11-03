@@ -11,7 +11,7 @@
             </div>
         {% endif %}
     </div>
-    <p>by. <a href="{% url 'mylistings' listing.user %}">@{{ listing.user }}</a></p>
+    <p>by. <a href="{% url 'listings' listing.user %}">@{{ listing.user }}</a></p>
     <div class="row">
         <div class="col-md-5">
             <img src="{{ listing.url }}" class="rounded img-fluid" alt="{{ listing.description }}">

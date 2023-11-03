@@ -131,7 +131,7 @@ def create(request):
 
 
 @login_required(login_url="login")
-def mylistings(request, username):
+def listings(request, username):
     return render(request, "auctions/index.html", {
         "title": f"{username} Listings",
         "listings": get_object_or_404(User, username=username).listings.all()
