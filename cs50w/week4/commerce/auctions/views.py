@@ -138,6 +138,7 @@ def mylistings(request, username):
     })
 
 
+@login_required(login_url="login")
 def listing(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
     return render(request, "auctions/listing.html", {

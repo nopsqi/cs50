@@ -17,11 +17,17 @@
                     <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
                 {% endfor %}
             </p>
-            <form class="d-flex">
-                {% csrf_token %}
-                {{ bid_form }}
-                <button type="submit" class="btn btn-primary">Bid</button>
-            </form>
+            {% if listing.user is not request.user %}
+                <form class="row">
+                    {% csrf_token %}
+                    <div class="col-sm-4">
+                        {{ bid_form }}
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-primary">Bid</button>
+                    </div>
+                </form>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
