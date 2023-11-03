@@ -121,7 +121,7 @@ def mylistings(request, username):
     })
 
 
-def listing(request, id):
+def listing(request):
     return render(request, "auctions/listing.html", {
-        "listing": Listing.objects.filter(pk=id).first()
+        "listing": Listing.objects.filter(pk=request.GET.get("id")).first()
     })
