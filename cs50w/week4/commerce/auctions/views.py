@@ -117,7 +117,7 @@ def create(request):
 def mylistings(request, username):
     return render(request, "auctions/index.html", {
         "title": f"{username} Listings",
-        "listings": Listing.objects.filter(user=User.objects.filter(username=username).first())
+        "listings": get_object_or_404(User, username=username).listings.all()
     })
 
 
