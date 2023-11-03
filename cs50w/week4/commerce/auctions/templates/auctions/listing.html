@@ -46,6 +46,6 @@
         </div>
     </div>
     <p class="font-weight-bold mt-3">Comments:</p>
-    {% for comment in listing.comments %}
+    {% for comment in listing.comments.all %}
     {% endfor %}
 {% endblock %}
