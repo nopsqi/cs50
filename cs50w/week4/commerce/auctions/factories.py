@@ -28,7 +28,7 @@ class ListingFactory(DjangoModelFactory):
     name = factory.Faker("text", max_nb_chars=32)
     description = factory.Faker("text", max_nb_chars=64)
     url = factory.LazyAttribute(lambda o: f"https://fakeimg.pl/400x400/?text={o.name}")
-    starting_bid = factory.Faker("random_int", min=50, max=100)
+    starting_bid = factory.Faker("random_int", min=10, max=50)
 
     @factory.post_generation
     def categories(self, create, extracted, **kwargs):
@@ -49,7 +49,7 @@ class BidFactory(DjangoModelFactory):
 
     user = factory.SubFactory(UserFactory)
     listing = factory.SubFactory(ListingFactory)
-    amount = factory.LazyAttribute(lambda o: random.randint(round(o.listing.starting_bid), 1000))
+    amount = factory.LazyAttribute(lambda o: random.randint(round(o.listing.starting_bid), 100))
     # amount = factory.Faker("random_int", min=self.listing.starting_bid, max=1000000)
 
 
