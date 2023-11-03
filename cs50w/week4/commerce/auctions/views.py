@@ -33,8 +33,8 @@ def index(request):
     for listing in Listing.objects.all():
         if listing.current_bid:
             continue
-        print(listing.bids.all())
-        break
+        listing.amount = listing.bids.order_by("-amount").first().amount
+        listing.save()
     return render(request, "auctions/index.html", {
         "listings": Listing.objects.all()
     })
