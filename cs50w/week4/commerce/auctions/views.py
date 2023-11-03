@@ -39,6 +39,7 @@ class BidForm(forms.ModelForm):
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update({
                 "class": "form-control"
+                "value": min_value + 0.01 if min_value else 0.01
             })
 
 
