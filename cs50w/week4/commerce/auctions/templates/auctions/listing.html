@@ -5,5 +5,10 @@
     <img src="{{ listing.url }}" class="rounded mx-auto d-block" alt="{{ listing.description }}">
     <p class="font-weight-bold">Description:</p>
     <p>{{ listing.description }}</p>
-    <p></p>
+    <p>
+        <b>Categories:</b>
+        {% for category in listing.categories.all %}
+            <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
+        {% endfor %}
+    </p>
 {% endblock %}
