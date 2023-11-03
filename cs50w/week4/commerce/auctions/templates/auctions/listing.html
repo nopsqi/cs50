@@ -4,10 +4,10 @@
     <h1>{{ listing.name }}</h1>
     <p>by. <a href="{% url 'mylistings' listing.user %}">@{{ listing.user }}</a></p>
     <div class="row">
-    <div class="col-md-3">
-        <img src="{{ listing.url }}" class="rounded mx-auto" alt="{{ listing.description }}">
+    <div class="col-md-5">
+        <img src="{{ listing.url }}" class="rounded img-fluid" alt="{{ listing.description }}">
     </div>
-    <div class="col-md-9">
+    <div class="col-md-7">
         <h2>${{ listing.current_bid }}</h2>
         <p class="font-weight-bold">Description:</p>
         <p>{{ listing.description }}</p>
