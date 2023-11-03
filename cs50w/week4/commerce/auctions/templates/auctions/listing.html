@@ -2,6 +2,7 @@
 
 {% block body %}
     <h1>{{ listing.name }}</h1>
+    <p>by. <a href="{% url 'mylistings' listing.user %}">@{{ listing.user }}</a></p>
     <img src="{{ listing.url }}" class="rounded mx-auto d-block" alt="{{ listing.description }}">
     <h2>${{ listing.current_bid }}</h2>
     <p class="font-weight-bold">Description:</p>
