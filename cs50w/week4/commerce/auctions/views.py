@@ -171,7 +171,7 @@ def bid(request):
         if (bid := Bid.objects.filter(user=request.user, listing=listing).first()):
             bid.amount = request.POST.get("amount")
         else:
-            bid = Bid(user=request.user, llisting=listing, amount=request.POST.get("amount"))
+            bid = Bid(user=request.user, listing=listing, amount=request.POST.get("amount"))
         bid.save()
         listing.current_bid = bid.amount
         listing.save()
