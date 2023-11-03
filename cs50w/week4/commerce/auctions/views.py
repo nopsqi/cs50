@@ -1,4 +1,5 @@
 from decimal import Decimal
+import re
 from django import forms
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -153,7 +154,7 @@ def delete(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
     if request.user == listing.user:
         listing.delete()
-        if 
+        if re.search(r")
         print(HttpResponseRedirect(request.GET.get("prev")).get())
         print(HttpResponseRedirect(reverse("index")))
         return HttpResponseRedirect(reverse("index"))
