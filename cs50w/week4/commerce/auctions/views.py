@@ -154,4 +154,4 @@ def delete(request):
     if request.user == listing.user:
         listing.delete()
         return HttpResponseRedirect(reverse('listings', args=[request.user]))
-
+    return
