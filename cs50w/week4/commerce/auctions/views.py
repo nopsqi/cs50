@@ -28,6 +28,12 @@ class ListingForm(forms.ModelForm):
             })
 
 
+class BidForm(forms.ModelForm):
+    class Meta:
+        model = bid
+        fields = ["amount"]
+
+
 @login_required(login_url="login")
 def index(request):
     for listing in Listing.objects.all():
