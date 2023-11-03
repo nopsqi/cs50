@@ -165,6 +165,8 @@ def delete(request):
 def bid(request):
     if request.method == "POST":
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
+        if listing.user == request.user:
+            return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
         if (bid := Bid.objects.filter(user=request.user, listing=listing).first()):
             bid.amount = request.POST.get("amount")
         else:
