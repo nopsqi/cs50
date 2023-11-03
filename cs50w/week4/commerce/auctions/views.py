@@ -165,7 +165,7 @@ def delete(request):
 def bid(request):
     if request.method == "POST":
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
-        form = BidForm(request.POST)
+        form = BidForm(request.POST, min_value=listing.current_bid)
         if not form.is_valid:
             return render(request, "auctions/listing.html", {
                 "listing": listing,
