@@ -42,6 +42,7 @@ class Bid(models.Model):
 
 
 class Comment(models.Model):
+    timestamp = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="comments")
     content = models.CharField(max_length=300)
