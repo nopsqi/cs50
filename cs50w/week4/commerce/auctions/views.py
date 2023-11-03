@@ -153,7 +153,7 @@ def delete(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
     if request.user == listing.user:
         listing.delete()
-        print(dir(HttpResponseRedirect(request.GET.get("prev"))))
+        print(HttpResponseRedirect(request.GET.get("prev")).get())
         print(HttpResponseRedirect(reverse("index")))
         return HttpResponseRedirect(reverse("index"))
 
