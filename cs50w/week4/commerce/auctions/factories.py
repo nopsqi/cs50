@@ -68,7 +68,7 @@ if Category.objects.all().count() == 0:
     CategoryFactory.create_batch(10)
 
 if Listing.objects.all().count() == 0:
-    for user in random.sample(list(User.objects.exclude(username="administrator")), 3):
+    for user in random.sample(list(User.objects.all()), 3):
         for _ in range(5):
             listing = ListingFactory(user=user, categories=random.sample(list(Category.objects.all()), 4))
 
@@ -79,5 +79,5 @@ if Bid.objects.all().count() == 0:
 
 if Comment.objects.all().count() == 0:
     for listing in Listing.objects.all():
-        for user in User.objects.exclude(username="administrator"):
+        for user in User.objects.all():
             CommentFactory.create_batch(2, user=user, listing=listing)
