@@ -28,7 +28,7 @@
                 {% endfor %}
             </p>
             {% if listing.user != request.user %}
-                <form class="row" actions="{% url 'bid' %}?id={{ listing.id }}">
+                <form class="row" actions="{% url 'bid' %}?id={{ listing.id }}" method="post">
                     {% csrf_token %}
                     <div class="col-sm-4">
                         {{ bid_form }}
