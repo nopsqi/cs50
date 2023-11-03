@@ -28,6 +28,16 @@
                     </div>
                 </form>
             {% endif %}
+            {% if listing.user == request.user %}
+                <div class="row">
+                    <div class="col-sm-1">
+                        <a href="">Close</a>
+                    </div>
+                    <div class="col-sm-1">
+                        <a href="">Delete</a>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
