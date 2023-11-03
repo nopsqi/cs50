@@ -29,7 +29,7 @@
                             <p class="card-text font-weight-bold">${{ listing.current_bid }}</p>
                             {% if request.user == listing.user %}
                                 <p class="card-text"><a href="">Close Bid</a></p>
-                                <p class="card-text"><a href="">Delete</a></p>
+                                <p class="card-text"><a href="{% url 'delete' %}?id={{ listing.id }}&prev={{ request.get_full_path }}">Delete</a></p>
                             {% else %}
                                 <p class="card-text"><a href="">Add to Watchlist</a></p>
                             {% endif %}
