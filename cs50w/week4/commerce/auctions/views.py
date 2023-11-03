@@ -149,4 +149,4 @@ def listing(request):
 
 @login_required(login_url="login")
 def delete(request):
-    ...
+    
