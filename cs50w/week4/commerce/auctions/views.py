@@ -119,7 +119,7 @@ def create(request):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
-            return HttpResponseRedirect(f"{reverse('listing')}?id={}")
+            return HttpResponseRedirect(f"{reverse('listing')}?id=")
         else:
             return render(request, "auctions/create.html", {
                 "form": form
