@@ -37,12 +37,13 @@ class BidForm(forms.ModelForm):
         fields = ["amount"]
 
     def __init__(self, *args, **kwargs):
-        min_value = kwargs.pop("min_value", None)
+        listing = kwargs.pop("listing", None)
         super(BidForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].label = ""
             self.fields[field].widget.attrs["class"] = "form-control"
-        self.fields["amount"].widget.attrs["value"] = round(min_value + Decimal(0.01), 2)
+        min_value = round(listing.current_bid + Decimal(0.01), 2)
+        self.fields["amount"].widget.attrs["value"] = min_value
         self.fields["amount"].validators = [MinValueValidator(min_value)]
 
 
@@ -145,7 +146,7 @@ def listing(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
     return render(request, "auctions/listing.html", {
         "listing": listing,
-        "bid_form": BidForm(min_value=listing.current_bid)
+        "bid_form": BidForm(listing=listing)
     })
 
 
@@ -165,7 +166,7 @@ def delete(request):
 def bid(request):
     if request.method == "POST":
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
-        form = BidForm(request.POST, min_value=listing.current_bid)
+        form = BidForm(request.POST, listing=listing)
         if not form.is_valid():
             return render(request, "auctions/listing.html", {
                 "listing": listing,
