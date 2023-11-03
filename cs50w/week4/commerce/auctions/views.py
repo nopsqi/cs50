@@ -156,6 +156,6 @@ def delete(request):
         listing.delete()
         if re.search(r"id=\d+", request.GET.get("prev", "")):
             return HttpResponseRedirect(reverse("index"))
-        return HttpResponseRedirect(request.GET.get("prev"))
+        return HttpResponseRedirect(request.GET.get("prev", reverse("index")))
 
     return HttpResponseForbidden()
