@@ -35,6 +35,7 @@ class BidForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ListingForm, self).__init__(*args, **kwargs)
+        min_value = kwargs.get("min_value")
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update({
                 "class": "form-control"
