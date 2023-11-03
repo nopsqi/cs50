@@ -9,7 +9,7 @@
     <p>{{ listing.description }}</p>
     <p>
         <b>Categories:</b>
-        {% for category in listing.categories.all %}
+        {% for category in listing.categories.all|dicsort:"name" %}
             <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
         {% endfor %}
     </p>
