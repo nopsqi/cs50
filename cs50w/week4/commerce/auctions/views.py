@@ -145,3 +145,8 @@ def listing(request):
         "listing": listing,
         "bid_form": BidForm(min_value=listing.current_bid)
     })
+
+
+@login_required(login_url="login")
+def delete(request):
+    ...
