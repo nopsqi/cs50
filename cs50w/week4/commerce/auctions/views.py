@@ -165,5 +165,7 @@ def delete(request):
 def bid(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
     if request.user != listing.user:
-        bid = Bid
+        try:
+            bid = Bid.objects.get(user=request.user, listing=listing)
+        except Bid.DoesNotExist
 
