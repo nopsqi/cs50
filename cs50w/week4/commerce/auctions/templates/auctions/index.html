@@ -1,5 +1,4 @@
 {% extends "auctions/layout.html" %}
-{% load urlencode %}
 
 {% block body %}
     {% if title %}
@@ -16,8 +15,9 @@
                 <div class="col-md-10">
                     <div class="card-body d-flex">
                         <div class="col-md-9">
+                            <h1>{{ listing.categories.all() }}</h1>
                             <p class="card-text"><a href="{% url 'mylistings' listing.user %}"><small>@{{ listing.user }}</small></a></p>
-                            <h5 class="card-title"><a href="{% url 'listing' %}?id={{ urlencode(listing.id) }}">{{ listing.name }}</a></h5>
+                            <h5 class="card-title"><a href="{% url 'listing' %}?id={{ listing.id }}">{{ listing.name }}</a></h5>
                             <p class="card-text">{{ listing.description }}</p>
                             <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                             <p class="card-text">
