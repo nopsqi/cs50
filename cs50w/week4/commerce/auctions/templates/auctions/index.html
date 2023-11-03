@@ -27,8 +27,12 @@
                         </div>
                         <div class="col-md-3 text-right">
                             <p class="card-text font-weight-bold">${{ listing.current_bid }}</p>
-                            <i class="fa-regular fa-eye"></i>
-                            <p>test</p>
+                            {% if request.user == listing.uesr %}
+                                <p class="card-text"><a href="">Close Bid</a></p>
+                                <p class="card-text"><a href="">Delete</a></p>
+                            {% else %}
+                                <p class="card-text"><a href="">Add to Watchlist</a></p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
