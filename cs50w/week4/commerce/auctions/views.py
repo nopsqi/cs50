@@ -33,6 +33,13 @@ class BidForm(forms.ModelForm):
         model = bid
         fields = ["amount"]
 
+    def __init__(self, *args, **kwargs):
+        super(ListingForm, self).__init__(*args, **kwargs)
+        for field in iter(self.fields):
+            self.fields[field].widget.attrs.update({
+                "class": "form-control"
+            })
+
 
 @login_required(login_url="login")
 def index(request):
