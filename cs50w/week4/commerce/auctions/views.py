@@ -26,7 +26,7 @@ class ListingForm(forms.ModelForm):
         super(ListingForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update({
-                "class": "form-group d-flex ml-9" if field == "categories" else "form-control"
+                "class": "form-group d-flex justify-content-around" if field == "categories" else "form-control"
             })
 
 
