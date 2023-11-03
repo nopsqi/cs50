@@ -166,4 +166,8 @@ def bid(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
     if request.user != listing.user and request.method == "POST":
         if (bid := Bid.objects.filter(user=request.user, listing=listing).first()):
-            bid.amount = request.POST.get
+            bid.amount = request.POST.get("amount")
+        else:
+            bid = Bid(user=request.user, llisting=listing, amount=request.POST.get("amount"))
+        bid.save()
+    
