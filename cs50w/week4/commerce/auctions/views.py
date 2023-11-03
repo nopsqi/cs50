@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django import forms
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -35,11 +36,11 @@ class BidForm(forms.ModelForm):
         fields = ["amount"]
 
     def __init__(self, *args, **kwargs):
+        min_value = kwargs.pop("min_value", None)
         super(BidForm, self).__init__(*args, **kwargs)
-        min_value = kwargs.get("min_value")
         for field in iter(self.fields):
             self.fields[field].widget.attrs["class"] = "form-control"
-        self.fields["amount"].widget.attrs["value"] = min_value + 0.01
+        self.fields["amount"].widget.attrs["value"] = min_value + Decimal(0.01)
         self.fields["amount"].validators = [MinValueValidator(min_value)]
 
 
