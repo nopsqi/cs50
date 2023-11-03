@@ -37,10 +37,9 @@ class BidForm(forms.ModelForm):
         super(ListingForm, self).__init__(*args, **kwargs)
         min_value = kwargs.get("min_value")
         for field in iter(self.fields):
-            self.fields[field].widget.attrs.update({
-                "class": "form-control"
-                "value": min_value + 0.01 if min_value else 0.01
-            })
+            self.fields[field].widget.attrs["class"] = "form-control"
+        self.fields["amount"].widget.attrs["value"] = min_value + 0.01
+        self.fields["amount"].validators = 
 
 
 @login_required(login_url="login")
