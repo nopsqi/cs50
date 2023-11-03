@@ -20,7 +20,7 @@ class Category(models.Model):
 class Listing(models.Model):
     modified = models.DateField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="listings")
-    active = models.BooleanField()
+    active = models.BooleanField(default=True)
     name = models.CharField(max_length=32)
     description = models.CharField(max_length=64)
     url = models.URLField()
