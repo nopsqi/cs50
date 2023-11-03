@@ -159,3 +159,8 @@ def delete(request):
         return HttpResponseRedirect(request.GET.get("prev", reverse("index")))
 
     return HttpResponseForbidden()
+
+
+@login_required(login_url="login")
+def bid(request)
+
