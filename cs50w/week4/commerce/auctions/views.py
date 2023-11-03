@@ -123,6 +123,5 @@ def mylistings(request, username):
 
 def listing(request):
     return render(request, "auctions/listing.html", {
-        # "listing": get_object_or_404(Listing, id=request.GET.get("id"))
-        "listing": 
+        "listing": get_object_or_404(Listing, id=request.GET.get("id"))
     })
