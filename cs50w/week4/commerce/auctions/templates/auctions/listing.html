@@ -45,5 +45,7 @@
             {% endif %}
         </div>
     </div>
-    <p class="font-weight-bold">Comments</p>
+    <p class="font-weight-bold mt-3">Comments:</p>
+    {% for comment in listing.comments %}
+    {% endfor %}
 {% endblock %}
