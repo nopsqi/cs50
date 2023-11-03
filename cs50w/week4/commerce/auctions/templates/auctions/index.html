@@ -6,7 +6,6 @@
     {% else %}
         <h2>Active Listings</h2>
     {% endif %}
-    <p>{{ request.get_full_path }}</p>
     {% for listing in listings %}
         <div class="card mb-3">
             <div class="row no-gutters">
