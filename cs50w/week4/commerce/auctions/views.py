@@ -153,10 +153,6 @@ def delete(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
     if request.user == listing.user:
         listing.delete()
-        try:
-            return HttpResponseRedirect(reverse("listings", args=[request.user]))
-        except Exception as e:
-            print(e)
-            return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(request.GET.get())
 
     return HttpResponseForbidden()
