@@ -48,7 +48,8 @@
     <p class="font-weight-bold mt-3">Comments:</p>
     {% for comment in listing.comments.all %}
         <div>
-            <
+            <a href="{% url 'listings' comment.user %}">{{ comment.user }}</a>
+            <p>{{ comment.content }}</p>
         </div>
     {% endfor %}
 {% endblock %}
