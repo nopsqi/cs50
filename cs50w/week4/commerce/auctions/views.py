@@ -15,7 +15,7 @@ from .models import User, Category, Listing, Bid
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        exclude = ["user", "current_bid"]
+        exclude = ["active", "user", "current_bid"]
         labels = {
             "url": "Image URL"
         }
