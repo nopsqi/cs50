@@ -57,7 +57,7 @@ class CommentFactory(DjangoModelFactory):
     class Meta:
         model = Comment
 
-    timestamp = factory.Faker("date_between", start_date="-30d", end_date="today")
+    timestamp = factory.Faker("date_time_between", start_date="-30d", end_date="now", )
     user = factory.SubFactory(UserFactory)
     listing = factory.SubFactory(ListingFactory)
     content = factory.Faker("text", max_nb_chars=300)
