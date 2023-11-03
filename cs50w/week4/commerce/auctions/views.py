@@ -34,6 +34,7 @@ def index(request):
         if listing.current_bid:
             continue
         print(listing.bids.all())
+        break
     return render(request, "auctions/index.html", {
         "listings": Listing.objects.all()
     })
