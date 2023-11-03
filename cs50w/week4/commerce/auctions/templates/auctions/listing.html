@@ -40,7 +40,7 @@
             {% if listing.user == request.user %}
                 <div class="d-flex">
                     <a href="">Close Bid</a>
-                    <a class="ml-3" href="{%url 'delete' %}?id={{ listing.id }}">Delete</a>
+                    <a class="ml-3" href="{%url 'delete' %}?id={{ listing.id }}?prev={{ request.get_full_path }}">Delete</a>
                 </div>
             {% endif %}
         </div>
