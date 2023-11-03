@@ -3,14 +3,20 @@
 {% block body %}
     <h1>{{ listing.name }}</h1>
     <p>by. <a href="{% url 'mylistings' listing.user %}">@{{ listing.user }}</a></p>
-    <img src="{{ listing.url }}" class="rounded mx-auto d-block" alt="{{ listing.description }}">
-    <h2>${{ listing.current_bid }}</h2>
-    <p class="font-weight-bold">Description:</p>
-    <p>{{ listing.description }}</p>
-    <p>
-        <b>Categories:</b>
-        {% for category in listing.categories.all|dictsort:"name" %}
-            <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
-        {% endfor %}
-    </p>
+    <div class="row">
+    <div class="col-md-3">
+        <img src="{{ listing.url }}" class="rounded mx-auto" alt="{{ listing.description }}">
+    </div>
+    <div class="col-md-9">
+        <h2>${{ listing.current_bid }}</h2>
+        <p class="font-weight-bold">Description:</p>
+        <p>{{ listing.description }}</p>
+        <p>
+            <b>Categories:</b>
+            {% for category in listing.categories.all|dictsort:"name" %}
+                <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
+            {% endfor %}
+        </p>
+    </div>
+</div>
 {% endblock %}
