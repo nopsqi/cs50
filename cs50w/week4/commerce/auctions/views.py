@@ -43,7 +43,7 @@ class BidForm(forms.ModelForm):
             self.fields[field].label = ""
             self.fields[field].widget.attrs["class"] = "form-control"
         self.fields["amount"].widget.attrs["value"] = round(min_value + Decimal(0.01), 2)
-        self.fields["amount"].validators = [MinValueValidator(min_value)]
+        # self.fields["amount"].validators = [MinValueValidator(min_value)]
 
 
 @login_required(login_url="login")
