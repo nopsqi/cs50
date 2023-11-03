@@ -163,8 +163,8 @@ def delete(request):
 
 @login_required(login_url="login")
 def bid(request):
-    listing = get_object_or_404(Listing, id=request.GET.get("id"))
     if request.user != listing.user and request.method == "POST":
+        listing = get_object_or_404(Listing, id=request.POST.get("id"))
         if (bid := Bid.objects.filter(user=request.user, listing=listing).first()):
             bid.amount = request.POST.get("amount")
         else:
