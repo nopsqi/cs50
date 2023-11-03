@@ -167,5 +167,6 @@ def bid(request):
     if request.user != listing.user:
         try:
             bid = Bid.objects.get(user=request.user, listing=listing)
-        except Bid.DoesNotExist
+        except Bid.DoesNotExist:
+            bid = None
 
