@@ -31,7 +31,9 @@ class ListingForm(forms.ModelForm):
 @login_required(login_url="login")
 def index(request):
     for listing in Listing.objects.all():
-        if li
+        if listing.current_bid:
+            continue
+        print(listing.bids.all())
     return render(request, "auctions/index.html", {
         "listings": Listing.objects.all()
     })
