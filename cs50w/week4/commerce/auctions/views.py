@@ -5,8 +5,9 @@ from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from django.core.validators import MinValueValidator
 
-from .models import User, Category, Listing
+from .models import User, Category, Listing, Bid
 
 
 class ListingForm(forms.ModelForm):
@@ -30,7 +31,7 @@ class ListingForm(forms.ModelForm):
 
 class BidForm(forms.ModelForm):
     class Meta:
-        model = bid
+        model = Bid
         fields = ["amount"]
 
     def __init__(self, *args, **kwargs):
@@ -39,7 +40,7 @@ class BidForm(forms.ModelForm):
         for field in iter(self.fields):
             self.fields[field].widget.attrs["class"] = "form-control"
         self.fields["amount"].widget.attrs["value"] = min_value + 0.01
-        self.fields["amount"].validators = 
+        self.fields["amount"].validators = [MinValueValidator(min_value)]
 
 
 @login_required(login_url="login")
@@ -136,6 +137,8 @@ def mylistings(request, username):
 
 
 def listing(request):
+    listing = get_object_or_404(Listing, id=request.GET.get("id"))
     return render(request, "auctions/listing.html", {
-        "listing": get_object_or_404(Listing, id=request.GET.get("id"))
+        "listing": listing,
+        "bid_form": BidForm(min_value=listing.current_bid)
     })
