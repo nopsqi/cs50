@@ -164,7 +164,7 @@ def delete(request):
 @login_required(login_url="login")
 def bid(request):
     if request.method == "POST":
-        listing = get_object_or_404(Listing, id=request.POST.pop("id", None))
+        listing = get_object_or_404(Listing, id=request.POST.get("id"))
         form = BidForm(request.POST)
         if not form.is_valid:
             return render(request, "auctions/listing.html", {
