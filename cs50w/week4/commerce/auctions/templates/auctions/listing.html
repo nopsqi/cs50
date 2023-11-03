@@ -38,13 +38,17 @@
                 </form>
             {% endif %}
             {% if listing.user == request.user %}
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-sm-1">
                         <a href="">Close Bid</a>
                     </div>
                     <div class="col-sm-1">
                         <a href="">Delete</a>
                     </div>
+                </div> -->
+                <div class="d-flex ml-10">
+                    <a href="">Close Bid</a>
+                    <a href="">Delete</a>
                 </div>
             {% endif %}
         </div>
