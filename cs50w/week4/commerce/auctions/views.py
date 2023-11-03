@@ -171,6 +171,6 @@ def bid(request):
             bid = Bid(user=request.user, llisting=listing, amount=request.POST.get("amount"))
         bid.save()
 
-        return HttpResponseRedirect()
+        return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
 
     return HttpResponseRedirect(request.GET.get("prev", reverse("index")))
