@@ -213,4 +213,8 @@ def delete(request):
 
 @login_required(login_url="login")
 def close(request):
-    listing = get_object_or_404(Listing, id=request.GET.get("id"))
+    if request.method == "GET":
+        return HttpResponseForbidden()
+
+    listing = get_object_or_404(Listing, id=request.POST.get("id"))
+    
