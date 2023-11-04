@@ -2,7 +2,7 @@ import random
 import pytz
 import factory
 from factory.django import DjangoModelFactory
-from auctions.models import User, Category, Listing, Bid, Comment
+from auctions.models import User, Category, Listing, Watchlist, Bid, Comment
 
 
 class UserFactory(DjangoModelFactory):
@@ -32,7 +32,7 @@ class ListingFactory(DjangoModelFactory):
     starting_bid = factory.Faker("random_int", min=10, max=50)
 
     @factory.post_generation
-    def categories(self, create, extracted, **kwargs):
+    def categories(self, create, extracted):
         if not create:
             return
 
@@ -42,6 +42,26 @@ class ListingFactory(DjangoModelFactory):
         else:
             categories = CategoryFactory.create_batch(random.randint(1, 5))
             self.categories.add(*categories)
+
+
+class WatchlistFactory(DjangoModelFactory):
+    class Meta:
+        model = Watchlist
+
+    user = factory.SubFactory(UserFactory)
+
+    @factory.post_generation
+    def listings(self, create, extracted):
+        if not create:
+            return
+
+        if extracted:
+            for listing in extracted:
+                self.listings.add(listing)
+
+        else:
+            listings = ListingFactory.create_batch(random.randint(1, 10))
+            self.listings.add(*listings)
 
 
 class BidFactory(DjangoModelFactory):
@@ -74,6 +94,10 @@ if Listing.objects.all().count() == 0:
     for user in random.sample(list(User.objects.all()), 3):
         for _ in range(5):
             listing = ListingFactory(user=user, categories=random.sample(list(Category.objects.all()), random.randint(1, n + 1)))
+
+if Watchlist.objects.all().count() == 0:
+    for user in User.objects.all():
+        
 
 if Bid.objects.all().count() == 0:
     for listing in Listing.objects.all():
