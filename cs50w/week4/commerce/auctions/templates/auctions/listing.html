@@ -13,9 +13,18 @@
             </div>
         </div>
         {% if listing.user != request.user %}
-            <div class="col-sm-1">
-                <a href="">Add to Watchlist</a>
-            </div>
+            {% if listing.is_in_watchlist %}
+                <form action="{% url 'watchlist.delete' %}" method="post">
+                <input type="hidden" name="action" value="delete">
+                {% else %}
+                <form action="{% url 'watchlist.add' %}" method="post">
+                <input type="hidden" name="action" value="add">
+            {% endif %}
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{ listing.id }}">
+                <input type="hidden" name="prev" value="{{ request.get_full_path }}">
+                <input class="btn {{ listing.is_in_watchlist|yesno:'btn-secondary,btn-primary' }}" type="submit" value="Watchlist">
+            </form>
         {% endif %}
     </div>
     <p>by. <a href="{% url 'listings' listing.user %}">@{{ listing.user }}</a></p>
