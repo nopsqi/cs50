@@ -140,7 +140,7 @@ def create(request):
         form.instance.user = request.user
         form.instance.current_bid = form.instance.starting_bid
         listing = form.save()
-        return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
+        return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
     else:
         return render(request, "auctions/create.html", {
             "form": form
@@ -177,7 +177,7 @@ class listing:
 
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
         if listing.user == request.user:
-            return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
+            return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
         form = BidForm(request.POST, request=request, listing=listing)
         if not form.is_valid():
             return render(request, "auctions/listing.html", {
@@ -194,7 +194,7 @@ class listing:
         listing.current_bid = form.cleaned_data["amount"]
         listing.save()
 
-        return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
+        return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
 
 
     @staticmethod
