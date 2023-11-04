@@ -106,11 +106,13 @@ if Watchlist.objects.all().count() == 0:
 if Bid.objects.all().count() == 0:
     listings = Listing.objects.all()
     for listing in random.sample(list(listings), round(listings.count() * (2/3))):
-        users = User.objects.exclude(username=listing.user):
-        for user in random.sample(list(users), users.count() // 2)
+        users = User.objects.exclude(username=listing.user)
+        for user in random.sample(list(users), users.count() // 2):
             bid = BidFactory(user=user, listing=listing)
 
 if Comment.objects.all().count() == 0:
-    for listing in Listing.objects.all():
-        for user in User.objects.all():
+    listings = Listing.objects.all()
+    users = User.objects.all()
+    for listing in random.sample(list(listings), round(listings.count() * (2/3))):
+        for user in random.sample(list(users), round(users.count() * (2/3))):
             CommentFactory.create_batch(1, user=user, listing=listing)
