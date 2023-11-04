@@ -179,6 +179,8 @@ def bid(request):
         if listing.user == request.user:
             return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
         form = BidForm(request.POST, request=request, listing=listing)
+        form.instance.user = request.user
+        form.instance.listing = listing
         if not form.is_valid():
             return render(request, "auctions/listing.html", {
                 "listing": listing,
