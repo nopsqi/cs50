@@ -52,13 +52,13 @@
                         {% csrf_token %}
                         <input type="hidden" name="id" value="{{ listing.id }}">
                         <input type="hidden" name="prev" value="{{ request.get_full_path}}">
-                        <input type="submit" value="Close Bid">
+                        <input class="btn btn-danger" type="submit" value="Close Bid">
                     </form>
                     <form class="ml-2" action="{% url 'delete' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="id" value="{{ listing.id }}">
                         <input type="hidden" name="prev" value="{{ request.get_full_path }}">
-                        <input type="submit" value="Delete">
+                        <input class="btn btn-danger" type="submit" value="Delete">
                     </form>
                 </div>
             {% endif %}
