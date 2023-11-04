@@ -34,31 +34,10 @@ class ListingForm(forms.ModelForm):
 
 class BidForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        listing = kwargs.pop("listing", None)
-        self.listing = listing
-        request = kwargs.pop("request", None)
-        self.request = request
         super(BidForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].label = ""
             self.fields[field].widget.attrs["class"] = "form-control"
-        if listing:
-            min_value = listing.current_bid + Decimal(1)
-            self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
-            self.fields["amount"].validators = [MinValueValidator(min_value)]
-
-    def clean(self):
-        cleaned_data = super().clean()
-        user = cleaned_data.get("user")
-        if not self.validate_user(user):
-            self.add_error("user", "You already won the bid")
-        return cleaned_data
-
-
-    def validate_user(self, user):
-        if user == self.listing.bids.order_by("-amount").first().user:
-            raise ValidationError("You already won this listing")
-
 
     class Meta:
         model = Bid
