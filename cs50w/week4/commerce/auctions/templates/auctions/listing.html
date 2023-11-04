@@ -49,7 +49,7 @@
             {% if listing.user == request.user %}
                 <div class="d-flex">
                     <a href="">Close Bid</a>
-                    <form class="ml-2" action="{% url 'delete'}" method="post">
+                    <form class="ml-2" action="{% url 'delete' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="id" value="{{ listing.id }}">
                         <input type="hidden" name="prev" value="{{ request.get_full_path }}">
