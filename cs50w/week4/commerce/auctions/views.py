@@ -152,7 +152,7 @@ def listing(request):
     return render(request, "auctions/listing.html", {
         "listing": listing,
         "bid_form": form,
-        "is_winner": form.fields["amount"].widget.attrs["disabled"]
+        "is_winner": form.fields["amount"].widget.attrs
     })
 
 
