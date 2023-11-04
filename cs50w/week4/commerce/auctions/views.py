@@ -42,6 +42,7 @@ class BidForm(forms.ModelForm):
         for field in iter(self.fields):
             self.fields[field].label = ""
             self.fields[field].widget.attrs["class"] = "form-control"
+            self.fields[field].widget.attrs["disabeled"] = True
         min_value = listing.current_bid + Decimal(1)
         self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
         self.fields["amount"].validators = [MinValueValidator(min_value)]
