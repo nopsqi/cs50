@@ -40,7 +40,7 @@
                                         <input class="btn btn-danger" type="submit" value="Delete">
                                     </form>
                                 {% elif listing not in request.user.watchlist.get.listings.all %}
-                                    <form action="{% url 'watchlist.add'}" method="post">
+                                    <form action="{% url 'watchlist.add' %}" method="post">
                                         {% csrf_token %}
                                         <input type="hidden" name="id" value="{{ listing.id }}">
                                         <input type="hidden" name="prev" value="{{ request.get_full_path }}">
