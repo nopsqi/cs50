@@ -52,6 +52,7 @@ class BidForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
+        print(cleaned_data)
         if self.request.user == self.listing.bids.order_by("-amount").first().user:
             raise ValidationError("You already the highest bid")
         return cleaned_data
@@ -181,10 +182,6 @@ def bid(request):
         if listing.user == request.user:
             return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
         form = BidForm(request.POST, request=request, listing=listing)
-        data = form.data.copy()
-        data["user"] = request.user
-        data["listing"] = listing
-        form.data = data
         if not form.is_valid():
             return render(request, "auctions/listing.html", {
                 "listing": listing,
