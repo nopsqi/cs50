@@ -75,9 +75,11 @@ def index(request):
         else:
             listing.current_bid = listing.starting_bid
         listing.save()
-        listing.is_in_watchlist = listing in request.user.watchlist.get().listings
+    listings = Listing.objects.exclude(user=request.user).order_by("-modified")
+    for listing in listings:
+        listing.is_in_watchlist = True
     return render(request, "auctions/index.html", {
-        "listings": Listing.objects.exclude(user=request.user).order_by("-modified")
+        "listings": listings
     })
 
 
