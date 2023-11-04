@@ -34,19 +34,17 @@ class ListingForm(forms.ModelForm):
 
 class BidForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        self.listing = kwargs.pop("listing", None)
-        self.request = kwargs.pop("request", None)
+        self.listing = kwargs.pop("listing")
+        self.request = kwargs.pop("request")
         super().__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].label = ""
             self.fields[field].widget.attrs["class"] = "form-control"
-            if request:
-                self.fields[field].disabled = request.user == listing.bids.order_by("-amount").first().user
-                # self.fields[field].disabled = request.user == False
-        if listing:
-            min_value = listing.current_bid + Decimal(1)
-            self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
-            self.fields["amount"].validators = [MinValueValidator(min_value)]
+            self.fields[field].disabled = self.request.user == self.listing.bids.order_by("-amount").first().user
+            # self.fields[field].disabled = request.user == False
+        min_value = self.listing.current_bid + Decimal(1)
+        self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
+        self.fields["amount"].validators = [MinValueValidator(min_value)]
 
     class Meta:
         model = Bid
