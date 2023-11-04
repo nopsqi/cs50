@@ -8,6 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidde
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.core.validators import MinValueValidator
+from django.core.exceptions import ValidationError
 
 from .models import User, Category, Listing, Bid
 
@@ -44,10 +45,13 @@ class BidForm(forms.ModelForm):
         if listing:
             min_value = listing.current_bid + Decimal(1)
             self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
-            self.fields["amount"].validators = [MinValueValidator(min_value)]
+            self.fields["amount"].validators = [MinValueValidator(min_value), self.validate_user(request, listing)]
 
-    def validate_user(user):
-        if 
+    @staticmethod
+    def validate_user(request, listing):
+        if request.user == listing.bids.order_by("-amount").first().user:
+            raise ValidationError("You already won this listing")
+
 
     class Meta:
         model = Bid
