@@ -40,7 +40,9 @@ class BidForm(forms.ModelForm):
             self.highest_bider = bid.user
         else:
             self.highest_bider = None
+
         super().__init__(*args, **kwargs)
+
         for field in iter(self.fields):
             self.fields[field].label = ""
             self.fields[field].widget.attrs["class"] = "form-control"
