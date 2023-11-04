@@ -84,7 +84,7 @@ class CommentFactory(DjangoModelFactory):
     content = factory.Faker("text", max_nb_chars=300)
 
 if User.objects.all().count() == 0:
-    UserFactory.create_batch(5)
+    UserFactory.create_batch(10)
 
 if Category.objects.all().count() == 0:
     CategoryFactory.create_batch(10)
