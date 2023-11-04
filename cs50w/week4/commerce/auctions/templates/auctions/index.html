@@ -40,11 +40,10 @@
                                         <input class="btn btn-danger" type="submit" value="Delete">
                                     </form>
                                 {% elif listing not in request.user.watchlist.get.listings.all %}
-                                    <p class="card-text"><a href="">Add to Watchlist</a></p>
                                     <form action="{% url 'watchlist.add'}" method="post">
                                         <input type="hidden" name="id" value="{{ listing.id }}">
                                         <input type="hidden" name="prev" value="{{ request.get_full_path }}">
-                                        <input type="submit" value="Watchlist"
+                                        <input type="submit" value="Watchlist">
                                     </form>
                                 {% endif %}
                             </div>
