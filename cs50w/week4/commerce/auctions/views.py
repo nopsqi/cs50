@@ -174,7 +174,7 @@ def listing(request):
 @login_required(login_url="login")
 def watchlists(request):
     return render(request, "auctions/index.html", {
-        "listings": Watchlist.objects.filter(user=request.user).order_by("-)
+        "listings": User.objects.get(user=request.user).watchlists.listings.all().order_by("-modified")
     })
 
 
