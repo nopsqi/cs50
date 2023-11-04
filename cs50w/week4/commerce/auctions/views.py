@@ -134,21 +134,21 @@ def register(request):
 
 @login_required(login_url="login")
 def create(request):
-    if request.method == "POST":
-        form = ListingForm(request.POST)
-        if form.is_valid():
-            form.instance.user = request.user
-            form.instance.current_bid = form.instance.starting_bid
-            listing = form.save()
-            return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
-        else:
-            return render(request, "auctions/create.html", {
-                "form": form
-            })
+    if request.method == "GET":
+        return render(request, "auctions/create.html", {
+            "form": ListingForm()
+        })
 
-    return render(request, "auctions/create.html", {
-        "form": ListingForm()
-    })
+    form = ListingForm(request.POST)
+    if form.is_valid():
+        form.instance.user = request.user
+        form.instance.current_bid = form.instance.starting_bid
+        listing = form.save()
+        return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
+    else:
+        return render(request, "auctions/create.html", {
+            "form": form
+        })
 
 
 @login_required(login_url="login")
