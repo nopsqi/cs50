@@ -36,11 +36,12 @@ class BidForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
         self.listing = kwargs.pop("listing")
+        self.highest_bider = self.listing.bids.order_by("-amount").first().user
         super().__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].label = ""
             self.fields[field].widget.attrs["class"] = "form-control"
-            # self.fields[field].disabled = self.request.user == self.listing.bids.order_by("-amount").first().user
+            # self.fields[field].disabled = self.request.user == highest_bider
             self.fields[field].disabled = False
         min_value = self.listing.current_bid + Decimal(1)
         self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
@@ -52,9 +53,10 @@ class BidForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        print(cleaned_data)
-        if self.request.user == self.listing.bids.order_by("-amount").first().user:
+        if self.request.user == self.highest_bider
             raise ValidationError("You already the highest bid")
+        cleaned_data["user"] = self.request.user
+        cleaned_data["listing"] = self.listing
         return cleaned_data
 
 
