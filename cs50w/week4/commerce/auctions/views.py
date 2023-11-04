@@ -44,9 +44,10 @@ class BidForm(forms.ModelForm):
             self.fields[field].label = ""
             self.fields[field].widget.attrs["class"] = "form-control"
             self.fields[field].disabled = True
-        min_value = listing.current_bid + Decimal(1)
-        self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
-        self.fields["amount"].validators = [MinValueValidator(min_value)]
+        if listing:
+            min_value = listing.current_bid + Decimal(1)
+            self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
+            self.fields["amount"].validators = [MinValueValidator(min_value)]
 
 
 @login_required(login_url="login")
