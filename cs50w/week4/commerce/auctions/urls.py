@@ -10,9 +10,9 @@ urlpatterns = [
     path("create", views.create, name="create"),
     path("watchlist", views.watchlist.show, name="watchlist"),
     path("watchlist/add", views.watchlist.add, name="watchlist.add"),
-    path("listing", views.listing.show, name="listing"),
-    path("listing/close", views.listing.close, name="close"),
-    path("listing/delete", views.listing.delete, name="delete"),
-    path("listing/bid", views.listing.bid, name="bid"),
+    path("listing", views.listing.show, name="listing.show"),
+    path("listing/close", views.listing.close, name="listing.close"),
+    path("listing/delete", views.listing.delete, name="listing.delete"),
+    path("listing/bid", views.listing.bid, name="listing.bid"),
     path("<str:username>", views.listings, name="listings"),
 ]

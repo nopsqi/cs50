@@ -41,7 +41,7 @@
                 {% endfor %}
             </p>
             {% if listing.user != request.user and listing.active %}
-                <form class="row" action="{% url 'bid' %}" method="post">
+                <form class="row" action="{% url 'listing.bid' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="id" value="{{ listing.id }}">
                     <div class="col-sm-4">
@@ -55,14 +55,14 @@
             {% if listing.user == request.user %}
                 <div class="d-flex">
                     {% if listing.active %}
-                        <form class="mr-3" action="{% url 'close' %}" method="post">
+                        <form class="mr-3" action="{% url 'listing.close' %}" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="id" value="{{ listing.id }}">
                             <input type="hidden" name="prev" value="{{ request.get_full_path}}">
                             <input class="btn btn-danger" type="submit" value="Close Bid">
                         </form>
                     {% endif %}
-                    <form action="{% url 'delete' %}" method="post">
+                    <form action="{% url 'listing.delete' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="id" value="{{ listing.id }}">
                         <input type="hidden" name="prev" value="{{ request.get_full_path }}">
