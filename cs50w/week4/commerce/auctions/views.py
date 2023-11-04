@@ -45,7 +45,7 @@ class BidForm(forms.ModelForm):
         if listing:
             min_value = listing.current_bid + Decimal(1)
             self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
-            self.fields["amount"].validators = [MinValueValidator(min_value), self.validate_user(request, listing)]
+            self.fields["amount"].validators = [MinValueValidator(min_value)]
 
     @staticmethod
     def validate_user(request, listing):
