@@ -8,7 +8,7 @@
         <h2>Active Listings</h2>
     {% endif %}
     {% for listing in listings %}
-        {% if listing.active and  %}
+        {% if listing.active or request.user == listing.user %}
             <div class="card mb-3 {{ listing.active|yesno:',bg-light' }}">
                 <div class="row no-gutters">
                     <div class="col-md-3">

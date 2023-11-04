@@ -76,7 +76,7 @@ def index(request):
             listing.current_bid = listing.starting_bid
         listing.save()
     return render(request, "auctions/index.html", {
-        "listings": Listing.objects.all()
+        "listings": Listing.objects.exclude(user=request.user)
     })
 
 
