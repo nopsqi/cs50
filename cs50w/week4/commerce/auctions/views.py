@@ -162,6 +162,8 @@ def listings(request, username):
 @login_required(login_url="login")
 def listing(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
+    if listing.user != request.user and not listing.active:
+        return HttpResponseNotFound()
     form = BidForm(listing=listing, request=request)
     return render(request, "auctions/listing.html", {
         "listing": listing,
