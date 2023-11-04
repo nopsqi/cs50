@@ -50,6 +50,7 @@ class BidForm(forms.ModelForm):
         model = Bid
         fields = ["amount"]
 
+    def clean():
 
 
 @login_required(login_url="login")
