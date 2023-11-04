@@ -67,14 +67,6 @@ class BidForm(forms.ModelForm):
 
 @login_required(login_url="login")
 def index(request):
-    for listing in Listing.objects.all():
-        if listing.current_bid:
-            continue
-        if (bid := listing.bids.order_by("-amount").first()):
-            listing.current_bid = bid.amount
-        else:
-            listing.current_bid = listing.starting_bid
-        listing.save()
     listings = Listing.objects.exclude(user=request.user).order_by("-modified")
     for listing in listings:
         listing.is_in_watchlist = True
