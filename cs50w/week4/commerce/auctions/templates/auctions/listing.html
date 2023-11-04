@@ -18,7 +18,12 @@
             <img src="{{ listing.url }}" class="rounded img-fluid" alt="{{ listing.description }}">
         </div>
         <div class="col-md-7">
-            <h2>${{ listing.current_bid }}</h2>
+            <div class="d-flex">
+                <h2>${{ listing.current_bid }}</h2>
+                {% if form.highest_bidder %}
+                    <p>{{ form.highest_bidder }}</p>
+                {% endif %}
+            </div>
             <p class="font-weight-bold">Description:</p>
             <p>{{ listing.description }}</p>
             <p>
