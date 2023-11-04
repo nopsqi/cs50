@@ -52,7 +52,7 @@ class BidForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        print(cleaned_data)
+        print(self.data)
         return cleaned_data
 
 
