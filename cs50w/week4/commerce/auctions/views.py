@@ -153,17 +153,76 @@ def listings(request, username):
     })
 
 
-@login_required(login_url="login")
-def listing(request):
-    listing = get_object_or_404(Listing, id=request.GET.get("id"))
-    if listing.user != request.user and not listing.active:
-        return HttpResponseNotFound()
-    form = BidForm(listing=listing, request=request)
-    return render(request, "auctions/listing.html", {
-        "listing": listing,
-        "bid_form": form,
-        "is_winner": form.fields["amount"].disabled
-    })
+class listing:
+    @staticmethod
+    @login_required(login_url="login")
+    def show(request):
+        listing = get_object_or_404(Listing, id=request.GET.get("id"))
+        if listing.user != request.user and not listing.active:
+            return HttpResponseNotFound()
+        form = BidForm(listing=listing, request=request)
+        return render(request, "auctions/listing.html", {
+            "listing": listing,
+            "bid_form": form,
+            "is_winner": form.fields["amount"].disabled
+        })
+
+
+    @staticmethod
+    @login_required(login_url="login")
+    def bid(request):
+        if request.method == "GET":
+            return HttpResponseForbidden()
+
+        listing = get_object_or_404(Listing, id=request.POST.get("id"))
+        if listing.user == request.user:
+            return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
+        form = BidForm(request.POST, request=request, listing=listing)
+        if not form.is_valid():
+            return render(request, "auctions/listing.html", {
+                "listing": listing,
+                "bid_form": form
+            })
+        if (bid := Bid.objects.filter(user=form.cleaned_data["user"], listing=form.cleaned_data["listing"]).first()):
+            bid.amount = form.cleaned_data["amount"]
+            bid.save()
+        else:
+            form.instance.user = form.cleaned_data["user"]
+            form.instance.listing = form.cleaned_data["listing"]
+            form.save()
+        listing.current_bid = form.cleaned_data["amount"]
+        listing.save()
+
+        return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
+
+
+    @staticmethod
+    @login_required(login_url="login")
+    def delete(request):
+        if request.method == "GET":
+            return HttpResponseForbidden()
+
+        listing = get_object_or_404(Listing, id=request.POST.get("id"))
+        if listing.user != request.user:
+            return HttpResponseForbidden()
+        listing.delete()
+        if re.search(r"id=\d+", request.POST.get("prev")):
+            return HttpResponseRedirect(reverse("listings", args=[request.user]))
+        return HttpResponseRedirect(request.POST.get("prev"))
+
+
+    @staticmethod
+    @login_required(login_url="login")
+    def close(request):
+        if request.method == "GET":
+            return HttpResponseForbidden()
+
+        listing = get_object_or_404(Listing, id=request.POST.get("id"))
+        if listing.user != request.user:
+            return HttpResponseForbidden()
+        listing.active = False
+        listing.save()
+        return HttpResponseRedirect(request.POST.get("prev"))
 
 
 class watchlist:
@@ -185,57 +244,3 @@ class watchlist:
         if listing.user != request.user:
             request.user.watchlist.get().listings.add(listing)
         return HttpResponseRedirect(f"{request.POST.get('prev', reverse('index'))}")
-
-
-@login_required(login_url="login")
-def bid(request):
-    if request.method == "GET":
-        return HttpResponseForbidden()
-
-    listing = get_object_or_404(Listing, id=request.POST.get("id"))
-    if listing.user == request.user:
-        return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
-    form = BidForm(request.POST, request=request, listing=listing)
-    if not form.is_valid():
-        return render(request, "auctions/listing.html", {
-            "listing": listing,
-            "bid_form": form
-        })
-    if (bid := Bid.objects.filter(user=form.cleaned_data["user"], listing=form.cleaned_data["listing"]).first()):
-        bid.amount = form.cleaned_data["amount"]
-        bid.save()
-    else:
-        form.instance.user = form.cleaned_data["user"]
-        form.instance.listing = form.cleaned_data["listing"]
-        form.save()
-    listing.current_bid = form.cleaned_data["amount"]
-    listing.save()
-
-    return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
-
-
-@login_required(login_url="login")
-def delete(request):
-    if request.method == "GET":
-        return HttpResponseForbidden()
-
-    listing = get_object_or_404(Listing, id=request.POST.get("id"))
-    if listing.user != request.user:
-        return HttpResponseForbidden()
-    listing.delete()
-    if re.search(r"id=\d+", request.POST.get("prev")):
-        return HttpResponseRedirect(reverse("listings", args=[request.user]))
-    return HttpResponseRedirect(request.POST.get("prev"))
-
-
-@login_required(login_url="login")
-def close(request):
-    if request.method == "GET":
-        return HttpResponseForbidden()
-
-    listing = get_object_or_404(Listing, id=request.POST.get("id"))
-    if listing.user != request.user:
-        return HttpResponseForbidden()
-    listing.active = False
-    listing.save()
-    return HttpResponseRedirect(request.POST.get("prev"))
