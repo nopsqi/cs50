@@ -8,7 +8,7 @@
         <h2>Active Listings</h2>
     {% endif %}
     {% for listing in listings %}
-        {% if listing.active %}
+        {% if listing.active and  %}
             <div class="card mb-3 {{ listing.active|yesno:',bg-light' }}">
                 <div class="row no-gutters">
                     <div class="col-md-3">
