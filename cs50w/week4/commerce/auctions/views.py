@@ -10,7 +10,7 @@ from django.urls import reverse
 from django.core.validators import MinValueValidator
 from django.core.exceptions import ValidationError
 
-from .models import User, Category, Listing, Bid
+from .models import User, Category, Listing, Watchlist, Bid
 
 
 class ListingForm(forms.ModelForm):
@@ -186,7 +186,7 @@ def add_watchlist(request):
     listing = get_object_or_404(Listing, id=request.POST.get("id"))
     if listing.user == request.user:
         return HttpResponseRedirect(f"{request.POST.get("prev", reverse("index"))}")
-    
+    watchlist = Watchlist(user=request.user, listing=listing)
 
 
 @login_required(login_url="login")
