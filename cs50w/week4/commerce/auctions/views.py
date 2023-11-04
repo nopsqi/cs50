@@ -206,4 +206,4 @@ def bid(request):
 
         return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
 
-    return HttpResponseRedirect(request.GET.get("prev", reverse("index")))
+    return HttpResponseForbidden()
