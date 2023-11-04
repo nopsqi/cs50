@@ -58,8 +58,7 @@ class BidForm(forms.ModelForm):
         return cleaned_data
 
 
-    @staticmethod
-    def validate_user(user):
+    def validate_user(self, user):
         if user == self.listing.bids.order_by("-amount").first().user:
             raise ValidationError("You already won this listing")
 
@@ -192,6 +191,7 @@ def bid(request):
     if request.method == "POST":
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
         form = BidForm(request.POST, listing=listing)
+        form.instance.user = request.user
         if not form.is_valid():
             return render(request, "auctions/listing.html", {
                 "listing": listing,
