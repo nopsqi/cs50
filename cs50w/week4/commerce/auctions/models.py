@@ -33,8 +33,8 @@ class Listing(models.Model):
 
 
 class Watchlist(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="watchlists")
-    listings = models.ManyToManyField(Listing, related_name="watchlists")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="watchlist")
+    listings = models.ManyToManyField(Listing, related_name="watchlist")
 
 
 class Bid(models.Model):
