@@ -194,6 +194,7 @@ def bid(request):
                 "listing": listing,
                 "bid_form": form
             })
+        print(form.instance)
         if (bid := Bid.objects.filter(user=request.user, listing=listing).first()):
             bid.amount = request.POST.get("amount")
         else:
