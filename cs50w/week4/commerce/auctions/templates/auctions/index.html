@@ -1,4 +1,5 @@
 {% extends "auctions/layout.html" %}
+{% load humanize %}
 
 {% block body %}
     {% if title %}
@@ -8,43 +9,43 @@
     {% endif %}
     {% for listing in listings %}
         {% if listing.active %}
-        <div class="card mb-3 {{ listing.active|yesno:',bg-light' }}">
-            <div class="row no-gutters">
-                <div class="col-md-2">
-                    <img src="{{ listing.url }}" class="card-img" alt="{{ listing.description }}">
-                </div>
-                <div class="col-md-10">
-                    <div class="card-body d-flex">
-                        <div class="col-md-9">
-                            <p class="card-text"><a href="{% url 'listings' listing.user %}"><small>@{{ listing.user }}</small></a></p>
-                            <h5 class="card-title"><a href="{% url 'listing' %}?id={{ listing.id }}">{{ listing.name }}</a></h5>
-                            <p class="card-text">{{ listing.description }}</p>
-                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                            <p class="card-text">
-                                {% for category in listing.categories.all|dictsort:"name" %}
-                                    <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
-                                {% endfor %}
-                            </p>
-                        </div>
-                        <div class="col-md-3 text-right">
-                            <p class="card-text font-weight-bold">${{ listing.current_bid }}</p>
-                            {% if request.user == listing.user %}
-                                <p class="card-text"><a href="">Close Bid</a></p>
-                                <form action="{% url 'delete' %}" method="post">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="id" value="{{ listing.id }}">
-                                    <input type="hidden" name="prev" value="{{ request.get_full_path }}">
-                                    <input type="submit" value="Delete">
-                                </form>
-                            {% else %}
-                                <p class="card-text"><a href="">Add to Watchlist</a></p>
-                            {% endif %}
+            <div class="card mb-3 {{ listing.active|yesno:',bg-light' }}">
+                <div class="row no-gutters">
+                    <div class="col-md-2">
+                        <img src="{{ listing.url }}" class="card-img" alt="{{ listing.description }}">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body d-flex">
+                            <div class="col-md-9">
+                                <p class="card-text"><a href="{% url 'listings' listing.user %}"><small>@{{ listing.user }}</small></a></p>
+                                <h5 class="card-title"><a href="{% url 'listing' %}?id={{ listing.id }}">{{ listing.name }}</a></h5>
+                                <p class="card-text mt-0"><small class="text-muted">Last updated {{ listing.modified|naturaltime }}</small></p>
+                                <p class="card-text">{{ listing.description }}</p>
+                                <p class="card-text">
+                                    {% for category in listing.categories.all|dictsort:"name" %}
+                                        <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <p class="card-text font-weight-bold">${{ listing.current_bid }}</p>
+                                {% if request.user == listing.user %}
+                                    <p class="card-text"><a href="">Close Bid</a></p>
+                                    <form action="{% url 'delete' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="id" value="{{ listing.id }}">
+                                        <input type="hidden" name="prev" value="{{ request.get_full_path }}">
+                                        <input type="submit" value="Delete">
+                                    </form>
+                                {% else %}
+                                    <p class="card-text"><a href="">Add to Watchlist</a></p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    {% endif %}
+        {% endif %}
     {% empty %}
         <p>No listing yet.</p>
     {% endfor %}
