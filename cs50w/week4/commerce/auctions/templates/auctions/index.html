@@ -7,6 +7,7 @@
         <h2>Active Listings</h2>
     {% endif %}
     {% for listing in listings %}
+        {% if listing.active %}
         <div class="card mb-3 {{ listing.active|yesno:',bg-light' }}">
             <div class="row no-gutters">
                 <div class="col-md-2">
@@ -43,6 +44,7 @@
                 </div>
             </div>
         </div>
+    {% endif %}
     {% empty %}
         <p>No listing yet.</p>
     {% endfor %}
