@@ -11,16 +11,14 @@
         {% if listing.active %}
             <div class="card mb-3 {{ listing.active|yesno:',bg-light' }}">
                 <div class="row no-gutters">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <img src="{{ listing.url }}" class="card-img" alt="{{ listing.description }}">
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div class="card-body d-flex">
                             <div class="col-md-9">
-                                <div class="d-flex">
-                                    <h5 class="card-title"><a href="{% url 'listing' %}?id={{ listing.id }}">{{ listing.name }}</a></h5>
-                                    <p class="card-text ml-2"><small>by <a href="{% url 'listings' listing.user %}">@{{ listing.user }}</a></small></p>
-                                </div>
+                                <p class="card-text"><small><a href="{% url 'listings' listing.user %}">@{{ listing.user }}</a></small></p>
+                                <h5 class="card-title"><a href="{% url 'listing' %}?id={{ listing.id }}">{{ listing.name }}</a></h5>
                                 <p class="card-text"><small class="text-muted">Last updated {{ listing.modified|naturaltime }}</small></p>
                                 <p class="card-text">{{ listing.description }}</p>
                                 <p class="card-text">
