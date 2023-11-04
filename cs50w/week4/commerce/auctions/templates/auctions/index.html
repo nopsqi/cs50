@@ -2,11 +2,6 @@
 {% load humanize %}
 
 {% block body %}
-    <!-- {% if title %}
-        <h2>{{ title }}</h2>
-    {% else %}
-        <h2>Active Listings</h2>
-    {% endif %} -->
     {% for listing in listings %}
         {% if listing.active or request.user == listing.user %}
             <div class="card mb-3 {{ listing.active|yesno:',bg-light' }}">
