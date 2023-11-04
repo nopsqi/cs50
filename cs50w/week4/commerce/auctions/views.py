@@ -166,7 +166,7 @@ def listing(request):
     })
 
 
-class Wathclist:
+class watchlist:
     @staticmethod
     @login_required(login_url="login")
     def show(request):
