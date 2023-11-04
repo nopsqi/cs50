@@ -179,6 +179,17 @@ def watchlist(request):
 
 
 @login_required(login_url="login")
+def add_watchlist(request):
+    if request.method == "GET":
+        return HttpResponseForbidden()
+
+    listing = get_object_or_404(Listing, id=request.POST.get("id"))
+    if listing.user == request.user:
+        return HttpResponseRedirect(f"{request.POST.get("prev", reverse("index"))}")
+    
+
+
+@login_required(login_url="login")
 def bid(request):
     if request.method == "GET":
         return HttpResponseForbidden()
