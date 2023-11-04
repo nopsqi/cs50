@@ -221,4 +221,4 @@ def close(request):
         return HttpResponseForbidden()
     listing.active = False
     listing.save()
-    return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
+    return HttpResponseRedirect(request.POST.get("prev"))

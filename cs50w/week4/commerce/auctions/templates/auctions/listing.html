@@ -50,7 +50,8 @@
                 <div class="d-flex">
                     <form action="{% url 'close' %}" method="post">
                         {% csrf_token %}
-                        <input type="hidden" name="id" value="{{ listing.id}}">
+                        <input type="hidden" name="id" value="{{ listing.id }}">
+                        <input type="hidden" name="prev" value="{{ request.get_full_path}}">
                         <input type="submit" value="Close Bid">
                     </form>
                     <form class="ml-2" action="{% url 'delete' %}" method="post">
