@@ -24,7 +24,6 @@
                             </div>
                             <div class="col-md-3 text-right">
                                 <h2 class="card-text">${{ listing.current_bid }}</h2>
-                                <p>{{ listing.is_in_watchlist }}</p>
                                 {% if request.user == listing.user %}
                                     {% if listing.active %}
                                         <form action="{% url 'close' %}" method="post">

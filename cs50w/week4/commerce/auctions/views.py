@@ -69,7 +69,7 @@ class BidForm(forms.ModelForm):
 def index(request):
     listings = Listing.objects.exclude(user=request.user).order_by("-modified")
     for listing in listings:
-        listing.is_in_watchlist = True
+        listing.is_in_watchlist = listing in request.user.watchlist.get().listings.all()
     return render(request, "auctions/index.html", {
         "listings": listings
     })
