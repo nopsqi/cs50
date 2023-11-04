@@ -19,9 +19,7 @@
         </div>
         <div class="col-md-7">
             <div class="d-flex align-items-center">
-                <div class="">
-                    <h2>${{ listing.current_bid }}</h2>
-                </div>
+                <h2>${{ listing.current_bid }}</h2>
                 {% if bid_form.highest_bidder %}
                     <div class="ml-2">
                         by <a href="{% url 'listings' listing.user %}">{{ bid_form.highest_bidder }}</a>
