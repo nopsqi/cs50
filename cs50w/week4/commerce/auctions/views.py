@@ -35,7 +35,6 @@ class ListingForm(forms.ModelForm):
 class BidForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         listing = kwargs.pop("listing", None)
-        self.
         request = kwargs.pop("request", None)
         super(BidForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
@@ -47,8 +46,6 @@ class BidForm(forms.ModelForm):
             min_value = listing.current_bid + Decimal(1)
             self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
             self.fields["amount"].validators = [MinValueValidator(min_value)]
-        if request and listing:
-            self.fields["user"].validators.append(lambda user: self.validate_user(user, listing))
 
     @staticmethod
     def validate_user(user, listing):
