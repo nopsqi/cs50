@@ -18,10 +18,14 @@
             <img src="{{ listing.url }}" class="rounded img-fluid" alt="{{ listing.description }}">
         </div>
         <div class="col-md-7">
-            <div class="d-flex">
-                <h2 class="align-self-center">${{ listing.current_bid }}</h2>
+            <div class="d-flex align-items-center">
+                <div class="">
+                    <h2>${{ listing.current_bid }}</h2>
+                </div>
                 {% if bid_form.highest_bidder %}
-                    <p class="ml-2 align-self-center">by <a href="{% url 'listings' listing.user %}">{{ bid_form.highest_bidder }}</a></p>
+                    <div class="ml-2">
+                        by <a href="{% url 'listings' listing.user %}">{{ bid_form.highest_bidder }}</a>
+                    </div>
                 {% endif %}
             </div>
             <p class="font-weight-bold">Description:</p>
