@@ -203,7 +203,7 @@ def delete(request):
         return HttpResponseForbidden()
 
     listing = get_object_or_404(Listing, id=request.POST.get("id"))
-    if request.user != listing.user:
+    if listing.user != request.user:
         return HttpResponseForbidden()
     listing.delete()
     if re.search(r"id=\d+", request.POST.get("prev")):
@@ -217,4 +217,8 @@ def close(request):
         return HttpResponseForbidden()
 
     listing = get_object_or_404(Listing, id=request.POST.get("id"))
-    
+    if listing.user != request.user:
+        return HttpResponseForbidden()
+    listing.active = False
+    listing.save()
+    return HttpResponseRedirect(f"{reverse("listing")}?id={listing.id}")
