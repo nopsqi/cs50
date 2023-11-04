@@ -36,7 +36,10 @@ class BidForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
         self.listing = kwargs.pop("listing")
-        self.highest_bider = self.listing.bids.order_by("-amount").first().user
+        if (bid := self.listing.bids.order_by("-amount").first().user):
+            self.highest_bider = bid.user
+        else:
+            self.highest_bider = None
         super().__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].label = ""
