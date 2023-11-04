@@ -173,15 +173,15 @@ def listing(request):
 @login_required(login_url="login")
 def delete(request):
     if request.method == "GET":
-        return HttpResponseRedirect()
-    listing = get_object_or_404(Listing, id=request.GET.get("id"))
-    if request.user == listing.user:
-        listing.delete()
-        if re.search(r"id=\d+", request.GET.get("prev", "")):
-            return HttpResponseRedirect(reverse("index"))
-        return HttpResponseRedirect(request.GET.get("prev", reverse("index")))
+        return HttpResponseForbidden()
 
-    return HttpResponseForbidden()
+    listing = get_object_or_404(Listing, id=request.POST.get("id"))
+    if request.user != listing.user:
+        return HttpResponseForbidden()
+    listing.delete()
+    if re.search(r"id=\d+", request.POST.get("prev", "")):
+        return HttpResponseRedirect(reverse("index"))
+    return HttpResponseRedirect(request.POST.get("prev", reverse("index")))
 
 
 @login_required(login_url="login")
