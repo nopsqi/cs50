@@ -176,14 +176,14 @@ def delete(request):
 def bid(request):
     if request.method == "POST":
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
+        if listing.user == request.user:
+            return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
         form = BidForm(request.POST, request=request, listing=listing)
         if not form.is_valid():
             return render(request, "auctions/listing.html", {
                 "listing": listing,
                 "bid_form": form
             })
-        if listing.user == request.user:
-            return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
         if (bid := Bid.objects.filter(user=request.user, listing=listing).first()):
             bid.amount = request.POST.get("amount")
         else:
