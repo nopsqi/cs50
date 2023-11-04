@@ -32,6 +32,11 @@ class Listing(models.Model):
         return f"{self.name} by {self.user.username}"
 
 
+class Watchlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="watchlists")
+    
+
+
 class Bid(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bids")
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE, related_name="bids")
