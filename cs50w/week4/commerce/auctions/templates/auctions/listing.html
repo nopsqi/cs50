@@ -34,7 +34,7 @@
                     <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
                 {% endfor %}
             </p>
-            {% if listing.user != request.user %}
+            {% if listing.user != request.user and listing.active %}
                 <form class="row" action="{% url 'bid' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="id" value="{{ listing.id }}">
