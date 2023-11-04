@@ -40,7 +40,11 @@
                                         <input class="btn btn-danger" type="submit" value="Delete">
                                     </form>
                                 {% else %}
-                                    <form action="{% url 'watchlist.add' %}" method="post">
+                                    {% if listing.is_in_watchlist %}
+                                        <form action="{% url 'watchlist.delete' %}" method="post">
+                                        {% else %}
+                                        <form action="{% url 'watchlist.add' %}" method="post">
+                                    {% endif %}
                                         {% csrf_token %}
                                         <input type="hidden" name="id" value="{{ listing.id }}">
                                         <input type="hidden" name="prev" value="{{ request.get_full_path }}">
