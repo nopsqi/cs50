@@ -184,9 +184,9 @@ def add_watchlist(request):
         return HttpResponseForbidden()
 
     listing = get_object_or_404(Listing, id=request.POST.get("id"))
-    if listing.user == request.user:
-        return HttpResponseRedirect(f"{request.POST.get('prev', reverse('index'))}")
-    request.user.watchlist.get().listings.add(listing)
+    if listing.user != request.user:
+        request.user.watchlist.get().listings.add(listing)
+    return HttpResponseRedirect(f"{request.POST.get('prev', reverse('index'))}")
 
 
 @login_required(login_url="login")
