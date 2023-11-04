@@ -50,6 +50,12 @@
                 <div class="d-flex">
                     <a href="">Close Bid</a>
                     <a class="ml-3" href="{%url 'delete' %}?id={{ listing.id }}&prev={{ request.get_full_path }}">Delete</a>
+                    <form>
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{ listing.id }}">
+                        <input type="hidden" name="prev" value="{{ request.get_full_path }}">
+                        <input type="submit" value="Delete">
+                    </form>
                 </div>
             {% endif %}
         </div>
