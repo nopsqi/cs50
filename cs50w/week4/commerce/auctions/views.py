@@ -194,13 +194,12 @@ def bid(request):
                 "listing": listing,
                 "bid_form": form
             })
-        print(form.cleaned_data)
-        if (bid := Bid.objects.filter(user=request.user, listing=listing).first()):
-            bid.amount = request.POST.get("amount")
+        if (bid := Bid.objects.filter(user=form.cleaned_data["user"], listing=form.cleaned_data["listing"]).first()):
+            bid.amount = form.cleaned_data["amount"]
+            bid.save()
         else:
-            bid = Bid(user=request.user, listing=listing, amount=request.POST.get("amount"))
-        bid.save()
-        listing.current_bid = bid.amount
+            form.save()
+        listing.current_bid = form.cleaned_data["amount"]
         listing.save()
 
         return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
