@@ -30,7 +30,12 @@
                             <div class="col-md-3 text-right">
                                 <p class="card-text font-weight-bold">${{ listing.current_bid }}</p>
                                 {% if request.user == listing.user %}
-                                    <p class="card-text"><a href="">Close Bid</a></p>
+                                    <form action="{% url 'close' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="id" value="{{ listing.id }}">
+                                        <input type="hidden" name="prev" value="{{ request.get_full_path }}">
+                                        <input type="submit" value="Close Bid">
+                                    </form>
                                     <form action="{% url 'delete' %}" method="post">
                                         {% csrf_token %}
                                         <input type="hidden" name="id" value="{{ listing.id }}">
