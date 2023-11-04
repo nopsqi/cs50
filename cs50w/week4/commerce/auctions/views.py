@@ -142,9 +142,10 @@ def listings(request, username):
 @login_required(login_url="login")
 def listing(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
+    min_value = 
     form = BidForm()
     form.fields["amount"].disabled = request.user == listing.bids.order_by("-amount").first().user
-    form.fields
+    form.fields["ammount"].widget.attrs["value"] =
     return render(request, "auctions/listing.html", {
         "listing": listing,
         "bid_form": form,
