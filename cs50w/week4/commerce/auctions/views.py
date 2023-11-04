@@ -179,9 +179,9 @@ def delete(request):
     if request.user != listing.user:
         return HttpResponseForbidden()
     listing.delete()
-    if re.search(r"id=\d+", request.POST.get("prev", "")):
+    if re.search(r"id=\d+", request.POST.get("prev")):
         return HttpResponseRedirect(reverse("index"))
-    return HttpResponseRedirect(request.POST.get("prev", reverse("index")))
+    return HttpResponseRedirect(request.POST.get("prev"))
 
 
 @login_required(login_url="login")
