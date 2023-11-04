@@ -240,11 +240,14 @@ class watchlist:
 
     @staticmethod
     @login_required(login_url="login")
-    def add(request):
+    def modify(request):
         if request.method == "GET":
             return HttpResponseForbidden()
 
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
         if listing.user != request.user:
-            request.user.watchlist.get().listings.add(listing)
+            if request.POST.get("action") == "add":
+                request.user.watchlist.get().listings.add(listing)
+            if request.POST.get("action") == "delete":
+                request.user.watchlist.get().listings.remove(listing)
         return HttpResponseRedirect(f"{request.POST.get('prev', reverse('index'))}")

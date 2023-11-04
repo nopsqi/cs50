@@ -41,9 +41,11 @@
                                     </form>
                                 {% else %}
                                     {% if listing.is_in_watchlist %}
-                                        <form action="{% url 'watchlist.add' %}" method="post">
+                                        <form action="{% url 'watchlist.delete' %}" method="post">
+                                        <input type="hidden" name="action" value="delete">
                                         {% else %}
                                         <form action="{% url 'watchlist.add' %}" method="post">
+                                        <input type="hidden" name="action" value="add">
                                     {% endif %}
                                         {% csrf_token %}
                                         <input type="hidden" name="id" value="{{ listing.id }}">
