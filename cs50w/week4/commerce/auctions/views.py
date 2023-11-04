@@ -191,7 +191,6 @@ def bid(request):
     if request.method == "POST":
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
         form = BidForm(request.POST, listing=listing)
-        form.instance.user = request.user
         if not form.is_valid():
             return render(request, "auctions/listing.html", {
                 "listing": listing,
