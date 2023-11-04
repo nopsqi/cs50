@@ -39,7 +39,7 @@
                                         <input type="hidden" name="prev" value="{{ request.get_full_path }}">
                                         <input class="btn btn-danger" type="submit" value="Delete">
                                     </form>
-                                {% else %}
+                                {% elif listing not in request.user.watchlist.get.listings %}
                                     <p class="card-text"><a href="">Add to Watchlist</a></p>
                                 {% endif %}
                             </div>
