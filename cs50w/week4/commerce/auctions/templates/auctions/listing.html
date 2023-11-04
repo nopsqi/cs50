@@ -4,9 +4,11 @@
 {% block body %}
     <div class="row">
         <div class="col-sm-11">
-            <div>
+            <div class="d-flex align-items-stretch">
                 <h1>{{ listing.name }}</h1>
-                {% if }
+                {% if not listing.active %}
+                    <h3 class="ml-3">Closed</h3>
+                {% endif %}
             </div>
         </div>
         {% if listing.user != request.user %}
