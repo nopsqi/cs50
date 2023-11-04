@@ -48,13 +48,15 @@
             {% endif %}
             {% if listing.user == request.user %}
                 <div class="d-flex">
-                    <form action="{% url 'close' %}" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="id" value="{{ listing.id }}">
-                        <input type="hidden" name="prev" value="{{ request.get_full_path}}">
-                        <input class="btn btn-danger" type="submit" value="Close Bid">
-                    </form>
-                    <form class="ml-2" action="{% url 'delete' %}" method="post">
+                    {% if listing.active %}
+                        <form class="mr-3" action="{% url 'close' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ listing.id }}">
+                            <input type="hidden" name="prev" value="{{ request.get_full_path}}">
+                            <input class="btn btn-danger" type="submit" value="Close Bid">
+                        </form>
+                    {% endif %}
+                    <form action="{% url 'delete' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="id" value="{{ listing.id }}">
                         <input type="hidden" name="prev" value="{{ request.get_full_path }}">
