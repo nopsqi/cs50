@@ -31,9 +31,13 @@ class Listing(models.Model):
     def __str__(self):
         return f"{self.name} by {self.user.username}"
 
-    def save(self):
-        if (bid := self.bids.order_by("-amount")):
-            ...
+    def save(self, *args, **kwargs):
+        if (bid := self.bids.order_by("-amount").first()):
+            amount = bid.amount
+        else:
+            amount = self.starting_bid
+        self.curret_bid = amount
+        super().save(*args, **kwargs)
 
 
 class Watchlist(models.Model):
