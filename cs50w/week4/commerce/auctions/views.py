@@ -46,10 +46,12 @@ class BidForm(forms.ModelForm):
             min_value = listing.current_bid + Decimal(1)
             self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
             self.fields["amount"].validators = [MinValueValidator(min_value)]
+        if request and listing:
+            self.fields["user"].validators.append(lambda user: self.validate_user(user, listing))
 
     @staticmethod
-    def validate_user(request, listing):
-        if request.user == listing.bids.order_by("-amount").first().user:
+    def validate_user(user, listing):
+        if user == listing.bids.order_by("-amount").first().user:
             raise ValidationError("You already won this listing")
 
 
