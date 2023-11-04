@@ -51,15 +51,16 @@ class BidForm(forms.ModelForm):
             self.fields["amount"].validators = [MinValueValidator(min_value)]
 
     def clean(self):
-        user = super().clean().get("user")
+        cleaned_data = super().clean()
+        user = cleaned_data.get("user")
         if not self.validate_user(user):
             self.add_error("user", "You already won the bid")
-        return user
+        return cleaned_data
 
 
     @staticmethod
     def validate_user(user):
-        if user == listing.bids.order_by("-amount").first().user:
+        if user == self.listing.bids.order_by("-amount").first().user:
             raise ValidationError("You already won this listing")
 
 
