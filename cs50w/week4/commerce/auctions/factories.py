@@ -97,7 +97,7 @@ if Listing.objects.all().count() == 0:
 
 if Watchlist.objects.all().count() == 0:
     for user in User.objects.all():
-        for _ in range()
+        watchlist = WatchlistFactory(user=user, listings=random.sample(list()))
 
 if Bid.objects.all().count() == 0:
     for listing in Listing.objects.all():
