@@ -43,7 +43,8 @@ class BidForm(forms.ModelForm):
         for field in iter(self.fields):
             self.fields[field].label = ""
             self.fields[field].widget.attrs["class"] = "form-control"
-            self.fields[field].disabled = True
+            if request:
+                self.fields[field].disabled = request.user == listing.bids.oder_by("-amount").first().user
         if listing:
             min_value = listing.current_bid + Decimal(1)
             self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
