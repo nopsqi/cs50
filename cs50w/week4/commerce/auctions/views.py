@@ -53,7 +53,7 @@ class BidForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        if self.request.user == self.highest_bider
+        if self.request.user == self.highest_bider:
             raise ValidationError("You already the highest bid")
         cleaned_data["user"] = self.request.user
         cleaned_data["listing"] = self.listing
