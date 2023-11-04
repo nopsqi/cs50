@@ -48,7 +48,11 @@
             {% endif %}
             {% if listing.user == request.user %}
                 <div class="d-flex">
-                    <a href="">Close Bid</a>
+                    <form action="{% url 'close' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{ listing.id}}">
+                        <input type="submit" value="Close Bid">
+                    </form>
                     <form class="ml-2" action="{% url 'delete' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="id" value="{{ listing.id }}">
