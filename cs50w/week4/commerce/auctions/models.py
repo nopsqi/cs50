@@ -34,7 +34,7 @@ class Listing(models.Model):
 
 class Watchlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="watchlists")
-    
+    listings = models.ManyToManyField()
 
 
 class Bid(models.Model):
