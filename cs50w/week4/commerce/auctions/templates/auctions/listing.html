@@ -35,7 +35,8 @@
                         {{ bid_form }}
                     </div>
                     <div class="col-sm-4">
-                        <button type="submit" class="btn {{ is_winner|yesno:'btn-secondary,btn-primary' }}" {{ is_winner|yesno:'disabled,'}}>Bid</button>
+                        <!-- <button type="submit" class="btn {{ is_winner|yesno:'btn-secondary,btn-primary' }}" {{ is_winner|yesno:'disabled,'}}>Bid</button> -->
+                        <button type="submit" class="btn {{ is_winner|yesno:'btn-secondary,btn-primary' }}">Bid</button>
                     </div>
                 </form>
             {% endif %}
