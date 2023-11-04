@@ -32,10 +32,6 @@ class ListingForm(forms.ModelForm):
 
 
 class BidForm(forms.ModelForm):
-    class Meta:
-        model = Bid
-        fields = ["amount"]
-
     def __init__(self, *args, **kwargs):
         listing = kwargs.pop("listing", None)
         request = kwargs.pop("request", None)
@@ -49,6 +45,14 @@ class BidForm(forms.ModelForm):
             min_value = listing.current_bid + Decimal(1)
             self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
             self.fields["amount"].validators = [MinValueValidator(min_value)]
+
+    def validate_user(user):
+        if 
+
+    class Meta:
+        model = Bid
+        fields = ["amount"]
+
 
 
 @login_required(login_url="login")
