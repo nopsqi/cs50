@@ -14,6 +14,13 @@ from .models import User, Category, Listing, Bid
 
 
 class ListingForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ListingForm, self).__init__(*args, **kwargs)
+        for field in iter(self.fields):
+            self.fields[field].widget.attrs.update({
+                "class": "form-group d-flex justify-content-around" if field == "categories" else "form-control"
+            })
+
     class Meta:
         model = Listing
         exclude = ["active", "user", "current_bid"]
@@ -23,13 +30,6 @@ class ListingForm(forms.ModelForm):
         widgets = {
             "categories": forms.CheckboxSelectMultiple
         }
-
-    def __init__(self, *args, **kwargs):
-        super(ListingForm, self).__init__(*args, **kwargs)
-        for field in iter(self.fields):
-            self.fields[field].widget.attrs.update({
-                "class": "form-group d-flex justify-content-around" if field == "categories" else "form-control"
-            })
 
 
 class BidForm(forms.ModelForm):
