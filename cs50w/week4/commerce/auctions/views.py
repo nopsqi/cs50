@@ -44,7 +44,7 @@ class BidForm(forms.ModelForm):
             self.fields[field].label = ""
             self.fields[field].widget.attrs["class"] = "form-control"
             if request:
-                self.fields[field].disabled = request.user == listing.bids.oder_by("-amount").first().user
+                self.fields[field].disabled = request.user == listing.bids.all().order_by("-amount").first().user
         if listing:
             min_value = listing.current_bid + Decimal(1)
             self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
@@ -150,7 +150,7 @@ def listing(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
     return render(request, "auctions/listing.html", {
         "listing": listing,
-        "bid_form": BidForm(listing=listing)
+        "bid_form": BidForm(listing=listing, request=request)
     })
 
 
