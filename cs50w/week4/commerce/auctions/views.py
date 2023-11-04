@@ -35,6 +35,7 @@ class ListingForm(forms.ModelForm):
 class BidForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         listing = kwargs.pop("listing", None)
+        self.
         request = kwargs.pop("request", None)
         super(BidForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
