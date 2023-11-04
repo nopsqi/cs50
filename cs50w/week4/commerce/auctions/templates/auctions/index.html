@@ -41,14 +41,14 @@
                                     </form>
                                 {% else %}
                                     {% if listing.is_in_watchlist %}
-                                        <form action="{% url 'watchlist.delete' %}" method="post">
+                                        <form action="{% url 'watchlist.add' %}" method="post">
                                         {% else %}
                                         <form action="{% url 'watchlist.add' %}" method="post">
                                     {% endif %}
                                         {% csrf_token %}
                                         <input type="hidden" name="id" value="{{ listing.id }}">
                                         <input type="hidden" name="prev" value="{{ request.get_full_path }}">
-                                        <input type="submit" value="Watchlist">
+                                        <input class="btn {{ listing.is_in_watchlist|yesno:'btn-secondary,btn-primary' }}" type="submit" value="Watchlist">
                                     </form>
                                 {% endif %}
                             </div>
