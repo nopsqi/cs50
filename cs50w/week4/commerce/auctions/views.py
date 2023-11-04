@@ -27,9 +27,9 @@ class ListingForm(forms.ModelForm):
         labels = {
             "url": "Image URL"
         }
-        widgets = {
-            "categories": forms.CheckboxSelectMultiple
-        }
+        # widgets = {
+        #     "categories": forms.CheckboxSelectMultiple
+        # }
 
 
 class BidForm(forms.ModelForm):
@@ -229,8 +229,11 @@ class watchlist:
     @staticmethod
     @login_required(login_url="login")
     def show(request):
+        listings = User.objects.get(username=request.user).watchlist.get().listings.all().order_by("-modified")
+        for listing in listings:
+            listing.is_in_watchlist = True
         return render(request, "auctions/index.html", {
-            "listings": User.objects.get(username=request.user).watchlist.get().listings.all().order_by("-modified")
+            "listings": listings
         })
 
 
