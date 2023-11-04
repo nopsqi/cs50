@@ -207,3 +207,8 @@ def bid(request):
         return HttpResponseRedirect(f"{reverse('listing')}?id={listing.id}")
 
     return HttpResponseForbidden()
+
+
+@login_required(login_url="login")
+def close(request):
+    ...
