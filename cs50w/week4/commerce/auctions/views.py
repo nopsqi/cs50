@@ -50,6 +50,10 @@ class BidForm(forms.ModelForm):
         model = Bid
         fields = ["amount"]
 
+    def clean(self):
+        cleaned_data = super.clean()
+        return cleaned_data
+
 
 @login_required(login_url="login")
 def index(request):
