@@ -28,7 +28,7 @@
                                 </p>
                             </div>
                             <div class="col-md-3 text-right">
-                                <p class="card-text font-weight-bold">${{ listing.current_bid }}</p>
+                                <h2 class="card-text">${{ listing.current_bid }}</h2>
                                 {% if request.user == listing.user %}
                                     <form action="{% url 'close' %}" method="post">
                                         {% csrf_token %}
