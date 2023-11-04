@@ -211,4 +211,4 @@ def bid(request):
 
 @login_required(login_url="login")
 def close(request):
-    ...
+    listing = get_object_or_404(Listing, id=request.GET.get("id"))
