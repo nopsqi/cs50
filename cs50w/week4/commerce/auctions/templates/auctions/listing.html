@@ -22,7 +22,7 @@
                 <h2>${{ listing.current_bid }}</h2>
                 {% if bid_form.highest_bidder %}
                     <div class="ml-2">
-                        by <a href="{% url 'listings' listing.user %}">{{ bid_form.highest_bidder }}</a>
+                        by <a href="{% url 'listings' bid_form.highest_bidder %}">{{ bid_form.highest_bidder }}</a>
                     </div>
                 {% endif %}
             </div>
