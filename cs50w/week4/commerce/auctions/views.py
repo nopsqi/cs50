@@ -194,6 +194,7 @@ def bid(request):
                 "listing": listing,
                 "bid_form": form
             })
+        print(form.cleaned_data)
         if (bid := Bid.objects.filter(user=form.cleaned_data["user"], listing=form.cleaned_data["listing"]).first()):
             bid.amount = form.cleaned_data["amount"]
             bid.save()
