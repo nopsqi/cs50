@@ -148,9 +148,11 @@ def listings(request, username):
 @login_required(login_url="login")
 def listing(request):
     listing = get_object_or_404(Listing, id=request.GET.get("id"))
+    form = BidForm(listing=listing, request=request)
     return render(request, "auctions/listing.html", {
         "listing": listing,
-        "bid_form": BidForm(listing=listing, request=request)
+        "bid_form": form,
+        "is_winner": form.fields["amount"].widget.attrs["disabled"]
     })
 
 
