@@ -166,22 +166,25 @@ def listing(request):
     })
 
 
-@login_required(login_url="login")
-def watchlist(request):
-    return render(request, "auctions/index.html", {
-        "listings": User.objects.get(username=request.user).watchlist.get().listings.all().order_by("-modified")
-    })
+class Wathclist:
+    @staticmethod
+    @login_required(login_url="login")
+    def show(request):
+        return render(request, "auctions/index.html", {
+            "listings": User.objects.get(username=request.user).watchlist.get().listings.all().order_by("-modified")
+        })
 
 
-@login_required(login_url="login")
-def add_watchlist(request):
-    if request.method == "GET":
-        return HttpResponseForbidden()
+    @staticmethod
+    @login_required(login_url="login")
+    def add(request):
+        if request.method == "GET":
+            return HttpResponseForbidden()
 
-    listing = get_object_or_404(Listing, id=request.POST.get("id"))
-    if listing.user != request.user:
-        request.user.watchlist.get().listings.add(listing)
-    return HttpResponseRedirect(f"{request.POST.get('prev', reverse('index'))}")
+        listing = get_object_or_404(Listing, id=request.POST.get("id"))
+        if listing.user != request.user:
+            request.user.watchlist.get().listings.add(listing)
+        return HttpResponseRedirect(f"{request.POST.get('prev', reverse('index'))}")
 
 
 @login_required(login_url="login")
