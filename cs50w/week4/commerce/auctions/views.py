@@ -38,6 +38,7 @@ class BidForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         listing = kwargs.pop("listing", None)
+        request = kwargs.pop("request", None)
         super(BidForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].label = ""
