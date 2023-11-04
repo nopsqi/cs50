@@ -161,6 +161,7 @@ class listing:
         listing = get_object_or_404(Listing, id=request.GET.get("id"))
         if listing.user != request.user and not listing.active:
             return HttpResponseNotFound()
+        listing.is_in_watchlist = listing in request.user.watchlist.get().listings.all()
         form = BidForm(listing=listing, request=request)
         return render(request, "auctions/listing.html", {
             "listing": listing,
