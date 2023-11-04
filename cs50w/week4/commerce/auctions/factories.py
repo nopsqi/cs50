@@ -90,14 +90,17 @@ if Category.objects.all().count() == 0:
     CategoryFactory.create_batch(10)
 
 if Listing.objects.all().count() == 0:
-    n = Category.objects.all().count() // 2
+    categories = Category.objects.all()
+    n = categories.count() // 2
     for user in random.sample(list(User.objects.all()), 3):
         for _ in range(5):
-            listing = ListingFactory(user=user, categories=random.sample(list(Category.objects.all()), random.randint(1, n + 1)))
+            listing = ListingFactory(user=user, categories=random.sample(list(categories), random.randint(1, n + 1)))
 
 if Watchlist.objects.all().count() == 0:
     for user in User.objects.all():
-        watchlist = WatchlistFactory(user=user, listings=random.sample(list(Listing.objects.exclude(user=user)), random.randint(1, n + 1)))
+        listings = Listing.objects.exclude(user=user)
+        n = listings.count() // 2
+        watchlist = WatchlistFactory(user=user, listings=random.sample(list(listings), random.randint(1, n + 1)))
 
 if Bid.objects.all().count() == 0:
     for listing in Listing.objects.all():
