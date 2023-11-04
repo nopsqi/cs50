@@ -51,7 +51,8 @@ class BidForm(forms.ModelForm):
         fields = ["amount"]
 
     def clean(self):
-        cleaned_data = super.clean()
+        cleaned_data = super().clean()
+        print(cleaned_data)
         return cleaned_data
 
 
