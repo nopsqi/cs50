@@ -36,7 +36,7 @@ class BidForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
         self.listing = kwargs.pop("listing")
-        if (bid := self.listing.bids.order_by("-amount").first().user):
+        if (bid := self.listing.bids.order_by("-amount").first()):
             self.highest_bider = bid.user
         else:
             self.highest_bider = None
