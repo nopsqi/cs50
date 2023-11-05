@@ -10,7 +10,7 @@ from django.urls import reverse
 from django.core.validators import MinValueValidator
 from django.core.exceptions import ValidationError
 
-from .models import User, Category, Listing, Watchlist, Bid
+from .models import User, Category, Listing, Watchlist, Bid, Comment
 
 
 class ListingForm(forms.ModelForm):
@@ -64,6 +64,12 @@ class BidForm(forms.ModelForm):
         cleaned_data["user"] = self.request.user
         cleaned_data["listing"] = self.listing
         return cleaned_data
+
+
+class CommentForm(form.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ["content"]
 
 
 @login_required(login_url="login")
