@@ -33,7 +33,7 @@ class ListingForm(forms.ModelForm):
                     "class": "form-control"
                 }
             )
-        self.
+        self.fields["url"].widget.attrs["placeholder"] = "Optional"
 
     def clean(self):
         cleaned_data = super().clean()
