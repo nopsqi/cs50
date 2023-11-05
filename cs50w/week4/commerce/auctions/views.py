@@ -34,6 +34,7 @@ class ListingForm(forms.ModelForm):
                 }
             )
         self.fields["url"].widget.attrs["placeholder"] = "Optional"
+        self.fields["categories"].widget.attrs["size"] = 10
 
     def clean(self):
         cleaned_data = super().clean()
