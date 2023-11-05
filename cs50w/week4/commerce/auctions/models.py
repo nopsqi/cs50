@@ -36,7 +36,8 @@ class Listing(models.Model):
     @property
     def winner(self):
         if (bid := self.bids.order_by("-amount").first()):
-            
+            return bid.user
+        return None
 
     def __str__(self):
         return f"{self.name} by {self.user.username}"
