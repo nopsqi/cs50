@@ -163,13 +163,14 @@ def create(request):
 
 @login_required(login_url="login")
 def listings(request, username):
+    listings = get_object_or_404(User, username=username).listings.order_by("-modified")
+    for listing in listings:
+        listing.show_in_list = True
     return render(
         request,
         "auctions/index.html",
         {
-            "listings": get_object_or_404(User, username=username)
-            .listings.all()
-            .order_by("-modified")
+            "listings": listings
         },
     )
 
