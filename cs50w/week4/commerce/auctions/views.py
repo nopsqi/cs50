@@ -168,10 +168,11 @@ class listing:
         if listing.user != request.user and not listing.active:
             return HttpResponseNotFound()
         listing.is_in_watchlist = listing in request.user.watchlist.get().listings.all()
+        bid_form = BidForm(listing=listing, request=request)
         return render(request, "auctions/listing.html", {
             "listing": listing,
             "is_winner": bid_form.fields["amount"].disabled,
-            "bid_form": BidForm(listing=listing, request=request),
+            "bid_form": bid_form,
             "comment_form": CommentForm()
         })
 
