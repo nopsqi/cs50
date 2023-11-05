@@ -33,7 +33,6 @@ class ListingForm(forms.ModelForm):
                     "class": "form-control"
                 }
             )
-        self.fields["url"].initial = ""
         print(dir(self.fields["url"]))
 
 
