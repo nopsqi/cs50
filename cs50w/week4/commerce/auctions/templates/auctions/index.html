@@ -7,13 +7,11 @@
     {% endif %}
     {% for listing in listings %}
         {% if listing.active or listing.show_in_list %}
-            {% if not listing.active and request.user == listing.winner %}
-                <div class="card mb-3 alert-success">
-            {% elif not listing.active %}
-                <div class="card mb-3 alert-secondary">
-            {% else %}
-                <div class="card mb-3">
-            {% endif %}
+            <div class="card mb-3
+                {% if not listing.active %}
+                    bg-light
+                {% endif %}
+            ">
                 <div class="row no-gutters">
                     <div class="col-md-3">
                         <img src="{{ listing.url }}" class="card-img" alt="{{ listing.description }}">
@@ -26,6 +24,9 @@
                                     <a href="{% url 'listing.show' %}?id={{ listing.id }}">{{ listing.name }}</a>
                                     {% if not listing.active %}
                                         <span class="ml-3 badge badge-secondary">Closed</span>
+                                    {% endif %}
+                                    {% if listing.winner == request.user %}
+                                        <span class="ml-3 badge badge-success">Winner</span>
                                     {% endif %}
                                 </h5>
                                 <p class="card-text"><small class="text-muted">Last updated {{ listing.modified|naturaltime }}</small></p>
