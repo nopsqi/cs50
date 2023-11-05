@@ -74,7 +74,7 @@ class CommentForm(forms.ModelForm):
             "content": ""
         }
         widgets = {
-            "content": forms.Textarea
+            "content": forms.Textarea(attrs={"row": 1})
         }
 
 
