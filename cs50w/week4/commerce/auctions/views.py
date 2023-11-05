@@ -179,8 +179,6 @@ class listing:
     @login_required(login_url="login")
     def show(request):
         listing = get_object_or_404(Listing, id=request.GET.get("id"))
-        if listing.user != request.user and not listing.active:
-            return HttpResponseNotFound()
         listing.is_in_watchlist = listing in request.user.watchlist.get().listings.all()
         bid_form = BidForm(listing=listing, request=request)
         return render(
