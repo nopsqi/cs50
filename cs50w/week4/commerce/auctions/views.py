@@ -277,3 +277,13 @@ class watchlist:
             if request.POST.get("action") == "delete":
                 request.user.watchlist.get().listings.remove(listing)
         return HttpResponseRedirect(f"{request.POST.get('prev', reverse('index'))}")
+
+
+class comment:
+    @staticmethod
+    @login_required(login_url="login")
+    def add(request):
+        if request.method == "GET":
+            return HttpResponseForbidden()
+        print(request.POST)
+        return HttpResponseRedirect(f"{request.POST.get('prev')}")
