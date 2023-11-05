@@ -38,7 +38,7 @@
         <div class="col-md-7">
             <div class="d-flex align-items-center">
                 <h2>${{ listing.current_bid }}</h2>
-                {% if bid_form.highest_bidder %}
+                {% if listing.winner %}
                     <div class="ml-2">
                         by <a href="{% url 'listings' listing.winner %}">{{ listing.winner }}</a>
                     </div>
