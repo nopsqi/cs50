@@ -33,8 +33,7 @@ class ListingForm(forms.ModelForm):
                     "class": "form-control"
                 }
             )
-        self.fields["name"].widget.attrs["value"] = "Name"
-        self.fields["url"].widget.attrs["value"] = ""
+        self.fields["url"].widget = forms.URLField()
         print(self.fields["url"].widget.attrs)
 
 
