@@ -4,7 +4,12 @@ from django import forms
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseNotFound
+from django.http import (
+    HttpResponse,
+    HttpResponseRedirect,
+    HttpResponseForbidden,
+    HttpResponseNotFound,
+)
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.core.validators import MinValueValidator
@@ -17,17 +22,17 @@ class ListingForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ListingForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
-            self.fields[field].widget.attrs.update({
-                # "class": "form-group d-flex justify-content-around" if field == "categories" else "form-control"
-                "class": "form-control"
-            })
+            self.fields[field].widget.attrs.update(
+                {
+                    # "class": "form-group d-flex justify-content-around" if field == "categories" else "form-control"
+                    "class": "form-control"
+                }
+            )
 
     class Meta:
         model = Listing
         exclude = ["active", "user", "current_bid"]
-        labels = {
-            "url": "Image URL"
-        }
+        labels = {"url": "Image URL"}
         # widgets = {
         #     "categories": forms.CheckboxSelectMultiple
         # }
@@ -37,7 +42,7 @@ class BidForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
         self.listing = kwargs.pop("listing")
-        if (bid := self.listing.bids.order_by("-amount").first()):
+        if bid := self.listing.bids.order_by("-amount").first():
             self.highest_bidder = bid.user
         else:
             self.highest_bidder = None
@@ -70,11 +75,11 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ["content"]
-        labels = {
-            "content": ""
-        }
+        labels = {"content": ""}
         widgets = {
-            "content": forms.Textarea(attrs={"rows": 3, "style": "width: 100%"})
+            "content": forms.Textarea(
+                attrs={"class": "form-control", "rows": 3}
+            )
         }
 
 
@@ -83,14 +88,11 @@ def index(request):
     listings = Listing.objects.exclude(user=request.user).order_by("-modified")
     for listing in listings:
         listing.is_in_watchlist = listing in request.user.watchlist.get().listings.all()
-    return render(request, "auctions/index.html", {
-        "listings": listings
-    })
+    return render(request, "auctions/index.html", {"listings": listings})
 
 
 def login_view(request):
     if request.method == "POST":
-
         # Attempt to sign user in
         username = request.POST["username"]
         password = request.POST["password"]
@@ -101,9 +103,11 @@ def login_view(request):
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:
-            return render(request, "auctions/login.html", {
-                "message": "Invalid username and/or password."
-            })
+            return render(
+                request,
+                "auctions/login.html",
+                {"message": "Invalid username and/or password."},
+            )
     else:
         return render(request, "auctions/login.html")
 
@@ -122,18 +126,20 @@ def register(request):
         password = request.POST["password"]
         confirmation = request.POST["confirmation"]
         if password != confirmation:
-            return render(request, "auctions/register.html", {
-                "message": "Passwords must match."
-            })
+            return render(
+                request, "auctions/register.html", {"message": "Passwords must match."}
+            )
 
         # Attempt to create new user
         try:
             user = User.objects.create_user(username, email, password)
             user.save()
         except IntegrityError:
-            return render(request, "auctions/register.html", {
-                "message": "Username already taken."
-            })
+            return render(
+                request,
+                "auctions/register.html",
+                {"message": "Username already taken."},
+            )
         login(request, user)
         return HttpResponseRedirect(reverse("index"))
     else:
@@ -143,9 +149,7 @@ def register(request):
 @login_required(login_url="login")
 def create(request):
     if request.method == "GET":
-        return render(request, "auctions/create.html", {
-            "form": ListingForm()
-        })
+        return render(request, "auctions/create.html", {"form": ListingForm()})
 
     form = ListingForm(request.POST)
     if form.is_valid():
@@ -154,16 +158,20 @@ def create(request):
         listing = form.save()
         return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
     else:
-        return render(request, "auctions/create.html", {
-            "form": form
-        })
+        return render(request, "auctions/create.html", {"form": form})
 
 
 @login_required(login_url="login")
 def listings(request, username):
-    return render(request, "auctions/index.html", {
-        "listings": get_object_or_404(User, username=username).listings.all().order_by("-modified")
-    })
+    return render(
+        request,
+        "auctions/index.html",
+        {
+            "listings": get_object_or_404(User, username=username)
+            .listings.all()
+            .order_by("-modified")
+        },
+    )
 
 
 class listing:
@@ -175,13 +183,16 @@ class listing:
             return HttpResponseNotFound()
         listing.is_in_watchlist = listing in request.user.watchlist.get().listings.all()
         bid_form = BidForm(listing=listing, request=request)
-        return render(request, "auctions/listing.html", {
-            "listing": listing,
-            "is_winner": bid_form.fields["amount"].disabled,
-            "bid_form": bid_form,
-            "comment_form": CommentForm()
-        })
-
+        return render(
+            request,
+            "auctions/listing.html",
+            {
+                "listing": listing,
+                "is_winner": bid_form.fields["amount"].disabled,
+                "bid_form": bid_form,
+                "comment_form": CommentForm(),
+            },
+        )
 
     @staticmethod
     @login_required(login_url="login")
@@ -194,11 +205,12 @@ class listing:
             return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
         form = BidForm(request.POST, request=request, listing=listing)
         if not form.is_valid():
-            return render(request, "auctions/listing.html", {
-                "listing": listing,
-                "bid_form": form
-            })
-        if (bid := Bid.objects.filter(user=form.cleaned_data["user"], listing=form.cleaned_data["listing"]).first()):
+            return render(
+                request, "auctions/listing.html", {"listing": listing, "bid_form": form}
+            )
+        if bid := Bid.objects.filter(
+            user=form.cleaned_data["user"], listing=form.cleaned_data["listing"]
+        ).first():
             bid.amount = form.cleaned_data["amount"]
             bid.save()
         else:
@@ -209,7 +221,6 @@ class listing:
         listing.save()
 
         return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
-
 
     @staticmethod
     @login_required(login_url="login")
@@ -224,7 +235,6 @@ class listing:
         if re.search(r"id=\d+", request.POST.get("prev")):
             return HttpResponseRedirect(reverse("listings", args=[request.user]))
         return HttpResponseRedirect(request.POST.get("prev"))
-
 
     @staticmethod
     @login_required(login_url="login")
@@ -244,13 +254,15 @@ class watchlist:
     @staticmethod
     @login_required(login_url="login")
     def show(request):
-        listings = User.objects.get(username=request.user).watchlist.get().listings.all().order_by("-modified")
+        listings = (
+            User.objects.get(username=request.user)
+            .watchlist.get()
+            .listings.all()
+            .order_by("-modified")
+        )
         for listing in listings:
             listing.is_in_watchlist = True
-        return render(request, "auctions/index.html", {
-            "listings": listings
-        })
-
+        return render(request, "auctions/index.html", {"listings": listings})
 
     @staticmethod
     @login_required(login_url="login")
