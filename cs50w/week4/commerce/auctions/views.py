@@ -291,6 +291,9 @@ class comment:
         if form.is_valid():
             form.instance.user = request.user
             form.instance.listing = listing
-            # listing.comments.add(form.instance)
-            print(type(form.instance))
+            listing.comments.add(form.instance)
+        else:
+            return render(request, "auctions/listing", {
+                
+            })
         return HttpResponseRedirect(f"{request.POST.get('prev')}")
