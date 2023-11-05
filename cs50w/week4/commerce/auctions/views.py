@@ -285,5 +285,7 @@ class comment:
     def add(request):
         if request.method == "GET":
             return HttpResponseForbidden()
-        print(request.POST)
+
+        listing = get_object_or_404(Listing, id=request.POST.get("id"))
+        listing
         return HttpResponseRedirect(f"{request.POST.get('prev')}")

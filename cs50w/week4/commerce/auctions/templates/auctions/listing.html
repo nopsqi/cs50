@@ -85,7 +85,6 @@
         {% csrf_token %}
         <div class="form-group">
             <input type="hidden" name="id" value="{{ listing.id }}">
-            <input type="hidden" name="listing" value={{ listing }}>
             <input type="hidden" name="prev" value="{{ request.get_full_path }}"
             {{ comment_form }}
         </div>
