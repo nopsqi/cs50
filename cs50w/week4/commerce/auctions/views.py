@@ -149,7 +149,6 @@ def create(request):
     form = ListingForm(request.POST)
     if form.is_valid():
         form.instance.user = request.user
-        form.instance.current_bid = form.instance.starting_bid
         listing = form.save()
         return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
     else:
