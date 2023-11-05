@@ -292,7 +292,7 @@ class comment:
         if comment_form.is_valid():
             comment_form.instance.user = request.user
             comment_form.instance.listing = listing
-            listing.comments.add(comment_form.instance)
+            listing.comments.add(comment_form.instance, bulk=False)
         else:
             return render(request, "auctions/listing", {
                 "listing": listing,
