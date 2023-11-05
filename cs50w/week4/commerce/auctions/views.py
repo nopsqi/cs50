@@ -259,7 +259,7 @@ class watchlist:
         for listing in listings:
             listing.is_in_watchlist = True
             listing.show_in_list = True
-        return render(request, "auctions/index.html", {"listings": listings})
+        return render(request, "auctions/index.html", {"title": "Watchlist", "listings": listings})
 
     @staticmethod
     @login_required(login_url="login")
