@@ -287,13 +287,17 @@ class comment:
             return HttpResponseForbidden()
 
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            form.instance.user = request.user
-            form.instance.listing = listing
-            listing.comments.add(form.instance)
+        bid_form = BidForm(request=request, listing=listing)
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.user = request.user
+            comment_form.instance.listing = listing
+            listing.comments.add(comment_form.instance)
         else:
             return render(request, "auctions/listing", {
-                
+                "listing": listing,
+                "is_winner": bid_form.fields["amount"].disabled,
+                "bid_form": bid_form,
+                "comment_form": comment_form,
             })
         return HttpResponseRedirect(f"{request.POST.get('prev')}")
