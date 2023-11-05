@@ -33,11 +33,7 @@ class ListingForm(forms.ModelForm):
                     "class": "form-control"
                 }
             )
-        self.fields["url"].widget.attrs.update(
-            {
-                "value": ""
-            }
-        )
+        self.fields["url"].widget.attrs["value"] = "asdf"
 
 
 class BidForm(forms.ModelForm):
