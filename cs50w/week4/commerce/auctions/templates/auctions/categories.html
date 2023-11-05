@@ -4,7 +4,7 @@
     <from>
         <select class="form-control" name="category" multiple>
             {% for category in categories %}
-                <option 
+                <option value="{{ category.name|lower }}">{{ category.name }}</option>
             {% endfor %}
         </select>
     </from>
