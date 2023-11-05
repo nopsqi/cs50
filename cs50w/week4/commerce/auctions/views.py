@@ -313,6 +313,6 @@ def search(request):
     for listing in listings:
         listing.show_in_list = True
     return render(request, "auctions/index.html", {
-        "title": f""
+        "title": "Search " + ", ".join([f"{key}: {value}" for key, value in request.GET.items()]),
         "listings": listings
     })
