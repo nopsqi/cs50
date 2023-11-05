@@ -30,7 +30,9 @@ class Listing(models.Model):
 
     @property
     def current_bid(self):
-        return self.bids.order_by("-amount").amount
+        if (bid := self.bids.order_by("-amount").first()):
+            return bid.amount
+        return self.starting_bid
 
     def __str__(self):
         return f"{self.name} by {self.user.username}"
