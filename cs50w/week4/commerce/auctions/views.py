@@ -77,9 +77,7 @@ class CommentForm(forms.ModelForm):
         fields = ["content"]
         labels = {"content": ""}
         widgets = {
-            "content": forms.Textarea(
-                attrs={"class": "form-control", "rows": 3}
-            )
+            "content": forms.Textarea(attrs={"class": "form-control", "rows": 3})
         }
 
 
@@ -169,9 +167,7 @@ def listings(request, username):
     return render(
         request,
         "auctions/index.html",
-        {
-            "listings": listings
-        },
+        {"listings": listings},
     )
 
 
@@ -294,12 +290,16 @@ class comment:
             comment_form.instance.listing = listing
             listing.comments.add(comment_form.instance, bulk=False)
         else:
-            return render(request, "auctions/listing", {
-                "listing": listing,
-                "is_winner": bid_form.fields["amount"].disabled,
-                "bid_form": bid_form,
-                "comment_form": comment_form,
-            })
+            return render(
+                request,
+                "auctions/listing",
+                {
+                    "listing": listing,
+                    "is_winner": bid_form.fields["amount"].disabled,
+                    "bid_form": bid_form,
+                    "comment_form": comment_form,
+                },
+            )
         return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
 
 
@@ -309,19 +309,27 @@ def search(request):
     print(dir(request.GET))
     print(list(request.GET.lists()))
     if request.GET.get("category"):
-        categories = [get_object_or_404(Category, name=category.lower()) for category in request.GET.getlist("category")]
+        categories = [
+            get_object_or_404(Category, name=category.lower())
+            for category in request.GET.getlist("category")
+        ]
         for category in categories:
             listings = listings.filter(categories=category)
     for listing in listings:
         listing.show_in_list = True
-    return render(request, "auctions/index.html", {
-        "title": "Search " + ", ".join([f"{key}: {value}" for key, value in request.GET.lists()]),
-        "listings": listings
-    })
+    return render(
+        request,
+        "auctions/index.html",
+        {
+            "title": "Search "
+            + ", ".join([f"{key}: {value}" for key, value in request.GET.lists()]),
+            "listings": listings,
+        },
+    )
 
 
 @login_required(login_url="login")
 def categories(request):
-    return render(request, "auctions/categories.html", {
-        "categories": Category.objects.all()
-    })
+    return render(
+        request, "auctions/categories.html", {"categories": Category.objects.all()}
+    )
