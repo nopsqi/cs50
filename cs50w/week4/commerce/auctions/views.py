@@ -22,7 +22,7 @@ from .models import User, Category, Listing, Watchlist, Bid, Comment
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        exclude = ["active", "user", "current_bid"]
+        exclude = ["active", "user"]
         labels = {"url": "Image URL"}
 
     def __init__(self, *args, **kwargs):
@@ -33,6 +33,7 @@ class ListingForm(forms.ModelForm):
                     "class": "form-control"
                 }
             )
+        self.fields["url"].widget.attrs["value"] = ""
 
 
 class BidForm(forms.ModelForm):
