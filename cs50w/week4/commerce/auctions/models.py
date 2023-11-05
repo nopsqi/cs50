@@ -24,7 +24,7 @@ class Listing(models.Model):
     active = models.BooleanField(default=True)
     name = models.CharField(max_length=32)
     description = models.CharField(max_length=64)
-    url = models.URLField(default=settings.STATIC_URL + "images/default.png")
+    url = models.URLField(default="https://fakeimg.pl/350x350/?text=image")
     categories = models.ManyToManyField(Category, related_name="lisings")
     starting_bid = models.DecimalField(max_digits=11, decimal_places=2, validators=[MinValueValidator(0.01)])
 
