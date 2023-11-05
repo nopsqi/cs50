@@ -83,12 +83,6 @@ class CommentForm(forms.ModelForm):
         }
 
 
-class CategoryForm(forms.ModelForm):
-    class Meta:
-        model = Category
-        fields = ["name"]
-
-
 @login_required(login_url="login")
 def index(request):
     listings = Listing.objects.exclude(user=request.user).order_by("-modified")
@@ -328,6 +322,4 @@ def search(request):
 
 @login_required(login_url="login")
 def categories(request):
-    return render(request, "auctions/categories.html", {
-        "form": CategoryForm()
-    })
+    return render(request, "auctions/categories.html")
