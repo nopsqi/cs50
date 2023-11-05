@@ -308,7 +308,9 @@ def search(request):
     listings = Listing.objects.order_by("-modified")
     if request.GET.get("category"):
         categories = [get_object_or_404(Category, name=category.lower()) for category in request.GET.getlist("category")]
-        listings = listings.filter(categories=categories)
+        print(categories)
+        for category in categories:
+            listings = listings.filter(categories=category)
     for listing in listings:
         listing.show_in_list = True
     return render(request, "auctions/index.html", {
