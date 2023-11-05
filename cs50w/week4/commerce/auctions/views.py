@@ -304,5 +304,5 @@ class comment:
 
 
 @login_required(login_url="login")
-def search(request)
-    
+def search(request):
+    listings = Listing.objects.filter(**request.GET).order_by("-modified")
