@@ -33,13 +33,12 @@ class ListingForm(forms.ModelForm):
                     "class": "form-control"
                 }
             )
-        self.fields["url"].initial = ""
 
     def clean(self):
         cleaned_data = super().clean()
         url = cleaned_data.get("url", "")
         if url == "":
-            cleaned_data["url"] = None
+            cleaned_data["url"] = "https://fakeimg.pl/350x350/?text=image"
         return cleaned_data
 
 
