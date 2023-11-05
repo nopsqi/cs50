@@ -306,9 +306,9 @@ class comment:
 @login_required(login_url="login")
 def search(request):
     listings = Listing.objects.order_by("-modified")
-    print(request.GET.get("category"))
     if request.GET.get("category"):
         categories = [get_object_or_404(Category, name=category.lower()) for category in request.GET.get("category")]
+        print(categories)
         listings = listings.filter(categories=categories)
     for listing in listings:
         listing.show_in_list = True
