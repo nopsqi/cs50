@@ -9,6 +9,9 @@
                 {% if not listing.active %}
                     <span class="ml-3 badge badge-secondary">Closed</span>
                 {% endif %}
+                {% if listing.winner == request.user %}
+                    <span class="ml-3 badge badge-success">Winner</span>
+                {% endif %}
                 </h1>
             </div>
         </div>
