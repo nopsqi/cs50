@@ -34,7 +34,6 @@ class ListingForm(forms.ModelForm):
                 }
             )
         self.fields["url"].initial = ""
-        self.fields["url"].required = False
         print(dir(self.fields["url"]))
 
 
