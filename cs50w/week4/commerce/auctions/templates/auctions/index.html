@@ -7,7 +7,7 @@
     {% endif %}
     {% for listing in listings %}
         {% if listing.active or listing.show_in_list %}
-            <div class="card mb-3 {{ listing.active|yesno:',bg-light' }}">
+            <div class="card mb-3">
                 <div class="row no-gutters">
                     <div class="col-md-3">
                         <img src="{{ listing.url }}" class="card-img" alt="{{ listing.description }}">
