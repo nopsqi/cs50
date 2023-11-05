@@ -6,75 +6,73 @@
         <h2>{{ title }}</h2>
     {% endif %}
     {% for listing in listings %}
-        {% if listing.active or listing.show_in_list %}
-            <div class="card mb-3
-                {% if not listing.active %}
-                    bg-light
-                {% endif %}
-            ">
-                <div class="row no-gutters">
-                    <div class="col-md-3">
-                        <img src="{{ listing.url }}" class="card-img" alt="{{ listing.description }}">
-                    </div>
-                    <div class="col-md-9">
-                        <div class="card-body d-flex">
-                            <div class="col-md-9">
-                                <p class="card-text"><small><a href="{% url 'listings' listing.user %}">@{{ listing.user }}</a></small></p>
-                                <h5 class="card-title">
-                                    <a href="{% url 'listing.show' %}?id={{ listing.id }}">{{ listing.name }}</a>
-                                    {% if not listing.active %}
-                                        <span class="ml-3 badge badge-secondary">Closed</span>
-                                    {% endif %}
-                                    {% if listing.winner == request.user %}
-                                        <span class="ml-3 badge badge-success">Winner</span>
-                                    {% endif %}
-                                </h5>
-                                <p class="card-text"><small class="text-muted">Last updated {{ listing.modified|naturaltime }}</small></p>
-                                <p class="card-text">{{ listing.description }}</p>
-                                <p class="card-text">
-                                    {% for category in listing.categories.all|dictsort:"name" %}
-                                        <a href="{% url 'search' %}?category={{ category.name }}" class="badge badge-pill badge-secondary">{{ category.name }}</a>
-                                    {% endfor %}
-                                </p>
-                            </div>
-                            <div class="col-md-3 text-right">
-                                <h2 class="card-text">${{ listing.current_bid }}</h2>
-                                {% if request.user == listing.user %}
-                                    {% if listing.active %}
-                                        <form action="{% url 'listing.close' %}" method="post">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="id" value="{{ listing.id }}">
-                                            <input type="hidden" name="prev" value="{{ request.get_full_path }}">
-                                            <input class="btn btn-danger" type="submit" value="Close Bid">
-                                        </form>
-                                    {% endif %}
-                                    <form class="mt-3" action="{% url 'listing.delete' %}" method="post">
+        <div class="card mb-3
+                    {% if not listing.active %}
+                        bg-light
+                    {% endif %}
+                   ">
+            <div class="row no-gutters">
+                <div class="col-md-3">
+                    <img src="{{ listing.url }}" class="card-img" alt="{{ listing.description }}">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body d-flex">
+                        <div class="col-md-9">
+                            <p class="card-text"><small><a href="{% url 'listings' listing.user %}">@{{ listing.user }}</a></small></p>
+                            <h5 class="card-title">
+                                <a href="{% url 'listing.show' %}?id={{ listing.id }}">{{ listing.name }}</a>
+                                {% if not listing.active %}
+                                    <span class="ml-3 badge badge-secondary">Closed</span>
+                                {% endif %}
+                                {% if listing.winner == request.user %}
+                                    <span class="badge badge-success">Winner</span>
+                                {% endif %}
+                            </h5>
+                            <p class="card-text"><small class="text-muted">Last updated {{ listing.modified|naturaltime }}</small></p>
+                            <p class="card-text">{{ listing.description }}</p>
+                            <p class="card-text">
+                                {% for category in listing.categories.all|dictsort:"name" %}
+                                    <a href="{% url 'search' %}?category={{ category.name }}" class="badge badge-pill badge-secondary">{{ category.name }}</a>
+                                {% endfor %}
+                            </p>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <h2 class="card-text">${{ listing.current_bid }}</h2>
+                            {% if request.user == listing.user %}
+                                {% if listing.active %}
+                                    <form action="{% url 'listing.close' %}" method="post">
                                         {% csrf_token %}
                                         <input type="hidden" name="id" value="{{ listing.id }}">
                                         <input type="hidden" name="prev" value="{{ request.get_full_path }}">
-                                        <input class="btn btn-danger" type="submit" value="Delete">
-                                    </form>
-                                {% else %}
-                                    {% if listing.is_in_watchlist %}
-                                        <form action="{% url 'watchlist.delete' %}" method="post">
-                                        <input type="hidden" name="action" value="delete">
-                                        {% else %}
-                                        <form action="{% url 'watchlist.add' %}" method="post">
-                                        <input type="hidden" name="action" value="add">
-                                    {% endif %}
-                                        {% csrf_token %}
-                                        <input type="hidden" name="id" value="{{ listing.id }}">
-                                        <input type="hidden" name="prev" value="{{ request.get_full_path }}">
-                                        <input class="btn {{ listing.is_in_watchlist|yesno:'btn-secondary,btn-primary' }}" type="submit" value="Watchlist">
+                                        <input class="btn btn-danger" type="submit" value="Close Bid">
                                     </form>
                                 {% endif %}
-                            </div>
+                                <form class="mt-3" action="{% url 'listing.delete' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="id" value="{{ listing.id }}">
+                                    <input type="hidden" name="prev" value="{{ request.get_full_path }}">
+                                    <input class="btn btn-danger" type="submit" value="Delete">
+                                </form>
+                            {% else %}
+                                {% if listing.is_in_watchlist %}
+                                    <form action="{% url 'watchlist.delete' %}" method="post">
+                                        <input type="hidden" name="action" value="delete">
+                                {% else %}
+                                    <form action="{% url 'watchlist.add' %}" method="post">
+                                        <input type="hidden" name="action" value="add">
+                                {% endif %}
+                                {% csrf_token %}
+                                <input type="hidden" name="id" value="{{ listing.id }}">
+                                <input type="hidden" name="prev" value="{{ request.get_full_path }}">
+                                <input class="btn {{ listing.is_in_watchlist|yesno:'btn-secondary,btn-primary' }}" type="submit" value="Watchlist">
+                                </form>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
-        {% endif %}
+        </div>
     {% empty %}
-        <p>No listing yet.</p>
+        <p>No listing found.</p>
     {% endfor %}
 {% endblock %}

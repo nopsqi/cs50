@@ -10,7 +10,7 @@
                     <span class="ml-3 badge badge-secondary">Closed</span>
                 {% endif %}
                 {% if listing.winner == request.user %}
-                    <span class="ml-3 badge badge-success">Winner</span>
+                    <span class="badge badge-success">Winner</span>
                 {% endif %}
                 </h2>
             </div>
@@ -49,7 +49,7 @@
             <p>
                 <b>Categories:</b>
                 {% for category in listing.categories.all|dictsort:"name" %}
-                    <span class="badge badge-pill badge-secondary">{{ category.name }}</span>
+                    <a href="{% url 'search' %}?category={{ category.name|lower }}" class="badge badge-pill badge-secondary">{{ category.name }}</a>
                 {% endfor %}
             </p>
             {% if listing.user != request.user and listing.active %}
