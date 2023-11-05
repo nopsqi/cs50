@@ -33,7 +33,14 @@ class ListingForm(forms.ModelForm):
                     "class": "form-control"
                 }
             )
-        print(dir(self.fields["url"]))
+        self.fields["url"].initial = ""
+
+    def clean(self):
+        cleaned_data = super().clean()
+        url = cleaned_data.get("url", "")
+        if url == "":
+            cleaned_data["url"] = None
+        return cleaned_data
 
 
 class BidForm(forms.ModelForm):
