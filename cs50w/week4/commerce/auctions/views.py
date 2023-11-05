@@ -19,26 +19,26 @@ from .models import User, Category, Listing, Watchlist, Bid, Comment
 
 
 class ListingForm(forms.ModelForm):
+    class Meta:
+        model = Listing
+        exclude = ["active", "user", "current_bid"]
+        labels = {"url": "Image URL"}
+
     def __init__(self, *args, **kwargs):
         super(ListingForm, self).__init__(*args, **kwargs)
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update(
                 {
-                    # "class": "form-group d-flex justify-content-around" if field == "categories" else "form-control"
                     "class": "form-control"
                 }
             )
 
-    class Meta:
-        model = Listing
-        exclude = ["active", "user", "current_bid"]
-        labels = {"url": "Image URL"}
-        # widgets = {
-        #     "categories": forms.CheckboxSelectMultiple
-        # }
-
 
 class BidForm(forms.ModelForm):
+    class Meta:
+        model = Bid
+        fields = ["amount"]
+
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop("request")
         self.listing = kwargs.pop("listing")
@@ -58,9 +58,6 @@ class BidForm(forms.ModelForm):
         self.fields["amount"].widget.attrs["value"] = round(min_value, 2)
         self.fields["amount"].validators = [MinValueValidator(min_value)]
 
-    class Meta:
-        model = Bid
-        fields = ["amount"]
 
     def clean(self):
         cleaned_data = super().clean()
