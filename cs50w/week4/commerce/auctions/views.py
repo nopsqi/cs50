@@ -301,3 +301,8 @@ class comment:
                 "comment_form": comment_form,
             })
         return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
+
+
+@login_required(login_url="login")
+def search(request)
+    
