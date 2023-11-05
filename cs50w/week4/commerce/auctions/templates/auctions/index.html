@@ -3,7 +3,7 @@
 
 {% block body %}
     {% for listing in listings %}
-        {% if listing.active or request.user == listing.user %}
+        {% if listing.active or listing.show_in_list %}
             <div class="card mb-3 {{ listing.active|yesno:',bg-light' }}">
                 <div class="row no-gutters">
                     <div class="col-md-3">
