@@ -164,10 +164,11 @@ def listings(request, username):
     listings = get_object_or_404(User, username=username).listings.order_by("-modified")
     for listing in listings:
         listing.show_in_list = True
+        listing.is_in_watchlist = listing in request.user.watchlist.get().listings.all()
     return render(
         request,
         "auctions/index.html",
-        {"listings": listings},
+        {"title": f"{username} listings", "listings": listings},
     )
 
 
