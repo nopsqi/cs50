@@ -33,8 +33,7 @@ class ListingForm(forms.ModelForm):
                     "class": "form-control"
                 }
             )
-        self.fields["url"].widget = forms.URLField(initial=None)
-        print(self.fields["url"].widget.attrs)
+        self.fields["url"].initial = ""
 
 
 class BidForm(forms.ModelForm):
