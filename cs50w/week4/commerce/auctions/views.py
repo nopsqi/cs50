@@ -287,5 +287,8 @@ class comment:
             return HttpResponseForbidden()
 
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
-        listing
+        form = CommentForm(request.POST)
+        form.data["user"] = request.user
+        form.data["listing"] = listing
+        print(form.is_valid())
         return HttpResponseRedirect(f"{request.POST.get('prev')}")
