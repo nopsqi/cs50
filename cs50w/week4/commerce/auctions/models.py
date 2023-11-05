@@ -27,6 +27,7 @@ class Listing(models.Model):
     categories = models.ManyToManyField(Category, related_name="lisings")
     starting_bid = models.DecimalField(max_digits=11, decimal_places=2, validators=[MinValueValidator(0.01)])
     current_bid = models.DecimalField(blank=True, null=True, max_digits=11, decimal_places=2, validators=[MinValueValidator(0.01)])
+    winner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="listings")
 
     def __str__(self):
         return f"{self.name} by {self.user.username}"
