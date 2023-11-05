@@ -81,9 +81,14 @@
             {% endif %}
         </div>
     </div>
-    <form>
+    <form class="mb-3">
         {% csrf_token %}
-        {{ comment_form }}
+        <div class="form-group">
+            {{ comment_form }}
+        </div>
+        <div class="justify-right">
+            <input class="btn btn-primary" type="submit" value="Comment">
+        </div>
     </form>
     {% for comment in listing.comments.all|dictsort:"timestamp" %}
         <div>
