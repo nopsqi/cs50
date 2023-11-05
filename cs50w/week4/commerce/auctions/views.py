@@ -318,3 +318,8 @@ def search(request):
         "title": "Search " + ", ".join([f"{key}: {value}" for key, value in request.GET.lists()]),
         "listings": listings
     })
+
+
+@login_required(login_url="login")
+def categories(request):
+    ...

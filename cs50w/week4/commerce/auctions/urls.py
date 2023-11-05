@@ -17,5 +17,6 @@ urlpatterns = [
     path("listing/bid", views.listing.bid, name="listing.bid"),
     path("comment/add", views.comment.add, name="comment.add"),
     path("search", views.search, name="search"),
+    path("categories", views.categories, name="categories"),
     path("<str:username>", views.listings, name="listings"),
 ]
