@@ -300,4 +300,4 @@ class comment:
                 "bid_form": bid_form,
                 "comment_form": comment_form,
             })
-        return HttpResponseRedirect(f"{reverse('listing.show')}?id=listing.id")
+        return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
