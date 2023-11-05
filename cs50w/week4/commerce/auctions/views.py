@@ -307,7 +307,8 @@ class comment:
 def search(request):
     listings = Listing.objects.order_by("-modified")
     if request.GET.get("category"):
-        print(request.GET["category"])
+        print(dir(request.GET))
+        print(request.GET.dict())
         categories = [get_object_or_404(Category, name=category.lower()) for category in request.GET.get("category")]
         listings = listings.filter(categories=categories)
     for listing in listings:
