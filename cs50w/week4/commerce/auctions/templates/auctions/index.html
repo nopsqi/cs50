@@ -3,7 +3,7 @@
 
 {% block body %}
     {% if title %}
-        <h1>{{ title }}</h1>
+        <h2>{{ title }}</h2>
     {% endif %}
     {% for listing in listings %}
         {% if listing.active or listing.show_in_list %}
