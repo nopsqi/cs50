@@ -66,7 +66,7 @@ class BidForm(forms.ModelForm):
         return cleaned_data
 
 
-class CommentForm(form.ModelForm):
+class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ["content"]
@@ -168,11 +168,11 @@ class listing:
         if listing.user != request.user and not listing.active:
             return HttpResponseNotFound()
         listing.is_in_watchlist = listing in request.user.watchlist.get().listings.all()
-        form = BidForm(listing=listing, request=request)
         return render(request, "auctions/listing.html", {
             "listing": listing,
-            "bid_form": form,
-            "is_winner": form.fields["amount"].disabled
+            "is_winner": bid_form.fields["amount"].disabled,
+            "bid_form": BidForm(listing=listing, request=request),
+            "comment_form": CommentForm()
         })
 
 
