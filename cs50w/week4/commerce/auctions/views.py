@@ -305,4 +305,6 @@ class comment:
 
 @login_required(login_url="login")
 def search(request):
-    listings = Listing.objects.filter(**request.GET).order_by("-modified")
+    listings = Listing.objects.order_by("-modified")
+    if request.GET.get("category"):
+        listings = listings.filter()
