@@ -288,7 +288,9 @@ class comment:
 
         listing = get_object_or_404(Listing, id=request.POST.get("id"))
         form = CommentForm(request.POST)
-        form.data["user"] = request.user
-        form.data["listing"] = listing
         print(form.is_valid())
+        print(form.cleaned_data)
+        form.instance.user = request.user
+        form.instance.listing = listing
+        print(form.instance)
         return HttpResponseRedirect(f"{request.POST.get('prev')}")
