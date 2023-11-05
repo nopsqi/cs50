@@ -26,13 +26,17 @@ class Listing(models.Model):
     url = models.URLField()
     categories = models.ManyToManyField(Category, related_name="lisings")
     starting_bid = models.DecimalField(max_digits=11, decimal_places=2, validators=[MinValueValidator(0.01)])
-    # current_bid = models.DecimalField(blank=True, null=True, max_digits=11, decimal_places=2, validators=[MinValueValidator(0.01)])
 
     @property
     def current_bid(self):
         if (bid := self.bids.order_by("-amount").first()):
             return bid.amount
         return self.starting_bid
+
+    @property
+    def winner(self):
+        if (bid := self.bids.order_by("-amount").first()):
+            
 
     def __str__(self):
         return f"{self.name} by {self.user.username}"

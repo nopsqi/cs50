@@ -210,8 +210,6 @@ class listing:
             form.instance.user = form.cleaned_data["user"]
             form.instance.listing = form.cleaned_data["listing"]
             form.save()
-        listing.current_bid = form.cleaned_data["amount"]
-        listing.save()
 
         return HttpResponseRedirect(f"{reverse('listing.show')}?id={listing.id}")
 
