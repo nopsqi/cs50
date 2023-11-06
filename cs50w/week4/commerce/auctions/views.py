@@ -166,7 +166,7 @@ def create(request):
 def listings(request, username):
     listings = get_object_or_404(User, username=username).listings.order_by("-modified")
     for listing in listings:
-        listing.is_in_watchlist = listing in request.user.watchlist.get().listings.all()
+        listing.is_in_watchlist = listing in request.user.watchlist.get_or_create()[0].listings.all()
     return render(
         request,
         "auctions/index.html",
@@ -253,7 +253,7 @@ class watchlist:
     def show(request):
         listings = (
             User.objects.get(username=request.user)
-            .watchlist.get()
+            .watchlist.get_or_create()[0]
             .listings.all()
             .order_by("-modified")
         )
