@@ -18,4 +18,4 @@ class EmailFactory(DjangoEmailFactory):
 
     user = factory.SubFactory(UserFactory)
     sender = factory.SubFactory(UserFactory)
-    subject = factory.Faker("sentence")
+    subject = factory.Faker("sentence", nb_words=)
