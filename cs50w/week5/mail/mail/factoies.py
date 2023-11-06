@@ -26,15 +26,23 @@ class EmailFactory(DjangoEmailFactory):
     read = factory.LazyAttribute(lambda o: True if o.user == o.sender else factory.Faker("boolean"))
     archived = factory.Faker("boolean")
 
+    @factory.post_generation()
+    def recipients(self, create, extracted):
+        if not create:
+            return
+        if extracted:
+            for recipient in extracted:
+                self.recipients.add(recipient)
+
 
 if User.objects.count() == 0:
     UserFactory.create_batch(20)
 
 if Email.objects.count() == 0:
-    for sender in random.sample(User.objects.all(), round(User.objects.count * (2/3))):
-        users = User.objects.exclude(username=sender)
+    for sender in random.sample(User.objects.all(), round(User.objects.count() * (2/3))):
+        users = User.objects.exclude(id=sender.id)
         EmailFactory(
             user=sender,
             sender=sender,
-            recipients=random.sample(User.objects.exclude(username=sender), random.randit(1, User.objects.exclu))
+            recipients=random.sample(users, random.randit(1, users.count()))
         )
