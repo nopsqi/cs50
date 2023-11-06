@@ -5,12 +5,7 @@ from django.core.validators import MinValueValidator
 
 
 class User(AbstractUser):
-    @property
-    def watchlist(self):
-        try:
-            return iter(self.watchlist.get().listings.all())
-        except Watchlist.DoesNotExist:
-            return []
+    pass
 
 
 
