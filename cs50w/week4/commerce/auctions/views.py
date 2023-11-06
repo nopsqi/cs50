@@ -35,7 +35,7 @@ class ListingForm(forms.ModelForm):
             )
         self.fields["name"].widget.attrs["autofocus"] = True
         self.fields["url"].widget.attrs["placeholder"] = "Optional"
-        self.fields["categories"].widget.attrs["size"] = 10
+        self.fields["categories"].widget.attrs["size"] = 7
 
     def clean(self):
         cleaned_data = super().clean()
