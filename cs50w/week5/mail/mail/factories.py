@@ -5,7 +5,7 @@ import factory
 from factory.django import DjangoModelFactory
 
 
-class UserFactory(DjangoEmailFactory):
+class UserFactory(DjangoModelFactory):
     class Meta:
         model = User
 
@@ -14,7 +14,7 @@ class UserFactory(DjangoEmailFactory):
     password = "pbkdf2_sha256$600000$Nhn7kL55O0rKMEzGd59oTm$9XFB9m6u+Ro8fThSWtvpdyBNQ9Rle+f/40Aq0k92vDg="
 
 
-class EmailFactory(DjangoEmailFactory):
+class EmailFactory(DjangoModelFactory):
     class Meta:
         model = Email
 
