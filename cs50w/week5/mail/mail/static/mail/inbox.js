@@ -38,4 +38,7 @@ function load_mailbox(mailbox) {
   .then(data => {
     console.log(data)
   })
+  .catch(error => {
+    console.log("failed")
+  })
 }
