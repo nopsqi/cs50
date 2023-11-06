@@ -87,7 +87,9 @@ class CommentForm(forms.ModelForm):
 
 @login_required(login_url="login")
 def index(request):
-    watchlist = request.user.watchlist.first()
+    try:
+        watchlist = request.user.watchlist.get().user.listings
+    except
     listings = Listing.objects.exclude(Q(user=request.user) | Q(active=False)).order_by("-modified")
     if watchlist:
         listings = listings.exclude(id__in=watchlist.listings.al())
