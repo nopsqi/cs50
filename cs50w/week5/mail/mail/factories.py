@@ -38,10 +38,10 @@ if User.objects.count() == 0:
     UserFactory.create_batch(20)
 
 if Email.objects.count() == 0:
-    for sender in random.sample(list(User.objects.all()), round(User.objects.count() * (2/3))):
+    for user in random.sample(list(User.objects.all()), round(User.objects.count() * (2/3))):
         users = User.objects.all()
         EmailFactory(
-            user=sender,
+            user=user,
             sender=random.choice(list(users)),
             recipients=random.sample(list(users), random.randint(1, users.count()))
         )
