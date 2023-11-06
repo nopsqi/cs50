@@ -23,4 +23,13 @@ class EmailFactory(DjangoEmailFactory):
     subject = factory.Faker("sentence", nb_words=random.randint(1, 4))
     body = factory.Faker("text")
     timestamp = factory.Faker("date_time_between", start_date="-1y", end_date="now", tzinfo=timezone.get_current_timezone())
-    read = factory.LazyAttribute(lambda o: Tru)
+    read = factory.LazyAttribute(lambda o: True if o.user == o.sender else factory.Faker("boolean"))
+    archived = factory.Faker("boolean")
+
+
+if User.objects.count() == 0:
+    UserFactory.create_batch(5)
+
+if Email.objects.count() == 0:
+    users = User.objects.all()
+    
