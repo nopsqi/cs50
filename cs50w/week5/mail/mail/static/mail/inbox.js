@@ -34,6 +34,8 @@ function load_mailbox(mailbox) {
   fetch(`/mails/${mailbox}`)
   .then(data => data.json())
   .then(data => {
-    data.forEach
+    data.forEach(item => {
+        console.log(item)
+    })
   })
 }
