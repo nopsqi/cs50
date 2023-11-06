@@ -1,3 +1,4 @@
+import random
 from mail.models import User, Email
 import factory
 from factory.django import DjangoModelFactory
