@@ -19,4 +19,6 @@ class EmailFactory(DjangoEmailFactory):
 
     user = factory.SubFactory(UserFactory)
     sender = factory.SubFactory(UserFactory)
-    subject = factory.Faker("sentence", nb_words=)
+    subject = factory.Faker("sentence", nb_words=random.randint(1, 4))
+    body = factory.Faker("text")
+    timestamp = factory.Faker("date_time_between")
