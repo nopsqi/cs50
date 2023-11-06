@@ -39,9 +39,9 @@ if User.objects.count() == 0:
 
 if Email.objects.count() == 0:
     for sender in random.sample(list(User.objects.all()), round(User.objects.count() * (2/3))):
-        users = User.objects.exclude(id=sender.id)
+        users = User.objects.all()
         EmailFactory(
             user=sender,
-            sender=sender,
+            sender=random.choice(list(users)),
             recipients=random.sample(list(users), random.randint(1, users.count()))
         )
