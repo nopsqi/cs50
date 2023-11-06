@@ -33,6 +33,7 @@ class ListingForm(forms.ModelForm):
                     "class": "form-control"
                 }
             )
+        self.fields["name"].widget.attrs["autofocus"] = True
         self.fields["url"].widget.attrs["placeholder"] = "Optional"
         self.fields["categories"].widget.attrs["size"] = 10
 
