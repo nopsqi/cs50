@@ -31,5 +31,5 @@ if User.objects.count() == 0:
     UserFactory.create_batch(5)
 
 if Email.objects.count() == 0:
-    users = User.objects.all()
-    
+    for sender in random.sample(User.objects.all(), round(User.objects.count * (2/3))):
+        for 
