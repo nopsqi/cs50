@@ -89,7 +89,8 @@ class CommentForm(forms.ModelForm):
 def index(request):
     try:
         watchlist = request.user.watchlist.get().user.listings
-    except
+    except Watchlist.DoesNotExist:
+        watchlist 
     listings = Listing.objects.exclude(Q(user=request.user) | Q(active=False)).order_by("-modified")
     if watchlist:
         listings = listings.exclude(id__in=watchlist.listings.al())
