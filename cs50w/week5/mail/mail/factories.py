@@ -10,6 +10,7 @@ class UserFactory(DjangoModelFactory):
         model = User
 
     username = factory.Faker("email")
+    email = factory.LazyAttribute(lambda o: o.username)
     password = "pbkdf2_sha256$600000$Nhn7kL55O0rKMEzGd59oTm$9XFB9m6u+Ro8fThSWtvpdyBNQ9Rle+f/40Aq0k92vDg="
 
 
