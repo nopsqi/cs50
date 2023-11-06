@@ -28,8 +28,8 @@ class EmailFactory(DjangoEmailFactory):
 
 
 if User.objects.count() == 0:
-    UserFactory.create_batch(5)
+    UserFactory.create_batch(20)
 
 if Email.objects.count() == 0:
     for sender in random.sample(User.objects.all(), round(User.objects.count * (2/3))):
-        for 
+        
