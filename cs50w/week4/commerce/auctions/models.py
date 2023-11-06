@@ -8,7 +8,7 @@ class User(AbstractUser):
     @property
     def watchlist(self):
         try:
-            return iter(request.user.watchlist.get().listings.all())
+            return iter(self.watchlist.get().listings.all())
         except Watchlist.DoesNotExist:
             return []
 
