@@ -87,7 +87,7 @@ class CommentForm(forms.ModelForm):
 
 @login_required(login_url="login")
 def index(request):
-    listings = Listing.objects.exclude(Q(user=request.user) | Q(active=False) | Q(id__in=request.user.watchlist.get().listings.all())).order_by("-modified")
+    listings = Listing.objects.exclude(Q(user=request.user) | Q(active=False) | Q(id__in=request.user.watchlist.get_or_cerate().listings.all())).order_by("-modified")
     for listing in listings:
         listing.is_in_watchlist = listing in request.user.watchlist.get().listings.all()
     return render(request, "auctions/index.html", {"title": "All listings", "listings": listings})

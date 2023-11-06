@@ -8,7 +8,6 @@ class User(AbstractUser):
     pass
 
 
-
 class Category(models.Model):
     name = models.CharField(max_length=16, unique=True)
 
