@@ -204,7 +204,7 @@ class listing:
         form = BidForm(request.POST, request=request, listing=listing)
         if not form.is_valid():
             return render(
-                request, "auctions/listing.html", {"listing": listing, "bid_form": form}
+                request, "auctions/listing.html", {"listing": listing, "bid_form": form, "comment_form": CommentForm()}
             )
         if bid := Bid.objects.filter(
             user=form.cleaned_data["user"], listing=form.cleaned_data["listing"]
