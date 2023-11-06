@@ -1,4 +1,5 @@
 import random
+from django.utils import timezone
 from mail.models import User, Email
 import factory
 from factory.django import DjangoModelFactory
@@ -21,4 +22,5 @@ class EmailFactory(DjangoEmailFactory):
     sender = factory.SubFactory(UserFactory)
     subject = factory.Faker("sentence", nb_words=random.randint(1, 4))
     body = factory.Faker("text")
-    timestamp = factory.Faker("date_time_between")
+    timestamp = factory.Faker("date_time_between", start_date="-1y", end_date="now", tzinfo=timezone.get_current_timezone())
+    read = factory.Faker(")
