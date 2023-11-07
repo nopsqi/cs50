@@ -38,9 +38,9 @@ function load_mailbox(mailbox) {
   .then(data => {
     data.forEach(item => {
         const div = document.createElement("div")
-        div.classList.add("card", "p-2")
+        div.classList.add("card", "p-2", `${item.read ? 'alert-secondary' : ''}`)
         div.innerHTML = `
-            <div class="row ${item.read ? 'alert-light' : ''}">
+            <div class="row">
                 <div class="col-md-3 font-weight-bold">${item.sender}</div>
                 <div class="col-md-2">${item.subject.slice(0, 20)}</div>
                 <div class="col-md-5">${item.body.slice(0, 50)}...</div>
