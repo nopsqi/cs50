@@ -109,7 +109,7 @@ function load_mail(id) {
         if (data.user !== data.sender) {
             button = document.createElement('button')
             button.classList.add('btn')
-            if (data.archived) () {
+            if (data.archived) {
                 button.classList.add('btn-secondary')
             }
             else
