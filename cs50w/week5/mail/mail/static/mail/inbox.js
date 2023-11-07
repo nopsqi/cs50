@@ -78,9 +78,15 @@ function load_mail(id) {
     .then(data => data.json())
     .then(data => {
         document.querySelector('#email-view').innerHTML = `
-            <div class="d-flex justify-content-between">
-                <div class="font-weight-bold">${data.sender}</div>
-                <div class="text-muted">${data.timestamp}</div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="font-weight-bold">${data.sender}</div>
+                </div>
+                <div class="col-md-6">
+                    <div id="timestamp" class="d-flex justify-content-end align-items-center">
+                        <div class="text-muted">${data.timestamp}</div>
+                    </div>
+                </div>
             </div>
             <div>to me <span class="badge badge-secondary">v</span></div>
             <div style="display: none" id="recipients">recipients: ${data.recipients.join(", ")}</div>
@@ -99,6 +105,18 @@ function load_mail(id) {
                 this.innerHTML = 'V';
                 recipients.style.display = 'none';
             }
+        }
+        if (data.user !== data.sender) {
+            button = document.createElement('button')
+            button.classList.add('btn')
+            if (data.archived) () {
+                button.classList.add('btn-secondary')
+            }
+            else
+            {
+                button.classList.add('btn-primary')
+            }
+            document.querySelectory('#timestamp').append(button)
         }
         emailRead(data.id)
     })
