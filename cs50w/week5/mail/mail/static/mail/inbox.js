@@ -127,7 +127,7 @@ function load_mail(mailbox, id) {
                 <div>
                     to ${mailbox == 'sent' ? data.recipients[0] + (data.recipients.length > 1 ? '...' : '') : 'me'}
                 </div>
-                <button id="recipients" class="btn btn-secondary">🔽</button>
+                <button id="recipients-button" class="p-0 ml-3">🔽</button>
             </div>
             <div style="display: none" id="recipients">recipients: ${data.recipients.join(", ")}</div>
             <h3 class="mt-3">${data.subject}</h3>
@@ -135,7 +135,7 @@ function load_mail(mailbox, id) {
         `
         const div = document.createElement('div')
         recipients = document.querySelector('#recipients')
-        document.querySelector('#recipients').onclick = function() {
+        document.querySelector('#recipients-button').onclick = function() {
             if (recipients.style.display === 'none') {
                 this.innerHTML = '🔼';
                 recipients.style.display = 'block';
