@@ -71,7 +71,7 @@ function load_mailbox(mailbox) {
             }
             div.innerHTML = `
                 <div class="row">
-                    <div class="col-md-3 font-weight-bold">${item.sender}</div>
+                    <div class="col-md-3 font-weight-bold">${mailbox === 'sent' ? 'To: ' + item.recipients[0] + (item.recipients.length > 0 ? '...' : '') : item.sender}</div>
                     <div class="col-md-2">${item.subject.slice(0, 20)}</div>
                     <div class="col-md-5">${item.body.slice(0, 50)}...</div>
                     <div dlass="col-md-2 text-right">${item.timestamp}</div>
