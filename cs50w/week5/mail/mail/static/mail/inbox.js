@@ -37,7 +37,6 @@ function load_mailbox(mailbox) {
   .then(data => data.json())
   .then(data => {
     data.forEach(item => {
-        console.log(item)
         const div = document.createElement("div")
         div.classList.add("card", "p-2")
         div.innerHTML = `
@@ -48,9 +47,8 @@ function load_mailbox(mailbox) {
                 <div dlass="col-md-2">${item.timestamp}</div>
             </div>
         `
-        const childrens = div.querySelector('.row').children
-        const arr = [...childrens]
-        [...childrens].forEach(item => {
+        const childrens = Array.from(div.querySelector('.row').children)
+        Array.from(div.querySelector('.row').children).forEach(item => {
             item.classList.add("card-text", "overflow-hidden")
         })
         document.querySelector('#emails-view').append(div);
