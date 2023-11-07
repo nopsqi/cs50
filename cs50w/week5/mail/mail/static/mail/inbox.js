@@ -54,7 +54,10 @@ function load_mailbox(mailbox) {
             item.classList.add("card-text", "overflow-auto")
         })
         div.onmouseenter = function(item) {
-            console.log(this)
+            this.classList.add("alert-dark")
+        }
+        div.onmouseleave = function() {
+            this.classList.remove("alert-dark")
         }
         document.querySelector('#emails-view').append(div);
     });
