@@ -76,7 +76,10 @@ function load_mail(id) {
     .then(data => data.json())
     .then(data => {
         document.querySelector('#email-view').innerHTML = `
-            <div></div>
+            <div class="d-flex justify-content-between">
+                <div>${data.sender}</div>
+                <div>${data.}</div>
+            </div>
             <h3>${data.subject}</h3>
         `
     })
