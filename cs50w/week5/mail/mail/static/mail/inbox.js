@@ -137,29 +137,34 @@ function load_mail(mailbox, id) {
             }
         }
         if (mailbox !== 'sent') {
-            const replyButton = document.createElement('button')
-            replyButton.classList.add('btn', 'ml-3')
-            replyButton.innerHTML = 'Archived'
+            const archivedButton = document.createElement('button')
+            archivedButton.classList.add('btn', 'ml-3')
+            archivedButton.innerHTML = 'Archived'
             if (data.archived) {
-                replyButton.classList.add('btn-secondary')
+                archivedButton.classList.add('btn-secondary')
             }
             else
             {
-                replyButton.classList.add('btn-primary')
+                archivedButton.classList.add('btn-primary')
             }
-            document.querySelector('#timestamp').append(replyButton)
-            replyButton.onclick = function() {
-                if (replyButton.classList.contains('btn-secondary')) {
-                    replyButton.classList.remove('btn-secondary')
-                    replyButton.classList.add('btn-primary')
+            document.querySelector('#timestamp').append(archivedButton)
+            archivedButton.onclick = function() {
+                if (archivedButton.classList.contains('btn-secondary')) {
+                    archivedButton.classList.remove('btn-secondary')
+                    archivedButton.classList.add('btn-primary')
                 }
                 else
                 {
-                    replyButton.classList.remove('btn-primary')
-                    replyButton.classList.add('btn-secondary')
+                    archivedButton.classList.remove('btn-primary')
+                    archivedButton.classList.add('btn-secondary')
                 }
                 updateEmail(id, {archived: !data.archived})
             }
+
+            const replyButton = document.createElement('button')
+            replyButton.addClassList('btn', 'btn-primary')
+            replyButton.innerHTML = 'Reply'
+            document.querySelector('#timestamp').append(replyButton)
         }
         updateEmail(id, {read: true})
     })
