@@ -119,7 +119,7 @@ function load_mail(id) {
             }
             document.querySelector('#timestamp').append(button)
             button.onclick = function() {
-                if (button.class) {
+                if (button.classList.contains('btn-secondary')) {
                     button.classList.remove('btn-secondary')
                     button.classList.add('btn-primary')
                 }
