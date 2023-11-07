@@ -43,16 +43,15 @@ function load_mailbox(mailbox) {
         div.innerHTML = `
             <div class="row">
                 <div class="col-md-2 font-weight-bold">${item.sender}</div>
-                <div class="col-md-1>${item.subject}</div>
-                <div class="col-md-7>${item.body}</div>
-                <div dlass="col-md-2>${item.timestamp}</div>
+                <div class="col-md-1">${item.subject}</div>
+                <div class="col-md-7">${item.body}</div>
+                <div dlass="col-md-2">${item.timestamp}</div>
             </div>
         `
         const childrens = div.querySelector('.row').children
         const arr = [...childrens]
-        arr.forEach(item => {
-            // item.classList.add("card-text")
-            console.log(item)
+        [...childrens].forEach(item => {
+            item.classList.add("card-text", "overflow-hidden")
         })
         document.querySelector('#emails-view').append(div);
     });
