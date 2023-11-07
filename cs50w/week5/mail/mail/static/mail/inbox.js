@@ -184,5 +184,6 @@ const replyEmail = (id) => {
     .then(response => response.json())
     .then(email => {
         document.querySelector('#compose-recipients').value = email.sender
+        document.querySelector('#compose-recipients').value = data.
     })
 }
