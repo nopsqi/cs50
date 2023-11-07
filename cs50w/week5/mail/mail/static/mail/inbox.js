@@ -104,5 +104,10 @@ function load_mail(id) {
 }
 
 function emailRead(id) {
-
+    fetch(`emails/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            read: true
+        })
+    })
 }
