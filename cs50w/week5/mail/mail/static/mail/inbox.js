@@ -180,4 +180,9 @@ function updateEmail(id, body) {
 
 const replyEmail = (id) => {
     compose_email()
+    fetch(`/emails/${id}`)
+    .then(response => response.json())
+    .then(email => {
+        document.querySelector('#compose-recipients').value = email.sender
+    })
 }
