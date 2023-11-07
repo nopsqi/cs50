@@ -24,7 +24,7 @@ function compose_email() {
     document.querySelector('#compose-subject').value = '';
     document.querySelector('#compose-body').value = '';
 
-    document.querySelector('#compose-view').onsubmit = function(item) {
+    document.querySelector('#compose-form').onsubmit = function(item) {
         console.log(item)
         console.log(this)
         return false
