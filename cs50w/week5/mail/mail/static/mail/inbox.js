@@ -53,6 +53,7 @@ function load_mailbox(mailbox) {
         Array.from(div.querySelector('.row').children).forEach(item => {
             item.classList.add("card-text", "overflow-auto")
         })
+        div.
         document.querySelector('#emails-view').append(div);
     });
   })
