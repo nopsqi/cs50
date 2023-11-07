@@ -33,12 +33,12 @@ function compose_email() {
                 body: document.querySelector('#compose-body').value
             })
         })
-        .then(result => result.json())
+        // .then(result => result.json())
         .then(result => {
-            alert(result)
+            console.log(result)
         })
         .catch(error => {
-            alert(error)
+            console.log(error)
         })
 
         return false
