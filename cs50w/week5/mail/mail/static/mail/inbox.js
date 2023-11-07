@@ -44,7 +44,7 @@ function load_mailbox(mailbox) {
                 <div class="col-md-3 font-weight-bold">${item.sender}</div>
                 <div class="col-md-2">${item.subject.slice(0, 20)}</div>
                 <div class="col-md-5">${item.body.slice(0, 50)}</div>
-                <div dlass="col-md-2">${item.timestamp}</div>
+                <div dlass="col-md-2 text-">${item.timestamp}</div>
             </div>
         `
         Array.from(div.querySelector('.row').children).forEach(item => {
