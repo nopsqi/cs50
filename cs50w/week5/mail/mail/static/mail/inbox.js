@@ -83,12 +83,13 @@ function load_mail(id) {
                 <div class="text-muted">${data.timestamp}</div>
             </div>
             <div>to me <span class="badge badge-secondary">v</span></div>
-            <div id="recipients"></div>
+            <div class=" id="recipients">${data.recipients.join(", ")}</div>
             <h3 class="mt-3">${data.subject}</h3>
             <p class="mt-3">${data.body}</p>
         `
         document.querySelector('#email-view span').onclick = function() {
-            console.log(this)
+            this.innerHTML = 'A';
+            document.querySelector('#recipients')
         }
     })
 }
