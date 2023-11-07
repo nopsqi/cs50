@@ -33,6 +33,8 @@ function compose_email() {
                 body: document.querySelector('#compose-body')
             })
         })
+        .then(result => alert(result))
+        .catch(error => alert(error))
         return false
     }
 }
