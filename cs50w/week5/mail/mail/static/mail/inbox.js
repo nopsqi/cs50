@@ -108,7 +108,8 @@ function load_mail(id) {
         }
         if (data.user !== data.sender) {
             button = document.createElement('button')
-            button.classList.add('btn')
+            button.classList.add('btn', 'ml-3')
+            button.innerHTML = 'Archived'
             if (data.archived) {
                 button.classList.add('btn-secondary')
             }
@@ -117,7 +118,10 @@ function load_mail(id) {
                 button.classList.add('btn-primary')
             }
             document.querySelector('#timestamp').append(button)
-            buton.onclick = () => updateEmail(id, {archived: !data.archived})
+            button.onclick = functions() {
+                this.
+                updateEmail(id, {archived: !data.archived})
+            }
         }
         updateEmail(id, {read: true})
     })
