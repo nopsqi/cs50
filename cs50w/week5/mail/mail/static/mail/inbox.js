@@ -42,8 +42,8 @@ function load_mailbox(mailbox) {
         div.classList.add("card", "p-3")
         div.innerHTML = `
             <div class="row">
-                <div class="card-text col-md-2">${item.sender}</div>
-                <div class="card-text col-md-10">${item.subject}</div>
+                <div class="card-text col-md-4">${item.sender}</div>
+                <div class="card-text col-auto">${item.subject}</div>
             </div>
         `
         document.querySelector('#emails-view').append(div);
