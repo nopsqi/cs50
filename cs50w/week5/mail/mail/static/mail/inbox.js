@@ -83,6 +83,7 @@ function load_mailbox(mailbox) {
                 item.style.overflow = 'hidden';
                 item.style.textOverflow = 'ellipsis'
             })
+
             const hoverIndicator = "border-dark"
             div.onmouseenter = function(item) {
                 this.classList.add(hoverIndicator)
