@@ -34,13 +34,9 @@ function compose_email() {
             })
         })
         .then(response => {
-            console.log(response)
+            console.log(response.status)
             return response.json()
         })
-        .then(result => {
-            console.log(result)
-        })
-
         return false
     }
 }
