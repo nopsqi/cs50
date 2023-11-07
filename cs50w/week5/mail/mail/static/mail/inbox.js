@@ -36,38 +36,37 @@ function load_mailbox(mailbox) {
     fetch(`/emails/${mailbox}`)
         .then(data => data.json())
         .then(data => {data.forEach(item => {
-                const div = document.createElement("div")
-                const readIndicator = "bg-light"
-                div.classList.add("card", "p-2")
+            const div = document.createElement("div")
+            const readIndicator = "bg-light"
+            div.classList.add("card", "p-2")
+            if (item.read) {
+                div.classList.add(readIndicator)
+            }
+            div.innerHTML = `
+                <div class="row">
+                    <div class="col-md-3 font-weight-bold">${item.sender}</div>
+                    <div class="col-md-2">${item.subject.slice(0, 20)}</div>
+                    <div class="col-md-5">${item.body.slice(0, 50)}...</div>
+                    <div dlass="col-md-2 text-right">${item.timestamp}</div>
+                </div>
+            `
+            Array.from(div.querySelector('.row').children).forEach(item => {
+                item.classList.add("card-text", "overflow-auto")
+            })
+            const hoverIndicator = "alert-secondary"
+            div.onmouseenter = function(item) {
+                this.classList.add(hoverIndicator)
+                this.classList.remove(readIndicator)
+            }
+            div.onmouseleave = function() {
+                this.classList.remove(hoverIndicator)
                 if (item.read) {
-                    div.classList.add(readIndicator)
+                    this.classList.add(readIndicator)
                 }
-                div.innerHTML = `
-            <div class="row">
-                <div class="col-md-3 font-weight-bold">${item.sender}</div>
-                <div class="col-md-2">${item.subject.slice(0, 20)}</div>
-                <div class="col-md-5">${item.body.slice(0, 50)}...</div>
-                <div dlass="col-md-2 text-right">${item.timestamp}</div>
-            </div>
-        `
-                Array.from(div.querySelector('.row').children).forEach(item => {
-                    item.classList.add("card-text", "overflow-auto")
-                })
-                const hoverIndicator = "alert-secondary"
-                div.onmouseenter = function(item) {
-                    this.classList.add(hoverIndicator)
-                    this.classList.remove(readIndicator)
-                }
-                div.onmouseleave = function() {
-                    this.classList.remove(hoverIndicator)
-                    if (item.read) {
-                        this.classList.add(readIndicator)
-                    }
-                }
-                div.onclick = () => load_mail(item.id)
-                document.querySelector('#emails-view').append(div);
-            });
-        })
+            }
+            div.onclick = () => load_mail(item.id)
+            document.querySelector('#emails-view').append(div);
+        })})
         .catch(error => {
             console.log(error)
         });
@@ -80,6 +79,8 @@ function load_mail(id) {
     fetch(`/emails/${parseInt(id)}`)
     .then(data => data.json())
     .then(data => {
-
+        document.querySelector('#email-view').innerHTML = `
+            <h3>${data.subject}</h3>
+        `
     })
 }
