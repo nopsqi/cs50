@@ -116,7 +116,7 @@ function load_mail(id) {
             {
                 button.classList.add('btn-primary')
             }
-            document.querySelectory('#timestamp').append(button)
+            document.querySelector('#timestamp').append(button)
             buton.onclick = () => updateEmail(id, {archived: !data.archived})
         }
         updateEmail(id, {read: true})
