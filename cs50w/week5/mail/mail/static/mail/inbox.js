@@ -36,7 +36,7 @@ function compose_email() {
         .then(response => {
             result = response.json()
             console.log(response.status)
-            if (response.status === 201) {
+            if (response.status == 201) {
                 alert(result.message)
             }
             else
