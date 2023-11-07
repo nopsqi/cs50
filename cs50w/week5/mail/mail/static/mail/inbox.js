@@ -132,6 +132,8 @@ function load_mail(id) {
                 recipients.style.display = 'none';
             }
         }
+        console.log(data.user)
+        console.log(data.sender)
         if (data.user !== data.sender) {
             button = document.createElement('button')
             button.classList.add('btn', 'ml-3')
