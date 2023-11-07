@@ -28,9 +28,9 @@ function compose_email() {
         fetch('/emails', {
             method: 'POST',
             body: JSON.stringify({
-                recipients: document.querySelector('#compose-recipients').split(","),
-                subject: document.querySelector('#compose-subject'),
-                body: document.querySelector('#compose-body')
+                recipients: document.querySelector('#compose-recipients').value.split(","),
+                subject: document.querySelector('#compose-subject').value,
+                body: document.querySelector('#compose-body').value
             })
         })
         .then(result => result.json())
