@@ -111,22 +111,22 @@ function load_mail(mailbox, id) {
 
     fetch(`/emails/${parseInt(id)}`)
     .then(data => data.json())
-    .then(data => {
+    .then(email => {
         document.querySelector('#email-view').innerHTML = `
             <div class="row">
                 <div class="col-md-6">
-                    <div class="font-weight-bold">${mailbox === 'sent' ? 'me ' + '<' + data.sender + '>' : data.sender}</div>
+                    <div class="font-weight-bold">${mailbox === 'sent' ? 'me ' + '<' + email.sender + '>' : email.sender}</div>
                 </div>
                 <div class="col-md-6">
                     <div id="timestamp" class="d-flex justify-content-end align-items-center">
-                        <div class="text-muted">${data.timestamp}</div>
+                        <div class="text-muted">${email.timestamp}</div>
                     </div>
                 </div>
             </div>
-            <div>to ${mailbox == 'sent' ? data.recipients[0] + (data.recipients.length > 1 ? '...' : '') : 'me'} <span class="badge">🔽</span></div>
-            <div style="display: none" id="recipients">recipients: ${data.recipients.join(", ")}</div>
-            <h3 class="mt-3">${data.subject}</h3>
-            <p class="mt-3">${data.body}</p>
+            <div>to ${mailbox == 'sent' ? email.recipients[0] + (email.recipients.length > 1 ? '...' : '') : 'me'} <span class="badge">🔽</span></div>
+            <div style="display: none" id="recipients">recipients: ${email.recipients.join(", ")}</div>
+            <h3 class="mt-3">${email.subject}</h3>
+            <p class="mt-3">${email.body}</p>
         `
         const div = document.createElement('div')
         recipients = document.querySelector('#recipients')
@@ -145,7 +145,7 @@ function load_mail(mailbox, id) {
             const archivedButton = document.createElement('button')
             archivedButton.classList.add('btn', 'ml-3')
             archivedButton.innerHTML = 'Archived'
-            if (data.archived) {
+            if (email.archived) {
                 archivedButton.classList.add('btn-secondary')
             }
             else
@@ -163,7 +163,7 @@ function load_mail(mailbox, id) {
                     archivedButton.classList.remove('btn-primary')
                     archivedButton.classList.add('btn-secondary')
                 }
-                updateEmail(id, {archived: !data.archived})
+                updateEmail(id, {archived: !email.archived})
             }
 
             const replyButton = document.createElement('button')
