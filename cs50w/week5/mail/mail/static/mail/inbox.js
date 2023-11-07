@@ -36,11 +36,13 @@ function compose_email() {
         .then(response => response.json())
         .then(result => {
             if (result.hasOwnProperty("message")) {
-                document.querySelector('#status').classList.add()
+                document.querySelector('#status').classList.add('alert', 'alert-success')
+                document.querySelector('#status').innerHTML = result.message
             }
             else
             {
-                alert(result.error)
+                document.querySelector('#status').classList.add('alert', 'alert-danger')
+                document.querySelector('#status').innerHTML = result.error
             }
         })
         return false
