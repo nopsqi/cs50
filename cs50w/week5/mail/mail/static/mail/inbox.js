@@ -162,9 +162,10 @@ function load_mail(mailbox, id) {
             }
 
             const replyButton = document.createElement('button')
-            replyButton.addClassList('btn', 'btn-primary')
+            replyButton.classList.add('btn', 'btn-primary', 'ml-3')
             replyButton.innerHTML = 'Reply'
             document.querySelector('#timestamp').append(replyButton)
+            replyButton.onclick = () => replyEmail(id)
         }
         updateEmail(id, {read: true})
     })
@@ -175,4 +176,8 @@ function updateEmail(id, body) {
         method: 'PUT',
         body: JSON.stringify(body)
     })
+}
+
+const replyEmail = (id) => {
+    
 }
