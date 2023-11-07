@@ -23,6 +23,12 @@ function compose_email() {
     document.querySelector('#compose-recipients').value = '';
     document.querySelector('#compose-subject').value = '';
     document.querySelector('#compose-body').value = '';
+
+    document.querySelector('#compose-view').onsubmit = function(item) {
+        console.log(item)
+        console.log(this)
+        return false
+    }
 }
 
 function load_mailbox(mailbox) {
