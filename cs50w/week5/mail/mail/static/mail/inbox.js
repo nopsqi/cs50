@@ -40,7 +40,7 @@ function load_mailbox(mailbox) {
         const div = document.createElement("div")
         div.classList.add("card", "p-2")
         div.innerHTML = `
-            <div class="row">
+            <div class="row ${item.read ? 'alert-light' : ''}">
                 <div class="col-md-3 font-weight-bold">${item.sender}</div>
                 <div class="col-md-2">${item.subject.slice(0, 20)}</div>
                 <div class="col-md-5">${item.body.slice(0, 50)}...</div>
