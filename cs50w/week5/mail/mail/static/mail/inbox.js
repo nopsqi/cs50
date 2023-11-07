@@ -75,5 +75,6 @@ function load_mailbox(mailbox) {
 }
 
 function load_mail(id) {
-    document.querySelector('#emails-view')
+    document.querySelector('#emails-view').style.display = 'none';
+    document.querySelector('#email-view').style.display = 'block';
 }
