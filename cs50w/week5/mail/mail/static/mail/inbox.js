@@ -36,9 +36,9 @@ function load_mailbox(mailbox) {
   fetch(`/emails/${mailbox}`)
   .then(data => data.json())
   .then(data => {
-    console.log(data)
+    document.querySelector('#emails-view').append()
   })
   .catch(error => {
-    console.log("failed")
+    console.log(error)
   })
 }
