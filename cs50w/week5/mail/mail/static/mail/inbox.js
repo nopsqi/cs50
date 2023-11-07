@@ -34,8 +34,15 @@ function compose_email() {
             })
         })
         .then(response => {
+            result = response.json()
             console.log(response.status)
-            return response.json()
+            if (response.status === 201) {
+                alert(result.message)
+            }
+            else
+            {
+                alert(result.error)
+            }
         })
         return false
     }
