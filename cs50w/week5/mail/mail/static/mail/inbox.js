@@ -35,7 +35,7 @@ function compose_email() {
         })
         .then(response => response.json())
         .then(result => {
-            try
+            
         })
         return false
     }
