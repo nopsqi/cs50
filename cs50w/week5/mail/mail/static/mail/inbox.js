@@ -65,7 +65,7 @@ function load_mailbox(mailbox) {
                 this.classList.add(readIndicator)
             }
         }
-        div.onclick = load_mail(item.id)
+        div.onclick = () => load_mail(item.id)
         document.querySelector('#emails-view').append(div);
     });
   })
@@ -75,5 +75,5 @@ function load_mailbox(mailbox) {
 }
 
 function load_mail(id) {
-    console.log(id)
+    console.log(this)
 }
