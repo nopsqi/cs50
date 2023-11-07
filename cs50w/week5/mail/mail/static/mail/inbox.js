@@ -123,7 +123,7 @@ function load_mail(mailbox, id) {
                     </div>
                 </div>
             </div>
-            <div>to ${mailbox == 'sent' ? data.recipients[0] + (data.recipients.length > 1 ? '...' : '') : 'me'} <span class="badge">🔼</span></div>
+            <div>to ${mailbox == 'sent' ? data.recipients[0] + (data.recipients.length > 1 ? '...' : '') : 'me'} <span class="badge">🔽</span></div>
             <div style="display: none" id="recipients">recipients: ${data.recipients.join(", ")}</div>
             <h3 class="mt-3">${data.subject}</h3>
             <p class="mt-3">${data.body}</p>
