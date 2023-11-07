@@ -36,16 +36,18 @@ function compose_email() {
         })
         .then(response => response.json())
         .then(result => {
+            const status = document.querySelector('#status')
+            status.classList.add('alert', 'alert-dismissible')
             if (result.hasOwnProperty("message")) {
-                document.querySelector('#status').classList.add('alert', 'alert-success')
-                document.querySelector('#status').innerHTML = result.message
+                status.classList.add('alert-success')
+                status.innerHTML = result.message
             }
             else
             {
-                document.querySelector('#status').classList.add('alert', 'alert-danger')
-                document.querySelector('#status').innerHTML = result.error
+                status.classList.add('alert-danger')
+                status.innerHTML = result.error
             }
-            document.querySelector('#status').style.display = 'block'
+            status.style.display = 'block'
         })
         return false
     }
