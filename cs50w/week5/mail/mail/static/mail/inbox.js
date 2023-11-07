@@ -38,9 +38,10 @@ function load_mailbox(mailbox) {
   .then(data => {
     data.forEach(item => {
         console.log(item)
-        const p = document.createElement("div")
-        p.innerHTML = `${item.sender}: ${item.subject}`
-        document.querySelector('#emails-view').append(p);
+        const div = document.createElement("div")
+        div.classList.add("card")
+        div.innerHTML = `${item.sender}: ${item.subject}`
+        document.querySelector('#emails-view').append(div);
     });
   })
   .catch(error => {
