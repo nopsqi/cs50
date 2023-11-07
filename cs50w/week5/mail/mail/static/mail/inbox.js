@@ -33,16 +33,9 @@ function compose_email() {
                 body: document.querySelector('#compose-body').value
             })
         })
-        .then(response => response)
-        .then(response => {
-            result = response.json()
-            if (response.status === 201) {
-                console.log("this is success")
-            }
-            else
-            {
-                console.log("this is error", result)
-            }
+        .then(response => response.json())
+        .then(result => {
+            try
         })
         return false
     }
