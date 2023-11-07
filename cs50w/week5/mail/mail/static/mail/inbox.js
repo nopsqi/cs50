@@ -43,6 +43,7 @@ function compose_email() {
                 alert(result.error)
             }
         })
+        .finally()
         return false
     }
 }
