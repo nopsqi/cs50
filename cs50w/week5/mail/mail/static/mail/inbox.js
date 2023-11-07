@@ -35,8 +35,7 @@ function load_mailbox(mailbox) {
 
     fetch(`/emails/${mailbox}`)
         .then(data => data.json())
-        .then(data => {
-            data.forEach(item => {
+        .then(data => {data.forEach(item => {
                 const div = document.createElement("div")
                 const readIndicator = "bg-light"
                 div.classList.add("card", "p-2")
@@ -80,7 +79,7 @@ function load_mail(id) {
 
     fetch(`/emails/${parseInt(id)}`)
     .then(data => data.json())
-    .then(data => {data.forEach(item => {
-        console.log(item)
-    })})
+    .then(data => {
+
+    })
 }
