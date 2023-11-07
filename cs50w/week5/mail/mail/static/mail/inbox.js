@@ -37,9 +37,8 @@ function compose_email() {
         .then(result => {
             alert(result)
         })
-        .catch(error => error.json())
         .catch(error => {
-            alert(error)
+            alert(result)
         })
 
         return false
