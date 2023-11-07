@@ -115,7 +115,7 @@ function load_mail(mailbox, id) {
         document.querySelector('#email-view').innerHTML = `
             <div class="row">
                 <div class="col-md-6">
-                    <div class="font-weight-bold">${mailbox === 'sent' ? 'me ' + '<' + data.sender + ')' : data.sender}</div>
+                    <div class="font-weight-bold">${mailbox === 'sent' ? 'me ' + '(' + data.sender + ')' : data.sender}</div>
                 </div>
                 <div class="col-md-6">
                     <div id="timestamp" class="d-flex justify-content-end align-items-center">
