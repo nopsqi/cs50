@@ -117,16 +117,15 @@ function load_mail(id) {
                 button.classList.add('btn-primary')
             }
             document.querySelectory('#timestamp').append(button)
+            buton.onclick = () => updateEmail(id, {archived: !data.archived})
         }
-        emailRead(data.id)
+        updateEmail(id, {read: true})
     })
 }
 
-function emailRead(id) {
+function updateEmail(id, body) {
     fetch(`emails/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({
-            read: true
-        })
+        body: JSON.stringify(body)
     })
 }
