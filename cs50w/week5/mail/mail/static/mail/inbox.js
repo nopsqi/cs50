@@ -78,9 +78,9 @@ function load_mail(id) {
         document.querySelector('#email-view').innerHTML = `
             <div class="d-flex justify-content-between">
                 <div class="font-weight-bold">${data.sender}</div>
-                <div>${data.timestamp}</div>
+                <div class="text-muted">${data.timestamp}</div>
             </div>
-            <div>${data.}</div>
+            <div>${..data.recipients}</div>
             <h3>${data.subject}</h3>
         `
     })
