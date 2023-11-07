@@ -99,5 +99,10 @@ function load_mail(id) {
                 recipients.style.display = 'none';
             }
         }
+        emailRead(data.id)
     })
+}
+
+function emailRead(id) {
+
 }
