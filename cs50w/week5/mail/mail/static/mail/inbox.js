@@ -43,7 +43,9 @@ function compose_email() {
                 alert(result.error)
             }
         })
-        .finally()
+        .finally(() => {
+            compose_email()
+        })
         return false
     }
 }
