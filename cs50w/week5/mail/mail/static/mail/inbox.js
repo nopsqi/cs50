@@ -65,6 +65,9 @@ function load_mailbox(mailbox) {
                 this.classList.add(readIndicator)
             }
         }
+        div.onclick = function() {
+            console.log(this)
+        }
         document.querySelector('#emails-view').append(div);
     });
   })
