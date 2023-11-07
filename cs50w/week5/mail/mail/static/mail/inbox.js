@@ -48,10 +48,11 @@ function load_mailbox(mailbox) {
                 <div dlass="col-md-2>${item.timestamp}</div>
             </div>
         `
-        const children = div.querySelector('.row').children
-        const arr = [...children]
+        const childrens = div.querySelector('.row').children
+        const arr = [...childrens]
         arr.forEach(item => {
-            item.classList.add("card-text")
+            // item.classList.add("card-text")
+            console.log(item)
         })
         document.querySelector('#emails-view').append(div);
     });
