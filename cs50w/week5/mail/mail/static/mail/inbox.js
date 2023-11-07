@@ -36,7 +36,7 @@ function compose_email() {
         .then(response => response.json())
         .then(result => {
             if (result.hasOwnProperty("message")) {
-                
+                document.querySelector('#status').classList.add()
             }
             else
             {
