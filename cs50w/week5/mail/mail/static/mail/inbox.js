@@ -65,13 +65,15 @@ function load_mailbox(mailbox) {
                 this.classList.add(readIndicator)
             }
         }
-        div.onclick = function() {
-            console.log(this)
-        }
+        div.onclick = load_mail(item.id)
         document.querySelector('#emails-view').append(div);
     });
   })
   .catch(error => {
     console.log(error)
   });
+}
+
+function load_mail(id) {
+    console.log(id)
 }
