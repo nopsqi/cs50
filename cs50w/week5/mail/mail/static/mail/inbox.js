@@ -179,5 +179,5 @@ function updateEmail(id, body) {
 }
 
 const replyEmail = (id) => {
-    
+    compose_email()
 }
