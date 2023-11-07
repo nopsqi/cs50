@@ -40,7 +40,11 @@ function load_mailbox(mailbox) {
         console.log(item)
         const div = document.createElement("div")
         div.classList.add("card")
-        div.innerHTML = `${item.sender}: ${item.subject}`
+        div.innerHTML = `
+            <div class="card-body">
+                <p class="card-text">${item.sender}: ${item.subject}</p>
+            </div>
+        `
         document.querySelector('#emails-view').append(div);
     });
   })
