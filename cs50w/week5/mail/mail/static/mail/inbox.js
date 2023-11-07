@@ -72,14 +72,14 @@ function load_mailbox(mailbox) {
             div.innerHTML = `
                 <div class="row">
                     <div class="col-md-3 font-weight-bold">${mailbox === 'sent' ? 'To: ' + item.recipients[0] + (item.recipients.length > 0 ? '...' : '') : item.sender}</div>
-                    <div class="col-md-2">${item.subject.slice(0, 20)}</div>
-                    <div class="col-md-5">${item.body.slice(0, 50)}...</div>
+                    <div class="col-md-2">${item.subject}</div>
+                    <div class="col-md-5">${item.body}</div>
                     <div dlass="col-md-2 text-right">${item.timestamp}</div>
                 </div>
             `
             Array.from(div.querySelector('.row').children).forEach(item => {
-                item.classList.add("card-text", "overflow-auto");
-                item.style.whitespace = 'nowrap';
+                item.classList.add("card-text");
+                item.style.whiteSpace = 'nowrap';
                 item.style.overflow = 'hidden';
                 item.style.textOverflow = 'ellipsis'
             })
