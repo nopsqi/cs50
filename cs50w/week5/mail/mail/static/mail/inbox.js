@@ -123,7 +123,7 @@ function load_mail(mailbox, id) {
                     </div>
                 </div>
             </div>
-            <div>to ${mailbox == 'sent' ? data.recipients[0] + (data.recipients.length > 1 ? '...' : '') : 'me'} <span class="badge badge-secondary">v</span></div>
+            <div>to ${mailbox == 'sent' ? data.recipients[0] + (data.recipients.length > 1 ? '...' : '') : 'me'} <span class="badge">🔼</span></div>
             <div style="display: none" id="recipients">recipients: ${data.recipients.join(", ")}</div>
             <h3 class="mt-3">${data.subject}</h3>
             <p class="mt-3">${data.body}</p>
@@ -132,12 +132,12 @@ function load_mail(mailbox, id) {
         recipients = document.querySelector('#recipients')
         document.querySelector('#email-view span').onclick = function() {
             if (recipients.style.display === 'none') {
-                this.innerHTML = 'A';
+                this.innerHTML = '🔼';
                 recipients.style.display = 'block';
             }
             else
             {
-                this.innerHTML = 'V';
+                this.innerHTML = '🔽';
                 recipients.style.display = 'none';
             }
         }
