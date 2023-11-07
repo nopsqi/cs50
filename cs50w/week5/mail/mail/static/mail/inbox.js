@@ -33,8 +33,15 @@ function compose_email() {
                 body: document.querySelector('#compose-body')
             })
         })
-        .then(result => alert(result))
-        .catch(error => alert(error))
+        .then(result => result.json())
+        .then(result => {
+            alert(result)
+        })
+        .catch(error => error.json())
+        .catch(error => {
+            alert(error)
+        })
+
         return false
     }
 }
