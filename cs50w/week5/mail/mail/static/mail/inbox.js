@@ -34,7 +34,7 @@ function compose_email() {
             })
         })
         .then(response => {
-            return {status: response.status, result: response.json()}
+            return [response.status, response.json()]
         })
         .then(result => {
             console.log(result)
