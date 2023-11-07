@@ -37,7 +37,7 @@ function compose_email() {
         .then(response => response.json())
         .then(result => {
             const status = document.querySelector('#status')
-            status.classList.add('alert', 'alert-dismissible', 'fade', 'show')
+            status.classList.add('alert')
             status.role = 'alert'
             if (result.hasOwnProperty("message")) {
                 status.classList.add('alert-success')
