@@ -119,7 +119,7 @@ function load_mail(id) {
             }
             document.querySelector('#timestamp').append(button)
             button.onclick = functions() {
-                this.
+                if (data.archived)
                 updateEmail(id, {archived: !data.archived})
             }
         }
