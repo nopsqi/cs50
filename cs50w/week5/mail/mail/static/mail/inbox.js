@@ -36,9 +36,9 @@ function load_mailbox(mailbox) {
   fetch(`/emails/${mailbox}`)
   .then(data => data.json())
   .then(data => {
-    const p = document.createElement("p")
     data.forEach(item => {
         console.log(item)
+        const p = document.createElement("p")
         p.innerHTML = `${item.sender}: ${item.subject}`
         document.querySelector('#emails-view').append(p);
     });
