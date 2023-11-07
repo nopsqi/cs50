@@ -87,6 +87,7 @@ function load_mail(id) {
             <h3 class="mt-3">${data.subject}</h3>
             <p class="mt-3">${data.body}</p>
         `
+        const div = document.createElement('div')
         recipients = document.querySelector('#recipients')
         document.querySelector('#email-view span').onclick = function() {
             if (recipients.style.display === 'none') {
