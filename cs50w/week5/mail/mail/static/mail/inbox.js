@@ -39,9 +39,10 @@ function load_mailbox(mailbox) {
     data.forEach(item => {
         console.log(item)
         const div = document.createElement("div")
-        div.classList.add("card")
+        div.classList.add("card p-3")
         div.innerHTML = `
-            <p class="card-text m-2">${item.sender}: ${item.subject}</p>
+            <div class="card-text">${item.sender}</div>
+            <div class="card-text">${item.subject}</div>
         `
         document.querySelector('#emails-view').append(div);
     });
