@@ -87,7 +87,7 @@ function load_mailbox(mailbox) {
             div.onmouseleave = function() {
                 this.classList.remove(hoverIndicator)
             }
-            div.onclick = () => load_mail(item.id)
+            div.onclick = () => load_mail(mailbox, item.id)
             document.querySelector('#emails-view').append(div);
         })})
         .catch(error => {
@@ -95,7 +95,7 @@ function load_mailbox(mailbox) {
         });
 }
 
-function load_mail(id) {
+function load_mail(mailbox, id) {
     document.querySelector('#emails-view').style.display = 'none';
     document.querySelector('#email-view').innerHTML = '';
     document.querySelector('#email-view').style.display = 'block';
@@ -132,7 +132,7 @@ function load_mail(id) {
                 recipients.style.display = 'none';
             }
         }
-        if (data.user !== data.sender) {
+        if (mailbox !== 'sent') {
             button = document.createElement('button')
             button.classList.add('btn', 'ml-3')
             button.innerHTML = 'Archived'
