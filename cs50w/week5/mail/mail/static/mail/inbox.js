@@ -48,7 +48,7 @@ function load_mailbox(mailbox) {
                 <div dlass="col-md-2 card-text">${item.timestamp}</div>
             </div>
         `
-        console.log(div)
+        console.log(div.querySelector('.row'))
         document.querySelector('#emails-view').append(div);
     });
   })
