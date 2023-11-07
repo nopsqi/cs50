@@ -53,16 +53,12 @@ function load_mailbox(mailbox) {
             Array.from(div.querySelector('.row').children).forEach(item => {
                 item.classList.add("card-text", "overflow-auto")
             })
-            const hoverIndicator = "alert-secondary"
+            const hoverIndicator = "border-dark"
             div.onmouseenter = function(item) {
                 this.classList.add(hoverIndicator)
-                this.classList.remove(readIndicator)
             }
             div.onmouseleave = function() {
                 this.classList.remove(hoverIndicator)
-                if (item.read) {
-                    this.classList.add(readIndicator)
-                }
             }
             div.onclick = () => load_mail(item.id)
             document.querySelector('#emails-view').append(div);
@@ -80,6 +76,7 @@ function load_mail(id) {
     .then(data => data.json())
     .then(data => {
         document.querySelector('#email-view').innerHTML = `
+            <div></div>
             <h3>${data.subject}</h3>
         `
     })
