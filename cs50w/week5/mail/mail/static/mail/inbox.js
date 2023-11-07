@@ -36,15 +36,12 @@ function compose_email() {
         .then(response => response.json())
         .then(result => {
             if (result.hasOwnProperty("message")) {
-                alert(result.message)
+                
             }
             else
             {
                 alert(result.error)
             }
-        })
-        .finally(() => {
-            compose_email()
         })
         return false
     }
