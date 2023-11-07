@@ -123,14 +123,19 @@ function load_mail(mailbox, id) {
                     </div>
                 </div>
             </div>
-            <div>to ${mailbox == 'sent' ? data.recipients[0] + (data.recipients.length > 1 ? '...' : '') : 'me'} <span class="badge">🔽</span></div>
+            <div class="d-flex">
+                <div>
+                    to ${mailbox == 'sent' ? data.recipients[0] + (data.recipients.length > 1 ? '...' : '') : 'me'}
+                </div>
+                <button id="recipients" class="btn btn-secondary">🔽</button>
+            </div>
             <div style="display: none" id="recipients">recipients: ${data.recipients.join(", ")}</div>
             <h3 class="mt-3">${data.subject}</h3>
             <p class="mt-3">${data.body}</p>
         `
         const div = document.createElement('div')
         recipients = document.querySelector('#recipients')
-        document.querySelector('#email-view span').onclick = function() {
+        document.querySelector('#recipients').onclick = function() {
             if (recipients.style.display === 'none') {
                 this.innerHTML = '🔼';
                 recipients.style.display = 'block';
