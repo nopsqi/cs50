@@ -33,11 +33,15 @@ function compose_email() {
                 body: document.querySelector('#compose-body').value
             })
         })
-        .then(response => {
-            return [response.status, response.json()]
-        })
+        .then(response => response.json())
         .then(result => {
-            console.log(result)
+            if (result.hasOwnProperty("message")) {
+                alert(result.message)
+            }
+            else
+            {
+                alert(result.error)
+            }
         })
         return false
     }
