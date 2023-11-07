@@ -78,5 +78,9 @@ function load_mail(id) {
     document.querySelector('#emails-view').style.display = 'none';
     document.querySelector('#email-view').style.display = 'block';
 
-    fetch(`/mails/)
+    fetch(`/emails/${parseInt(id)}`)
+    .then(data => data.json())
+    .then(data => {data.forEach(item => {
+        console.log(item)
+    })})
 }
