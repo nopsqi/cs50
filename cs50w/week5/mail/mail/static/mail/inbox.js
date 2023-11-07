@@ -51,7 +51,7 @@ function load_mailbox(mailbox) {
         const children = div.querySelector('.row').children
         const arr = [...children]
         arr.forEach(item => {
-            item.classList.add("card-text", "overflow-hidden")
+            item.classList.add("card-text")
         })
         document.querySelector('#emails-view').append(div);
     });
