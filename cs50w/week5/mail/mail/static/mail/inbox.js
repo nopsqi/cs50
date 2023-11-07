@@ -41,9 +41,9 @@ function load_mailbox(mailbox) {
         div.classList.add("card", "p-2")
         div.innerHTML = `
             <div class="row">
-                <div class="col-md-2 font-weight-bold">${item.sender}</div>
+                <div class="col-md-3 font-weight-bold">${item.sender}</div>
                 <div class="col-md-1">${item.subject}</div>
-                <div class="col-md-7">${item.body}</div>
+                <div class="col-md-6">${item.body.slice(0, 70)}</div>
                 <div dlass="col-md-2">${item.timestamp}</div>
             </div>
         `
