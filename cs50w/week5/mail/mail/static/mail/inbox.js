@@ -118,8 +118,16 @@ function load_mail(id) {
                 button.classList.add('btn-primary')
             }
             document.querySelector('#timestamp').append(button)
-            button.onclick = functions() {
-                if (data.archived)
+            button.onclick = function() {
+                if (button.class) {
+                    button.classList.remove('btn-secondary')
+                    button.classList.add('btn-primary')
+                }
+                else
+                {
+                    button.classList.remove('btn-primary')
+                    button.classList.add('btn-secondary')
+                }
                 updateEmail(id, {archived: !data.archived})
             }
         }
