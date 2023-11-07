@@ -82,6 +82,7 @@ function load_mail(id) {
                 <div class="font-weight-bold">${data.sender}</div>
                 <div class="text-muted">${data.timestamp}</div>
             </div>
+            <div>to me <span class="badge badge-secondary">v</span></div>
             <div>${data.recipients.join(", ")}</div>
             <h3>${data.subject}</h3>
         `
