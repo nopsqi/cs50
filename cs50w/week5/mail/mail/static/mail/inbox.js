@@ -47,9 +47,8 @@ function load_mailbox(mailbox) {
                 <div dlass="col-md-2">${item.timestamp}</div>
             </div>
         `
-        const childrens = Array.from(div.querySelector('.row').children)
         Array.from(div.querySelector('.row').children).forEach(item => {
-            item.classList.add("card-text", "overflow-hidden")
+            item.classList.add("card-text", "overflow-auto")
         })
         document.querySelector('#emails-view').append(div);
     });
