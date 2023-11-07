@@ -33,9 +33,13 @@ function compose_email() {
                 body: document.querySelector('#compose-body').value
             })
         })
-        .then(response => response.json())
+        .then(response => {
+            result = response.json()
+            result["status"] = response.status
+            return result
+        })
         .then(result => {
-            
+            console.log(result)
         })
         return false
     }
