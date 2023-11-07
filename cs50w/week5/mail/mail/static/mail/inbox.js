@@ -38,9 +38,10 @@ function load_mailbox(mailbox) {
   .then(data => {
     data.forEach(item => {
         const div = document.createElement("div")
+        const readIndicator = "bg-light"
         div.classList.add("card", "p-2")
         if (item.read) {
-            div.classList.add("bg-light")
+            div.classList.add(readIndicator)
         }
         div.innerHTML = `
             <div class="row">
@@ -53,12 +54,16 @@ function load_mailbox(mailbox) {
         Array.from(div.querySelector('.row').children).forEach(item => {
             item.classList.add("card-text", "overflow-auto")
         })
+        const hoverIndicator = "alert-secondary"
         div.onmouseenter = function(item) {
-            this.classList.add("alert-dark")
-            this.classList.remove("bg-light")
+            this.classList.add(hoverIndicator)
+            this.classList.remove(readIndicator)
         }
         div.onmouseleave = function() {
-            this.classList.remove("alert-dark")
+            this.classList.remove(hoverIndicator)
+            if (item.read) {
+                this.classList.add(readIndicator)
+            }
         }
         document.querySelector('#emails-view').append(div);
     });
