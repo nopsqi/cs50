@@ -137,26 +137,26 @@ function load_mail(mailbox, id) {
             }
         }
         if (mailbox !== 'sent') {
-            button = document.createElement('button')
-            button.classList.add('btn', 'ml-3')
-            button.innerHTML = 'Archived'
+            const replyButton = document.createElement('button')
+            replyButton.classList.add('btn', 'ml-3')
+            replyButton.innerHTML = 'Archived'
             if (data.archived) {
-                button.classList.add('btn-secondary')
+                replyButton.classList.add('btn-secondary')
             }
             else
             {
-                button.classList.add('btn-primary')
+                replyButton.classList.add('btn-primary')
             }
-            document.querySelector('#timestamp').append(button)
-            button.onclick = function() {
-                if (button.classList.contains('btn-secondary')) {
-                    button.classList.remove('btn-secondary')
-                    button.classList.add('btn-primary')
+            document.querySelector('#timestamp').append(replyButton)
+            replyButton.onclick = function() {
+                if (replyButton.classList.contains('btn-secondary')) {
+                    replyButton.classList.remove('btn-secondary')
+                    replyButton.classList.add('btn-primary')
                 }
                 else
                 {
-                    button.classList.remove('btn-primary')
-                    button.classList.add('btn-secondary')
+                    replyButton.classList.remove('btn-primary')
+                    replyButton.classList.add('btn-secondary')
                 }
                 updateEmail(id, {archived: !data.archived})
             }
