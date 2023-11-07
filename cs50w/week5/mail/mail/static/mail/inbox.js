@@ -78,7 +78,10 @@ function load_mailbox(mailbox) {
                 </div>
             `
             Array.from(div.querySelector('.row').children).forEach(item => {
-                item.classList.add("card-text", "overflow-auto")
+                item.classList.add("card-text", "overflow-auto");
+                item.style.whitespace = 'nowrap';
+                item.style.overflow = 'hidden';
+                item.style.textOverflow = 'ellipsis'
             })
             const hoverIndicator = "border-dark"
             div.onmouseenter = function(item) {
