@@ -55,6 +55,7 @@ function load_mailbox(mailbox) {
         })
         div.onmouseenter = function(item) {
             this.classList.add("alert-dark")
+            this.classList.remove("bg-light")
         }
         div.onmouseleave = function() {
             this.classList.remove("alert-dark")
