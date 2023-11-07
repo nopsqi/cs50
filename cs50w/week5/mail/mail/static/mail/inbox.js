@@ -18,6 +18,7 @@ function compose_email() {
     document.querySelector('#emails-view').style.display = 'none';
     document.querySelector('#email-view').style.display = 'none';
     document.querySelector('#compose-view').style.display = 'block';
+    document.querySelector('#status').style.display = 'none';
 
     // Clear out composition fields
     document.querySelector('#compose-recipients').value = '';
@@ -44,6 +45,7 @@ function compose_email() {
                 document.querySelector('#status').classList.add('alert', 'alert-danger')
                 document.querySelector('#status').innerHTML = result.error
             }
+            document.querySelector('#status').style.display = 'block'
         })
         return false
     }
