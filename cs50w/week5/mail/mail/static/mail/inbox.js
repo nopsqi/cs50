@@ -88,4 +88,8 @@ function load_mail(id) {
             <p class="mt-3">${data.body}</p>
         `
     })
+
+    document.querySelector('#email-view span').onclick = function() {
+        console.log(this)
+    }
 }
