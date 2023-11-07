@@ -61,9 +61,9 @@ function load_mailbox(mailbox) {
     document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
 
     fetch(`/emails/${mailbox}`)
-        let div = document.createElement("div")
         .then(data => data.json())
         .then(data => {data.forEach(item => {
+            const div = document.createElement("div")
             const readIndicator = "bg-light"
             div.classList.add("card", "p-2")
             if (item.read) {
