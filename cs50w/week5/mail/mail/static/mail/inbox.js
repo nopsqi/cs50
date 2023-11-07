@@ -87,9 +87,8 @@ function load_mail(id) {
             <h3 class="mt-3">${data.subject}</h3>
             <p class="mt-3">${data.body}</p>
         `
+        document.querySelector('#email-view span').onclick = function() {
+            console.log(this)
+        }
     })
-
-    document.querySelector('#email-view span').onclick = function() {
-        console.log(this)
-    }
 }
