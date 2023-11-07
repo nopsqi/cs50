@@ -36,9 +36,11 @@ function load_mailbox(mailbox) {
   fetch(`/emails/${mailbox}`)
   .then(data => data.json())
   .then(data => {
-    document.querySelector('#emails-view').append()
+    data.forEach(item => {
+        document.querySelector('#emails-view').append(document.);
+    });
   })
   .catch(error => {
     console.log(error)
-  })
+  });
 }
