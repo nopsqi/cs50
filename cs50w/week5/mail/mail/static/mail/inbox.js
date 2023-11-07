@@ -35,10 +35,10 @@ function compose_email() {
         })
         .then(response => response.json())
         .then(result => {
-            alert(result.message)
+            console.log(result.message)
         })
         .catch(error => {
-            alert(error.error)
+            console.log(error)
         })
 
         return false
