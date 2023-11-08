@@ -66,4 +66,5 @@ def register(request):
 
 @login_required(login_url="login")
 def posts(request):
-    
+    if request.method != "GET":
+        return JsonResponse()
