@@ -2,10 +2,12 @@
 
 {% block body %}
     {% for post in posts %}
-        <div class="card">
-            <a href="" class="card-text">{{ post.user }}</a>
-            <div class="card-text">{{ post.content }}</div>
-            <div class="card-text text-muted">{{ post.modified }}</div>
+        <div class="card my-2">
+            <div class="card-body">
+                <a href="" class="card-text">{{ post.user }}</a>
+                <div class="card-text">{{ post.content }}</div>
+                <div class="card-text text-muted">{{ post.modified }}</div>
+            </div>
         </div>
     {% empty %}
         <p>There are no post yet.</p>
