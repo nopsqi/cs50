@@ -53,8 +53,11 @@ if User.objects.count() == 0:
     users = User.objects.all()
     for user in random.sample(list(users), round(users.count() * (2/3))):
         followers = users.exclude(id=user.id)
-        user.followers.
+        followers = random.sample(list(followers), followers.count() // 2)
+        user.followers.add(*followers)
+        for follower in followers:
+            follower.followings.add(user)
 
 if Post.objects.count() == 0:
     users = User.objects.all()
-    # for user in random.sample(list(users), round(users.count() * (2/3))):
+    for user in random.sample(list(users), round(users.count() * (2/3))):
