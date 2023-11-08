@@ -69,7 +69,7 @@ function load_mailbox(mailbox) {
         .then(data => data.json())
         .then(data => {data.forEach(item => {
             const div = document.createElement("div")
-            const readIndicator = "bg-light"
+            const readIndicator = "alert-secondary"
             div.classList.add("card", "p-2")
             if (item.read) {
                 div.classList.add(readIndicator)
