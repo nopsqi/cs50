@@ -10,9 +10,7 @@ from .models import User, Post
 
 @login_required(login_url="login")
 def index(request):
-    return render(request, "network/index.html", {
-        "posts": Post.objects.order_by("-modified")
-    })
+    return render(request, "network/index.html")
 
 
 def login_view(request):
@@ -65,3 +63,7 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "network/register.html")
+
+@login_required(login_url="login")
+def posts(request):
+    
