@@ -16,3 +16,10 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.user} says {self.content}"
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "created": self.created,
+            "user": self.user,
+        }
