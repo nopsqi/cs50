@@ -9,7 +9,7 @@ class UserFactory(DjangoModelFactory):
     class Meta:
         model = User
 
-    user = factory.Faker("user_name")
+    username = factory.Faker("user_name")
     email = factory.Faker("email")
     password = "pbkdf2_sha256$600000$Nhn7kL55O0rKMEzGd59oTm$9XFB9m6u+Ro8fThSWtvpdyBNQ9Rle+f/40Aq0k92vDg="
 
@@ -55,7 +55,7 @@ if User.objects.count() == 0:
         followers = users.exclude(id=user.id)
         followers = random.sample(list(followers), random.randint(
             1,
-            followers.cont()
+            followers.count()
         ))
         user.followers.add(*followers)
         for follower in followers:
