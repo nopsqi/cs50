@@ -23,7 +23,7 @@ class EmailFactory(DjangoModelFactory):
     subject = factory.Faker("sentence", nb_words=random.randint(1, 4))
     body = factory.Faker("text")
     timestamp = factory.Faker("date_time_between", start_date="-1y", end_date="now", tzinfo=timezone.get_current_timezone())
-    read = factory.LazyAttribute(lambda o: True if o.user == o.sender else bool(random.getrandbits(1)))
+    read = factory.LazyAttribute(lambda o: True if o.user == o.sender else (True if o.archived else bool(random.getrandbits(1))))
     archived = factory.Faker("boolean")
 
     @factory.post_generation
@@ -41,21 +41,20 @@ if User.objects.count() == 0:
 if Email.objects.count() == 0:
     for sender in random.sample(list(User.objects.all()), round(User.objects.count() * (2/3))):
         users = User.objects.exclude(id=sender.id)
-        for _ in range(5):
-            user = random.choice(list(users))
-            recipients = {user} | {*random.sample(list(users), random.randint(
-                1,
-                users.count()
-            ))}
+        user = random.choice(list(users))
+        recipients = {user} | {*random.sample(list(users), random.randint(
+            1,
+            users.count()
+        ))}
+        EmailFactory(
+            user=user,
+            sender=sender,
+            recipients=recipients
+        )
+
+        for recipient in recipients - {user}:
             EmailFactory(
-                user=user,
+                user=recipient,
                 sender=sender,
                 recipients=recipients
             )
-
-            for recipient in recipients - {user}:
-                EmailFactory(
-                    user=recipient,
-                    sender=sender,
-                    recipients=recipients
-                )
