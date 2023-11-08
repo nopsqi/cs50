@@ -196,8 +196,8 @@ const replyEmail = (id) => {
         document.querySelector('#compose-recipients').value = email.sender
         document.querySelector('#compose-subject').value = (email.subject.slice(0, 3) === 'Re:' ? '' : 'Re: ') + email.subject
         document.querySelector('#compose-body').value = `On ${email.timestamp} ${email.sender} wrote:
-
         ${email.body}
+
         `
     })
 }

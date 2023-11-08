@@ -46,6 +46,13 @@ if Email.objects.count() == 0:
             1,
             users.count()
         ))}
+
+        EmailFactory(
+            user=sender,
+            sender=sender,
+            recipients=recipients
+        )
+
         EmailFactory(
             user=user,
             sender=sender,
