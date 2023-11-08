@@ -6,7 +6,10 @@
             <div class="card-body">
                 <a href="" class="card-text">{{ post.user }}</a>
                 <div class="card-text">{{ post.content }}</div>
-                <div class="card-text text-muted">{{ post.modified }}</div>
+                <div class="d-flex">
+                    <div class="card-text text-muted">{{ post.modified }}</div>
+                    <button class="btn card-text ml-5">Likes {{ post.likes.count }}</button>
+                </div>
             </div>
         </div>
     {% empty %}
