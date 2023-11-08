@@ -8,5 +8,5 @@ class User(AbstractUser):
 
 class Profile(models):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="profile")
-    following = models.ManyToManyField(User, related_name="follows")
-    follower = 
+    followings = models.ManyToManyField(User, related_name="followers")
+    followers = models.ManyToManyField(User, related_name="follows")
