@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -67,4 +67,5 @@ def register(request):
 @login_required(login_url="login")
 def posts(request):
     if request.method != "GET":
-        return JsonResponse()
+        return JsonResponse({"message": "GET request required"}, status=400)
+    return JsonResponse([post.serialize() for post in Post.objects.filter(user=request.user).order_by("-modified")], safe=False)

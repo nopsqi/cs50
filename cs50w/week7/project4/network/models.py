@@ -22,7 +22,7 @@ class Post(models.Model):
             "id": self.id,
             "created": self.created,
             "modified": self.modified,
-            "user": self.user,
+            "user": self.user.username,
             "content": self.content,
-            "likes": [user for user in self.likes],
+            "likes": [user.username for user in self.likes.all()],
         }
