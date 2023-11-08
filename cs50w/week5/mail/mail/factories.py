@@ -47,7 +47,7 @@ if Email.objects.count() == 0:
             users.count()
         ))}
 
-        EmailFactory(
+        email = EmailFactory(
             user=sender,
             sender=sender,
             recipients=recipients
@@ -56,12 +56,16 @@ if Email.objects.count() == 0:
         EmailFactory(
             user=user,
             sender=sender,
-            recipients=recipients
+            recipients=recipients,
+            subject=email.subject,
+            body=email.body
         )
 
         for recipient in recipients - {user}:
             EmailFactory(
                 user=recipient,
                 sender=sender,
-                recipients=recipients
+                recipients=recipients,
+                subject=email.subject,
+                body=email.body
             )
