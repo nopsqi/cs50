@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser
+from django.contrib.humanize.templatetags import humanize
 from django.db import models
 
 
@@ -20,8 +21,8 @@ class Post(models.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "created": self.created,
-            "modified": self.modified,
+            "created": humanize.naturaltime(self.created),
+            "modified": humanize.naturaltime(self.modified),
             "user": self.user.username,
             "content": self.content,
             "likes": [user.username for user in self.likes.all()],
