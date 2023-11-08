@@ -3,8 +3,9 @@
 {% block body %}
     {% for post in posts %}
         <div class="card">
-            <a href="" class="card-text">{{ post.username }}</a>
+            <a href="" class="card-text">{{ post.user }}</a>
             <div class="card-text">{{ post.content }}</div>
+            <div class="card-text text-muted">{{ post.modified }}</div>
         </div>
     {% empty %}
         <p>There are no post yet.</p>
