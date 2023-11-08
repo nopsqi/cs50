@@ -9,4 +9,4 @@ class User(AbstractUser):
 class Profile(models):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="profile")
     followings = models.ManyToManyField(User, related_name="followers")
-    followers = models.ManyToManyField(User, related_name="follows")
+    followers = models.ManyToManyField(User, related_name="followings")
