@@ -8,7 +8,7 @@ class User(AbstractUser):
 
 
 class Post(models):
-    created = models.DateTimeField(auto_add_now=True)
+    created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
     content = models.TextField(default=False)
