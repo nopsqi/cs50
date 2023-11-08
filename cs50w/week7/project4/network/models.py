@@ -7,7 +7,7 @@ class User(AbstractUser):
     followers = models.ManyToManyField("self", related_name="followings")
 
 
-class Post(models):
+class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
