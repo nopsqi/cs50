@@ -21,5 +21,8 @@ class Post(models.Model):
         return {
             "id": self.id,
             "created": self.created,
+            "modified": self.modified,
             "user": self.user,
+            "content": self.content,
+            "likes": [user for user in self.likes],
         }
