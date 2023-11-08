@@ -1,11 +1,13 @@
 {% extends "network/layout.html" %}
+{% load static %}
 
 {% block head %}
-    <script type="text/babel" src="{% static 'network/index.jsx'}"></script>
+    <script type="text/babel" src="{% static 'network/index.jsx' %}"></script>
 {% endblock %}
 
 {% block body %}
     {% for post in posts %}
+        <div id="index"></div>
     {% empty %}
         <p>There are no post yet.</p>
     {% endfor %}
