@@ -3,5 +3,17 @@
 
 {% block body %}
     <div id="index"></div>
-    <script type="text/babel" src="{% static 'network/index.jsx' %}"></script>
+    <!-- <script type="text/babel" src="{% static 'network/index.jsx' %}"></script> -->
+    <script type="text/babel">
+        function Index() {
+            return (
+                <div>
+                    Hello, world!
+                </div>
+            );
+        }
+
+
+        ReacDOM.render(<Index />, document.querySelector('#index'));
+    </script>
 {% endblock %}
