@@ -68,4 +68,4 @@ def register(request):
 def posts(request):
     if request.method != "GET":
         return JsonResponse({"message": "GET request required"}, status=400)
-    return JsonResponse([post.serialize() for post in Post.objects.filter(user=request.user).order_by("-modified")], safe=False)
+    return JsonResponse([post.serialize() for post in Post.objects.order_by("-modified")], safe=False)
