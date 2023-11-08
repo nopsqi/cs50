@@ -3,14 +3,10 @@ from django.db import models
 
 
 class User(AbstractUser):
-    pass
-
-
-class Profile(models):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="profile")
-    followings = models.ManyToManyField(User, related_name="followers")
-    followers = models.ManyToManyField(User, related_name="followings")
+    followings = models.ManyToManyField("self", related_name="followers")
+    followers = models.ManyToManyField("self", related_name="followings")
 
 
 class Post(models):
+    created = models.DateTimeField(auto_add_now=true)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
