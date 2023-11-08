@@ -53,7 +53,10 @@ if User.objects.count() == 0:
     users = User.objects.all()
     for user in random.sample(list(users), round(users.count() * (2/3))):
         followers = users.exclude(id=user.id)
-        followers = random.sample(list(followers), followers.count() // 2)
+        followers = random.sample(list(followers), random.randint(
+            1,
+            followers.cont()
+        ))
         user.followers.add(*followers)
         for follower in followers:
             follower.followings.add(user)
@@ -61,3 +64,9 @@ if User.objects.count() == 0:
 if Post.objects.count() == 0:
     users = User.objects.all()
     for user in random.sample(list(users), round(users.count() * (2/3))):
+        likes = users.exclude(id=user.id)
+        likes = random.sample(list(likes), random.randint(
+            1,
+            likes.count()
+        ))
+        PostFactory(user=user, likes=likes)
