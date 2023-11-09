@@ -9,8 +9,6 @@ const Posts = (props) => {
         loading: true
     });
 
-    console.log(state.path)
-
     React.useEffect(() => {
         fetch(state.url.pathname + state.url.search)
         .then(response => response.json())
@@ -25,6 +23,8 @@ const Posts = (props) => {
 
     const goToPage = (e) => {
         e.preventDefault();
+        const url = state.url
+        ur
         fetch(`/posts?page=${e.target.innerHTML}`)
         .then(response => response.json())
         .then(result => {
