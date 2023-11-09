@@ -86,13 +86,12 @@ class api:
 
         try:
             page = int(request.GET.get("page"))
+            posts = pages.page(page)
         except ValueError:
             return JsonResponse({"eror": "Page must be a number."}, status=400)
-
-        try:
-            posts = pages.page(page)
         except EmptyPage:
             return JsonResponse({"error": "Page not found"}, status=404)
+
 
         posts = [post.serialize() for post in posts]
         for post in posts:
@@ -111,7 +110,9 @@ class api:
             return JsonResponse({"error": "GET request required"}, status=400)
 
         try:
-            
+            return JsonResponse(User.objects.get(username=request.GET.get("username")).serialize())
+        except User.DoesNotExist:
+            return JsonResponse({"error": "User doesn't exist"}, status=404)
 
 
 class pages:

@@ -7,6 +7,13 @@ class User(AbstractUser):
     followings = models.ManyToManyField("self", related_name="followers")
     followers = models.ManyToManyField("self", related_name="followings")
 
+    def serialize(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "followings": [user.username for user in self.followings],
+            "followers": [user.username for user in self.followers],
+        }
 
 class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
