@@ -6,4 +6,4 @@ const Profile = () => {
     )
 }
 
-React.render(<Profile />, document.querySelector('profile'))
+ReactDOM.render(<Profile />, document.querySelector('#profile'));
