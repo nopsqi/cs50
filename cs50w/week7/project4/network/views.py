@@ -68,12 +68,12 @@ def register(request):
 @login_required(login_url="login")
 def posts(request):
     if request.method != "GET":
-        return JsonResponse({"message": "GET request required"}, status=400)
+        return JsonResponse({"error": "GET request required"}, status=400)
 
     pages = Paginator(Post.objects.order_by("-modified"), 10)
     page = request.GET.get("page")
     if not page:
-        return JsonResponse({"error": "Invalid page"}, safe=False)
+        return JsonResponse({"error": "Invalid page"}, status=400)
     if page == 0:
         return JsonResponse(list(pages.page_range))
     return JsonResponse([post.serialize() for post in pages.page(page)], safe=False)
