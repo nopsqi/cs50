@@ -25,5 +25,5 @@ class Post(models.Model):
             "modified": humanize.naturaltime(self.modified),
             "user": self.user.username,
             "content": self.content,
-            "likes": [user.username for user in self.likes.all()],
+            "likes": self.likes.count()
         }
