@@ -73,5 +73,7 @@ def posts(request):
     pages = Paginator(Post.objects.order_by("-modified"), 10)
     page = request.GET.get("page")
     if not page:
-        return JsonResponse({"error": "Invalid page"})
+        return JsonResponse({"error": "Invalid page"}, safe=False)
+    if page == 0:
+        return JsonResponse(list(pages.page_range))
     return JsonResponse([post.serialize() for post in pages.page(page)], safe=False)
