@@ -1,5 +1,6 @@
 const Posts = (props) => {
-    console.log(props.api)
+    const url = new URL(props.api)
+    console.log(url)
     const [state, setState] = React.useState({pages: 0, posts: [], loading: true});
 
     React.useEffect(() => {
