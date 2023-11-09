@@ -14,6 +14,11 @@ def index(request):
     return render(request, "network/index.html", {"api": "/posts?page=1"})
 
 
+@login_required(login_url="login")
+def user(request, username):
+    return render(request, "network/index.html", {"api": f"/posts?user={username}&page=1"})
+
+
 def login_view(request):
     if request.method == "POST":
 
