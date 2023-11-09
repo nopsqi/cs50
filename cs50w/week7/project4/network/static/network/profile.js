@@ -1,6 +1,8 @@
 const Profile = () => {
+    url = new URL(window.location.pathname, window.location.origin)
+    url.searchParams.append(')
     const [state, setState] = React.useState({
-        url: new URL(window.location.pathname, window.location.origin)
+        url:
     })
 
     React.useEffect(() => {
