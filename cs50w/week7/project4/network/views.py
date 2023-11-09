@@ -90,5 +90,5 @@ def posts(request):
     return JsonResponse({
         "page": page,
         "pages": len(pages.page_range),
-        "posts": []
+        "posts": posts
     }, safe=False)
