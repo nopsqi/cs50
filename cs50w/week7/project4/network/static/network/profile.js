@@ -4,7 +4,7 @@ const Profile = () => {
     })
 
     React.useEffect(() => {
-        fetch(`/user?username=${state.user}`)
+        fetch(`/user?username=${state.username}`)
         .then(response => response.json())
         .then(result => {
             console.log(result)
@@ -13,7 +13,7 @@ const Profile = () => {
 
     return (
         <div className="card-body">
-            THIS IS PROFILE
+            <a href="">{state.username}</a>
         </div>
     )
 }
