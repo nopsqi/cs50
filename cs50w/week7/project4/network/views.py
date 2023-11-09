@@ -67,6 +67,10 @@ def register(request):
 
 class api:
     @staticmethod
+    def profile(request):
+
+
+    @staticmethod
     @login_required(login_url="login")
     def posts(request):
         if request.method != "GET":
