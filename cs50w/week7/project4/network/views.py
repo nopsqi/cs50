@@ -15,6 +15,8 @@ def user(request, username):
 
 
 def login_view(request):
+    print(request.user)
+    print(request.user.id)
     if request.method == "POST":
 
         # Attempt to sign user in
@@ -68,7 +70,7 @@ def register(request):
 class api:
     @staticmethod
     def profile(request):
-
+        ...
 
     @staticmethod
     @login_required(login_url="login")
