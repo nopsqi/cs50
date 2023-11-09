@@ -76,7 +76,7 @@ def posts(request):
     except ValueError:
         page = None
     if page == 0:
-        return JsonResponse(list(pages.page_range), safe=False)
+        return JsonResponse({"pages": list(pages.page_range)}, safe=False)
 
     try:
         posts = pages.page(page)
