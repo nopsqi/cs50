@@ -16,7 +16,8 @@ def user(request, username):
 
 def login_view(request):
     print(request.user)
-    print(request.user.id)
+    print(request.user.username == '')
+    print(type(request.user.username))
     if request.method == "POST":
 
         # Attempt to sign user in
