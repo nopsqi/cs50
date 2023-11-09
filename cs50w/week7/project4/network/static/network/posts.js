@@ -115,6 +115,4 @@ const Post = (props) => {
     );
 }
 
-// ReactDOM.render(<Posts api='/posts?page=' />, document.querySelector('#index'));
-
-export default Posts;
+ReactDOM.render(<Posts api='/posts?page=' />, document.querySelector('#index'));
