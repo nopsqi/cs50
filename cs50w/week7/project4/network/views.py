@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
@@ -68,4 +69,9 @@ def register(request):
 def posts(request):
     if request.method != "GET":
         return JsonResponse({"message": "GET request required"}, status=400)
-    return JsonResponse([post.serialize() for post in Post.objects.order_by("-modified")], safe=False)
+
+    pages = Paginator(Post.objects.order_by("-modified"), 10)
+    page = request.GET.get("page")
+    if not page:
+        return JsonResponse({"error": "Invalid page"})
+    return JsonResponse([post.serialize() for post in pages.page(page)], safe=False)
