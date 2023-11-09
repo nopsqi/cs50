@@ -33,7 +33,9 @@ const Posts = (props) => {
     }
 
     if (state.loading) {
-        return (<div></div>)
+        return (
+            <div>Loading...</div>
+        )
     }
 
     return (
