@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block head %}
+    <script>
+        const path = '{{ request.get_full_path }}'
+    </script>
     <script type="text/babel" src="{% static 'network/posts.js' %}"></script>
 {% endblock %}
 {% block body %}
-    {% if request.get_full_path != '/' %}
-        <div>{{ request.get_full_path }}</div>
-    {% endif %}
     <div id="index"></div>
 {% endblock %}

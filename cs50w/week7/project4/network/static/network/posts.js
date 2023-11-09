@@ -115,4 +115,4 @@ const Post = (props) => {
     );
 }
 
-ReactDOM.render(<Posts api='/posts?page=' />, document.querySelector('#index'));
+ReactDOM.render(<Posts api={path} />, document.querySelector('#index'));
