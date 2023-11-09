@@ -10,11 +10,6 @@ from .models import User, Post
 
 
 @login_required(login_url="login")
-def index(request):
-    return render(request, "network/index.html", {"api": "/posts"})
-
-
-@login_required(login_url="login")
 def user(request, username):
     return render(request, "network/index.html", {"api": f"/posts?user={username}&page=1"})
 
@@ -70,39 +65,51 @@ def register(request):
     else:
         return render(request, "network/register.html")
 
-@login_required(login_url="login")
-def posts(request):
-    if request.method != "GET":
-        return JsonResponse({"error": "GET request required"}, status=400)
+class api:
+    @staticmethod
+    @login_required(login_url="login")
+    def posts(request):
+        if request.method != "GET":
+            return JsonResponse({"error": "GET request required"}, status=400)
 
 
-    if request.GET.get("user"):
+        if request.GET.get("user"):
+            try:
+                user = User.objects.get(username=request.GET.get("user"))
+            except User.DoesNotExist:
+                return JsonResponse({"error": "User not found"}, status=400)
+            pages = Post.objects.filter(user=user).order_by("-modified")
+        else:
+            pages = Post.objects.order_by("-modified")
+
+        pages = Paginator(pages, 10)
+
         try:
-            user = User.objects.get(username=request.GET.get("user"))
-        except User.DoesNotExist:
-            return JsonResponse({"error": "User not found"}, status=400)
-        pages = Post.objects.filter(user=user).order_by("-modified")
-    else:
-        pages = Post.objects.order_by("-modified")
+            page = int(request.GET.get("page"))
+        except ValueError:
+            return JsonResponse({"eror": "Page must be a number."}, status=400)
 
-    pages = Paginator(pages, 10)
+        try:
+            posts = pages.page(page)
+        except EmptyPage:
+            return JsonResponse({"error": "Page not found"}, status=404)
 
-    try:
-        page = int(request.GET.get("page"))
-    except ValueError:
-        return JsonResponse({"eror": "Page must be a number."}, status=400)
+        posts = [post.serialize() for post in posts]
+        for post in posts:
+            post["like"] = request.user.username in post["likes"]
 
-    try:
-        posts = pages.page(page)
-    except EmptyPage:
-        return JsonResponse({"error": "Page not found"}, status=404)
+        return JsonResponse({
+            "page": page,
+            "pages": len(pages.page_range),
+            "posts": posts
+        }, safe=False)
 
-    posts = [post.serialize() for post in posts]
-    for post in posts:
-        post["like"] = request.user.username in post["likes"]
+class pages:
+    @staticmethod
+    @login_required(login_url="login")
+    def index(request):
+        return render(request, "network/index.html", {"api": "/posts"})
 
-    return JsonResponse({
-        "page": page,
-        "pages": len(pages.page_range),
-        "posts": posts
-    }, safe=False)
+    @login_required(login_url="login")
+    def profile(request, username):
+        return render(request, "network/profile.html", {"api": f"/posts?user={username}"})
