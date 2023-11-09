@@ -2,7 +2,7 @@ const Posts = (props) => {
     const [state, setState] = React.useState({pages: 0, posts: [], loading: true});
 
     React.useEffect(() => {
-        fetch(props.api)
+        fetch(`${props.api}`)
         .then(response => response.json())
         .then(result => {
             setState({
