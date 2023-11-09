@@ -1,5 +1,5 @@
 const Posts = (props) => {
-    const url = new URL(props.api, 'http://www.example.com')
+    const url = new URL(props.api, window.location.origin)
     url.searchParams.append('page', 1)
 
     const [state, setState] = React.useState({
