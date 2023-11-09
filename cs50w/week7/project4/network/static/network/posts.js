@@ -1,9 +1,8 @@
 const Posts = (props) => {
-    console.log(props.api + '1')
     const [state, setState] = React.useState({pages: 0, posts: [], loading: true});
 
     React.useEffect(() => {
-        fetch('/posts?page=1')
+        fetch(props.api)
         .then(response => response.json())
         .then(result => {
             setState({
