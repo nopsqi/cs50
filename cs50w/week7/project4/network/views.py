@@ -79,9 +79,7 @@ def posts(request):
     try:
         page = int(request.GET.get("page"))
     except ValueError:
-        page = None
-    if page == 0:
-        return JsonResponse({"pages": len(pages.page_range)}, safe=False)
+        return JsonResponse({"eror": "Page must be a number."}, status=400)
 
     try:
         posts = pages.page(page)
