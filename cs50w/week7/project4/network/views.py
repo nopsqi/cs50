@@ -84,7 +84,9 @@ def posts(request):
         posts = None
     if not (page and posts):
         return JsonResponse({"error": "Invalid page"}, status=400)
-
+    posts = [post.serialize() for post in posts]
+    for post in posts:
+        post["like"] = request.user.username in post["likes"]
     return JsonResponse({
         "page": page,
         "pages": len(pages.page_range),
