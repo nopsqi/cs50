@@ -1,4 +1,5 @@
 const Profile = () => {
+    console.log(window.)
     return (
         <div>
             THIS IS PROFILE
