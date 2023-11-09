@@ -12,8 +12,8 @@ const Profile = () => {
     }, [])
 
     return (
-        <div className="card mt-3">
-            <div className="card-body"></div>
+        <div className="card-body">
+            THIS IS PROFILE
         </div>
     )
 }
