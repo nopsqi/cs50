@@ -75,6 +75,8 @@ def posts(request):
     if request.method != "GET":
         return JsonResponse({"error": "GET request required"}, status=400)
 
+    user = User.objects.get()
+
     pages = Paginator(Post.objects.order_by("-modified"), 10)
     try:
         page = int(request.GET.get("page"))
