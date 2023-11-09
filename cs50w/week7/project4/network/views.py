@@ -84,12 +84,11 @@ def posts(request):
     try:
         posts = pages.page(page)
     except EmptyPage:
-        posts = []
+        return JsonResponse({"error": "Page not found"}, status=404)
 
-    if posts:
-        posts = [post.serialize() for post in posts]
-        for post in posts:
-            post["like"] = request.user.username in post["likes"]
+    posts = [post.serialize() for post in posts]
+    for post in posts:
+        post["like"] = request.user.username in post["likes"]
 
     return JsonResponse({
         "page": page,
