@@ -123,4 +123,5 @@ class pages:
 
     @login_required(login_url="login")
     def profile(request, username):
+        
         return render(request, "network/profile.html", {"api": f"/posts?user={username}"})
