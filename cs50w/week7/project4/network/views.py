@@ -85,4 +85,8 @@ def posts(request):
     if not (page and posts):
         return JsonResponse({"error": "Invalid page"}, status=400)
 
-    return JsonResponse([post.serialize() for post in posts], safe=False)
+    return JsonResponse({
+        "page": page,
+        "pages": len(pages.page_range),
+        "posts": [post.serialize() for post in posts]
+    }, safe=False)
