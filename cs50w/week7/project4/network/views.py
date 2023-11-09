@@ -11,7 +11,7 @@ from .models import User, Post
 
 @login_required(login_url="login")
 def index(request):
-    return render(request, "network/index.html", {"api": "/posts?page=1"})
+    return render(request, "network/index.html", {"api": "/posts"})
 
 
 @login_required(login_url="login")
