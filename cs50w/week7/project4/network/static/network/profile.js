@@ -1,12 +1,14 @@
 const Profile = () => {
-    url = new URL(window.location.pathname, window.location.origin)
-    url.searchParams.append(')
     const [state, setState] = React.useState({
-        url:
+        user: new URL(window.location.pathname, window.location.origin).pathname.slice(1)
     })
 
     React.useEffect(() => {
-        fetch()
+        fetch(`/user?username=${state.user}`)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+        })
     }, [])
 
     return (
