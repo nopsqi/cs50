@@ -5,6 +5,8 @@
     <script type="text/babel" src="{% static 'network/posts.js' %}"></script>
 {% endblock %}
 {% block body %}
-    <div>{{ request.get_full_path }}</div>
+    {% if request.get_full_path != '/' %}
+        <div>{{ request.get_full_path }}</div>
+    {% endif %}
     <div id="index"></div>
 {% endblock %}
