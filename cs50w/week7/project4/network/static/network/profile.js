@@ -12,7 +12,7 @@ const Profile = () => {
     }, [])
 
     return (
-        <div className="card">
+        <div className="card mt-3">
             <div className="card-body"></div>
         </div>
     )
