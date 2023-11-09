@@ -71,7 +71,10 @@ def posts(request):
         return JsonResponse({"error": "GET request required"}, status=400)
 
     pages = Paginator(Post.objects.order_by("-modified"), 10)
-    page = int(request.GET.get("page"))
+    try:
+        page = int(request.GET.get("page"))
+    except ValueError:
+        page = None
     if page == 0:
         return JsonResponse(list(pages.page_range), safe=False)
     if not page:
