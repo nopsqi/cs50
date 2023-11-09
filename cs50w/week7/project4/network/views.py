@@ -75,14 +75,17 @@ def posts(request):
     if request.method != "GET":
         return JsonResponse({"error": "GET request required"}, status=400)
 
-    pages = Paginator(Post.objects.order_by("-modified"), 10)
 
     if request.GET.get("user"):
         try:
             user = User.objects.get(username=request.GET.get("user"))
         except User.DoesNotExist:
             return JsonResponse({"error": "User not found"}, status=400)
-        pages = pages.filter(user=user)
+        pages = Post.objects.filter(user=user).order_by("-modified")
+    else:
+        pages = Post.objects.order_by("-modified")
+
+    pages = Paginator(pages, 10)
 
     try:
         page = int(request.GET.get("page"))
