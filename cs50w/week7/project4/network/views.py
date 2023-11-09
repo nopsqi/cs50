@@ -84,7 +84,7 @@ def posts(request):
     try:
         posts = pages.page(page)
     except EmptyPage:
-        posts = None
+        posts = 
     if not (page and posts):
         return JsonResponse({"error": "Invalid page"}, status=400)
     posts = [post.serialize() for post in posts]
