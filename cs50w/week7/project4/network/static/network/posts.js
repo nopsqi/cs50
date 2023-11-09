@@ -1,6 +1,6 @@
 const Posts = (props) => {
     const url = new URL(props.api, 'http://www.example.com')
-    console.log(url)
+    console.log(url.pathname + url.search)
     const [state, setState] = React.useState({pages: 0, posts: [], loading: true});
 
     React.useEffect(() => {
