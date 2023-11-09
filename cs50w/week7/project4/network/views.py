@@ -1,4 +1,4 @@
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
@@ -77,6 +77,12 @@ def posts(request):
         page = None
     if page == 0:
         return JsonResponse(list(pages.page_range), safe=False)
-    if not page:
+
+    try:
+        posts = pages.page(page)
+    except EmptyPage:
+        posts = None
+    if not (page and posts):
         return JsonResponse({"error": "Invalid page"}, status=400)
-    return JsonResponse([post.serialize() for post in pages.page(page)], safe=False)
+
+    return JsonResponse([post.serialize() for post in posts], safe=False)
