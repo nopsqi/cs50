@@ -3,10 +3,11 @@
 
 {% block head %}
     <script>
-        const path = '{{ request.get_full_path }}'
+        const api = '{{ api }}'
     </script>
     <script type="text/babel" src="{% static 'network/posts.js' %}"></script>
 {% endblock %}
 {% block body %}
+    <div>{{ api }}</div>
     <div id="index"></div>
 {% endblock %}
