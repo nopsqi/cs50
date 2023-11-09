@@ -1,11 +1,18 @@
 const Posts = (props) => {
     const url = new URL(props.api, 'http://www.example.com')
-    const [state, setState] = React.useState({path: new URL(props.api, 'http://www.example.com'), pages: 0, posts: [], loading: true});
+    url.searchParams.append('page', 1)
+
+    const [state, setState] = React.useState({
+        url: url,
+        pages: 0,
+        posts: [],
+        loading: true
+    });
 
     console.log(state.path)
 
     React.useEffect(() => {
-        fetch('/posts?page=1')
+        fetch(state.url.pathname + state.url.search)
         .then(response => response.json())
         .then(result => {
             setState({
