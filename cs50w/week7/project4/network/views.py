@@ -104,6 +104,16 @@ class api:
             "posts": posts
         }, safe=False)
 
+    @staticmethod
+    @login_required(login_url="login")
+    def user(request):
+        if request.method != "GET":
+            return JsonResponse({"error": "GET request required"}, status=400)
+
+        try:
+            
+
+
 class pages:
     @staticmethod
     @login_required(login_url="login")
