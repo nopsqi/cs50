@@ -75,9 +75,15 @@ def posts(request):
     if request.method != "GET":
         return JsonResponse({"error": "GET request required"}, status=400)
 
-    user = User.objects.get()
-
     pages = Paginator(Post.objects.order_by("-modified"), 10)
+
+    if request.GET.get("user"):
+        try:
+            user = User.objects.get(username=request.GET.get("user"))
+        except User.DoesNotExist:
+            return JsonResponse({"error": "User not found"}, status=400)
+        pages = pages.filter(user=user)
+
     try:
         page = int(request.GET.get("page"))
     except ValueError:
