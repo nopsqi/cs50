@@ -24,8 +24,13 @@ const Posts = (props) => {
     const goToPage = (e) => {
         e.preventDefault();
         const url = state.url
-        ur
-        fetch(`/posts?page=${e.target.innerHTML}`)
+        url.searchParams.set('page', e.target.innerHTML)
+        setState({
+            ...state,
+            url: url
+        })
+
+        fetch(state.url.pathname + state.url.search)
         .then(response => response.json())
         .then(result => {
             setState({
