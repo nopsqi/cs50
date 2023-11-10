@@ -1,5 +1,4 @@
 const Posts = () => {
-    console.log(document.location)
     const url = new URL(document.getElementById('posts').dataset.api, window.location.origin)
     url.searchParams.append('page', 1)
 
@@ -22,15 +21,18 @@ const Posts = () => {
         })
     }, []);
 
-    // if (document.location.pathname !== '/') {
-    //     document.getElementById('all-posts-nav').style.display = 'none';
-    //     document.getElementById('following-nav').style.display = 'none';
-    // } else {
-    //     document.getElementById('all-posts-nav').style.display = 'block';
-    //     document.getElementById('following-nav').style.display = 'block';
-    //     document.getElementById('following-nav').classList.add('active');
-    // }
-    console.log(document.getElementById('all-posts-nav'))
+    const allPostsNav = document.getElementById('all-posts-nav')
+    const followingNav = document.getElementById('following-nav')
+
+    if (document.location.pathname !== '/') {
+        allPostsNav.style.display = 'none';
+        followingNav.style.display = 'none';
+    } else {
+        allPostsNav.style.display = 'block';
+        followingNav.style.display = 'block';
+        followingNav.querySelector('.nav-link').classList.add('active');
+        console.log(followingNav.querySelector('.nav-link'))
+    }
 
     document.getElementById('following-nav').onclick = () => {
         console.log('FOLLOWING CLICKED')
