@@ -110,7 +110,9 @@ class api:
             return JsonResponse({"error": "GET request required"}, status=400)
 
         try:
-            return JsonResponse(User.objects.get(username=request.GET.get("username")).serialize())
+            user = User.objects.get(username=request.GET.get("username")).serialize()
+            user["is_mine"] = request.user.id == user["id"]
+            return JsonResponse(user, safe=False)
         except User.DoesNotExist:
             return JsonResponse({"error": "User doesn't exist"}, status=404)
 
