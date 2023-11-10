@@ -37,7 +37,7 @@ const Posts = () => {
     }, [state.url]);
 
     const setStateURL = (key, value) => setState(prevState => {
-        const url = new URL(prevState.pathname + prevState.search, prevState.origin)
+        const url = new URL(prevState.url.pathname + prevState.url.search, prevState.url.origin)
         url.searchParams.set(key, value)
         return {
             ...prevState,
@@ -51,14 +51,8 @@ const Posts = () => {
     }
 
     const goToPage = (e) => {
-        // e.preventDefault();
-        // const url = new URL(state.url.pathname + state.url.search, state.url.origin)
-        // url.searchParams.set('page', e.target.innerHTML)
-        // setState({
-        //     ...state,
-        //     url: url,
-        // })
-        setStateUrl()
+        e.preventDefault();
+        setStateURL('page', e.target.innerHTML)
     }
 
     if (state.loading) {
