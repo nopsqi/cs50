@@ -23,15 +23,15 @@ const Posts = () => {
     }, []);
 
     if (document.location.pathname !== '/') {
-        document.getElementById('all-posts-button').style.display = 'none';
-        document.getElementById('following-button').style.display = 'none';
+        document.getElementById('all-posts-nav').style.display = 'none';
+        document.getElementById('following-nav').style.display = 'none';
     } else {
-        document.getElementById('all-posts-button').style.display = 'block';
-        document.getElementById('following-button').style.display = 'block';
-        document.getElementById('following-button').classList.add('active');
+        document.getElementById('all-posts-nav').style.display = 'block';
+        document.getElementById('following-nav').style.display = 'block';
+        document.getElementById('following-nav').classList.add('active');
     }
 
-    document.getElementById('following-button').onclick = () => {
+    document.getElementById('following-nav').onclick = () => {
         console.log('FOLLOWING CLICKED')
     }
 
