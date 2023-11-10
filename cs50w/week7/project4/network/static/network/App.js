@@ -40,6 +40,7 @@ const App = () => {
 
     return (
         <div>
+            <h1>APP HOLDER</h1>
             <NewPost onClick={addPost} />
             <Posts posts={state.posts}/>
             <Paginator />
@@ -50,7 +51,7 @@ const App = () => {
 const NewPost = (props) => {
     return (
         <div>
-            <h1>NEW POST HOLDER</h1>
+            <h2>NEW POST HOLDER</h2>
         </div>
     )
 }
@@ -58,7 +59,7 @@ const NewPost = (props) => {
 const Posts = (props) => {
     return (
         <div>
-            <h1>POSTS HOLDER</h1>
+            <h2>POSTS HOLDER</h2>
             {props.posts.map((item, index) => (
                 <Post />
             ))}
@@ -69,7 +70,7 @@ const Posts = (props) => {
 const Post = (props) => {
     return (
         <div>
-            <h2>POST HOLDER</h2>
+            <h3>POST HOLDER</h3>
         </div>
     )
 }
@@ -77,7 +78,7 @@ const Post = (props) => {
 const Paginator = () => {
     return (
         <div>
-            <h1>PAGINATOR HOLDER</h1>
+            <h2>PAGINATOR HOLDER</h2>
         </div>
     )
 }
