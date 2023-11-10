@@ -30,7 +30,7 @@ class Post(models.Model):
             "id": self.id,
             "created": humanize.naturaltime(self.created),
             "modified": humanize.naturaltime(self.modified),
-            "user": self.user.username,
+            "username": self.user.username,
             "content": self.content,
             "likes": [user.username for user in self.likes.all()],
         }
