@@ -110,11 +110,11 @@ const Post = (props) => {
     return (
         <div className="card mt-2">
             <div className="card-body">
-                <a href="" className="text-card">{state.username}</a>
+                <a href={`${document.location.origin}/${state.username}`} className="text-card">{state.username}</a>
                 <div className="text-card">{state.content}</div>
                 <div className="d-flex align-items-center">
                     <div className="text-card text-muted">{state.modified}</div>
-                    <a href={`${document.location.origin}/${state.username}`} className="text-card d-flex ml-5" onClick={switchLike} dangerouslySetInnerHTML={{ __html: state.like ? heart.after : heart.before }} />
+                    <a href="" className="text-card d-flex ml-5" onClick={switchLike} dangerouslySetInnerHTML={{ __html: state.like ? heart.after : heart.before }} />
                     <div className="text-card ml-2">Like {state.like_count}</div>
                 </div>
             </div>
