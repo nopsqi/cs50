@@ -117,14 +117,14 @@ class api:
     @login_required(login_url="login")
     def post(request):
         if request.method != "POST":
-            return JsonResponse({"error": "POST request required"}, status=401)
+            return JsonResponse({"error": "POST request required"}, status=400)
 
         if (content := json.loads(request.body).get('content')):
             post = Post(user=request.user, content=content)
             post.save()
-            return JsonResponse(post.serialize, safe=False)
+            return JsonResponse(post.serialize(), safe=False)
 
-        return JsonResponse({"error": "Post can't be empty"}, status=401)
+        return JsonResponse({"error": "Post can't be empty"}, status=400)
 
 
     @staticmethod
