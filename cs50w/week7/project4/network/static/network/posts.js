@@ -8,6 +8,7 @@ const Posts = () => {
         posts: [],
         loading: true,
         new: true,
+        newPost: "",
     });
 
     const allPostsNav = document.getElementById('all-posts-nav')
@@ -66,7 +67,14 @@ const Posts = () => {
         setStateURL('page', e.target.innerHTML)
     }
 
-    const newPost = (e) => {
+    const newPostChange = (e) => {
+        setState({
+            ...state,
+            newPost: e.target.value
+        })
+    }
+
+    const newPostSubmit = (e) => {
         fetch('/api/post', {
             method: 'POST',
             body: JSON.stringify({
@@ -96,7 +104,7 @@ const Posts = () => {
 
     return (
         <div className="mt-3">
-            <NewPost onSubmit={newPost} />
+            <NewPost onSubmit={newPostSubmit} onChange={newPostChange}/>
             {
                 state.posts.length > 0
                 ? state.posts.map((item, i) => (
@@ -110,11 +118,10 @@ const Posts = () => {
 }
 
 const NewPost = (props) => {
-    const [state, setState] = React.useState({value: ""})
 
     return (
         <form className="mt-3 text-right" onSubmit={props.onSubmit}>
-            <textarea type="text" className="form-control" value={state.value} onChange={props.onChange}></textarea>
+            <textarea type="text" className="form-control" value={props.newPost} onChange={props.onChange}></textarea>
             <button type="submit" className="mt-2 btn btn-primary">Post</button>
         </form>
     )
