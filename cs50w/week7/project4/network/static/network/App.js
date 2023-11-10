@@ -1,28 +1,11 @@
 const App = () => {
     const [state, setState] = React.useState({
         api: new URL(document.getElementById('App').dataset.api, document.location.origin)
+        posts: []
     })
-
-    React.useEffect(() => {
-        fetch(`${state.api.pathname}/${state.api.search}`)
-    }, [])
-
-    const changeAPI = () => {
-        let page = parseInt(state.api.searchParams.get('page')) + 1
-        // const api = new URL(state.api.href)
-        // api.searchParams.set('page', page)
-        // setState({
-        //     ...state,
-        //     api: api
-        // })
-        state.api.searchParams.set('page', page)
-        console.log(state.api.href)
-    }
 
     return (
         <div>
-            <h1>{state.api.href}</h1>
-            <button onClick={changeAPI}>SET</button>
             <NewPost />
             <Posts />
             <Paginator />
