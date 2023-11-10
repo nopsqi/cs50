@@ -1,25 +1,22 @@
 const App = () => {
     const [state, setState] = React.useState({
-        api: new URL(document.getElementById('App').dataset.api, document.location.origin)
+        api: new URL(document.getElementById('App').dataset.api + '?page=1', document.location.origin)
     })
 
     React.useEffect(() => {
         fetch(`${state.api.pathname}/${state.api.search}`)
     }, [])
 
-    state.api.searchParams.append('page', 1)
-
     const changeAPI = () => {
         let page = parseInt(state.api.searchParams.get('page')) + 1
-        const api = new URL(state.api.href)
-        api.searchParams.set('page', page)
-        console.log("page", page)
-        setState({
-            ...state,
-            api: api
-        })
-        // state.api.searchParams.set('page', page)
-        console.log(api.href)
+        // const api = new URL(state.api.href)
+        // api.searchParams.set('page', page)
+        // setState({
+        //     ...state,
+        //     api: api
+        // })
+        state.api.searchParams.set('page', page)
+        console.log(state.api.href)
     }
 
     return (
