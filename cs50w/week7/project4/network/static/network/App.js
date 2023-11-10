@@ -9,14 +9,17 @@ const App = () => {
     )
 }
 
-const NewPost = () => {
+
+
+const NewPost = (props) => {
+    console.log("on new posts", props)
 
     return (
         <div>
             <h1>NEW POST HOLDER</h1>
-            <div>Value = </div>
-            <button >+</button>
-            <button >-</button>
+            <div>Value = {props.value}</div>
+            <button onClick={props.onClick}>+</button>
+            <button onClick={props.onClick1}>-</button>
         </div>
     )
 }
