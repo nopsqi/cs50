@@ -5,9 +5,10 @@ const App = () => {
 
     React.useEffect(() => {
         fetch(`${state.api.pathname}/${state.api.search}`)
+        state.api.searchParams.append('page', 1)
     }, [])
 
-    api.searchParams.append('page', 1)
+    console.log(state.api)
 
     return (
         <div>
