@@ -72,6 +72,7 @@ class api:
         if request.method != "GET":
             return JsonResponse({"error": "GET request required"}, status=400)
 
+        pages = None
 
         if request.GET.get("user"):
             try:
@@ -79,7 +80,10 @@ class api:
             except User.DoesNotExist:
                 return JsonResponse({"error": "User not found"}, status=400)
             pages = Post.objects.filter(user=user).order_by("-modified")
-        else:
+
+        
+
+        if not pages:
             pages = Post.objects.order_by("-modified")
 
         pages = Paginator(pages, 10)
