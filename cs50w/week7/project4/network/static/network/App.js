@@ -21,10 +21,10 @@ const NewPost = () => {
         })
     }
 
-    const minusNumber = () => {
+    const substractNumber = () => {
         setState({
             ...state,
-            value: state.value + 1
+            value: state.value - 1
         })
     }
 
@@ -32,8 +32,8 @@ const NewPost = () => {
         <div>
             <h1>NEW POST HOLDER</h1>
             <div>Value = {state.value}</div>
-            <button>+</button>
-            <button>-</button>
+            <button onClick={addNumber}>+</button>
+            <button onClick={substractNumber}>-</button>
         </div>
     )
 }
