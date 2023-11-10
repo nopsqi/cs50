@@ -7,7 +7,7 @@ const App = () => {
     const addPost = () => {
         setState({
             ...state,
-            posts: [...state.posts, ]
+            posts: [...state.posts, state.posts[state.posts.length-1] + 1]
         })
     }
 
