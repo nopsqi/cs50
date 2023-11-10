@@ -13,7 +13,7 @@ const App = () => {
 
     return (
         <div>
-            <NewPost />
+            <NewPost onClick={addPost} />
             <Posts posts={state.posts}/>
             <Paginator />
         </div>
@@ -24,7 +24,7 @@ const NewPost = (props) => {
     return (
         <div>
             <h1>NEW POST HOLDER</h1>
-            <button onClick={p}>Add Post</button>
+            <button onClick={props.onClick}>Add Post</button>
         </div>
     )
 }
