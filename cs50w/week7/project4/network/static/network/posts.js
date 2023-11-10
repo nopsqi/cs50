@@ -78,7 +78,7 @@ const Posts = () => {
                 .then(result => {
                     setState({
                         ...state,
-                        posts: 
+                        posts: state.posts.concat(result)
                     })
                 })
             }
