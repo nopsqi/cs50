@@ -2,14 +2,12 @@ const App = () => {
     const [state, setState] = React.useState({
         api: new URL(document.getElementById('App').dataset.api, document.location.origin),
         loading: true,
-        posts: [1, 2]
-
     })
 
     React.useEffect(() => {
         setState({
             ...state,
-            loading: false
+            loading: true
         })
 
         fetch(state.api)
@@ -17,12 +15,10 @@ const App = () => {
             if (response.status == 200) {
                 response.json()
                 .then(result => {
-                    console.log(result)
-
                     setState({
                         ...state,
+                        loading: false,
                         ...result,
-                        loading: true,
                     })
                 })
             }
