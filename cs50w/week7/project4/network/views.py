@@ -114,7 +114,9 @@ class api:
     @login_required(login_url="login")
     def post(request):
         if request.method != "POST":
-            return JsonResponse({"error": })
+            return JsonResponse({"error": "POST request required"}, status=401)
+        return JsonResponse({"message": "Post submitted"}, status=201)
+
 
     @staticmethod
     @login_required(login_url="login")
