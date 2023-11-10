@@ -25,7 +25,7 @@
                         <a class="nav-link" href="{% url 'profile' user.username %}"><strong>{{ user.username }}</strong></a>
                     </li>
                 {% endif %}
-                <li id="all-posts-button" class="nav-item" style="display: none"></li>
+                <li id="all-posts-button" class="nav-item" style="display: none">
                   <a class="nav-link" href="{% url 'index' %}"> All Posts</a>
                 </li>
                 {% if user.is_authenticated %}
