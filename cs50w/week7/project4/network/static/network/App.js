@@ -11,8 +11,8 @@ const App = () => {
     console.log(state.api.href)
 
     const changeAPI = () => {
-        let page = parseInt(state.api.searchParams.get('page'))
-        
+        let page = parseInt(state.api.searchParams.get('page')) + 1
+        state.api.sea
     }
 
     return (
