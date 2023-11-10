@@ -81,7 +81,7 @@ const Posts = () => {
                         ...state,
                         new: !state.new,
                     })
-                    
+
                 })
             }
         })
@@ -114,7 +114,7 @@ const NewPost = (props) => {
 
     return (
         <form className="mt-3 text-right" onSubmit={props.onSubmit}>
-            <textarea type="text" className="form-control" value={state.value} onChange={(e) => {setState({value: e.target.value})}}></textarea>
+            <textarea type="text" className="form-control" value={state.value} onChange={props.onChange}></textarea>
             <button type="submit" className="mt-2 btn btn-primary">Post</button>
         </form>
     )
