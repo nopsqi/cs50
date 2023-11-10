@@ -48,6 +48,8 @@ const Posts = () => {
 
     allPostsNav.onclick = (e) => {
         e.preventDefault()
+        setStateURL('following', false)
+        console.log(e)
     }
 
     const goToPage = (e) => {
