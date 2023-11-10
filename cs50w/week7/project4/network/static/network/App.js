@@ -15,7 +15,9 @@ const NewPost = () => {
     })
 
     const addNumber = () => {
-        
+        setState({
+            value: state
+        })
     }
 
     return (
