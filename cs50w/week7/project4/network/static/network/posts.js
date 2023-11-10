@@ -1,5 +1,6 @@
 if (document.location.pathname !== '/') {
     document.getElementById('all-posts-button').style.display = 'none';
+    document.getElementById('all-posts-button').classList.add('active')
     document.getElementById('following-button').style.display = 'none';
 } else {
     document.getElementById('all-posts-button').style.display = 'block';
@@ -29,6 +30,10 @@ const Posts = () => {
             })
         })
     }, []);
+
+    document.getElementById('following-button').onclick = () => {
+        console.log('FOLLOWING CLICKED')
+    }
 
     const goToPage = (e) => {
         e.preventDefault();
