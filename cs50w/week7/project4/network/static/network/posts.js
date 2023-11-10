@@ -7,6 +7,7 @@ const Posts = () => {
         pages: 0,
         posts: [],
         loading: true,
+        new: true,
     });
 
     const allPostsNav = document.getElementById('all-posts-nav')
@@ -34,7 +35,7 @@ const Posts = () => {
                 loading: false
             })
         })
-    }, [state.url]);
+    }, [state.url, state.new]);
 
     const setStateURL = (key, value) => setState(prevState => {
         const url = new URL(prevState.url.pathname + prevState.url.search, prevState.url.origin)
@@ -67,6 +68,10 @@ const Posts = () => {
 
     const newPost = (e) => {
         e.preventDefault()
+        setState({
+            ...state,
+            new: !state.new
+        })
     }
 
     if (state.loading) {
@@ -92,7 +97,6 @@ const Posts = () => {
 
 const NewPost = (props) => {
     const [state, setState] = React.useState({...props, value: ""})
-    console.log(state)
 
     return (
         <form className="mt-3 text-right" onSubmit={state.onSubmit}>
