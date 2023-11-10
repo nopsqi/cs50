@@ -83,7 +83,7 @@ class api:
 
         if request.GET.get("following"):
             if not pages:
-                pages = Post.objects.
+                pages = Post.objects.filter(user__followings)
 
 
         pages = Paginator(pages, 10)
