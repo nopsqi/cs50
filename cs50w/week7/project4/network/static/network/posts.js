@@ -73,6 +73,7 @@ const Posts = () => {
 
     return (
         <div className="mt-3">
+            <NewPost />
             {
                 state.posts.length > 0
                 ? state.posts.map((item, i) => (
