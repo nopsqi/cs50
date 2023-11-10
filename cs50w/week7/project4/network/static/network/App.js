@@ -8,17 +8,23 @@ const App = () => {
     }, [])
 
     state.api.searchParams.append('page', 1)
-    console.log(state.api.href)
 
     const changeAPI = () => {
         let page = parseInt(state.api.searchParams.get('page')) + 1
-        state.api.sea
+        const api = state.api
+        api.searchParams.set('page', page)
+        setState({
+            ...state,
+            api: api
+        })
+        // state.api.searchParams.set('page', page)
+        console.log(state.api)
     }
 
     return (
         <div>
             <h1>{state.api.href}</h1>
-            <button onClick={changeAPI}
+            <button onClick={changeAPI}>SET</button>
             <NewPost />
             <Posts />
             <Paginator />
