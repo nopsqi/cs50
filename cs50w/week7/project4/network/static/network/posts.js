@@ -36,7 +36,8 @@ const Posts = () => {
                 loading: false
             })
         })
-    }, [state.url, state.update]);
+    // }, [state.url, state.update]);
+    }, [state.url]);
 
     const setStateURL = (key, value) => setState(prevState => {
         const url = new URL(prevState.url.pathname + prevState.url.search, prevState.url.origin)
@@ -85,10 +86,12 @@ const Posts = () => {
             if (response.status == 200) {
                 response.json()
                 .then(result => {
+                    const posts = [...state.posts, result]
                     setState({
                         ...state,
                         newPost: "",
                         update: !state.update,
+                        posts: posts
                     })
 
                 })
