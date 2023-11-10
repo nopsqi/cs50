@@ -13,13 +13,18 @@ const Profile = () => {
                 ...result,
                 loading: false,
             })
-            console.log(state)
         })
     }, [])
 
     if (state.loading) {
         return (<div></div>)
     }
+
+    setState({
+        ...state,
+        following_length: state.following.length,
+        fo
+    })
 
     return (
         <div className="card-body">
