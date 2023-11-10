@@ -27,8 +27,11 @@ const Profile = () => {
     return (
         <div className="card-body">
             <div className="d-flex">
-                <a href="">{state.username}</a>
-                <div className="ml->Following {state.followings_length}</div>
+                <a className="card-title" href="">{state.username}</a>
+            </div>
+            <div className="d-flex">
+                <div className="card-text" >Following {state.followings_length}</div>
+                <div>Follower {state.followers_length}</div>
             </div>
         </div>
     )
