@@ -6,7 +6,8 @@ const Posts = () => {
         url: url,
         pages: 0,
         posts: [],
-        loading: true
+        loading: true,
+        aaaa: true
     });
 
     const allPostsNav = document.getElementById('all-posts-nav')
@@ -34,7 +35,7 @@ const Posts = () => {
                 loading: false
             })
         })
-    }, [state.url]);
+    }, [state.aaaa]);
 
 
     allPostsNav.onclick = (e) => {
@@ -48,7 +49,8 @@ const Posts = () => {
         url.searchParams.set('page', e.target.innerHTML)
         setState({
             ...state,
-            url: url
+            url: url,
+            aaaa: !state.aaaa
         })
 
         // fetch(state.url.pathname + state.url.search)
