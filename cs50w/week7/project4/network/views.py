@@ -82,6 +82,8 @@ class api:
             pages = Post.objects.filter(user=user)order_by("-modified")
 
         if request.GET.get("following"):
+            if not pages:
+                pages = Post.objects.
 
 
         pages = Paginator(pages, 10)
