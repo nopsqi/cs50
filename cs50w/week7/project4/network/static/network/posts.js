@@ -32,7 +32,7 @@ const Posts = () => {
                 loading: false
             })
         })
-    }, []);
+    }, [state.url]);
 
 
     allPostsNav.onclick = (e) => {
@@ -49,14 +49,14 @@ const Posts = () => {
             url: url
         })
 
-        fetch(state.url.pathname + state.url.search)
-        .then(response => response.json())
-        .then(result => {
-            setState({
-                ...state,
-                ...result
-            });
-        });
+        // fetch(state.url.pathname + state.url.search)
+        // .then(response => response.json())
+        // .then(result => {
+        //     setState({
+        //         ...state,
+        //         ...result
+        //     });
+        // });
     }
 
     if (state.loading) {
