@@ -5,25 +5,27 @@ const App = () => {
         }
     })
 
-    class new
-    const onClickNp = () => {
-        setState({
-            ...state,
-            new_post: {
-                ...state.new_post,
-                value: state.new_post.value + 1
-            }
-        })
-    }
+    class newpost () {
 
-    const onClickNp1 = () => {
-        setState({
-            ...state,
-            new_post: {
-                ...state.new_post,
-                value: state.new_post.value - 1
-            }
-        })
+        const onClickNp = () => {
+            setState({
+                ...state,
+                new_post: {
+                    ...state.new_post,
+                    value: state.new_post.value + 1
+                }
+            })
+        }
+
+        const onClickNp1 = () => {
+            setState({
+                ...state,
+                new_post: {
+                    ...state.new_post,
+                    value: state.new_post.value - 1
+                }
+            })
+        }
     }
 
     return (
