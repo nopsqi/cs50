@@ -1,9 +1,8 @@
 const App = () => {
     const [state, setState] = React.useState({
-        new_post: {
-            value: 0
-        }
+        api: new URL(document.getElementById('App').dataset.api, document.location.origin)
     })
+    console.log(state)
 
     return (
         <div>
