@@ -10,6 +10,17 @@ const Posts = () => {
     });
 
     React.useEffect(() => {
+        const allPostsNav = document.getElementById('all-posts-nav')
+        const followingNav = document.getElementById('following-nav')
+
+        if (document.location.pathname !== '/') {
+            allPostsNav.style.display = 'none';
+            followingNav.style.display = 'none';
+        } else {
+            allPostsNav.style.display = 'block';
+            followingNav.style.display = 'block';
+        }
+
         fetch(state.url.pathname + state.url.search)
         .then(response => response.json())
         .then(result => {
@@ -21,20 +32,9 @@ const Posts = () => {
         })
     }, []);
 
-    const allPostsNav = document.getElementById('all-posts-nav')
-    const followingNav = document.getElementById('following-nav')
 
-    if (document.location.pathname !== '/') {
-        allPostsNav.style.display = 'none';
-        followingNav.style.display = 'none';
-    } else {
-        allPostsNav.style.display = 'block';
-        followingNav.style.display = 'block';
-        followingNav.querySelector('.nav-link').classList.add('active');
-        console.log(followingNav.querySelector('.nav-link'))
-    }
-
-    document.getElementById('following-nav').onclick = () => {
+    document.getElementById('following-nav').onclick = (e) => {
+        e.prefentDefault()
         console.log('FOLLOWING CLICKED')
     }
 
