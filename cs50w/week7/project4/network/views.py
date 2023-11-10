@@ -118,9 +118,9 @@ class api:
     def post(request):
         if request.method != "POST":
             return JsonResponse({"error": "POST request required"}, status=401)
-        content = json.loads(request.body)
-        print(content)
-        post = Post(user=request.user, content=content)
+        if (content := json.loads(request.body).get('content')):
+            post = Post(user=request.user, content=content)
+            print(post)
 
         return JsonResponse({"message": "Post submitted"}, status=201)
 
