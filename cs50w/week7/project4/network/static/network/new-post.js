@@ -1,10 +1,9 @@
 const NewPost = () => {
     return (
-        <div>
-            <form>
-                <input ></input>
-            </form>
-        </div>
+        <form>
+            <textarea></textarea>
+            <button className="btn btn-primary">Post</button>
+        </form>
     )
 }
 
