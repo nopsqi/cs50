@@ -4,7 +4,7 @@ const App = () => {
     })
 
     console.log(state)
-    state.api()
+    state.api.search
 
     React.useEffect(() => {
         fetch(`${state.api.pathname}/${state.api.search}`)
