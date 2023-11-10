@@ -66,7 +66,15 @@ const Posts = () => {
     }
 
     const newPost = (e) => {
-        console.log(e.target[0].value)
+        fetch('/api/post', {
+            method: 'POST',
+            body: {
+                content: e.target[0].value
+            }
+        })
+        .then(response => response.json())
+        .then(result => console.log(result))
+        .catch(error => console.log(error))
         e.preventDefault();
     }
 
