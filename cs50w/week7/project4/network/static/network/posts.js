@@ -36,10 +36,14 @@ const Posts = () => {
         })
     }, [state.url]);
 
+    const setStateURL = (key, value) => {
+
+    }
+
 
     allPostsNav.onclick = (e) => {
         e.preventDefault()
-        console.log('FOLLOWING CLICKED')
+
     }
 
     const goToPage = (e) => {
@@ -50,15 +54,6 @@ const Posts = () => {
             ...state,
             url: url,
         })
-
-        // fetch(state.url.pathname + state.url.search)
-        // .then(response => response.json())
-        // .then(result => {
-        //     setState({
-        //         ...state,
-        //         ...result
-        //     });
-        // });
     }
 
     if (state.loading) {
