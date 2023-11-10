@@ -6,31 +6,23 @@ const App = () => {
     })
 
     class newpost {
+        this.state = state
+        this.setState = setState
 
-        this.onClickNp = () => {
-            setState({
-                ...state,
+        onClickNp = () => {
+            this.setState({
+                ...this.state,
                 new_post: {
-                    ...state.new_post,
-                    value: state.new_post.value + 1
+                    ...this.state.new_post,
+                    value: this.state.new_post.value + 1
                 }
             })
         }
 
-        this.onClickNp1 = () => {
-            setState({
-                ...state,
-                new_post: {
-                    ...state.new_post,
-                    value: state.new_post.value - 1
-                }
-            })
-        }
-    }
 
     return (
         <div>
-            <NewPost value={state.new_post.value} onClick={onClickNp} onClick1={onClickNp1}/>
+            <NewPost value={state.new_post.value} onClick={newpost.onClickNp} />
             <Posts />
             <Paginator />
         </div>
