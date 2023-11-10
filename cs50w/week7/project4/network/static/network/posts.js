@@ -22,14 +22,15 @@ const Posts = () => {
         })
     }, []);
 
-    if (document.location.pathname !== '/') {
-        document.getElementById('all-posts-nav').style.display = 'none';
-        document.getElementById('following-nav').style.display = 'none';
-    } else {
-        document.getElementById('all-posts-nav').style.display = 'block';
-        document.getElementById('following-nav').style.display = 'block';
-        document.getElementById('following-nav').classList.add('active');
-    }
+    // if (document.location.pathname !== '/') {
+    //     document.getElementById('all-posts-nav').style.display = 'none';
+    //     document.getElementById('following-nav').style.display = 'none';
+    // } else {
+    //     document.getElementById('all-posts-nav').style.display = 'block';
+    //     document.getElementById('following-nav').style.display = 'block';
+    //     document.getElementById('following-nav').classList.add('active');
+    // }
+    console.log(document.getElementById('all-posts-nav'))
 
     document.getElementById('following-nav').onclick = () => {
         console.log('FOLLOWING CLICKED')
