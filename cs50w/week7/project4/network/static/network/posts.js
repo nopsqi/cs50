@@ -114,14 +114,7 @@ const Posts = () => {
     return (
         <div className="mt-3">
             <NewPost onSubmit={newPostSubmit} onChange={newPostChange} value={state.newPost}/>
-            {
-                state.posts.length > 0
-                ? state.posts.map((item, i) => (
-                    <Post {...item} />
-                ))
-                : <p>There are no post yet.</p>
-            }
-            <Post
+            <Posts />
             <Paginator page={state.page} pages={state.pages} onClick={goToPage} />
         </div>
     );
