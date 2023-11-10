@@ -6,18 +6,19 @@ const App = () => {
     })
 
     class newpost {
-        this.state = state
-        this.setState = setState
+        state = state
+        setState = setState
 
         onClickNp = () => {
             this.setState({
-                ...this.state,
+                ...state,
                 new_post: {
-                    ...this.state.new_post,
-                    value: this.state.new_post.value + 1
+                    ...state.new_post,
+                    value: state.new_post.value + 1
                 }
             })
         }
+    }
 
 
     return (
@@ -37,7 +38,6 @@ const NewPost = (props) => {
             <h1>NEW POST HOLDER</h1>
             <div>Value = {props.value}</div>
             <button onClick={props.onClick}>+</button>
-            <button onClick={props.onClick1}>-</button>
         </div>
     )
 }
