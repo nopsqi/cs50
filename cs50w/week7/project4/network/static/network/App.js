@@ -10,9 +10,15 @@ const App = () => {
     state.api.searchParams.append('page', 1)
     console.log(state.api.href)
 
+    const changeAPI = () => {
+        let page = parseInt(state.api.searchParams.get('page'))
+        
+    }
+
     return (
         <div>
             <h1>{state.api.href}</h1>
+            <button onClick={changeAPI}
             <NewPost />
             <Posts />
             <Paginator />
