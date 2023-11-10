@@ -119,6 +119,7 @@ const Posts = () => {
 }
 
 const NewPost = (props) => {
+    console.log(props)
 
     return (
         <form className="mt-3 text-right" onSubmit={props.onSubmit}>
