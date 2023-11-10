@@ -7,7 +7,7 @@ const Posts = () => {
         pages: 0,
         posts: [],
         loading: true,
-        new: true,
+        update: true,
         newPost: "",
     });
 
@@ -88,7 +88,7 @@ const Posts = () => {
                     setState({
                         ...state,
                         newPost: "",
-                        new: !state.new,
+                        update: !state.new,
                     })
 
                 })
@@ -119,7 +119,6 @@ const Posts = () => {
 }
 
 const NewPost = (props) => {
-    console.log(props)
 
     return (
         <form className="mt-3 text-right" onSubmit={props.onSubmit}>
