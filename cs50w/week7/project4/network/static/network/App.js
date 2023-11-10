@@ -12,7 +12,7 @@ const App = () => {
     const changeAPI = () => {
         let page = parseInt(state.api.searchParams.get('page')) + 1
         const api = state.api
-        api.searchParams.set('page', page)
+        api.searchParams.set('title', page)
         setState({
             ...state,
             api: api
