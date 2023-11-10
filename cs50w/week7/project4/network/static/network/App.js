@@ -5,22 +5,9 @@ const App = () => {
         }
     })
 
-    class newpost {
-        onClick = () => {
-            setState({
-                ...state,
-                new_post: {
-                    ...state.new_post,
-                    value: state.new_post.value + 1
-                }
-            })
-        }
-    }
-
-
     return (
         <div>
-            <NewPost value={state.new_post.value} onClick={newpost.onClick} />
+            <NewPost />
             <Posts />
             <Paginator />
         </div>
@@ -33,21 +20,23 @@ const NewPost = (props) => {
     return (
         <div>
             <h1>NEW POST HOLDER</h1>
-            <div>Value = {props.value}</div>
-            <button onClick={props.onClick}>+</button>
         </div>
     )
 }
 
 const Posts = () => {
     return (
-        <h1>POSTS HOLDER</h1>
+        <div>
+            <h1>POSTS HOLDER</h1>
+        </div>
     )
 }
 
 const Paginator = () => {
     return (
-        <h1>PAGINATOR HOLDER</h1>
+        <div>
+            <h1>PAGINATOR HOLDER</h1>
+        </div>
     )
 }
 
