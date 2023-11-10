@@ -27,11 +27,12 @@ const Profile = () => {
     return (
         <div className="card-body">
             <div className="d-flex">
-                <a className="card-title" href="">{state.username}</a>
+                <h3><a className="card-title" href="">{state.username}</a></h3>
+                {state.is_mine ? '' : <button className="btn btn-primary">Follow</button>}
             </div>
             <div className="d-flex">
                 <div className="card-text" >Following {state.followings_length}</div>
-                <div>Follower {state.followers_length}</div>
+                <div className="ml-4" >Follower {state.followers_length}</div>
             </div>
         </div>
     )
