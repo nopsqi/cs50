@@ -49,7 +49,15 @@ const Posts = () => {
     allPostsNav.onclick = (e) => {
         e.preventDefault()
         setStateURL('following', false)
-        console.log(e)
+        e.target.classList.add('active')
+        followingNav.classList.remove('active')
+    }
+
+    followingNav.onclick = (e) => {
+        e.preventDefault()
+        setStateURL('following', true)
+        e.target.classList.add('active')
+        allPostsNav.classList.remove('active')
     }
 
     const goToPage = (e) => {
