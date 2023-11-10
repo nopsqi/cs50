@@ -92,6 +92,7 @@ const Posts = () => {
 
 const NewPost = (props) => {
     const [state, setState] = React.useState({...props, value: ""})
+    console.log(state)
 
     return (
         <form className="mt-3 text-right" onSubmit={state.onSubmit}>
