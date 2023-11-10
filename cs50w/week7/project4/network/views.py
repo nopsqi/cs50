@@ -79,12 +79,15 @@ class api:
                 user = User.objects.get(username=request.GET.get("user"))
             except User.DoesNotExist:
                 return JsonResponse({"error": "User not found"}, status=400)
-            pages = Post.objects.filter(user=user)order_by("-modified")
+            pages = Post.objects.filter(user=user).order_by("-modified")
 
         if request.GET.get("following"):
             if not pages:
-                pages = Post.objects.filter(user__followings)
+                pages = Post.objects
+            pages = pages.filter(user__followers=request.user)
 
+        if not pages:
+            pages = Post.objects.order_by("-modified")
 
         pages = Paginator(pages, 10)
 
