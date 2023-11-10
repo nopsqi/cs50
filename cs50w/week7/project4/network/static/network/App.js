@@ -11,11 +11,12 @@ const App = () => {
 
 const NewPost = () => {
     const [state, setState] = React.useSate({
-        
+        value: 0
     })
     return (
         <div>
             <div>NEW POST HOLDER</div>
+            <div>Value = {}</div>
         </div>
     )
 }
