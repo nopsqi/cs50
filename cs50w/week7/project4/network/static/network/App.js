@@ -6,11 +6,8 @@ const App = () => {
     })
 
     class newpost {
-        state = state
-        setState = setState
-
-        onClickNp = () => {
-            this.setState({
+        onClick = () => {
+            setState({
                 ...state,
                 new_post: {
                     ...state.new_post,
@@ -23,7 +20,7 @@ const App = () => {
 
     return (
         <div>
-            <NewPost value={state.new_post.value} onClick={newpost.onClickNp} />
+            <NewPost value={state.new_post.value} onClick={newpost.onClick} />
             <Posts />
             <Paginator />
         </div>
