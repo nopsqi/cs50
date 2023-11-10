@@ -1,3 +1,4 @@
+import json
 from django.core.paginator import Paginator, EmptyPage
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -117,7 +118,9 @@ class api:
     def post(request):
         if request.method != "POST":
             return JsonResponse({"error": "POST request required"}, status=401)
-        return JsonResponse({"message": request.body}, status=201)
+        data = json.loads(request.body)
+        print(data)
+        return JsonResponse({"message": "Post submitted"}, status=201)
 
 
     @staticmethod
