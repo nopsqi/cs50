@@ -1,4 +1,21 @@
 const App = () => {
+    const [state, setState] = React.useState({
+        new_post: {
+            value: 0
+        }
+    })
+
+    const  = () => {
+        setState({
+            ...state,
+            new_post: {
+                ...state.new_post,
+                value: state.new_post.value + 1
+            }
+        })
+    }
+
+    const onClick
 
     return (
         <div>
