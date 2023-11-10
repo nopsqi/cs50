@@ -22,16 +22,18 @@ const Profile = () => {
         return (<div></div>)
     }
 
-    console.log(state)
+    const toggleFollow = (e) => {
+        
+    }
 
     return (
         <div className="card-body">
-            <div className="d-flex">
+            <div className="d-flex justify-content-between">
                 <h3><a className="card-title" href="">{state.username}</a></h3>
                 {
                     state.is_mine
                     ? ''
-                    : <button className={`btn ${state.is_follow ? "btn-secondary" : "btn-primary"}`}>Follow</button>
+                    : <button className={`btn ${state.is_follow ? "btn-secondary" : "btn-primary"}`} onClick={toggleFollow}>Follow</button>
                 }
             </div>
             <div className="d-flex">
