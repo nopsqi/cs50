@@ -1,4 +1,4 @@
-const Posts = () => {
+const  = () => {
     const url = new URL(document.getElementById('posts').dataset.api, window.location.origin)
     url.searchParams.append('page', 1)
 
