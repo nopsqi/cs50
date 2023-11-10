@@ -6,7 +6,13 @@ const App = () => {
     })
 
     React.useEffect(() => {
-        
+        fetch(state.api)
+        .then(response => {
+            if (response.status == 200) {
+                response.json()
+                .then(result => )
+            }
+        })
     }, [])
 
     const addPost = () => {
