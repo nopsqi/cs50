@@ -10,7 +10,7 @@ const App = () => {
 }
 
 const NewPost = () => {
-    const [state, setState] = React.useSate({
+    const [state, setState] = React.useState({
         value: 0
     })
     return (
@@ -29,7 +29,7 @@ const Posts = () => {
 
 const Paginator = () => {
     return (
-        <div>PAGINATOR HOLDER</div>
+        <h1>PAGINATOR HOLDER</h1>
     )
 }
 
