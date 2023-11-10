@@ -5,9 +5,9 @@ const App = () => {
         }
     })
 
-    class newpost () {
+    class newpost {
 
-        const onClickNp = () => {
+        this.onClickNp = () => {
             setState({
                 ...state,
                 new_post: {
@@ -17,7 +17,7 @@ const App = () => {
             })
         }
 
-        const onClickNp1 = () => {
+        this.onClickNp1 = () => {
             setState({
                 ...state,
                 new_post: {
