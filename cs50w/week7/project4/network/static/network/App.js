@@ -5,6 +5,10 @@ const App = () => {
 
     })
 
+    React.useEffect(() => {
+        
+    }, [])
+
     const addPost = () => {
         setState({
             ...state,
@@ -12,7 +16,9 @@ const App = () => {
         })
     }
 
-    if ()
+    if (state.loading) {
+        return (<div></div>)
+    }
 
     return (
         <div>
