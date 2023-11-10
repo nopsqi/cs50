@@ -78,7 +78,7 @@ const Paginator = (props) => {
         <nav className="mt-3" aria-label="Post navigaioon">
             <ul className="pagination justify-content-end">
                 {Array.from({length: state.pages}, (_, i) => i + 1).map((item) => (
-                    <li key={item} className={`page-item ${item === 1 ? 'active' : ''}`}>
+                    <li key={item} className={`page-item ${item === state.page ? 'active' : ''}`}>
                         <a className="page-link" href="" onClick={state.onClick}>{item}</a>
                     </li>
                 ))}
