@@ -1,13 +1,13 @@
 const App = () => {
     const [state, setState] = React.useState({
-        api: new URL(document.getElementById('App').dataset.api, document.location.origin)
-        posts: []
+        api: new URL(document.getElementById('App').dataset.api, document.location.origin),
+        posts: [1, 2, 3,]
     })
 
     return (
         <div>
             <NewPost />
-            <Posts />
+            <Posts posts={state.posts}/>
             <Paginator />
         </div>
     )
@@ -21,10 +21,13 @@ const NewPost = (props) => {
     )
 }
 
-const Posts = () => {
+const Posts = (props) => {
     return (
         <div>
             <h1>POSTS HOLDER</h1>
+            {props.posts.map((item, index) => (
+                <div>{item}</div>
+            ))}
         </div>
     )
 }
