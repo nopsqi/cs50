@@ -66,7 +66,7 @@ const Posts = () => {
     }
 
     const newPost = (e) => {
-        console.log(e)
+        console.log(e.target[0].value)
         e.preventDefault();
     }
 
