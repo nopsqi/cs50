@@ -105,7 +105,7 @@ const Posts = () => {
             <div>Loading...</div>
         )
     }
-
+    console.log(state)
     return (
         <div className="mt-3">
             <NewPost onSubmit={newPostSubmit} onChange={newPostChange} value={state.newPost}/>
@@ -122,7 +122,6 @@ const Posts = () => {
 }
 
 const NewPost = (props) => {
-
     return (
         <form className="mt-3 text-right" onSubmit={props.onSubmit}>
             <textarea type="text" className="form-control" value={props.value} onChange={props.onChange}></textarea>
