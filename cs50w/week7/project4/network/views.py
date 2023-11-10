@@ -112,6 +112,7 @@ class api:
         try:
             user = User.objects.get(username=request.GET.get("username")).serialize()
             user["is_mine"] = request.user.id == user["id"]
+            user["is_follow"] = request.user.username in user["followers"]
             return JsonResponse(user, safe=False)
         except User.DoesNotExist:
             return JsonResponse({"error": "User doesn't exist"}, status=404)
