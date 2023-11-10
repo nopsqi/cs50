@@ -15,15 +15,15 @@ const NewPost = () => {
     })
     return (
         <div>
-            <div>NEW POST HOLDER</div>
-            <div>Value = {}</div>
+            <h1>NEW POST HOLDER</h1>
+            <div>Value = {state.value}</div>
         </div>
     )
 }
 
 const Posts = () => {
     return (
-        <div>POSTS HOLDER</div>
+        <h1>POSTS HOLDER</h1>
     )
 }
 
