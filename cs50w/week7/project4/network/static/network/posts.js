@@ -68,13 +68,21 @@ const Posts = () => {
     const newPost = (e) => {
         fetch('/api/post', {
             method: 'POST',
-            body: {
+            body: JSON.stringify({
                 content: e.target[0].value
+            })
+        })
+        .then(response => {
+            if (response.status == 200) {
+                response.json()
+                .then(result => {
+                    setState({
+                        ...state,
+                        posts: 
+                    })
+                })
             }
         })
-        // .then(response => response.json())
-        .then(result => console.log('result', result))
-        .catch(error => console.log('error', error))
         e.preventDefault();
     }
 
