@@ -4,6 +4,10 @@ const App = () => {
     })
     console.log(state)
 
+    React.useEffect(() => {
+        fetch(state.pathname )
+    }, [])
+
     return (
         <div>
             <NewPost />
@@ -14,8 +18,6 @@ const App = () => {
 }
 
 const NewPost = (props) => {
-    console.log("on new posts", props)
-
     return (
         <div>
             <h1>NEW POST HOLDER</h1>
