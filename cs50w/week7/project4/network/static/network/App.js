@@ -52,6 +52,7 @@ const NewPost = (props) => {
     return (
         <div>
             <h2>NEW POST HOLDER</h2>
+            <button>Add Post</button>
         </div>
     )
 }
