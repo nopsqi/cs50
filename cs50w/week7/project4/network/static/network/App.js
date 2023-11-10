@@ -11,15 +11,13 @@ const App = () => {
 
     const changeAPI = () => {
         let page = parseInt(state.api.searchParams.get('page')) + 1
-        const api = state.api
-        api.searchParams.set('title', page)
-        console.log(page)
-        setState({
-            ...state,
-            api: api
-        })
+        const api = new URL(state.api.href)
+        // setState({
+        //     ...state,
+        //     api: api
+        // })
         // state.api.searchParams.set('page', page)
-        // console.log(state.api)
+        console.log(api.href)
     }
 
     return (
