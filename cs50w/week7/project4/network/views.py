@@ -112,6 +112,12 @@ class api:
 
     @staticmethod
     @login_required(login_url="login")
+    def post(request):
+        if request.method != "POST":
+            return JsonResponse({"error": })
+
+    @staticmethod
+    @login_required(login_url="login")
     def user(request):
         if request.method != "GET":
             return JsonResponse({"error": "GET request required"}, status=400)
