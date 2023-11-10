@@ -9,15 +9,17 @@ const Posts = () => {
         loading: true
     });
 
+    const allPostsNav = document.getElementById('all-posts-nav')
+    const followingNav = document.getElementById('following-nav')
+
     React.useEffect(() => {
-        const allPostsNav = document.getElementById('all-posts-nav')
-        const followingNav = document.getElementById('following-nav')
 
         if (document.location.pathname !== '/') {
             allPostsNav.style.display = 'none';
             followingNav.style.display = 'none';
         } else {
             allPostsNav.style.display = 'block';
+            allPostsNav.querySelector('.nav-link').classList.add('active')
             followingNav.style.display = 'block';
         }
 
@@ -33,8 +35,8 @@ const Posts = () => {
     }, []);
 
 
-    document.getElementById('following-nav').onclick = (e) => {
-        e.prefentDefault()
+    allPostsNav.onclick = (e) => {
+        e.preventDefault()
         console.log('FOLLOWING CLICKED')
     }
 
