@@ -16,7 +16,12 @@ const App = () => {
         //     api: api
         // })
         setState(prevState => {
-            const api = new URL(state.api.href)
+            const api = new URL(prevState.api.href)
+            api.searchParams.set('page', page)
+            return {
+                ...prevState,
+                api: api
+            }
 
         })
         state.api.searchParams.set('page', page)
