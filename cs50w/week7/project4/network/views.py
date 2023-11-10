@@ -118,11 +118,13 @@ class api:
     def post(request):
         if request.method != "POST":
             return JsonResponse({"error": "POST request required"}, status=401)
+
         if (content := json.loads(request.body).get('content')):
             post = Post(user=request.user, content=content)
-            print(post.serialize())
+            post.save()
+            return JsonResponse(post.serialize, safe=False)
 
-        return JsonResponse({"message": "Post submitted"}, status=201)
+        return JsonResponse({"error": "Post can't be empty"}, status=401)
 
 
     @staticmethod
