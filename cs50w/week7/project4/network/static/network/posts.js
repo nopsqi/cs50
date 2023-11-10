@@ -1,4 +1,4 @@
-const Posts = (props) => {
+const Posts = () => {
     const url = new URL(document.getElementById('posts').dataset.api, window.location.origin)
     url.searchParams.append('page', 1)
 
@@ -130,4 +130,4 @@ const Post = (props) => {
     );
 }
 
-ReactDOM.render(<Posts api={api} />, document.querySelector('#posts'));
+ReactDOM.render(<Posts />, document.querySelector('#posts'));

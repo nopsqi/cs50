@@ -5,15 +5,17 @@ const Profile = () => {
     })
 
     React.useEffect(() => {
-        fetch(`/user?username=${state.username}`)
+        fetch(`/api/user?username=${state.username}`)
         .then(response => response.json())
         .then(result => {
             setState({
                 ...state,
-                ...result
+                ...result,
+                loading: false,
             })
         })
     }, [])
+    console.log(state)
 
     if (state.loading) {
         return (<div></div>)
@@ -21,7 +23,10 @@ const Profile = () => {
 
     return (
         <div className="card-body">
-            <a href="">{state.username}</a>
+            <div className="d-flex">
+                <a href="">{state.username}</a>
+                <div>Following {state.following_length}</div>
+            </div>
         </div>
     )
 }
