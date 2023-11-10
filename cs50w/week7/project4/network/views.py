@@ -117,7 +117,7 @@ class api:
     def post(request):
         if request.method != "POST":
             return JsonResponse({"error": "POST request required"}, status=401)
-        return JsonResponse({"message": "Post submitted"}, status=201)
+        return JsonResponse({"message": request.POST.get("content")}, status=201)
 
 
     @staticmethod
