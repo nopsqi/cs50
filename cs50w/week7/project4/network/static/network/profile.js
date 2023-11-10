@@ -20,14 +20,6 @@ const Profile = () => {
         return (<div></div>)
     }
 
-    console.log(state)
-    setState({
-        ...state,
-        followings_length: 5,
-        followers_length: 7,
-    })
-
-
     return (
         <div className="card-body">
             <div className="d-flex">
