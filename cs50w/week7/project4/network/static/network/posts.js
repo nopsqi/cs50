@@ -18,7 +18,7 @@ const Posts = () => {
             followingNav.style.display = 'none';
         } else {
             allPostsNav.style.display = 'block';
-            allPostsNav.querySelector('.nav-link').classList.add('active')
+            allPostsNav.classList.add('active')
             followingNav.style.display = 'block';
         }
 
