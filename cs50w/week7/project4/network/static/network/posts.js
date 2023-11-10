@@ -121,6 +121,7 @@ const Posts = () => {
                 ))
                 : <p>There are no post yet.</p>
             }
+            <Post
             <Paginator page={state.page} pages={state.pages} onClick={goToPage} />
         </div>
     );
