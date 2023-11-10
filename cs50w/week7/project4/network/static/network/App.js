@@ -6,12 +6,23 @@ const App = () => {
     })
 
     React.useEffect(() => {
+        setState({
+            ...state,
+            loading: false
+        })
+
         fetch(state.api)
         .then(response => {
             if (response.status == 200) {
                 response.json()
                 .then(result => {
                     console.log(result)
+
+                    setState({
+                        ...state,
+                        loading: true
+                        ...
+                    })
                 })
             }
         })
@@ -50,8 +61,16 @@ const Posts = (props) => {
         <div>
             <h1>POSTS HOLDER</h1>
             {props.posts.map((item, index) => (
-                <div>{item}</div>
+                <Post />
             ))}
+        </div>
+    )
+}
+
+const Post = (props) => {
+    return (
+        <div>
+            <h2>POST HOLDER</h2>
         </div>
     )
 }
