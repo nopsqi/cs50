@@ -67,8 +67,8 @@ def register(request):
 
 class api:
     @staticmethod
+    @login_required
     def account(request):
-        print(request.user.is_authenticate)
         return JsonResponse(request.user.serialize(), safe=True)
 
     @staticmethod
