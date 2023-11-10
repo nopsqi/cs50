@@ -5,7 +5,7 @@ const App = () => {
         }
     })
 
-    const  = () => {
+    const onCilckNp = () => {
         setState({
             ...state,
             new_post: {
