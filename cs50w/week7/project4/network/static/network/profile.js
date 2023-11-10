@@ -13,9 +13,9 @@ const Profile = () => {
                 ...result,
                 loading: false,
             })
+            console.log(state)
         })
     }, [])
-    console.log(state)
 
     if (state.loading) {
         return (<div></div>)
