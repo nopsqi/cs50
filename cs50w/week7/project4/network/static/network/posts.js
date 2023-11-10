@@ -95,10 +95,10 @@ const Posts = () => {
 }
 
 const NewPost = (props) => {
-    const [state, setState] = React.useState({...props, value: ""})
+    const [state, setState] = React.useState({value: ""})
 
     return (
-        <form className="mt-3 text-right" onSubmit={state.onSubmit}>
+        <form className="mt-3 text-right" onSubmit={props.onSubmit}>
             <textarea type="text" className="form-control" value={state.value} onChange={(e) => {setState({value: e.target.value})}}></textarea>
             <button type="submit" className="mt-2 btn btn-primary">Post</button>
         </form>
