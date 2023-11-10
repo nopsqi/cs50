@@ -1,6 +1,6 @@
 const App = () => {
     const [state, setState] = React.useState({
-        api: new URL(document.getElementById('App').dataset.api + '?page=1', document.location.origin)
+        api: new URL(document.getElementById('App').dataset.api, document.location.origin)
     })
 
     React.useEffect(() => {
