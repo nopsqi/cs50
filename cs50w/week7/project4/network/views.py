@@ -111,6 +111,7 @@ class api:
         }, safe=False)
 
     @staticmethod
+    @csrf_exempt
     @login_required(login_url="login")
     def post(request):
         if request.method != "POST":
