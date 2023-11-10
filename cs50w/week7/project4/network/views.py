@@ -81,7 +81,7 @@ class api:
                 return JsonResponse({"error": "User not found"}, status=400)
             pages = Post.objects.filter(user=user).order_by("-modified")
 
-        if request.GET.get("following") == :
+        if str(request.GET.get("following")).lower() == "true":
             if not pages:
                 pages = Post.objects
             pages = pages.filter(user__followers=request.user)
