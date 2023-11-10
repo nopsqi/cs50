@@ -80,8 +80,8 @@ const Posts = () => {
                     setState({
                         ...state,
                         new: !state.new,
-                        posts: state.posts.concat(result)
                     })
+                    
                 })
             }
         })
