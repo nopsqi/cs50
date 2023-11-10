@@ -4,8 +4,16 @@ const App = () => {
         posts: [1, 2, 3,]
     })
 
+    const addPost = () => {
+        setState({
+            ...state,
+            posts: [...state.posts, ]
+        })
+    }
+
     return (
         <div>
+            <button onClick={addPost}>Add Post</button>
             <NewPost />
             <Posts posts={state.posts}/>
             <Paginator />
