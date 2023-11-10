@@ -5,7 +5,7 @@ const App = () => {
     console.log(state)
 
     React.useEffect(() => {
-        fetch(state.pathname )
+        fetch(`${state.pathname}/${state.search}`)
     }, [])
 
     return (
