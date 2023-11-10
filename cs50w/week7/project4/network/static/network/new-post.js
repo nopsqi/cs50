@@ -1,8 +1,8 @@
 const NewPost = () => {
     return (
-        <form>
-            <textarea></textarea>
-            <button className="btn btn-primary">Post</button>
+        <form className="mt-3">
+            <textarea className="form-control"></textarea>
+            <button className="mt-2 btn btn-primary">Post</button>
         </form>
     )
 }
