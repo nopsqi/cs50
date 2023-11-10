@@ -30,7 +30,7 @@ const App = () => {
     const addPost = () => {
         setState({
             ...state,
-            posts: [...state.posts, state.posts[state.posts.length-1] + 1]
+            posts: [...state.posts, {}]
         })
     }
 
@@ -52,7 +52,7 @@ const NewPost = (props) => {
     return (
         <div>
             <h2>NEW POST HOLDER</h2>
-            <button>Add Post</button>
+            <button onClick={props.onClick}>Add Post</button>
         </div>
     )
 }
