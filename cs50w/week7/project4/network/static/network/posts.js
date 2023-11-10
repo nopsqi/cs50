@@ -1,12 +1,3 @@
-if (document.location.pathname !== '/') {
-    document.getElementById('all-posts-button').style.display = 'none';
-    document.getElementById('following-button').style.display = 'none';
-} else {
-    document.getElementById('all-posts-button').style.display = 'block';
-    document.getElementById('following-button').style.display = 'block';
-    document.getElementById('following-button').classList.add('active');
-}
-
 const Posts = () => {
     console.log(document.location)
     const url = new URL(document.getElementById('posts').dataset.api, window.location.origin)
@@ -30,6 +21,15 @@ const Posts = () => {
             })
         })
     }, []);
+
+    if (document.location.pathname !== '/') {
+        document.getElementById('all-posts-button').style.display = 'none';
+        document.getElementById('following-button').style.display = 'none';
+    } else {
+        document.getElementById('all-posts-button').style.display = 'block';
+        document.getElementById('following-button').style.display = 'block';
+        document.getElementById('following-button').classList.add('active');
+    }
 
     document.getElementById('following-button').onclick = () => {
         console.log('FOLLOWING CLICKED')
