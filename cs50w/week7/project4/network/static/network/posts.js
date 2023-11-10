@@ -72,9 +72,9 @@ const Posts = () => {
                 content: e.target[0].value
             }
         })
-        .then(response => response.json())
-        .then(result => console.log(result))
-        .catch(error => console.log(error))
+        // .then(response => response.json())
+        .then(result => console.log('result', result))
+        .catch(error => console.log('error', error))
         e.preventDefault();
     }
 
