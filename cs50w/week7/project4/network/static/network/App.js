@@ -1,7 +1,8 @@
 const App = () => {
     const [state, setState] = React.useState({
         api: new URL(document.getElementById('App').dataset.api, document.location.origin),
-        loading: true
+        loading: true,
+        posts: [1, 2]
 
     })
 
@@ -27,6 +28,8 @@ const App = () => {
             }
         })
     }, [])
+
+    console.log(state)
 
     const addPost = () => {
         setState({
