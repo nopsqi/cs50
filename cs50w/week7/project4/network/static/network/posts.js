@@ -1,4 +1,13 @@
+if (document.location.pathname !== '/') {
+    document.getElementById('all-posts-button').style.display = 'none';
+    document.getElementById('following-button').style.display = 'none';
+} else {
+    document.getElementById('all-posts-button').style.display = 'block';
+    document.getElementById('following-button').style.display = 'block';
+}
+
 const Posts = () => {
+    console.log(document.location)
     const url = new URL(document.getElementById('posts').dataset.api, window.location.origin)
     url.searchParams.append('page', 1)
 
