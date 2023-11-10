@@ -23,7 +23,10 @@ const Profile = () => {
     }
 
     const toggleFollow = (e) => {
-        
+        setState({
+            ...state,
+            is_follow: !state.is_follow
+        })
     }
 
     return (
