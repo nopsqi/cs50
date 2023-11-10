@@ -10,30 +10,13 @@ const App = () => {
 }
 
 const NewPost = () => {
-    const [state, setState] = React.useState({
-        value: 0
-    })
-
-    const addNumber = () => {
-        setState({
-            ...state,
-            value: state.value + 1
-        })
-    }
-
-    const substractNumber = () => {
-        setState({
-            ...state,
-            value: state.value - 1
-        })
-    }
 
     return (
         <div>
             <h1>NEW POST HOLDER</h1>
-            <div>Value = {state.value}</div>
-            <button onClick={addNumber}>+</button>
-            <button onClick={substractNumber}>-</button>
+            <div>Value = {}</div>
+            <button onClick={}>+</button>
+            <button onClick={}>-</button>
         </div>
     )
 }
