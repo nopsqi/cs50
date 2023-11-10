@@ -65,6 +65,10 @@ const Posts = () => {
         setStateURL('page', e.target.innerHTML)
     }
 
+    const newPost = (e) => {
+        e.preventDefault()
+    }
+
     if (state.loading) {
         return (
             <div>Loading...</div>
@@ -73,7 +77,7 @@ const Posts = () => {
 
     return (
         <div className="mt-3">
-            <NewPost />
+            <NewPost onSubmit={newPost} />
             {
                 state.posts.length > 0
                 ? state.posts.map((item, i) => (
@@ -86,15 +90,11 @@ const Posts = () => {
     );
 }
 
-const NewPost = () => {
-    const [state, setState] = React.useState({value: ""})
-
-    const onSubmit = (e) => {
-        e.preventDefault()
-    }
+const NewPost = (props) => {
+    const [state, setState] = React.useState({...props, value: ""})
 
     return (
-        <form className="mt-3 text-right" onSubmit={onSubmit}>
+        <form className="mt-3 text-right" onSubmit={state.onSubmit}>
             <textarea type="text" className="form-control" value={state.value} onChange={(e) => {setState({value: e.target.value})}}></textarea>
             <button type="submit" className="mt-2 btn btn-primary">Post</button>
         </form>
