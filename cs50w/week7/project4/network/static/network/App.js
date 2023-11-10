@@ -16,7 +16,15 @@ const NewPost = () => {
 
     const addNumber = () => {
         setState({
-            value: state
+            ...state,
+            value: state.value + 1
+        })
+    }
+
+    const minusNumber = () => {
+        setState({
+            ...state,
+            value: state.value + 1
         })
     }
 
