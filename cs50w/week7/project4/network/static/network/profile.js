@@ -28,7 +28,7 @@ const Profile = () => {
         <div className="card-body">
             <div className="d-flex">
                 <h3><a className="card-title" href="">{state.username}</a></h3>
-                {state.is_mine ? '' : <button className="btn btn-primary">Follow</button>}
+                {state.is_mine ? '' : <button className="">Follow</button>}
             </div>
             <div className="d-flex">
                 <div className="card-text" >Following {state.followings_length}</div>
