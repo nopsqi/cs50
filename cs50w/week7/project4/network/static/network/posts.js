@@ -67,11 +67,11 @@ const Posts = () => {
     }
 
     const newPost = (e) => {
-        e.preventDefault()
         setState({
             ...state,
             new: !state.new
-        })
+        });
+        e.preventDefault();
     }
 
     if (state.loading) {
