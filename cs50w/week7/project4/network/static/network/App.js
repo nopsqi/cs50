@@ -13,10 +13,17 @@ const NewPost = () => {
     const [state, setState] = React.useState({
         value: 0
     })
+
+    const addNumber = () => {
+        
+    }
+
     return (
         <div>
             <h1>NEW POST HOLDER</h1>
             <div>Value = {state.value}</div>
+            <button>+</button>
+            <button>-</button>
         </div>
     )
 }
