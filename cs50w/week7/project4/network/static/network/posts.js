@@ -34,7 +34,7 @@ const Posts = () => {
                 loading: false
             })
         })
-    }, [state.url, state.new]);
+    }, [state.url]);
 
     const setStateURL = (key, value) => setState(prevState => {
         const url = new URL(prevState.url.pathname + prevState.url.search, prevState.url.origin)
@@ -66,9 +66,6 @@ const Posts = () => {
     }
 
     const newPost = (e) => {
-        setState({
-            ...state,
-        });
         console.log(e)
         e.preventDefault();
     }
