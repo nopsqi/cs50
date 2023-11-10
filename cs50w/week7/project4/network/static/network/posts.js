@@ -1,6 +1,5 @@
 const Posts = (props) => {
-    console.log(document.getElementById('posts').dataset.api)
-    const url = new URL(props.api, window.location.origin)
+    const url = new URL(document.getElementById('posts').dataset.api, window.location.origin)
     url.searchParams.append('page', 1)
 
     const [state, setState] = React.useState({
