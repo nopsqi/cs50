@@ -1,6 +1,10 @@
 const NewPost = () => {
     return (
-        <div>NEW POOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOSTJK</div>
+        <div>
+            <form>
+                
+            </form>
+        </div>
     )
 }
 
