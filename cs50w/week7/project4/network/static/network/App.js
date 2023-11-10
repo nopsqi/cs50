@@ -5,14 +5,14 @@ const App = () => {
 
     React.useEffect(() => {
         fetch(`${state.api.pathname}/${state.api.search}`)
-        state.api.searchParams.append('page', 1)
     }, [])
 
-    console.log(state.api)
+    state.api.searchParams.append('page', 1)
+    console.log(state.api.href)
 
     return (
         <div>
-            <h1>{state.api.origin}</h1>
+            <h1>{state.api.href}</h1>
             <NewPost />
             <Posts />
             <Paginator />
