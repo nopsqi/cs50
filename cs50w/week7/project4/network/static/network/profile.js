@@ -23,15 +23,16 @@ const Profile = () => {
     console.log(state)
     setState({
         ...state,
-        followings_length: state.followings.length,
-        followers_length: state.followers.length
+        followings_length: 5,
+        followers_length: 7,
     })
+
 
     return (
         <div className="card-body">
             <div className="d-flex">
                 <a href="">{state.username}</a>
-                <div>Following {state.followings_length}</div>
+                <div>Following</div>
             </div>
         </div>
     )
