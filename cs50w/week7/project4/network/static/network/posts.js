@@ -105,7 +105,6 @@ const Posts = () => {
             <div>Loading...</div>
         )
     }
-    console.log(state)
     return (
         <div className="mt-3">
             <NewPost onSubmit={newPostSubmit} onChange={newPostChange} value={state.newPost}/>
