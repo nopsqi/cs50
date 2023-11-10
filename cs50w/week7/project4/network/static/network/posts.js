@@ -20,7 +20,6 @@ const Posts = () => {
             })
         })
     }, []);
-    console.log(state)
 
     const goToPage = (e) => {
         e.preventDefault();
@@ -56,7 +55,7 @@ const Posts = () => {
                 ))
                 : <p>There are no post yet.</p>
             }
-            <Paginator pages={state.pages} onClick={goToPage} />
+            <Paginator page={state.page} pages={state.pages} onClick={goToPage} />
         </div>
     );
 }
