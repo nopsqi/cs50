@@ -3,15 +3,15 @@ const App = () => {
         api: new URL(document.getElementById('App').dataset.api, document.location.origin)
     })
 
-    console.log(state)
-    state.api.search
-
     React.useEffect(() => {
         fetch(`${state.api.pathname}/${state.api.search}`)
     }, [])
 
+    api.searchParams.append('page', 1)
+
     return (
         <div>
+            <h1>{state.api.origin}</h1>
             <NewPost />
             <Posts />
             <Paginator />
