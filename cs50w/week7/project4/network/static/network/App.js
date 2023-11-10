@@ -1,7 +1,7 @@
 const App = () => {
     const [state, setState] = React.useState({
         api: new URL(document.getElementById('App').dataset.api, document.location.origin),
-        posts: [1, 2, 3,]
+        posts: [1, 2,]
     })
 
     const addPost = () => {
@@ -13,7 +13,6 @@ const App = () => {
 
     return (
         <div>
-            <button onClick={addPost}>Add Post</button>
             <NewPost />
             <Posts posts={state.posts}/>
             <Paginator />
@@ -25,6 +24,7 @@ const NewPost = (props) => {
     return (
         <div>
             <h1>NEW POST HOLDER</h1>
+            <button onClick={p}>Add Post</button>
         </div>
     )
 }
