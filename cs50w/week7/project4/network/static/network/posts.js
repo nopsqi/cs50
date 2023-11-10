@@ -90,12 +90,14 @@ const Posts = () => {
             if (response.status == 200) {
                 response.json()
                 .then(result => {
-                    const posts = [...state.posts, result]
-                    setState({
-                        ...state,
-                        newPost: "",
-                        update: !state.update,
-                        posts: posts
+                    setState(prevState => {
+                        const posts = [...prevState.posts, result]
+                        return {
+                            ...prevState,
+                            newPost: "",
+                            update: !prevState.update,
+                            posts: posts
+                        }
                     })
 
                 })
