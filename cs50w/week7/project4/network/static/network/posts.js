@@ -13,7 +13,6 @@ const Posts = () => {
     const followingNav = document.getElementById('following-nav')
 
     React.useEffect(() => {
-
         if (document.location.pathname !== '/') {
             allPostsNav.style.display = 'none';
             followingNav.style.display = 'none';
@@ -23,6 +22,9 @@ const Posts = () => {
             followingNav.style.display = 'block';
         }
 
+    }, [])
+
+    React.useEffect(() => {
         fetch(state.url.pathname + state.url.search)
         .then(response => response.json())
         .then(result => {
