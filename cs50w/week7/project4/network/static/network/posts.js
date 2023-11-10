@@ -7,7 +7,6 @@ const Posts = () => {
         pages: 0,
         posts: [],
         loading: true,
-        new: true,
     });
 
     const allPostsNav = document.getElementById('all-posts-nav')
@@ -69,8 +68,8 @@ const Posts = () => {
     const newPost = (e) => {
         setState({
             ...state,
-            new: !state.new
         });
+        console.log(e)
         e.preventDefault();
     }
 
