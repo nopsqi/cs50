@@ -14,9 +14,9 @@ const NewPost = () => {
     return (
         <div>
             <h1>NEW POST HOLDER</h1>
-            <div>Value = {}</div>
-            <button onClick={}>+</button>
-            <button onClick={}>-</button>
+            <div>Value = </div>
+            <button >+</button>
+            <button >-</button>
         </div>
     )
 }
