@@ -7,6 +7,7 @@ const Posts = () => {
         pages: 0,
         posts: [],
         loading: true,
+        new: true,
     });
 
     const allPostsNav = document.getElementById('all-posts-nav')
@@ -34,7 +35,7 @@ const Posts = () => {
                 loading: false
             })
         })
-    }, [state.url, state.posts]);
+    }, [state.url, ]);
 
     const setStateURL = (key, value) => setState(prevState => {
         const url = new URL(prevState.url.pathname + prevState.url.search, prevState.url.origin)
@@ -78,6 +79,7 @@ const Posts = () => {
                 .then(result => {
                     setState({
                         ...state,
+                        new: !state.new,
                         posts: state.posts.concat(result)
                     })
                 })
