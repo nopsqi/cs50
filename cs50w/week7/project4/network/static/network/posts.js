@@ -87,6 +87,7 @@ const Posts = () => {
                 .then(result => {
                     setState({
                         ...state,
+                        newPost: "",
                         new: !state.new,
                     })
 
