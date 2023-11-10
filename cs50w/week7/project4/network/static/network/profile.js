@@ -1,5 +1,6 @@
 const Profile = () => {
     const [state, setState] = React.useState({
+        loading: true,
         username: new URL(window.location.pathname, window.location.origin).pathname.slice(1)
     })
 
@@ -7,10 +8,16 @@ const Profile = () => {
         fetch(`/user?username=${state.username}`)
         .then(response => response.json())
         .then(result => {
-            setState(result)
+            setState({
+                ...state,
+                ...result
+            })
         })
     }, [])
-    console.log(state)
+
+    if (state.loading) {
+        return (<div></div>)
+    }
 
     return (
         <div className="card-body">
