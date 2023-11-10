@@ -36,6 +36,10 @@ const Posts = () => {
                 loading: false
             })
         })
+        setState({
+            ...state,
+            loading: true
+        })
     // }, [state.url, state.update]);
     }, [state.url]);
 
