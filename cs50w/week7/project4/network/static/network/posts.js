@@ -36,24 +36,29 @@ const Posts = () => {
         })
     }, [state.url]);
 
-    const setStateURL = (key, value) => {
-
-    }
+    const setStateURL = (key, value) => setState(prevState => {
+        const url = new URL(prevState.pathname + prevState.search, prevState.origin)
+        url.searchParams.set(key, value)
+        return {
+            ...prevState,
+            url: url
+        }
+    })
 
 
     allPostsNav.onclick = (e) => {
         e.preventDefault()
-
     }
 
     const goToPage = (e) => {
-        e.preventDefault();
-        const url = new URL(state.url.pathname + state.url.search, state.url.origin)
-        url.searchParams.set('page', e.target.innerHTML)
-        setState({
-            ...state,
-            url: url,
-        })
+        // e.preventDefault();
+        // const url = new URL(state.url.pathname + state.url.search, state.url.origin)
+        // url.searchParams.set('page', e.target.innerHTML)
+        // setState({
+        //     ...state,
+        //     url: url,
+        // })
+        setStateUrl()
     }
 
     if (state.loading) {
