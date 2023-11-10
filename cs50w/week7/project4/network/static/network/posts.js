@@ -105,7 +105,7 @@ const Posts = () => {
 
     return (
         <div className="mt-3">
-            <NewPost onSubmit={newPostSubmit} onChange={newPostChange}/>
+            <NewPost onSubmit={newPostSubmit} onChange={newPostChange} value={state.newPost}/>
             {
                 state.posts.length > 0
                 ? state.posts.map((item, i) => (
@@ -123,7 +123,7 @@ const NewPost = (props) => {
 
     return (
         <form className="mt-3 text-right" onSubmit={props.onSubmit}>
-            <textarea type="text" className="form-control" value={props.newPost} onChange={props.onChange}></textarea>
+            <textarea type="text" className="form-control" value={props.value} onChange={props.onChange}></textarea>
             <button type="submit" className="mt-2 btn btn-primary">Post</button>
         </form>
     )
