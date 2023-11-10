@@ -120,7 +120,7 @@ class api:
             return JsonResponse({"error": "POST request required"}, status=401)
         if (content := json.loads(request.body).get('content')):
             post = Post(user=request.user, content=content)
-            print(post)
+            print(post.serialize())
 
         return JsonResponse({"message": "Post submitted"}, status=201)
 
