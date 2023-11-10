@@ -5,7 +5,8 @@ const App = () => {
         }
     })
 
-    const onCilckNp = () => {
+    class new
+    const onClickNp = () => {
         setState({
             ...state,
             new_post: {
@@ -27,14 +28,12 @@ const App = () => {
 
     return (
         <div>
-            <NewPost />
+            <NewPost value={state.new_post.value} onClick={onClickNp} onClick1={onClickNp1}/>
             <Posts />
             <Paginator />
         </div>
     )
 }
-
-
 
 const NewPost = (props) => {
     console.log("on new posts", props)
