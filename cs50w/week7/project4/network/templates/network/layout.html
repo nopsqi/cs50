@@ -26,10 +26,10 @@
                     </li>
                 {% endif %}
                 <li id="all-posts-button" class="nav-item">
-                  <a class="nav-link" href="{% url 'index' %}">All Posts</a>
+                  <a class="nav-link" href="{% url 'index' %}" style="display: none">All Posts</a>
                 </li>
                 {% if user.is_authenticated %}
-                    <li id="following-button" class="nav-item">
+                    <li id="following-button" class="nav-item" style="display: none">
                         <a class="nav-link" href="#">Following</a>
                     </li>
                     <li class="nav-item">
