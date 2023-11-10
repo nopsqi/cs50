@@ -1,4 +1,4 @@
-const App = () => {
+const Posts = () => {
     const url = new URL(document.getElementById('posts').dataset.api, window.location.origin)
     url.searchParams.append('page', 1)
 
@@ -36,12 +36,7 @@ const App = () => {
                 loading: false
             })
         })
-        setState({
-            ...state,
-            loading: true
-        })
-    // }, [state.url, state.update]);
-    }, [state.url]);
+    }, [state.url, state.update]);
 
     const setStateURL = (key, value) => setState(prevState => {
         const url = new URL(prevState.url.pathname + prevState.url.search, prevState.url.origin)
@@ -90,14 +85,10 @@ const App = () => {
             if (response.status == 200) {
                 response.json()
                 .then(result => {
-                    setState(prevState => {
-                        const posts = [...prevState.posts, result]
-                        return {
-                            ...prevState,
-                            newPost: "",
-                            update: !prevState.update,
-                            posts: posts
-                        }
+                    setState({
+                        ...state,
+                        newPost: "",
+                        update: !state.update,
                     })
 
                 })
@@ -111,16 +102,24 @@ const App = () => {
             <div>Loading...</div>
         )
     }
+
     return (
         <div className="mt-3">
             <NewPost onSubmit={newPostSubmit} onChange={newPostChange} value={state.newPost}/>
-            <Posts />
+            {
+                state.posts.length > 0
+                ? state.posts.map((item, i) => (
+                    <Post {...item} />
+                ))
+                : <p>There are no post yet.</p>
+            }
             <Paginator page={state.page} pages={state.pages} onClick={goToPage} />
         </div>
     );
 }
 
 const NewPost = (props) => {
+
     return (
         <form className="mt-3 text-right" onSubmit={props.onSubmit}>
             <textarea type="text" className="form-control" value={props.value} onChange={props.onChange}></textarea>
@@ -195,4 +194,4 @@ const Post = (props) => {
     );
 }
 
-ReactDOM.render(<App />, document.querySelector('#posts'));
+ReactDOM.render(<Posts />, document.querySelector('#posts'));
