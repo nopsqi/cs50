@@ -20,6 +20,7 @@ const Posts = () => {
             })
         })
     }, []);
+    console.log(state)
 
     const goToPage = (e) => {
         e.preventDefault();
@@ -35,16 +36,9 @@ const Posts = () => {
         .then(result => {
             setState({
                 ...state,
-                posts: result.posts
+                ...result
             });
         });
-        e.target.parentElement.parentElement.querySelectorAll('.page-item').forEach(item => {
-            if (item.querySelector('.page-link') === e.target) {
-                item.classList.add('active')
-            } else {
-                item.classList.remove('active')
-            }
-        })
     }
 
     if (state.loading) {
