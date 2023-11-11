@@ -115,7 +115,7 @@ const Post = (props) => {
         <div>
             <h3>POST HOLDER</h3>
             <div>{props.id}</div>
-            <button onClick={props.onClick} data-toggle="modal" data-target="#staticBackdrop">Delete</button>
+            <button onClick={props.onClick} data-toggle="modal" data-target="#deleteModal">Delete</button>
         </div>
     )
 }
@@ -139,7 +139,7 @@ const Paginator = (props) => {
 
 const Modal = (props) => {
     return (
-        <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+        <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
