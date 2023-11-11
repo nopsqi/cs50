@@ -48,7 +48,7 @@ const App = () => {
         <div>
             <h1>APP HOLDER</h1>
             <NewPost onClick={addPost} />
-            <Posts posts={state.posts}/>
+            <Posts posts={state.posts} onClick={deletePost}/>
             <Paginator />
         </div>
     )
@@ -68,7 +68,7 @@ const Posts = (props) => {
         <div>
             <h2>POSTS HOLDER</h2>
             {props.posts.map((item, index) => (
-                <Post />
+                <Post onClick={props.onClick}/>
             ))}
         </div>
     )
@@ -78,6 +78,7 @@ const Post = (props) => {
     return (
         <div>
             <h3>POST HOLDER</h3>
+            <button onClick={props.onClick}>Delete</button>
         </div>
     )
 }
