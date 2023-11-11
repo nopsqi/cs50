@@ -141,7 +141,7 @@ const Posts = (props) => {
     return (
         <div>
             {props.posts.map((post, index) => (
-                <Post key={index} {...post} deletePost={props.deletePost} editPost={props.editPost}/>
+                <Post key={index} {...post} deleteClick={props.deletePost} editPost={props.editPost}/>
             ))}
         </div>
     )
@@ -197,7 +197,7 @@ const Post = (props) => {
                     </div>
                     <div className="col"></div>
                     <div className="col-md-1 text-right">
-                        <Dropdown id={props.id} deletePost={props.deletePost} editPost={props.editPost} />
+                        <Dropdown id={props.id} deleteClick={props.deletePost} editClick={props.editPost} />
                     </div>
                 </div>
                 <div className="text-card">{props.content}</div>
@@ -221,9 +221,8 @@ const Dropdown = (props) => {
         <div className="dropdown ml-3">
             <a href="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: icon }} />
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {/* <a className="dropdown-item" href="" onClick={(e) => props.deletePost(e, props.id)}>Delete</a> */}
-                <a className="dropdown-item" href="" data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
-                <a className="dropdown-item" href="" data-toggle="modal" data-target="#editModal">Edit</a>
+                <a className="dropdown-item" href="" onClick={props.deleteClick} data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
+                <a className="dropdown-item" href="" onClick={props.editClick} data-toggle="modal" data-target="#editModal">Edit</a>
             </div>
         </div>
     )
