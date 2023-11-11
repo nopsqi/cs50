@@ -137,8 +137,6 @@ const Post = (props) => {
             like: !state.like,
             likes_length: state.like ? state.likes_length - 1 : state.likes_length + 1
         })
-        console.log(e)
-        console.log(state)
     }
 
     return (
