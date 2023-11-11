@@ -157,6 +157,9 @@ const Post = (props) => {
                 id: props.id,
                 like: !state.like
             })
+            .then(response => {
+                if (response.status === 200) 
+            })
         })
     }
 
