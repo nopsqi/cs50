@@ -185,7 +185,7 @@ const Post = (props) => {
                         <a href="" className="text-card d-flex" onClick={switchLike} dangerouslySetInnerHTML={{ __html: state.like ? heart.after : heart.before }} />
                         <div className="text-card ml-2">{state.likes_length}</div>
                     </div>
-                    <Dropdown deletePost={props.deletePost} editPost={props.editPost} />
+                    <Dropdown id={props.id} deletePost={props.deletePost} editPost={props.editPost} />
                 </div>
             </div>
         </div>
@@ -201,8 +201,8 @@ const Dropdown = (props) => {
         <div className="dropdown ml-3">
             <a href="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: icon }} />
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="" onClick={props.deletePost}>Delete</a>
-                <a className="dropdown-item" href="" onClick={props.editPost}>Edit</a>
+                <a className="dropdown-item" href="" onClick={() => props.deletePost(props.id)}>Delete</a>
+                <a className="dropdown-item" href="" onClick={() => props.editPost(props.id)}>Edit</a>
             </div>
         </div>
     )
