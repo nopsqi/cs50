@@ -112,7 +112,7 @@ const App = () => {
 
     return (
         <div>
-            <Modal />
+            <DeleteConfirmationModal />
             <NewPost onSubmit={addPost} onChange={updateNewPost}/>
             <Posts posts={state.posts} deletePost={deletePost} editPost={editPost}/>
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
@@ -236,7 +236,7 @@ const Paginator = (props) => {
     )
 }
 
-const Modal = (props) => {
+const DeleteConfirmationModal = (props) => {
     return (
         <div className="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
             <div className="modal-dialog" role="document">
@@ -252,7 +252,7 @@ const Modal = (props) => {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Save changes</button>
+                        <button type="button" className="btn btn-danger" onClick={(e) => props.getDeleteConfirmation(e)}>Delete</button>
                     </div>
                 </div>
             </div>
