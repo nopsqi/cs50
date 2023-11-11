@@ -130,7 +130,11 @@ class api:
         if request.method == "DELETE" and id:
             try:
                 post = Post.objects.get(id=id)
-                
+                post.delete()
+            except Post.DoesNotExist:
+                return JsonResponse({"error": "Post doesn't exist"}, status=404)
+            return JsonResponse({"message": "Post deleted"}, safe=False)
+
 
         return JsonResponse({"error": "Post can't be empty"}, status=400)
 
