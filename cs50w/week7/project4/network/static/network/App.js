@@ -35,7 +35,9 @@ const App = () => {
     }
 
     const deletePost = (e) => {
-        setState
+        setState({
+            posts: state.posts.filter((item, index) => index !== state.posts.length)
+        })
     }
 
     if (state.loading) {
