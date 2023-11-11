@@ -61,7 +61,7 @@ const App = () => {
             ...state,
             api: api
         })
-        console.log()
+        console.log("state", state.api.href)
     }
 
     if (state.loading) {
