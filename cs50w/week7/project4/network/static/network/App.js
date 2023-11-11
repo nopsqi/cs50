@@ -198,7 +198,7 @@ const Post = (props) => {
                     </div>
                     <div className="col"></div>
                     <div className="col-md-1 text-right">
-                        <Dropdown id={props.id} deleteClick={props.deleteClick} editClick={props.editClick} />
+                        <Dropdown id={props.id} content={props.content} deleteClick={props.deleteClick} editClick={props.editClick} />
                     </div>
                 </div>
                 <div className="text-card">{props.content}</div>
@@ -227,7 +227,7 @@ const Dropdown = (props) => {
                 })} data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
                 <a className="dropdown-item" href="" onClick={(e) => props.editClick(e, {
                     editId: props.id,
-                    editPostValue: e.target.value
+                    editPostValue: props.content
                 })} data-toggle="modal" data-target="#editModal">Edit</a>
             </div>
         </div>
