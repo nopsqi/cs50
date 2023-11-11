@@ -121,6 +121,7 @@ class api:
 
         body = json.loads(request.body)
         id = body.get("id")
+        like = body.get("like")
         content = body.get("content")
         if request.method == "POST" and content:
             post = Post(user=request.user, content=content)
@@ -135,7 +136,16 @@ class api:
                 return JsonResponse({"error": "Post doesn't exist"}, status=404)
             return JsonResponse({"message": "Post deleted"}, safe=False)
 
-        if request.method == "PUT" and 
+        if request.method == "PUT" and id and like is not None:
+            try:
+                post = Post.objects.get(id=id)
+            except Post.DoesNotExist:
+                return JsonResponse({"error": "Post doesn't exist"}, status=404)
+
+            if like:
+                post.likes.add(request.user)
+            else:
+                post.likes.remove(request.user)
 
         return JsonResponse({"error": "Post can't be empty"}, status=400)
 
