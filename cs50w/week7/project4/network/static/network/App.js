@@ -11,7 +11,36 @@ const App = () => {
             loading: true
         })
 
-        fetch(state.api)
+        fetchData(state.api)
+        // fetch(state.api)
+        // .then(response => {
+        //     console.log("fetching", state.api.href)
+        //     if (response.status === 200) {
+        //         response.json()
+        //         .then(result => {
+        //             setState({
+        //                 ...state,
+        //                 loading: false,
+        //                 ...result,
+        //             })
+        //         })
+        //     }
+        //     else if (response.status === 404) {
+        //         response.json()
+        //         .then(result => {
+        //             const api = state.api
+        //             api.searchParams.set('page', result.pages)
+        //             setState({
+        //                 ...state,
+        //                 api: api
+        //             })
+        //         })
+        //     }
+        // })
+    }, [state.api])
+
+    const fetchPosts = (api) => {
+        fetch(api)
         .then(response => {
             console.log("fetching", state.api.href)
             if (response.status === 200) {
@@ -36,7 +65,7 @@ const App = () => {
                 })
             }
         })
-    }, [state.api])
+    }
 
     const addPost = (e) => {
         setState({
