@@ -86,7 +86,7 @@ const App = () => {
         console.log(e)
     }
 
-    $('#').on('show.bs.modal', function (e) {
+    $('#deleteConfirmationModal').on('show.bs.modal', function (e) {
         console.log(e)
     })
 
