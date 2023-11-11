@@ -11,31 +11,6 @@ const App = () => {
         })
 
         fetchPosts(state.api)
-        // fetch(state.api)
-        // .then(response => {
-        //     console.log("fetching", state.api.href)
-        //     if (response.status === 200) {
-        //         response.json()
-        //         .then(result => {
-        //             setState({
-        //                 ...state,
-        //                 loading: false,
-        //                 ...result,
-        //             })
-        //         })
-        //     }
-        //     else if (response.status === 404) {
-        //         response.json()
-        //         .then(result => {
-        //             const api = state.api
-        //             api.searchParams.set('page', result.pages)
-        //             setState({
-        //                 ...state,
-        //                 api: api
-        //             })
-        //         })
-        //     }
-        // })
     }, [state.api])
 
     const fetchPosts = (api) => {
