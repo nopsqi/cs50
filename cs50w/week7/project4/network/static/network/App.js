@@ -18,29 +18,29 @@ const App = () => {
 
     const fetchPosts = (api) => {
         fetch(api)
-        .then(response => {
-            if (response.status === 200) {
-                response.json()
-                .then(result => {
-                    setState({
-                        ...state,
-                        loading: false,
-                        ...result,
-                    })
-                })
-            }
-            else if (response.status === 404) {
-                response.json()
-                .then(result => {
-                    const api = new URL(state.api.href)
-                    api.searchParams.set('page', result.pages)
-                    setState({
-                        ...state,
-                        api: api
-                    })
-                })
-            }
-        })
+            .then(response => {
+                if (response.status === 200) {
+                    response.json()
+                        .then(result => {
+                            setState({
+                                ...state,
+                                loading: false,
+                                ...result,
+                            })
+                        })
+                }
+                else if (response.status === 404) {
+                    response.json()
+                        .then(result => {
+                            const api = new URL(state.api.href)
+                            api.searchParams.set('page', result.pages)
+                            setState({
+                                ...state,
+                                api: api
+                            })
+                        })
+                }
+            })
     }
 
     const addPost = (e) => {
@@ -51,14 +51,14 @@ const App = () => {
                 content: state.newPostValue
             })
         })
-        .then(response => {
-            if (response.status === 200) {
-                setState({
-                    ...state,
-                    fetch: !state.fetch
-                })
-            }
-        })
+            .then(response => {
+                if (response.status === 200) {
+                    setState({
+                        ...state,
+                        fetch: !state.fetch
+                    })
+                }
+            })
     }
 
     const getParamsToState = (e, params, key) => {
@@ -76,17 +76,17 @@ const App = () => {
                 id: state.deleteId
             })
         })
-        .then(response => {
-            if (response.status == 200) {
-                response.json()
-                .then(result => {
-                    setState({
-                        ...state,
-                        fetch: !state.fetch
-                    })
-                })
-            }
-        })
+            .then(response => {
+                if (response.status == 200) {
+                    response.json()
+                        .then(result => {
+                            setState({
+                                ...state,
+                                fetch: !state.fetch
+                            })
+                        })
+                }
+            })
     }
 
     const editPost = (e, id) => {
@@ -113,15 +113,15 @@ const App = () => {
 
     if (state.loading) {
         return (
-            <NewPost onSubmit={addPost} onChange={updateNewPost}/>
+            <NewPost onSubmit={addPost} onChange={updateNewPost} />
         )
     }
 
     return (
         <div>
             <DeleteConfirmationModal deletePost={deletePost} />
-            <NewPost onSubmit={addPost} onChange={updateNewPost}/>
-            <Posts posts={state.posts} deleteClick={getParamsToState} editClick={getParamsToState}/>
+            <NewPost onSubmit={addPost} onChange={updateNewPost} />
+            <Posts posts={state.posts} deleteClick={getParamsToState} editClick={getParamsToState} />
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
     )
@@ -140,7 +140,7 @@ const Posts = (props) => {
     return (
         <div>
             {props.posts.map((post, index) => (
-                <Post key={index} {...post} deleteClick={props.deleteClick} editClick={props.editClick}/>
+                <Post key={index} {...post} deleteClick={props.deleteClick} editClick={props.editClick} />
             ))}
         </div>
     )
@@ -170,18 +170,18 @@ const Post = (props) => {
                 like: !state.like
             })
         })
-        .then(response => {
-            if (response.status === 200) {
-                response.json()
-                .then(result => {
-                    setState({
-                        ...state,
-                        like: !state.like,
-                        likes_length: state.like ? state.likes_length - 1 : state.likes_length + 1
-                    })
-                })
-            }
-        })
+            .then(response => {
+                if (response.status === 200) {
+                    response.json()
+                        .then(result => {
+                            setState({
+                                ...state,
+                                like: !state.like,
+                                likes_length: state.like ? state.likes_length - 1 : state.likes_length + 1
+                            })
+                        })
+                }
+            })
     }
 
     return (
@@ -220,8 +220,8 @@ const Dropdown = (props) => {
         <div className="dropdown ml-3">
             <a href="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: icon }} />
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="" onClick={(e) => {props.deleteClick(e, props.id, "deleteId")}} data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
-                <a className="dropdown-item" href="" onClick={(e) => {props.editClick(e, props.id, "editId")}} data-toggle="modal" data-target="#editModal">Edit</a>
+                <a className="dropdown-item" href="" onClick={(e) => { props.deleteClick(e, props.id, "deleteId") }} data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
+                <a className="dropdown-item" href="" onClick={(e) => { props.editClick(e, props.id, "editId") }} data-toggle="modal" data-target="#editModal">Edit</a>
             </div>
         </div>
     )
@@ -232,7 +232,7 @@ const Paginator = (props) => {
         <div>
             <nav className="mt-3" aria-label="Post navigaioon">
                 <ul className="pagination justify-content-end">
-                    {Array.from({length: props.pages}, (_, i) => i + 1).map((item) => (
+                    {Array.from({ length: props.pages }, (_, i) => i + 1).map((item) => (
                         <li key={item} className={`page-item ${item === props.page ? 'active' : ''}`}>
                             <a className="page-link" href="" onClick={props.onClick}>{item}</a>
                         </li>
@@ -269,6 +269,34 @@ const DeleteConfirmationModal = (props) => {
 
 const EditModal = (props) => {
     return (
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Message:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Send message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
