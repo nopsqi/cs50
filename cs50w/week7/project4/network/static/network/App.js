@@ -91,6 +91,8 @@ const App = () => {
     }
 
     const editPost = (e) => {
+        e.preventDefault()
+        console.log(e)
         // fetch('/api/post', {
         //     method: 'PUT',
         //     body: JSON.stringify({
