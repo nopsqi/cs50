@@ -24,7 +24,7 @@ const App = () => {
                 })
             }
         })
-    }, [])
+    }, [state.url])
 
     const addPost = (e) => {
         setState({
