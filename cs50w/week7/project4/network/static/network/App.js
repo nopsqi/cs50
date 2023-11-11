@@ -25,8 +25,6 @@ const App = () => {
         })
     }, [])
 
-    console.log(state)
-
     const addPost = (e) => {
         setState({
             ...state,
@@ -35,7 +33,7 @@ const App = () => {
     }
 
     const deletePost = (e) => {
-        console.log(e.target)
+        console.log(e)
         // setState({
         //     posts: state.posts.filter((item, index) => item.id === e)
         // })
