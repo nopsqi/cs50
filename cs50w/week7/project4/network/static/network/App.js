@@ -69,7 +69,7 @@ const Posts = (props) => {
         <div>
             <h2>POSTS HOLDER</h2>
             {props.posts.map((post, index) => (
-                <Post key= {...post, onClick={props.onClick}}/>
+                <Post key={index} {...post} onClick={props.onClick}/>
             ))}
         </div>
     )
