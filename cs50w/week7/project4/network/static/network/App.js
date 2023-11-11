@@ -82,14 +82,6 @@ const App = () => {
         })
     }
 
-    const getDeleteConfirmation = (e, result) => {
-        console.log(e)
-    }
-
-    $('#deleteConfirmationModal').on('shown.bs.modal', function (e) {
-        console.log(e)
-    })
-
     const editPost = (e, id) => {
         e.preventDefault()
         console.log(id)
@@ -120,9 +112,9 @@ const App = () => {
 
     return (
         <div>
-            <DeleteConfirmationModal getDeleteConfirmation={getDeleteConfirmation} />
+            <DeleteConfirmationModal deletePost={deletePost} />
             <NewPost onSubmit={addPost} onChange={updateNewPost}/>
-            <Posts posts={state.posts} deletePost={deletePost} editPost={editPost}/>
+            <Posts posts={state.posts} deleteClick={getDeleteId} editClick={getEditId}/>
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
     )
@@ -141,7 +133,7 @@ const Posts = (props) => {
     return (
         <div>
             {props.posts.map((post, index) => (
-                <Post key={index} {...post} deleteClick={props.deletePost} editPost={props.editPost}/>
+                <Post key={index} {...post} deleteClick={props.deleteClick} editClick={props.editClick}/>
             ))}
         </div>
     )
@@ -197,7 +189,7 @@ const Post = (props) => {
                     </div>
                     <div className="col"></div>
                     <div className="col-md-1 text-right">
-                        <Dropdown id={props.id} deleteClick={props.deletePost} editClick={props.editPost} />
+                        <Dropdown id={props.id} deleteClick={props.deleteClick} editClick={props.editClick} />
                     </div>
                 </div>
                 <div className="text-card">{props.content}</div>
@@ -259,10 +251,8 @@ const DeleteConfirmationModal = (props) => {
                         Are you sure you want to delete the post?
                     </div>
                     <div className="modal-footer">
-                        {/* <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={(e) => props.getDeleteConfirmation(e, false)}>Close</button>
-                        <button type="button" className="btn btn-danger" onClick={(e) => props.getDeleteConfirmation(e, true)}>Delete</button> */}
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-danger">Delete</button>
+                        <button type="button" className="btn btn-danger" onCick={props.deletePost}>Delete</button>
                     </div>
                 </div>
             </div>
