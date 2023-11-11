@@ -82,11 +82,6 @@ const App = () => {
         })
     }
 
-    const getDeleteConfirmation = (e, result) => {
-        console.log(e.target)
-        console.log(result)
-    }
-
     const editPost = (e, id) => {
         e.preventDefault()
         console.log(id)
@@ -117,7 +112,7 @@ const App = () => {
 
     return (
         <div>
-            <DeleteConfirmationModal getDeleteConfirmation={getDeleteConfirmation} />
+            <DeleteConfirmationModal deletePost={deletePost} />
             <NewPost onSubmit={addPost} onChange={updateNewPost}/>
             <Posts posts={state.posts} deletePost={deletePost} editPost={editPost}/>
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
