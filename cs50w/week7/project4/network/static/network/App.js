@@ -16,10 +16,25 @@ const App = () => {
         api: new URL(document.getElementById('App').dataset.api, document.location.origin),
         fetch: true,
         loading: true,
-        confirmation: false,
         newPostValue: "",
         editPostValue: ""
     })
+
+    React.useEffect(() => {
+        fetch('/api/user')
+        .then(response => {
+            if (response.status === 200) {
+                response.json()
+                .then(result => {
+                    setState({
+                        ...state,
+                        myUsername: result.username
+                    })
+                    console.log(state)
+                })
+            }
+        })
+    }, [])
 
     React.useEffect(() => {
         setState({
