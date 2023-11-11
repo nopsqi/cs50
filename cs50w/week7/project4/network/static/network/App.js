@@ -30,6 +30,16 @@ const App = () => {
         fetchPosts(state.api)
     }, [state.api, state.fetch])
 
+    allPostsNav.onclick = (e) => {
+        e.target.classList.add('active')
+        followingNav.classList.remove('active')
+        const api = new URL(state.api.href)
+        api.searchParams.
+        setState({
+
+        })
+    }
+
     const fetchPosts = (api) => {
         fetch(api)
             .then(response => {
