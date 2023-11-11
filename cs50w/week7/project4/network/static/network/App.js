@@ -112,7 +112,7 @@ const App = () => {
 
     return (
         <div>
-            <DeleteConfirmationModal deletePost={deletePost} />
+            <DeleteConfirmationModal getDeleteConfirmation={getDeleteConfirmation} />
             <NewPost onSubmit={addPost} onChange={updateNewPost}/>
             <Posts posts={state.posts} deletePost={deletePost} editPost={editPost}/>
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
