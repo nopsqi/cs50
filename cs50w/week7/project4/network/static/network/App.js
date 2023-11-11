@@ -54,7 +54,7 @@ const App = () => {
 
     const goToPage = (e) => {
         e.preventDefault()
-        console.log(e)
+        console.log(e.target)
     }
 
     if (state.loading) {
