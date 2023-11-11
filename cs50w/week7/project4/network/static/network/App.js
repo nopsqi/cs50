@@ -53,6 +53,11 @@ const App = () => {
             ...state,
             posts: state.posts.filter((item, index) => item.id !== parseInt(e.target.parentElement.childNodes[1].innerHTML))
         })
+
+        fetch('/api/post', {
+            method: 'DELETE',
+            
+        })
     }
 
     const goToPage = (e) => {
