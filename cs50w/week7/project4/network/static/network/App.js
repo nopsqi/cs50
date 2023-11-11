@@ -64,30 +64,30 @@ const App = () => {
     const getParamsToState = (e, params, key) => {
         setState({
             ...state,
-            `${key}`: params
+            [key]: params
         })
     }
 
     const deletePost = (e) => {
         e.preventDefault()
         console.log(state)
-        // fetch('/api/post', {
-        //     method: 'DELETE',
-        //     body: JSON.stringify({
-        //         id: state.deleteId
-        //     })
-        // })
-        // .then(response => {
-        //     if (response.status == 200) {
-        //         response.json()
-        //         .then(result => {
-        //             setState({
-        //                 ...state,
-        //                 fetch: !state.fetch
-        //             })
-        //         })
-        //     }
-        // })
+        fetch('/api/post', {
+            method: 'DELETE',
+            body: JSON.stringify({
+                id: state.deleteId
+            })
+        })
+        .then(response => {
+            if (response.status == 200) {
+                response.json()
+                .then(result => {
+                    setState({
+                        ...state,
+                        fetch: !state.fetch
+                    })
+                })
+            }
+        })
     }
 
     const editPost = (e, id) => {
@@ -260,7 +260,7 @@ const DeleteConfirmationModal = (props) => {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-danger" onClick={props.deletePost}>Delete</button>
+                        <button type="button" className="btn btn-danger" onClick={props.deletePost} data-toggle="modal" data-target="#deleteConfirmationModal">Delete</button>
                     </div>
                 </div>
             </div>
