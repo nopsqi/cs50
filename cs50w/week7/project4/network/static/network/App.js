@@ -13,6 +13,7 @@ if (document.location.pathname === '/') {
 
 const App = () => {
     const [state, setState] = React.useState({
+        myUsername: document.getElementById('App').dataset.myUsername,
         api: new URL(document.getElementById('App').dataset.api, document.location.origin),
         fetch: true,
         loading: true,
