@@ -193,12 +193,11 @@ const Dropdown = (props) => {
     )
 
     return (
-        <div className="dropdown">
-            <a href="" className="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: icon }} />
+        <div className="dropdown ml-3">
+            <a href="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: icon }} />
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="#">Action</a>
-                <a className="dropdown-item" href="#">Another action</a>
-                <a className="dropdown-item" href="#">Something else here</a>
+                <a className="dropdown-item" href="" onClick={prosp.onClick}>Delete</a>
+                <a className="dropdown-item" href=""></a>
             </div>
         </div>
     )
