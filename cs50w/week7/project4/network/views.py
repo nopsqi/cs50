@@ -143,14 +143,12 @@ class api:
             except Post.DoesNotExist:
                 return JsonResponse({"error": "Post doesn't exist"}, status=404)
 
-            print(type(like))
-            if like:
-                post.likes.add(request.user)
-            else:
-                post.likes.remove(request.user)
-            # post.save()
+            # if like:
+            #     post.likes.add(request.user)
+            # else:
+            #     post.likes.remove(request.user)
 
-            return JsonResponse({"message": "Post like edited"}, status=201)
+            return JsonResponse({"message": "Post like edited", "like": like}, status=201)
 
         return JsonResponse({"error": "Invalid operation"}, status=400)
 
