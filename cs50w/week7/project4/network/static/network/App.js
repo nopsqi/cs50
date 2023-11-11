@@ -68,8 +68,8 @@ const Posts = (props) => {
     return (
         <div>
             <h2>POSTS HOLDER</h2>
-            {props.posts.map((item, index) => (
-                <Post {itemonClick={props.onClick}}/>
+            {props.posts.map((post, index) => (
+                <Post key= {...post, onClick={props.onClick}}/>
             ))}
         </div>
     )
