@@ -137,7 +137,10 @@ const Post = (props) => {
             like: !state.like,
             like_length: state.like ? state.like_length - 1 : state.like_length + 1
         })
+        console.log(e)
+        console.log(state)
     }
+
     return (
         <div className="card mt-2">
             <div className="card-body">
@@ -148,8 +151,8 @@ const Post = (props) => {
                         <div className="text-card text-muted">{props.modified}</div>
                     </div>
                     <div className="col-md-auto d-flex align-items-center">
-                        <a href="" className="text-card d-flex ml-5" onClick={switchLike} dangerouslySetInnerHTML={{ __html: props.like ? heart.after : heart.before }} />
-                        <div className="text-card ml-2">Like {props.like_count}</div>
+                        <a href="" className="text-card d-flex ml-5" onClick={switchLike} dangerouslySetInnerHTML={{ __html: state.like ? heart.after : heart.before }} />
+                        <div className="text-card ml-2">Like {state.likes_length}</div>
                     </div>
                 </div>
             </div>
