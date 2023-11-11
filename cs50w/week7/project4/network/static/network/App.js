@@ -35,6 +35,7 @@ const App = () => {
     }
 
     const deletePost = (e) => {
+        console.log(e.target)
         // setState({
         //     posts: state.posts.filter((item, index) => item.id === e)
         // })
@@ -68,7 +69,7 @@ const Posts = (props) => {
         <div>
             <h2>POSTS HOLDER</h2>
             {props.posts.map((item, index) => (
-                <Post onClick={props.onClick}/>
+                <Post {itemonClick={props.onClick}}/>
             ))}
         </div>
     )
@@ -78,6 +79,7 @@ const Post = (props) => {
     return (
         <div>
             <h3>POST HOLDER</h3>
+            <div>{props.id}</div>
             <button onClick={props.onClick}>Delete</button>
         </div>
     )
