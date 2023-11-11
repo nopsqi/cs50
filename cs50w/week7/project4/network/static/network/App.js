@@ -66,6 +66,13 @@ const App = () => {
         })
     }
 
+    const updateNewPost = (e) => {
+        setState({
+            ...state,
+            newPostValue: e.
+        })
+    }
+
     const goToPage = (e) => {
         e.preventDefault()
         const api = new URL(state.api.href)
@@ -80,14 +87,10 @@ const App = () => {
         return (<div></div>)
     }
 
-    const toggleModal = () => {
-        $('#deleteModal').modal('show')
-    }
-
     return (
         <div>
             <Modal />
-            <NewPost onSubmit={addPost} onChange={updateNe}/>
+            <NewPost onSubmit={addPost} onChange={updateNewPost}/>
             <Posts posts={state.posts} onClick={deletePost} />
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
