@@ -140,7 +140,7 @@ const Post = (props) => {
             method: 'PUT',
             body: JSON.stringify({
                 id: props.id,
-                like: state.like
+                like: !state.like
             })
         })
         .then(response => response.json())
