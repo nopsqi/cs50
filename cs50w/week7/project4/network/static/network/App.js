@@ -45,9 +45,15 @@ const App = () => {
     }
 
     const addPost = (e) => {
-        setState({
-            ...state,
-            posts: [...state.posts, {id: 17}]
+        // setState({
+        //     ...state,
+        //     posts: [...state.posts, {id: 17}]
+        // })
+        fetch('/api/post', {
+            method: 'POST',
+            body: JSON.stringify({
+                content: state.newPostValue
+            })
         })
     }
 
