@@ -97,10 +97,10 @@ const App = () => {
 
 const NewPost = (props) => {
     return (
-        <div>
-            <h2>NEW POST HOLDER</h2>
-            <button onClick={props.onClick}>Add Post</button>
-        </div>
+        <form className="mt-3 text-right" onSubmit={props.onSubmit}>
+            <textarea type="text" className="form-control" value={props.value} onChange={props.onChange}></textarea>
+            <button type="submit" className="mt-2 btn btn-primary">Post</button>
+        </form>
     )
 }
 
