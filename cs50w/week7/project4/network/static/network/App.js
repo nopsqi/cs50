@@ -47,7 +47,7 @@ const App = () => {
         const api = new URL(state.api.href)
         api.searchParams.set('following', true)
         setState({
-            ...stae,
+            ...state,
             api:api
         })
     }
