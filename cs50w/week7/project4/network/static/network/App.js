@@ -61,7 +61,7 @@ const App = () => {
             <h1>APP HOLDER</h1>
             <NewPost onClick={addPost} />
             <Posts posts={state.posts} onClick={deletePost}/>
-            <Paginator />
+            <Paginator pages={state.pages} page={state.page}/>
         </div>
     )
 }
@@ -96,15 +96,15 @@ const Post = (props) => {
     )
 }
 
-const Paginator = () => {
+const Paginator = (props) => {
     return (
         <div>
             <h2>PAGINATOR HOLDER</h2>
             <nav className="mt-3" aria-label="Post navigaioon">
                 <ul className="pagination justify-content-end">
-                    {Array.from({length: state.pages}, (_, i) => i + 1).map((item) => (
-                        <li key={item} className={`page-item ${item === state.page ? 'active' : ''}`}>
-                            <a className="page-link" href="" onClick={state.onClick}>{item}</a>
+                    {Array.from({length: props.pages}, (_, i) => i + 1).map((item) => (
+                        <li key={item} className={`page-item ${item === props.page ? 'active' : ''}`}>
+                            <a className="page-link" href="" onClick={props.onClick}>{item}</a>
                         </li>
                     ))}
                 </ul>
