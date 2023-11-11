@@ -131,6 +131,9 @@ const Post = (props) => {
 
     const switchLike = (e) => {
         e.preventDefault()
+        fetch('/api/post', {
+            method: "po
+        })
         setState({
             ...state,
             like: !state.like,
