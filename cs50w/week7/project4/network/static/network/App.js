@@ -64,6 +64,7 @@ const App = () => {
     const deletePost = (e, id) => {
         e.preventDefault()
         $('#deleteConfirmationModal').modal('show')
+        console.log(state)
         // fetch('/api/post', {
         //     method: 'DELETE',
         //     body: JSON.stringify({
@@ -248,13 +249,13 @@ const DeleteConfirmationModal = (props) => {
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 className="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div className="modal-body">
-                        ...
+                        Are you sure you want to delete the post?
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={(e) => props.getDeleteConfirmation(e, false)}>Close</button>
