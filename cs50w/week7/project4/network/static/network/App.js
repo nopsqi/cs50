@@ -77,6 +77,11 @@ const App = () => {
         })
     }
 
+    const editPost = (e) => {
+        e.preventDefault()
+        console.log(e)
+    }
+
     const updateNewPost = (e) => {
         setState({
             ...state,
@@ -104,7 +109,7 @@ const App = () => {
         <div>
             <Modal />
             <NewPost onSubmit={addPost} onChange={updateNewPost}/>
-            <Posts posts={state.posts} onClick={deletePost} />
+            <Posts posts={state.posts} deletePost={deletePost} editPost={editPost}/>
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
     )
@@ -123,7 +128,7 @@ const Posts = (props) => {
     return (
         <div>
             {props.posts.map((post, index) => (
-                <Post key={index} {...post} onClick={props.onClick} deletePost={props.deletePost} editPost={editPost}/>
+                <Post key={index} {...post} deletePost={props.deletePost} editPost={props.editPost}/>
             ))}
         </div>
     )
