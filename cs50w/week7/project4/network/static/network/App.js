@@ -296,7 +296,7 @@ const EditModal = (props) => {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" onClick={props.editPost} class="btn btn-primary">Edit</button>
+                        <button type="button" onClick={props.editPost} class="btn btn-primary" data-toggle="modal" data-terget="#editModal">Edit</button>
                     </div>
                 </div>
             </div>
