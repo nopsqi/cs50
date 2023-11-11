@@ -63,6 +63,8 @@ const App = () => {
     }
 
     const deletePost = (e, id) => {
+        e.preventDefault()
+        console.log(id)
         fetch('/api/post', {
             method: 'DELETE',
             body: JSON.stringify({
