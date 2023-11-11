@@ -149,7 +149,7 @@ class api:
             else:
                 post.likes.remove(request.user)
 
-            return JsonResponse({"message": "Post like edited"}, status=201)
+            return JsonResponse(post.serialize(), safe=False)
 
         return JsonResponse({"error": "Invalid operation"}, status=400)
 
