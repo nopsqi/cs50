@@ -61,8 +61,8 @@ const App = () => {
         })
     }
 
-    const getDeleteId = (e, id) => {
-        
+    const getParamsToState = (e, params, key) => {
+        console.log(key, params, e)
     }
 
     const deletePost = (e) => {
@@ -118,7 +118,7 @@ const App = () => {
         <div>
             <DeleteConfirmationModal deletePost={deletePost} />
             <NewPost onSubmit={addPost} onChange={updateNewPost}/>
-            <Posts posts={state.posts} deleteClick={getDeleteId} editClick={getEditId}/>
+            <Posts posts={state.posts} deleteClick={getParamsToState} editClick={getParams}/>
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
     )
@@ -217,8 +217,8 @@ const Dropdown = (props) => {
         <div className="dropdown ml-3">
             <a href="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: icon }} />
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="" onClick={props.deleteClick} data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
-                <a className="dropdown-item" href="" onClick={props.editClick} data-toggle="modal" data-target="#editModal">Edit</a>
+                <a className="dropdown-item" href="" onClick={(e) => {props.deleteClick(e, props.id, "deleteId")}} data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
+                <a className="dropdown-item" href="" onClick={(e) => {props.editClick(e, props.id, "editId")}} data-toggle="modal" data-target="#editModal">Edit</a>
             </div>
         </div>
     )
