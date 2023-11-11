@@ -5,6 +5,7 @@ const App = () => {
         loading: true,
         confirmation: false,
         newPostValue: "",
+        editPostValue: ""
     })
 
     React.useEffect(() => {
@@ -120,7 +121,7 @@ const App = () => {
     return (
         <div>
             <DeleteConfirmationModal deletePost={deletePost} />
-            <EditModal editPost={editPost} />
+            <EditModal editPost={editPost} onChange={getParamsToState} value={state.editPostValue}/>
             <NewPost onSubmit={addPost} onChange={updateNewPost} />
             <Posts posts={state.posts} deleteClick={getParamsToState} editClick={getParamsToState} />
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
@@ -282,13 +283,13 @@ const EditModal = (props) => {
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <textarea class="form-control" id="message-text"></textarea>
+                                <textarea class="form-control" id="message-text" onChange={(e) => props.onChange(e, e.target.value, "editPostValue")} value={props.value}></textarea>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Edit</button>
+                        <button type="button" onClick={props.editPost} class="btn btn-primary">Edit</button>
                     </div>
                 </div>
             </div>
