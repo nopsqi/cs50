@@ -13,7 +13,7 @@ const App = () => {
         fetch(state.api)
         .then(response => {
             console.log("fetching", state.api.href)
-            if (response.status == 200) {
+            if (response.status === 200) {
                 response.json()
                 .then(result => {
                     setState({
@@ -22,11 +22,12 @@ const App = () => {
                         ...result,
                     })
                 })
-            } else {
-                console.log(result)
+            }
+            else if (response.status === 404) {
+                res
             }
         })
-    }, [])
+    }, [state.api])
 
     console.log(state)
 
@@ -47,23 +48,9 @@ const App = () => {
         return (<div></div>)
     }
 
-    const changeURL = () => {
-        let page = parseInt(state.api.searchParams.get('page'))
-        // const api = new URL(state.api.href)
-        const api = state.api
-        api.searchParams.set('page', page + 1)
-        setState({
-            ...state,
-            api: api
-        })
-
-    }
-
     return (
         <div>
             <h1>APP HOLDER</h1>
-            <h2>{state.api.href}</h2>
-            <button onClick={changeURL}>Change URL</button>
             <NewPost onClick={addPost} />
             <Posts posts={state.posts} onClick={deletePost}/>
             <Paginator />
