@@ -52,6 +52,11 @@ const App = () => {
         })
     }
 
+    const goToPage = (e) => {
+        e.preventDefault()
+        console.log(e)
+    }
+
     if (state.loading) {
         return (<div></div>)
     }
@@ -60,8 +65,8 @@ const App = () => {
         <div>
             <h1>APP HOLDER</h1>
             <NewPost onClick={addPost} />
-            <Posts posts={state.posts} onClick={deletePost}/>
-            <Paginator pages={state.pages} page={state.page}/>
+            <Posts posts={state.posts} onClick={deletePost} />
+            <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
     )
 }
