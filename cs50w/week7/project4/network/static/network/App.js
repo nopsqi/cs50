@@ -19,7 +19,6 @@ const App = () => {
     const fetchPosts = (api) => {
         fetch(api)
         .then(response => {
-            console.log("fetching", state.api.href)
             if (response.status === 200) {
                 response.json()
                 .then(result => {
@@ -64,7 +63,6 @@ const App = () => {
 
     const deletePost = (e, id) => {
         e.preventDefault()
-        console.log(id)
         fetch('/api/post', {
             method: 'DELETE',
             body: JSON.stringify({
@@ -75,7 +73,7 @@ const App = () => {
             if (response.status == 200) {
                 response.json()
                 .then(result => {
-                    setStatus({
+                    setState({
                         ...state,
                         fetch: !state.fetch
                     })
