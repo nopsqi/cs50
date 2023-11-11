@@ -48,6 +48,7 @@ const App = () => {
 
     const deletePost = (e) => {
         setState({
+            ...state,
             posts: state.posts.filter((item, index) => item.id !== parseInt(e.target.parentElement.childNodes[1].innerHTML))
         })
     }
@@ -55,7 +56,7 @@ const App = () => {
     const goToPage = (e) => {
         e.preventDefault()
         console.log(e.target)
-        const api = state.api
+        const api = new URL(state.api.href)
         api.searchParams.set('page', parseInt(e.target.innerHTML))
         setState({
             ...state,
@@ -71,9 +72,10 @@ const App = () => {
     return (
         <div>
             <h1>APP HOLDER</h1>
+            <h2>{state.api.href}</h2>
             <NewPost onClick={addPost} />
             <Posts posts={state.posts} onClick={deletePost} />
-            {/* <Paginator pages={state.pages} page={state.page} onClick={goToPage} /> */}
+            <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
     )
 }
