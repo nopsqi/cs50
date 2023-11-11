@@ -48,7 +48,9 @@ const App = () => {
         return (<div></div>)
     }
 
-    
+    const changeURL = () => {
+        let api = new URL(state.api)
+    }
 
     return (
         <div>
