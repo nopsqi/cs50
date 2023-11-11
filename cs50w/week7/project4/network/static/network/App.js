@@ -259,8 +259,10 @@ const DeleteConfirmationModal = (props) => {
                         Are you sure you want to delete the post?
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={(e) => props.getDeleteConfirmation(e, false)}>Close</button>
-                        <button type="button" className="btn btn-danger" onClick={(e) => props.getDeleteConfirmation(e, true)}>Delete</button>
+                        {/* <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={(e) => props.getDeleteConfirmation(e, false)}>Close</button>
+                        <button type="button" className="btn btn-danger" onClick={(e) => props.getDeleteConfirmation(e, true)}>Delete</button> */}
+                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" className="btn btn-danger">Delete</button>
                     </div>
                 </div>
             </div>
