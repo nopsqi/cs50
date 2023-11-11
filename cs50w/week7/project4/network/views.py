@@ -129,28 +129,28 @@ class api:
             post.save()
             return JsonResponse(post.serialize(), safe=False)
 
-        if request.method == "DELETE" and id:
-            try:
-                post = Post.objects.get(id=id)
-            except Post.DoesNotExist:
-                return JsonResponse({"error": "Post doesn't exist"}, status=404)
+        if not id:
+            return JsonResponse({"error": "Post id required"}, status=401)
+
+        try:
+            post = Post.objects.get(id=id)
+        except Post.DoesNotExist:
+            return JsonResponse({"error": "Post doesn't exist"}, status=404)
+
+        if request.method == "DELETE":
             serialize = post.serialize()
             post.delete()
-
             return JsonResponse(serialize, safe=False)
 
-        if request.method == "PUT" and id and like is not None:
-            try:
-                post = Post.objects.get(id=id)
-            except Post.DoesNotExist:
-                return JsonResponse({"error": "Post doesn't exist"}, status=404)
-
+        if request.method == "PUT" and like is not None:
             if like:
                 post.likes.add(request.user)
             else:
                 post.likes.remove(request.user)
-
             return JsonResponse(post.serialize(), safe=False)
+
+        if request.method == "PUT" and content:
+            if 
 
         return JsonResponse({"error": "Invalid operation"}, status=400)
 
