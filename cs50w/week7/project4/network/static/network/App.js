@@ -33,10 +33,10 @@ const App = () => {
     }
 
     const deletePost = (e) => {
-        console.log(e)
-        // setState({
-        //     posts: state.posts.filter((item, index) => item.id === e)
-        // })
+        // console.log(e.target.parentElement.childNodes[1].innerHTML)
+        setState({
+            posts: state.posts.filter((item, index) => item.id !== parseInt(e.target.parentElement.childNodes[1].innerHTML))
+        })
     }
 
     if (state.loading) {
