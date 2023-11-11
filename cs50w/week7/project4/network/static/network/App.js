@@ -181,13 +181,13 @@ const Post = (props) => {
         <div className="card mt-2">
             <div className="card-body">
                 <div className="row">
-                    <div className="col-md-2">
+                    <div className="col-md-4">
                         <div className="d-flex">
                             <a href={`${document.location.origin}/${props.username}`} className="text-card">{props.username}</a>
                             <div className="text-card text-muted ml-1">{props.modified}</div>
                         </div>
                     </div>
-                    <div classname="col-md-auto"></div>
+                    <div className="col"></div>
                     <div className="col-md-1 text-right">
                         <Dropdown id={props.id} deletePost={props.deletePost} editPost={props.editPost} />
                     </div>
