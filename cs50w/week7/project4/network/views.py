@@ -143,6 +143,7 @@ class api:
             except Post.DoesNotExist:
                 return JsonResponse({"error": "Post doesn't exist"}, status=404)
 
+            print(type(like))
             if like:
                 post.likes.add(request.user)
             else:
