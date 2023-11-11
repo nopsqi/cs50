@@ -62,11 +62,11 @@ const App = () => {
         })
     }
 
-    const deletePost = (e) => {
+    const deletePost = (e, id) => {
         fetch('/api/post', {
             method: 'DELETE',
             body: JSON.stringify({
-                id: parseInt(e.target.parentElement.childNodes[1].innerHTML)
+                id: parseInt(id)
             })
         })
         .then(response => {
