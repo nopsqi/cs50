@@ -62,10 +62,10 @@ const App = () => {
             })
     }
 
-    const getParamsToState = (e, params, key) => {
+    const getParamsToState = (e, obj) => {
         setState({
             ...state,
-            [key]: params
+            ...obj
         })
     }
 
