@@ -175,11 +175,9 @@ const Post = (props) => {
                     <div className="text-card text-muted ml-1">{props.modified}</div>
                 </div>
                 <div className="text-card">{props.content}</div>
-                <div className="row">
-                    <div className="col-md-2">
-                    </div>
+                <div className="d-flex">
                     <div className="col-md-auto d-flex align-items-center">
-                        <a href="" className="text-card d-flex ml-5" onClick={switchLike} dangerouslySetInnerHTML={{ __html: state.like ? heart.after : heart.before }} />
+                        <a href="" className="text-card d-flex" onClick={switchLike} dangerouslySetInnerHTML={{ __html: state.like ? heart.after : heart.before }} />
                         <div className="text-card ml-2">{state.likes_length}</div>
                     </div>
                 </div>
