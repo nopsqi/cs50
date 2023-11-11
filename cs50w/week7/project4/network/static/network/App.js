@@ -146,13 +146,6 @@ const App = () => {
         })
     }
 
-    const updateNewPost = (e) => {
-        setState({
-            ...state,
-            newPostValue: e.target.value
-        })
-    }
-
     const goToPage = (e) => {
         e.preventDefault()
         const api = new URL(state.api.href)
@@ -174,7 +167,7 @@ const App = () => {
             <DeleteConfirmationModal deletePost={deletePost} />
             <EditModal editPost={editPost} onChange={getParamsToState} value={state.editPostValue}/>
             <NewPost onSubmit={addPost} onChange={getParamsToState} />
-            <Posts posts={state.posts} deleteClick={getParamsToState} editClick={getParamsToState} />
+            <Posts myUsername={state.myUsername} posts={state.posts} deleteClick={getParamsToState} editClick={getParamsToState} />
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
     )
@@ -195,7 +188,7 @@ const Posts = (props) => {
     return (
         <div>
             {props.posts.map((post, index) => (
-                <Post key={index} {...post} deleteClick={props.deleteClick} editClick={props.editClick} />
+                <Post myUsername={props.myUsername} key={index} {...post} deleteClick={props.deleteClick} editClick={props.editClick} />
             ))}
         </div>
     )
@@ -251,7 +244,13 @@ const Post = (props) => {
                     </div>
                     <div className="col"></div>
                     <div className="col-md-1 text-right">
-                        <Dropdown id={props.id} content={props.content} deleteClick={props.deleteClick} editClick={props.editClick} />
+                        {
+                            props.myUsername === props.username
+                            ?
+                            <Dropdown id={props.id} content={props.content} deleteClick={props.deleteClick} editClick={props.editClick} />
+                            :
+                            ''
+                        }
                     </div>
                 </div>
                 <div className="text-card">{props.content}</div>
