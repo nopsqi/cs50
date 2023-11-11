@@ -30,7 +30,6 @@ const App = () => {
                         ...state,
                         myUsername: result.username
                     })
-                    console.log(state)
                 })
             }
         })
