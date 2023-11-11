@@ -92,7 +92,19 @@ const App = () => {
 
     const editPost = (e) => {
         e.preventDefault()
-        console.log(state)
+        fetch('/api/post', {
+            method: 'PUT',
+            id: state.editId,
+            content: state.editPostValue
+        })
+        .then(response => {
+            if (response.status === 200) {
+                setState({
+                    ...state,
+                    fetch: !state.fetch
+                })
+            }
+        })
     }
 
     const updateNewPost = (e) => {
