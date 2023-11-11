@@ -1,6 +1,7 @@
 const App = () => {
     const [state, setState] = React.useState({
         api: new URL(document.getElementById('App').dataset.api, document.location.origin),
+        fetch: true,
         loading: true,
     })
 
@@ -11,7 +12,7 @@ const App = () => {
         })
 
         fetchPosts(state.api)
-    }, [state.api])
+    }, [state.api, state.fetch])
 
     const fetchPosts = (api) => {
         fetch(api)
@@ -54,6 +55,10 @@ const App = () => {
             body: JSON.stringify({
                 id: parseInt(e.target.parentElement.childNodes[1].innerHTML)
             })
+        })
+        .then(response => {
+            response.json()
+            .then(result => console.log(result))
         })
     }
 
