@@ -61,25 +61,29 @@ const App = () => {
         })
     }
 
-    const deletePost = (e, id) => {
+    const getDeleteId = (e, id) => {
+        
+    }
+
+    const deletePost = (e) => {
         e.preventDefault()
-        fetch('/api/post', {
-            method: 'DELETE',
-            body: JSON.stringify({
-                id: parseInt(id)
-            })
-        })
-        .then(response => {
-            if (response.status == 200) {
-                response.json()
-                .then(result => {
-                    setState({
-                        ...state,
-                        fetch: !state.fetch
-                    })
-                })
-            }
-        })
+        // fetch('/api/post', {
+        //     method: 'DELETE',
+        //     body: JSON.stringify({
+        //         id: state.deleteId
+        //     })
+        // })
+        // .then(response => {
+        //     if (response.status == 200) {
+        //         response.json()
+        //         .then(result => {
+        //             setState({
+        //                 ...state,
+        //                 fetch: !state.fetch
+        //             })
+        //         })
+        //     }
+        // })
     }
 
     const editPost = (e, id) => {
