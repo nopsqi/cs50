@@ -159,7 +159,10 @@ const Post = (props) => {
             })
             .then(response => {
                 if (response.status === 200) {
-                    console.log()
+                    response.json()
+                    .then(result => {
+                        console.log(result)
+                    })
                 }
             })
         })
