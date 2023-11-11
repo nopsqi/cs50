@@ -107,7 +107,6 @@ const NewPost = (props) => {
 const Posts = (props) => {
     return (
         <div>
-            <h2>POSTS HOLDER</h2>
             {props.posts.map((post, index) => (
                 <Post key={index} {...post} onClick={props.onClick}/>
             ))}
@@ -161,7 +160,6 @@ const Post = (props) => {
 const Paginator = (props) => {
     return (
         <div>
-            <h2>PAGINATOR HOLDER</h2>
             <nav className="mt-3" aria-label="Post navigaioon">
                 <ul className="pagination justify-content-end">
                     {Array.from({length: props.pages}, (_, i) => i + 1).map((item) => (
