@@ -49,7 +49,9 @@ const App = () => {
     }
 
     const changeURL = () => {
-        let api = new URL(state.api)
+        let page = state.api.
+        const api = new URL(state.api.href)
+
     }
 
     return (
