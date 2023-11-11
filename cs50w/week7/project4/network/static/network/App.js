@@ -82,6 +82,11 @@ const App = () => {
         })
     }
 
+    const getDeleteConfirmation = (e, result) => {
+        console.log(e.target)
+        console.log(result)
+    }
+
     const editPost = (e, id) => {
         e.preventDefault()
         console.log(id)
@@ -114,7 +119,7 @@ const App = () => {
         <div>
             <DeleteConfirmationModal />
             <NewPost onSubmit={addPost} onChange={updateNewPost}/>
-            <Posts posts={state.posts} deletePost={deletePost} editPost={editPost}/>
+            <Posts getDeleteConfimation={getDeleteConfirmation} posts={state.posts} deletePost={deletePost} editPost={editPost}/>
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
     )
@@ -133,7 +138,7 @@ const Posts = (props) => {
     return (
         <div>
             {props.posts.map((post, index) => (
-                <Post key={index} {...post} deletePost={props.deletePost} editPost={props.editPost}/>
+                <Post key={index} {...post} getDeleteConfirmation={props.getDeleteConfirmation} deletePost={props.deletePost} editPost={props.editPost}/>
             ))}
         </div>
     )
@@ -189,7 +194,7 @@ const Post = (props) => {
                     </div>
                     <div className="col"></div>
                     <div className="col-md-1 text-right">
-                        <Dropdown id={props.id} deletePost={props.deletePost} editPost={props.editPost} />
+                        <Dropdown id={props.id} getDeleteConfirmation={props.getDeleteConfirmation} deletePost={props.deletePost} editPost={props.editPost} />
                     </div>
                 </div>
                 <div className="text-card">{props.content}</div>
@@ -251,7 +256,7 @@ const DeleteConfirmationModal = (props) => {
                         ...
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={}>Close</button>
+                        <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={(e) => props.getDeleteConfirmation(e, false)}>Close</button>
                         <button type="button" className="btn btn-danger" onClick={(e) => props.getDeleteConfirmation(e, true)}>Delete</button>
                     </div>
                 </div>
