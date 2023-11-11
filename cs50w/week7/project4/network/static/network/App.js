@@ -5,6 +5,7 @@ const App = () => {
     })
 
     React.useEffect(() => {
+        console.log(e)
         setState({
             ...state,
             loading: true
