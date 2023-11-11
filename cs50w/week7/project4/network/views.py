@@ -123,6 +123,7 @@ class api:
         id = body.get("id")
         like = body.get("like")
         content = body.get("content")
+
         if request.method == "POST" and content:
             post = Post(user=request.user, content=content)
             post.save()
