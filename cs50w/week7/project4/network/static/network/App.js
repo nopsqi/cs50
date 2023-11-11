@@ -81,7 +81,7 @@ const App = () => {
     return (
         <div>
             <h1>APP HOLDER</h1>
-            <Modal />>
+            <Modal />
             <NewPost onClick={addPost} />
             <Posts posts={state.posts} onClick={deletePost} />
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
@@ -114,7 +114,7 @@ const Post = (props) => {
         <div>
             <h3>POST HOLDER</h3>
             <div>{props.id}</div>
-            <button onClick={props.onClick}>Delete</button>
+            <button onClick={props.onClick} data-toggle="modal" data-target="#staticBackdrop">Delete</button>
         </div>
     )
 }
