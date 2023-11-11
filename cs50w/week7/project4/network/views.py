@@ -134,9 +134,9 @@ class api:
                 post = Post.objects.get(id=id)
             except Post.DoesNotExist:
                 return JsonResponse({"error": "Post doesn't exist"}, status=404)
-            # post.delete()
+            post.delete()
 
-            return JsonResponse({"message": "Post deleted"}, status=201)
+            return JsonResponse(post.serialize(), safe=False)
 
         if request.method == "PUT" and id and like is not None:
             try:
