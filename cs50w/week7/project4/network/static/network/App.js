@@ -94,8 +94,10 @@ const App = () => {
         e.preventDefault()
         fetch('/api/post', {
             method: 'PUT',
-            id: state.editId,
-            content: state.editPostValue
+            body: JSON.stringify({
+                id: state.editId,
+                content: state.editPostValue
+            })
         })
         .then(response => {
             if (response.status === 200) {
