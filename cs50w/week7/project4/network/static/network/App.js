@@ -69,7 +69,7 @@ const App = () => {
     const updateNewPost = (e) => {
         setState({
             ...state,
-            newPostValue: e.
+            newPostValue: e.target.value
         })
     }
 
@@ -145,8 +145,6 @@ const Post = (props) => {
                 like: !state.like
             })
         })
-        .then(response => response.json())
-        .then(result => console.log(result))
     }
 
     return (
