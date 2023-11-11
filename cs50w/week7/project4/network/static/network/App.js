@@ -120,6 +120,7 @@ const App = () => {
     return (
         <div>
             <DeleteConfirmationModal deletePost={deletePost} />
+            <EditModal editPost={editPost} />
             <NewPost onSubmit={addPost} onChange={updateNewPost} />
             <Posts posts={state.posts} deleteClick={getParamsToState} editClick={getParamsToState} />
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
@@ -269,7 +270,7 @@ const DeleteConfirmationModal = (props) => {
 
 const EditModal = (props) => {
     return (
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -281,11 +282,7 @@ const EditModal = (props) => {
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                            </div>
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Message:</label>
+                                <label for="message-text" class="col-form-label">Post:</label>
                                 <textarea class="form-control" id="message-text"></textarea>
                             </div>
                         </form>
