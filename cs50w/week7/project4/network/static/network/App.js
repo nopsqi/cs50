@@ -45,10 +45,7 @@ const App = () => {
     }
 
     const addPost = (e) => {
-        // setState({
-        //     ...state,
-        //     posts: [...state.posts, {id: 17}]
-        // })
+        e.preventDefault()
         fetch('/api/post', {
             method: 'POST',
             body: JSON.stringify({
@@ -57,7 +54,10 @@ const App = () => {
         })
         .then(response => {
             if (response.status === 200) {
-                setState()
+                setState({
+                    ...state,
+                    fetch: !state.fetch
+                })
             }
         })
     }
