@@ -223,7 +223,7 @@ const Dropdown = (props) => {
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 {/* <a className="dropdown-item" href="" onClick={(e) => props.deletePost(e, props.id)}>Delete</a> */}
                 <a className="dropdown-item" href="" data-id={props.id}data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
-                <a className="dropdown-item" href="" onClick={(e) => props.editPost(e, props.id)}>Edit</a>
+                <a className="dropdown-item" href="" data-toggle="modal" data-target="#editModal">Edit</a>
             </div>
         </div>
     )
