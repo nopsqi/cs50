@@ -24,8 +24,10 @@ const App = () => {
         fetch('/api/user')
         .then(response => {
             if (response.status === 200) {
+                console.log(response)
                 response.json()
                 .then(result => {
+                    console.log(result)
                     setState({
                         ...state,
                         myUsername: result.username
@@ -34,6 +36,7 @@ const App = () => {
             }
         })
     }, [])
+    console.log(state)
 
     React.useEffect(() => {
         setState({
