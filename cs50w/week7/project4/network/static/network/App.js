@@ -73,7 +73,7 @@ const App = () => {
             <h1>APP HOLDER</h1>
             <NewPost onClick={addPost} />
             <Posts posts={state.posts} onClick={deletePost} />
-            <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
+            {/* <Paginator pages={state.pages} page={state.page} onClick={goToPage} /> */}
         </div>
     )
 }
