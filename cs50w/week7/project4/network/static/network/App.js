@@ -92,22 +92,21 @@ const App = () => {
 
     const editPost = (e) => {
         e.preventDefault()
-        console.log(e)
-        // fetch('/api/post', {
-        //     method: 'PUT',
-        //     body: JSON.stringify({
-        //         id: state.editId,
-        //         content: state.editPostValue
-        //     })
-        // })
-        // .then(response => {
-        //     if (response.status === 200) {
-        //         setState({
-        //             ...state,
-        //             fetch: !state.fetch
-        //         })
-        //     }
-        // })
+        fetch('/api/post', {
+            method: 'PUT',
+            body: JSON.stringify({
+                id: state.editId,
+                content: state.editPostValue
+            })
+        })
+        .then(response => {
+            if (response.status === 200) {
+                setState({
+                    ...state,
+                    fetch: !state.fetch
+                })
+            }
+        })
     }
 
     const updateNewPost = (e) => {
@@ -137,7 +136,7 @@ const App = () => {
         <div>
             <DeleteConfirmationModal deletePost={deletePost} />
             <EditModal editPost={editPost} onChange={getParamsToState} value={state.editPostValue}/>
-            <NewPost onSubmit={addPost} onChange={updateNewPost} />
+            <NewPost onSubmit={addPost} onChange={getParamsToState} />
             <Posts posts={state.posts} deleteClick={getParamsToState} editClick={getParamsToState} />
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
@@ -311,7 +310,7 @@ const EditModal = (props) => {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" onClick={props.editPost} class="btn btn-primary" data-toggle="modal" data-terget="#editModal">Edit</button>
+                        <button type="button" onClick={props.editPost} class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
                     </div>
                 </div>
             </div>
