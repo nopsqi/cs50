@@ -99,7 +99,7 @@ class api:
         except ValueError:
             return JsonResponse({"eror": "Page must be a number."}, status=400)
         except EmptyPage:
-            return JsonResponse({"error": "Page not found"}, status=404)
+            return JsonResponse({"error": "Page not found", "pages": len(pages.page_range)}, status=404)
 
 
         posts = [post.serialize() for post in posts]
