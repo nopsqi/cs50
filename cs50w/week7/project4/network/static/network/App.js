@@ -290,7 +290,7 @@ const EditModal = (props) => {
                             <div class="form-group">
                                 <textarea class="form-control" id="message-text" onChange={(e) => props.onChange(e, {
                                     editPostValue: e.target.value
-                                })} value={props.value}></textarea>
+                                })} value={props.value} rows="5"></textarea>
                             </div>
                         </form>
                     </div>
