@@ -12,7 +12,7 @@ const App = () => {
 
         fetch(state.api)
         .then(response => {
-            console.log("fetching", state.api)
+            console.log("fetching", state.api.href)
             if (response.status === 200) {
                 response.json()
                 .then(result => {
@@ -37,8 +37,6 @@ const App = () => {
         })
     }, [state.api])
 
-    console.log(state)
-
     const addPost = (e) => {
         setState({
             ...state,
@@ -61,7 +59,6 @@ const App = () => {
             ...state,
             api: api
         })
-        console.log("state", state.api.href)
     }
 
     if (state.loading) {
