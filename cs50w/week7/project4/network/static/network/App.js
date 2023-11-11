@@ -79,7 +79,7 @@ const App = () => {
 
     const editPost = (e) => {
         e.preventDefault()
-        console.log(e)
+        console.log(e.target.parentElement)
     }
 
     const updateNewPost = (e) => {
