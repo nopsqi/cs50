@@ -117,7 +117,8 @@ const Posts = (props) => {
 
 const Post = (props) => {
     const [state, setState] = React.useState({
-        like: props.like
+        like: props.like,
+        like_length: props.likes.length
     })
 
     const heart = {
@@ -134,7 +135,7 @@ const Post = (props) => {
         setState({
             ...state,
             like: !state.like,
-            like_count: state.like ? state.like_count - 1 : state.like_count + 1
+            like_length: state.like ? state.like_length - 1 : state.like_length + 1
         })
     }
     return (
