@@ -117,9 +117,9 @@ const App = () => {
 
     return (
         <div>
-            <DeleteConfirmationModal />
+            <DeleteConfirmationModal getDeleteConfirmation={getDeleteConfirmation} />
             <NewPost onSubmit={addPost} onChange={updateNewPost}/>
-            <Posts getDeleteConfimation={getDeleteConfirmation} posts={state.posts} deletePost={deletePost} editPost={editPost}/>
+            <Posts posts={state.posts} deletePost={deletePost} editPost={editPost}/>
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
     )
@@ -138,7 +138,7 @@ const Posts = (props) => {
     return (
         <div>
             {props.posts.map((post, index) => (
-                <Post key={index} {...post} getDeleteConfirmation={props.getDeleteConfirmation} deletePost={props.deletePost} editPost={props.editPost}/>
+                <Post key={index} {...post} deletePost={props.deletePost} editPost={props.editPost}/>
             ))}
         </div>
     )
@@ -194,7 +194,7 @@ const Post = (props) => {
                     </div>
                     <div className="col"></div>
                     <div className="col-md-1 text-right">
-                        <Dropdown id={props.id} getDeleteConfirmation={props.getDeleteConfirmation} deletePost={props.deletePost} editPost={props.editPost} />
+                        <Dropdown id={props.id} deletePost={props.deletePost} editPost={props.editPost} />
                     </div>
                 </div>
                 <div className="text-card">{props.content}</div>
