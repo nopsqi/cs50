@@ -137,9 +137,10 @@ class api:
         except Post.DoesNotExist:
             return JsonResponse({"error": "Post doesn't exist"}, status=404)
 
+        if post.user != request.user:
+            return JsonResponse({"error": "Unaothorize action"}, status=400)
+
         if request.method == "DELETE":
-            if post.user != request.user:
-                return JsonResponse({"error": "Unaothorize action"}, status=400)
             serialize = post.serialize()
             post.delete()
             return JsonResponse(serialize, safe=False)
