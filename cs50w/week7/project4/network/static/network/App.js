@@ -64,7 +64,7 @@ const App = () => {
     const getParamsToState = (e, params, key) => {
         setState({
             ...state,
-            key: params
+            `${key}`: params
         })
     }
 
