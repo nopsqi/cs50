@@ -86,7 +86,7 @@ const App = () => {
         console.log(e)
     }
 
-    $('#deleteConfirmationModal').on('show.bs.modal', function (e) {
+    $('#deleteConfirmationModal').on('shown.bs.modal', function (e) {
         console.log(e)
     })
 
@@ -222,8 +222,8 @@ const Dropdown = (props) => {
             <a href="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: icon }} />
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 {/* <a className="dropdown-item" href="" onClick={(e) => props.deletePost(e, props.id)}>Delete</a> */}
-                <a className="dropdown-item" href="" onClik={(e) => {
-                    e.prevent()
+                <a className="dropdown-item" href="" onClick={(e) => {
+                    e.preventDefault()
                     $('#deleteConfirmationModal').modal('show')
                 }}>Delete</a>
                 <a className="dropdown-item" href="" onClick={(e) => props.editPost(e, props.id)}>Edit</a>
