@@ -63,23 +63,24 @@ const App = () => {
 
     const deletePost = (e, id) => {
         e.preventDefault()
-        fetch('/api/post', {
-            method: 'DELETE',
-            body: JSON.stringify({
-                id: parseInt(id)
-            })
-        })
-        .then(response => {
-            if (response.status == 200) {
-                response.json()
-                .then(result => {
-                    setState({
-                        ...state,
-                        fetch: !state.fetch
-                    })
-                })
-            }
-        })
+        $('#deleteConfirmationModal').modal('show')
+        // fetch('/api/post', {
+        //     method: 'DELETE',
+        //     body: JSON.stringify({
+        //         id: parseInt(id)
+        //     })
+        // })
+        // .then(response => {
+        //     if (response.status == 200) {
+        //         response.json()
+        //         .then(result => {
+        //             setState({
+        //                 ...state,
+        //                 fetch: !state.fetch
+        //             })
+        //         })
+        //     }
+        // })
     }
 
     const getDeleteConfirmation = (e, result) => {
@@ -243,7 +244,7 @@ const Paginator = (props) => {
 
 const DeleteConfirmationModal = (props) => {
     return (
-        <div className="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+        <div className="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModal" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
