@@ -27,11 +27,15 @@ const App = () => {
 
     console.log(state)
 
-    const addPost = () => {
+    const addPost = (e) => {
         setState({
             ...state,
             posts: [...state.posts, {}]
         })
+    }
+
+    const deletePost = (e) => {
+        setState
     }
 
     if (state.loading) {
