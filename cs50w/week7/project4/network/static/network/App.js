@@ -166,7 +166,7 @@ const Post = (props) => {
                 <a href={`${document.location.origin}/${props.username}`} className="text-card">{props.username}</a>
                 <div className="text-card">{props.content}</div>
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-2">
                         <div className="text-card text-muted">{props.modified}</div>
                     </div>
                     <div className="col-md-auto d-flex align-items-center">
@@ -176,6 +176,21 @@ const Post = (props) => {
                 </div>
             </div>
         </div>
+    )
+}
+
+const Dropdown = (props) => {
+    return (
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
     )
 }
 
