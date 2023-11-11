@@ -49,7 +49,8 @@ const App = () => {
 
     const changeURL = () => {
         let page = parseInt(state.api.searchParams.get('page'))
-        const api = new URL(state.api.href)
+        // const api = new URL(state.api.href)
+        const api = state.api
         api.searchParams.set('page', page + 1)
         setState({
             ...state,
