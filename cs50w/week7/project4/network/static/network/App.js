@@ -91,22 +91,21 @@ const App = () => {
     }
 
     const editPost = (e) => {
-        e.preventDefault()
-        fetch('/api/post', {
-            method: 'PUT',
-            body: JSON.stringify({
-                id: state.editId,
-                content: state.editPostValue
-            })
-        })
-        .then(response => {
-            if (response.status === 200) {
-                setState({
-                    ...state,
-                    fetch: !state.fetch
-                })
-            }
-        })
+        // fetch('/api/post', {
+        //     method: 'PUT',
+        //     body: JSON.stringify({
+        //         id: state.editId,
+        //         content: state.editPostValue
+        //     })
+        // })
+        // .then(response => {
+        //     if (response.status === 200) {
+        //         setState({
+        //             ...state,
+        //             fetch: !state.fetch
+        //         })
+        //     }
+        // })
     }
 
     const updateNewPost = (e) => {
