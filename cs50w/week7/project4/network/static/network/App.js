@@ -90,9 +90,9 @@ const App = () => {
             })
     }
 
-    const editPost = (e, id) => {
+    const editPost = (e) => {
         e.preventDefault()
-        console.log(id)
+        console.log(state)
     }
 
     const updateNewPost = (e) => {
