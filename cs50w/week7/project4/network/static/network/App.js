@@ -31,6 +31,7 @@ const App = () => {
     }, [state.api, state.fetch])
 
     allPostsNav.onclick = (e) => {
+        e.preventDefault()
         e.target.classList.add('active')
         followingNav.classList.remove('active')
         const api = new URL(state.api.href)
@@ -42,6 +43,7 @@ const App = () => {
     }
 
     followingNav.onclick = (e) => {
+        e.preventDefault
         e.target.classList.add('active')
         allPostsNav.classList.remove('active')
         const api = new URL(state.api.href)
