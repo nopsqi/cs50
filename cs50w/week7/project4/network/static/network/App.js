@@ -49,14 +49,11 @@ const App = () => {
     }
 
     const deletePost = (e) => {
-        setState({
-            ...state,
-            posts: state.posts.filter((item, index) => item.id !== parseInt(e.target.parentElement.childNodes[1].innerHTML))
-        })
-
         fetch('/api/post', {
             method: 'DELETE',
-            
+            body: JSON.stringify({
+                id: parseInt(e.target.parentElement.childNodes[1].innerHTML)
+            })
         })
     }
 
