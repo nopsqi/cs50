@@ -120,7 +120,7 @@ const Post = (props) => {
         <div>
             <h3>POST HOLDER</h3>
             <div>{props.id}</div>
-            <button onClick={props.onClick} data-toggle="modal" data-target="#deleteModal">Delete</button>
+            <button onClick={props.onClick}>Delete</button>
         </div>
     )
 }
