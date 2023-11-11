@@ -119,10 +119,18 @@ class api:
         if request.method != "GET":
             return JsonResponse({"error": "POST, DELETE, or PUT request required"}, status=400)
 
-        if (content := json.loads(request.body).get('content')):
+        body = json.loads(request.body)
+        id = body.get("id")
+        content = body.get("content")
+        if request.method == "POST" and content:
             post = Post(user=request.user, content=content)
             post.save()
             return JsonResponse(post.serialize(), safe=False)
+
+        if request.method == "DELETE" and id:
+            try:
+                post = Post.objects.get(id=id)
+                
 
         return JsonResponse({"error": "Post can't be empty"}, status=400)
 
