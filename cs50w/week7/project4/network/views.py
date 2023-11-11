@@ -130,7 +130,7 @@ class api:
             return JsonResponse(post.serialize(), safe=False)
 
         if not id:
-            return JsonResponse({"error": "Post id required"}, status=401)
+            return JsonResponse({"error": "Post id required"}, status=400)
 
         try:
             post = Post.objects.get(id=id)
@@ -150,7 +150,11 @@ class api:
             return JsonResponse(post.serialize(), safe=False)
 
         if request.method == "PUT" and content:
-            if 
+            if content == post.content:
+                return JsonResponse({"error": "Post content is the same"}, status=400)
+            post.content = content
+            post.save()
+            return JsonResponse(post.serialize(), safe=False)
 
         return JsonResponse({"error": "Invalid operation"}, status=400)
 
