@@ -57,8 +57,10 @@ const App = () => {
             })
         })
         .then(response => {
-            response.json()
-            .then(result => console.log(result))
+            if (response == 200) {
+                response.json()
+                .then(result => console.log(result))
+            }
         })
     }
 
