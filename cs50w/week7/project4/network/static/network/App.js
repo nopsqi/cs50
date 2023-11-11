@@ -5,13 +5,12 @@ const App = () => {
     })
 
     React.useEffect(() => {
-        console.log(e)
         setState({
             ...state,
             loading: true
         })
 
-        fetchData(state.api)
+        fetchPosts(state.api)
         // fetch(state.api)
         // .then(response => {
         //     console.log("fetching", state.api.href)
