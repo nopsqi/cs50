@@ -118,7 +118,7 @@ const App = () => {
         <div>
             <DeleteConfirmationModal deletePost={deletePost} />
             <NewPost onSubmit={addPost} onChange={updateNewPost}/>
-            <Posts posts={state.posts} deleteClick={getParamsToState} editClick={getParams}/>
+            <Posts posts={state.posts} deleteClick={getParamsToState} editClick={getParamsToState}/>
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
     )
