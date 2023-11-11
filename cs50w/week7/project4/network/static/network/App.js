@@ -80,7 +80,7 @@ const App = () => {
     }
 
     const toggleModal = () => {
-        $('#deleteModal).modal('show')
+        $('#deleteModal').modal('show')
     }
 
     return (
