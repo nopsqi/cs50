@@ -139,7 +139,7 @@ const Paginator = (props) => {
 
 const Modal = (props) => {
     return (
-        <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+        <div className="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
