@@ -32,7 +32,7 @@ const App = () => {
             else if (response.status === 404) {
                 response.json()
                 .then(result => {
-                    const api = state.api
+                    const api = new URL(state.api.href)
                     api.searchParams.set('page', result.pages)
                     setState({
                         ...state,
@@ -190,7 +190,6 @@ const Post = (props) => {
                         <a href="" className="text-card d-flex" onClick={switchLike} dangerouslySetInnerHTML={{ __html: state.like ? heart.after : heart.before }} />
                         <div className="text-card ml-2">{state.likes_length}</div>
                     </div>
-                    <Dropdown id={props.id} deletePost={props.deletePost} editPost={props.editPost} />
                 </div>
             </div>
         </div>
