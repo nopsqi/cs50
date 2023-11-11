@@ -180,6 +180,7 @@ const Post = (props) => {
                         <a href="" className="text-card d-flex" onClick={switchLike} dangerouslySetInnerHTML={{ __html: state.like ? heart.after : heart.before }} />
                         <div className="text-card ml-2">{state.likes_length}</div>
                     </div>
+                    <Dropdown />
                 </div>
             </div>
         </div>
@@ -187,17 +188,21 @@ const Post = (props) => {
 }
 
 const Dropdown = (props) => {
+    const icon = (
+        '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>'
+    )
+
     return (
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
     )
 }
 
