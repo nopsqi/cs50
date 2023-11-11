@@ -21,22 +21,6 @@ const App = () => {
     })
 
     React.useEffect(() => {
-        fetch('/api/user')
-        .then(response => {
-            if (response.status === 200) {
-                response.json()
-                .then(result => {
-                    setState({
-                        ...state,
-                        myUsername: result.username
-                    })
-                })
-            }
-        })
-    }, [])
-    console.log(state)
-
-    React.useEffect(() => {
         setState({
             ...state,
             loading: true
