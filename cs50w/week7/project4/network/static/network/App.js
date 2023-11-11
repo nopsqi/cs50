@@ -26,9 +26,11 @@ const App = () => {
             else if (response.status === 404) {
                 response.json()
                 .then(result => {
+                    const api = state.api
+                    api.searchParams.set('page', result.pages)
                     setState({
                         ...state,
-                        
+                        api: api
                     })
                 })
             }
