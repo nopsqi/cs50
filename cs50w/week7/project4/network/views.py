@@ -149,7 +149,7 @@ class api:
                 post.likes.remove(request.user)
             # post.save()
 
-            return JsonResponse({"message": "Post edited"}, status=201)
+            return JsonResponse({"message": "Post like edited"}, status=201)
 
         return JsonResponse({"error": "Invalid operation"}, status=400)
 
