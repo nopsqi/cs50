@@ -131,9 +131,10 @@ class api:
         if request.method == "DELETE" and id:
             try:
                 post = Post.objects.get(id=id)
-                # post.delete()
             except Post.DoesNotExist:
                 return JsonResponse({"error": "Post doesn't exist"}, status=404)
+            # post.delete()
+
             return JsonResponse({"message": "Post deleted"}, status=201)
 
         if request.method == "PUT" and id and like is not None:
@@ -146,10 +147,9 @@ class api:
                 post.likes.add(request.user)
             else:
                 post.likes.remove(request.user)
-            # post.save()
+            post.save()
 
             return JsonResponse({"message": "Post edited"}, status=201)
-
 
         return JsonResponse({"error": "Invalid operation"}, status=400)
 

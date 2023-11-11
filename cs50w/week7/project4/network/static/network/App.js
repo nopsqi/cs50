@@ -131,15 +131,19 @@ const Post = (props) => {
 
     const switchLike = (e) => {
         e.preventDefault()
-        fetch('/api/post', {
-            method: 'PUT',
-            body: JSON.
-        })
         setState({
             ...state,
             like: !state.like,
             likes_length: state.like ? state.likes_length - 1 : state.likes_length + 1
         })
+        fetch('/api/post', {
+            method: 'PUT',
+            body: JSON.stringify({
+                like: state.like
+            })
+        })
+        .then(response => response.json())
+        .then(result => console.log(result))
     }
 
     return (
