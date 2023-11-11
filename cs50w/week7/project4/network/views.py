@@ -134,7 +134,7 @@ class api:
                 # post.delete()
             except Post.DoesNotExist:
                 return JsonResponse({"error": "Post doesn't exist"}, status=404)
-            return JsonResponse({"message": "Post deleted"}, safe=False)
+            return JsonResponse({"message": "Post deleted"}, status=201)
 
         if request.method == "PUT" and id and like is not None:
             try:
@@ -142,12 +142,16 @@ class api:
             except Post.DoesNotExist:
                 return JsonResponse({"error": "Post doesn't exist"}, status=404)
 
-            if like:
+            if like == "true":
                 post.likes.add(request.user)
             else:
                 post.likes.remove(request.user)
+            # post.save()
 
-        return JsonResponse({"error": "Post can't be empty"}, status=400)
+            return JsonResponse({"message": "Post edited"}, status=201)
+
+
+        return JsonResponse({"error": "Invalid operation"}, status=400)
 
 
     @staticmethod
