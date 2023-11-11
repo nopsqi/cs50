@@ -147,7 +147,7 @@ class api:
                 post.likes.add(request.user)
             else:
                 post.likes.remove(request.user)
-            post.save()
+            # post.save()
 
             return JsonResponse({"message": "Post edited"}, status=201)
 
