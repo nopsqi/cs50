@@ -12,7 +12,7 @@ const App = () => {
 
         fetch(state.api)
         .then(response => {
-            console.log("fetching", state.api.href)
+            console.log("fetching", state.api)
             if (response.status === 200) {
                 response.json()
                 .then(result => {
