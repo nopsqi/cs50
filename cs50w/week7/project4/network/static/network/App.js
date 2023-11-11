@@ -95,7 +95,9 @@ const App = () => {
     }
 
     if (state.loading) {
-        return (<div></div>)
+        return (
+            <NewPost onSubmit={addPost} onChange={updateNewPost}/>
+        )
     }
 
     return (
