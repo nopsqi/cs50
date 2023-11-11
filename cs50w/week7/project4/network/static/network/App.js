@@ -57,7 +57,7 @@ const App = () => {
             })
         })
         .then(response => {
-            if (response == 200) {
+            if (response.status == 200) {
                 response.json()
                 .then(result => console.log(result))
             }
