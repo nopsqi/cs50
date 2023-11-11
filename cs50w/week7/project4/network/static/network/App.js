@@ -118,7 +118,7 @@ const Posts = (props) => {
 const Post = (props) => {
     const [state, setState] = React.useState({
         like: props.like,
-        like_length: props.likes.length
+        likes_length: props.likes.length
     })
 
     const heart = {
@@ -135,7 +135,7 @@ const Post = (props) => {
         setState({
             ...state,
             like: !state.like,
-            like_length: state.like ? state.like_length - 1 : state.like_length + 1
+            likes_length: state.like ? state.likes_length - 1 : state.likes_length + 1
         })
         console.log(e)
         console.log(state)
@@ -152,7 +152,7 @@ const Post = (props) => {
                     </div>
                     <div className="col-md-auto d-flex align-items-center">
                         <a href="" className="text-card d-flex ml-5" onClick={switchLike} dangerouslySetInnerHTML={{ __html: state.like ? heart.after : heart.before }} />
-                        <div className="text-card ml-2">Like {state.likes_length}</div>
+                        <div className="text-card ml-2">{state.likes_length}</div>
                     </div>
                 </div>
             </div>
