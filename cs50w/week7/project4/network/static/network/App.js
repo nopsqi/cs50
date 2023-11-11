@@ -55,6 +55,11 @@ const App = () => {
                 content: state.newPostValue
             })
         })
+        .then(response => {
+            if (response.status === 200) {
+                setState()
+            }
+        })
     }
 
     const deletePost = (e) => {
