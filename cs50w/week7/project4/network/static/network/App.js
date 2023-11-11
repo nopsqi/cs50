@@ -34,9 +34,21 @@ const App = () => {
         e.target.classList.add('active')
         followingNav.classList.remove('active')
         const api = new URL(state.api.href)
-        api.searchParams.
+        api.searchParams.delete('following')
         setState({
+            ...state,
+            api: api
+        })
+    }
 
+    followingNav.onclick = (e) => {
+        e.target.classList.add('active')
+        allPostsNav.classList.remove('active')
+        const api = new URL(state.api.href)
+        api.searchParams.set('following', true)
+        setState({
+            ...stae,
+            api:api
         })
     }
 
