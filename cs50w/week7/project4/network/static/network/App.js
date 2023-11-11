@@ -222,13 +222,13 @@ const Dropdown = (props) => {
         <div className="dropdown ml-3">
             <a href="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: icon }} />
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="" onClick={(e) => { props.deleteClick(e, {
+                <a className="dropdown-item" href="" onClick={(e) => props.deleteClick(e, {
                     deleteId: props.id,
-                })}} data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
-                <a className="dropdown-item" href="" onClick={(e) => { props.editClick(e, {
+                })} data-toggle="modal" data-target="#deleteConfirmationModal">Delete</a>
+                <a className="dropdown-item" href="" onClick={(e) => props.editClick(e, {
                     editId: props.id,
                     editPostValue: e.target.value
-                })}} data-toggle="modal" data-target="#editModal">Edit</a>
+                })} data-toggle="modal" data-target="#editModal">Edit</a>
             </div>
         </div>
     )
@@ -288,7 +288,9 @@ const EditModal = (props) => {
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <textarea class="form-control" id="message-text" onChange={(e) => props.onChange(e, e.target.value, "editPostValue")} value={props.value}></textarea>
+                                <textarea class="form-control" id="message-text" onChange={(e) => props.onChange(e, {
+                                    editPostValue: e.target.value
+                                })} value={props.value}></textarea>
                             </div>
                         </form>
                     </div>
