@@ -167,13 +167,19 @@ class api:
         if request.method != "GET":
             return JsonResponse({"error": "GET request required"}, status=400)
 
+        username = request.GET.get("username")
+
+        if not username:
+            return JsonResponse(request.user.serialize(), safe=False)
+
         try:
-            user = User.objects.get(username=request.GET.get("username")).serialize()
-            user["is_mine"] = request.user.id == user["id"]
-            user["is_follow"] = request.user.username in user["followers"]
-            return JsonResponse(user, safe=False)
+            user = User.objects.get(username=username).serialize()
         except User.DoesNotExist:
             return JsonResponse({"error": "User doesn't exist"}, status=404)
+
+        user["is_mine"] = request.user.id == user["id"]
+        user["is_follow"] = request.user.username in user["followers"]
+        return JsonResponse(user, safe=False)
 
 
 class pages:
