@@ -55,7 +55,6 @@ const App = () => {
 
     const goToPage = (e) => {
         e.preventDefault()
-        console.log(e.target)
         const api = new URL(state.api.href)
         api.searchParams.set('page', parseInt(e.target.innerHTML))
         setState({
