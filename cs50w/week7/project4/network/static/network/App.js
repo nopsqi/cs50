@@ -70,7 +70,7 @@ const App = () => {
 
     const deletePost = (e) => {
         e.preventDefault()
-        consol.log(state)
+        console.log(state)
         // fetch('/api/post', {
         //     method: 'DELETE',
         //     body: JSON.stringify({
@@ -260,7 +260,7 @@ const DeleteConfirmationModal = (props) => {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-danger" onCick={props.deletePost}>Delete</button>
+                        <button type="button" className="btn btn-danger" onClick={props.deletePost}>Delete</button>
                     </div>
                 </div>
             </div>
