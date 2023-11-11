@@ -146,25 +146,24 @@ const Post = (props) => {
 
     const switchLike = (e) => {
         e.preventDefault()
-        setState({
-            ...state,
-            like: !state.like,
-            likes_length: state.like ? state.likes_length - 1 : state.likes_length + 1
-        })
         fetch('/api/post', {
             method: 'PUT',
             body: JSON.stringify({
                 id: props.id,
                 like: !state.like
             })
-            .then(response => {
-                if (response.status === 200) {
-                    response.json()
-                    .then(result => {
-                        console.log(result)
+        })
+        .then(response => {
+            if (response.status === 200) {
+                response.json()
+                .then(result => {
+                    setState({
+                        ...state,
+                        like: !state.like,
+                        likes_length: state.like ? state.likes_length - 1 : state.likes_length + 1
                     })
-                }
-            })
+                })
+            }
         })
     }
 
