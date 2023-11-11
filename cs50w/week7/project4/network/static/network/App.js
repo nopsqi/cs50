@@ -22,6 +22,8 @@ const App = () => {
                         ...result,
                     })
                 })
+            } else {
+                console.log(result)
             }
         })
     }, [state.url])
@@ -46,9 +48,13 @@ const App = () => {
         return (<div></div>)
     }
 
+    
+
     return (
         <div>
             <h1>APP HOLDER</h1>
+            <h2>{state.api.href}</h2>
+            <button onClick={changeURL}>Change URL</button>
             <NewPost onClick={addPost} />
             <Posts posts={state.posts} onClick={deletePost}/>
             <Paginator />
