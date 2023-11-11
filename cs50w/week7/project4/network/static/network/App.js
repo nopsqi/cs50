@@ -24,7 +24,13 @@ const App = () => {
                 })
             }
             else if (response.status === 404) {
-                res
+                response.json()
+                .then(result => {
+                    setState({
+                        ...state,
+                        
+                    })
+                })
             }
         })
     }, [state.api])
