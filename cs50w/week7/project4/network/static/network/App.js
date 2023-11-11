@@ -63,25 +63,23 @@ const App = () => {
 
     const deletePost = (e, id) => {
         e.preventDefault()
-        $('#deleteConfirmationModal').modal('show')
-        console.log(state)
-        // fetch('/api/post', {
-        //     method: 'DELETE',
-        //     body: JSON.stringify({
-        //         id: parseInt(id)
-        //     })
-        // })
-        // .then(response => {
-        //     if (response.status == 200) {
-        //         response.json()
-        //         .then(result => {
-        //             setState({
-        //                 ...state,
-        //                 fetch: !state.fetch
-        //             })
-        //         })
-        //     }
-        // })
+        fetch('/api/post', {
+            method: 'DELETE',
+            body: JSON.stringify({
+                id: parseInt(id)
+            })
+        })
+        .then(response => {
+            if (response.status == 200) {
+                response.json()
+                .then(result => {
+                    setState({
+                        ...state,
+                        fetch: !state.fetch
+                    })
+                })
+            }
+        })
     }
 
     const getDeleteConfirmation = (e, result) => {
