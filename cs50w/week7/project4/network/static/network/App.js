@@ -79,9 +79,14 @@ const App = () => {
         return (<div></div>)
     }
 
+    const toggleModal = () => {
+        $('#deleteModal).modal('show')
+    }
+
     return (
         <div>
             <h1>APP HOLDER</h1>
+            <button onClick={toggleModal}>Toggle</button>
             <Modal />
             <NewPost onClick={addPost} />
             <Posts posts={state.posts} onClick={deletePost} />
