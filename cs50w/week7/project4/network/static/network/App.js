@@ -1,7 +1,15 @@
 const allPostsNav = document.getElementById('all-posts-nav')
 const followingNav = document.getElementById('following-nav')
 
-if (document.location)
+if (document.location.pathname === '/') {
+    allPostsNav.style.display = 'block'
+    followingNav.style.display = 'block'
+    allPostsNav.classList.add('active')
+} else {
+    allPostsNav.style.display = 'none'
+    followingNav.style.display = 'none'
+    allPostsNav.classList.remove('active')
+}
 
 const App = () => {
     const [state, setState] = React.useState({
