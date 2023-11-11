@@ -62,11 +62,15 @@ const App = () => {
     }
 
     const getParamsToState = (e, params, key) => {
-        console.log(key, params, e)
+        setState({
+            ...state,
+            key: params
+        })
     }
 
     const deletePost = (e) => {
         e.preventDefault()
+        consol.log(state)
         // fetch('/api/post', {
         //     method: 'DELETE',
         //     body: JSON.stringify({
