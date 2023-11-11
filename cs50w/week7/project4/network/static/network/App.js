@@ -3,7 +3,8 @@ const App = () => {
         api: new URL(document.getElementById('App').dataset.api, document.location.origin),
         fetch: true,
         loading: true,
-        confirmation: false
+        confirmation: false,
+        newPostValue: "",
     })
 
     React.useEffect(() => {
@@ -85,10 +86,8 @@ const App = () => {
 
     return (
         <div>
-            <h1>APP HOLDER</h1>
-            <button onClick={toggleModal}>Toggle</button>
             <Modal />
-            <NewPost onClick={addPost} />
+            <NewPost onSubmit={addPost} onChange={updateNe}/>
             <Posts posts={state.posts} onClick={deletePost} />
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
