@@ -139,6 +139,7 @@ const Post = (props) => {
         fetch('/api/post', {
             method: 'PUT',
             body: JSON.stringify({
+                id: props.id,
                 like: state.like
             })
         })
