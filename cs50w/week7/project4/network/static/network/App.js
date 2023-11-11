@@ -1,3 +1,8 @@
+const allPostsNav = document.getElementById('all-posts-nav')
+const followingNav = document.getElementById('following-nav')
+
+if (document.location)
+
 const App = () => {
     const [state, setState] = React.useState({
         api: new URL(document.getElementById('App').dataset.api, document.location.origin),
