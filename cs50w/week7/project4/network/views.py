@@ -116,8 +116,8 @@ class api:
     @csrf_exempt
     @login_required(login_url="login")
     def post(request):
-        if request.method != "POST":
-            return JsonResponse({"error": "POST request required"}, status=400)
+        if request.method != "GET":
+            return JsonResponse({"error": "POST, DELETE, or PUT request required"}, status=400)
 
         if (content := json.loads(request.body).get('content')):
             post = Post(user=request.user, content=content)
