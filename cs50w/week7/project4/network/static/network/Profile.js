@@ -15,6 +15,7 @@ const Profile = () => {
         .then(response => response.json())
         .then(result => {
             console.log(state)
+            console.log(result)
             setState({
                 ...state,
                 ...result,
