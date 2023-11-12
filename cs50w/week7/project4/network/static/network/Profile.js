@@ -1,6 +1,8 @@
 const Profile = () => {
+    const api = new URL(document.getElementById('Profile').dataset.api, document.location.origin)
+    api.searchParams.set('username', document.location.pathname.slice(1))
     const [state, setState] = React.useState({
-        api: new URL(document.getElementById('Profile').dataset.api, document.location.origin),
+        api: api,
         loading: true,
         fetch: true
     })
