@@ -47,4 +47,4 @@ const Profile = () => {
     )
 }
 
-ReactDOM.render(<Profile />, document.querySelector('#profile'));
+ReactDOM.render(<Profile />, document.querySelector('#Profile'));
