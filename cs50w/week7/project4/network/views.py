@@ -152,8 +152,8 @@ class api:
             return JsonResponse(post.serialize(), safe=False)
 
         if request.method == "PUT":
-            if post.likes.filter(id=request.user.id):
-                post.likes.remove(request.user)
+            if like:
+                post.likes.add(request.user)
                 like = True
             else:
                 post.likes.remove(request.user)
