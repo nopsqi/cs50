@@ -23,9 +23,11 @@ const Profile = () => {
     }
 
     const toggleFollow = (e) => {
-        setState({
-            ...state,
-            is_follow: !state.is_follow
+        fetch('/api/user', {
+            method: 'PUT',
+            body: JSON.stringify({
+                id: state.id
+            })
         })
     }
 
