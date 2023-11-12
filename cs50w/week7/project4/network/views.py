@@ -86,7 +86,7 @@ class api:
         if str(request.GET.get("following")).lower() == "true":
             if not pages:
                 pages = Post.objects
-            pages = pages.filter(user__followers=request.user)
+            pages = pages.filter(user__followers=request.user).order_by("-modified")
 
         if not pages:
             pages = Post.objects.order_by("-modified")
