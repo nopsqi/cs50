@@ -158,7 +158,7 @@ const App = () => {
 
     if (state.loading) {
         return (
-            <NewPost onSubmit={addPost} onChange={updateNewPost} />
+            <NewPost onSubmit={addPost} onChange={getParamsToState} />
         )
     }
 
