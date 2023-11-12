@@ -150,10 +150,11 @@ const App = () => {
         e.preventDefault()
         const api = new URL(state.api.href)
         api.searchParams.set('page', parseInt(e.target.innerHTML))
-        setState({
-            ...state,
-            api: api
-        })
+        console.log(e.target)
+        // setState({
+        //     ...state,
+        //     api: api
+        // })
     }
 
     const newPost = ['', state.myUsername].includes(document.location.pathname.slice(1))
