@@ -58,8 +58,6 @@ if User.objects.count() == 0:
             followers.count()
         ))
         user.followers.add(*followers)
-        for follower in followers:
-            follower.followings.add(user)
 
 if Post.objects.count() == 0:
     users = User.objects.all()
