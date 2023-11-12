@@ -29,6 +29,7 @@ const Profile = () => {
     }
 
     const toggleFollow = (e) => {
+        console.log(state)
         fetch('/api/user', {
             method: 'PUT',
             body: JSON.stringify({
