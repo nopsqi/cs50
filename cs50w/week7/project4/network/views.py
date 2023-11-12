@@ -187,7 +187,7 @@ class api:
 
         if request.method == 'PUT':
             body = json.loads(request.body)
-            id = body.get.("id")
+            id = body.get("id")
 
 
 class pages:
