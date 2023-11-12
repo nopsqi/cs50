@@ -152,7 +152,7 @@ class api:
             post.save()
             return JsonResponse(post.serialize(), safe=False)
 
-        if request.method == "PUT":
+        if request.method == "PUT" and like is not None:
             if like:
                 post.likes.remove(request.user)
             else:
