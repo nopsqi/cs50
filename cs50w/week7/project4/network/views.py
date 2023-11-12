@@ -78,7 +78,7 @@ class api:
 
         if request.GET.get("username"):
             try:
-                username = User.objects.get(username=request.GET.get("user"))
+                username = User.objects.get(username=request.GET.get("username"))
             except User.DoesNotExist:
                 return JsonResponse({"error": "User not found"}, status=400)
             pages = Post.objects.filter(user=username).order_by("-modified")
