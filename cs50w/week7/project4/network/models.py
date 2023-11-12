@@ -14,7 +14,7 @@ class User(AbstractUser):
             "followers": [user.username for user in self.followers.all()],
         }
 
-class Follow:
+class Follow(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     followers = models.ManyToManyField(User, related_name="followers")
     followings = models.ManyToManyField(User, related_name="followings")
