@@ -1,6 +1,6 @@
 const Profile = () => {
     const [state, setState] = React.useState({
-        api: new URL(document.getElementById('Profile').dataset.api, document.loction.origin)
+        api: new URL(document.getElementById('Profile').dataset.api, document.loction.origin),
         loading: true,
         fetch: true
     })
