@@ -1,7 +1,7 @@
 const Profile = () => {
     const [state, setState] = React.useState({
         loading: true,
-        username: new URL(window.location.pathname, window.location.origin).pathname.slice(1)
+        username: document.location.pathname.slice(1)
     })
 
     React.useEffect(() => {
