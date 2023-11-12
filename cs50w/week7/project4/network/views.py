@@ -203,11 +203,11 @@ class api:
                 return JsonResponse({"error": "User doesn't exist"}, status=404)
 
             if is_follow:
-                user.followings.remove(request.user)
-                request.user.followers.remove(user)
+                user.followers.remove(request.user)
+                request.user.followings.remove(user)
             else:
-                user.followings.add(request.user)
-                request.user.followers.add(user)
+                user.followers.add(request.user)
+                request.user.followings.add(user)
             serialize = user.serialize()
             serialize["is_follow"] = not is_follow
             return JsonResponse(serialize, safe=False)
