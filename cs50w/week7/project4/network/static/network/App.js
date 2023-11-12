@@ -231,7 +231,6 @@ const Post = (props) => {
             method: 'PUT',
             body: JSON.stringify({
                 id: props.id,
-                like: !state.like
             })
         })
             .then(response => {
@@ -241,7 +240,7 @@ const Post = (props) => {
                             setState({
                                 ...state,
                                 like: result.like,
-                                likes_length: state.like ? state.likes_length - 1 : state.likes_length + 1
+                                likes_length: result.likes.length
                             })
                         })
                 }

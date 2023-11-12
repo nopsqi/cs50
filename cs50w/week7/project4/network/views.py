@@ -121,7 +121,6 @@ class api:
 
         body = json.loads(request.body)
         id = body.get("id")
-        like = body.get("like")
         content = body.get("content")
 
         if request.method == "POST" and content:
