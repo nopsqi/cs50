@@ -165,8 +165,8 @@ class api:
     @staticmethod
     @login_required(login_url="login")
     def user(request):
-        if request.method != "GET":
-            return JsonResponse({"error": "GET request required"}, status=400)
+        if request.method not in  ["GET", "PUT"]:
+            return JsonResponse({"error": "GET or PUT request required"}, status=400)
 
         username = request.GET.get("username")
 
