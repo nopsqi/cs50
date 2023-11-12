@@ -45,7 +45,8 @@ const Profile = () => {
                 .then(result => {
                     setState({
                         ...state,
-                        ...result
+                        ...result,
+                        fetch: !state.fetch
                     })
                 })
             } else {
