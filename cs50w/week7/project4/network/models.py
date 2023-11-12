@@ -4,8 +4,8 @@ from django.db import models
 
 
 class User(AbstractUser):
-    # followers = models.ManyToManyField(User, related_name="followers")
-    # followings = models.ManyToManyField(User, related_name="followings")
+    followers = models.ManyToManyField("self", related_name="followers")
+    # followings = models.ManyToManyField("self", related_name="followings")
     def serialize(self):
         return {
             "id": self.id,
@@ -14,10 +14,10 @@ class User(AbstractUser):
             "followers": [user.username for user in self.followers.all()],
         }
 
-class Follow(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    followers = models.ManyToManyField(User, related_name="followers")
-    followings = models.ManyToManyField(User, related_name="followings")
+# class Follow(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     followers = models.ManyToManyField(User, related_name="followers")
+#     followings = models.ManyToManyField(User, related_name="followings")
 
 class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
