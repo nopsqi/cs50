@@ -165,22 +165,26 @@ class api:
     @staticmethod
     @login_required(login_url="login")
     def user(request):
-        if request.method not in  ["GET", "PUT"]:
+        if request.method == 'DELETE':
             return JsonResponse({"error": "GET or PUT request required"}, status=400)
 
-        username = request.GET.get("username")
+        if request.method == 'GET':
+            username = request.GET.get("username")
 
-        if not username:
-            return JsonResponse(request.user.serialize(), safe=False)
+            if not username:
+                return JsonResponse(request.user.serialize(), safe=False)
 
-        try:
-            user = User.objects.get(username=username).serialize()
-        except User.DoesNotExist:
-            return JsonResponse({"error": "User doesn't exist"}, status=404)
+            try:
+                user = User.objects.get(username=username).serialize()
+            except User.DoesNotExist:
+                return JsonResponse({"error": "User doesn't exist"}, status=404)
 
-        user["is_mine"] = request.user.id == user["id"]
-        user["is_follow"] = request.user.username in user["followers"]
-        return JsonResponse(user, safe=False)
+            user["is_mine"] = request.user.id == user["id"]
+            user["is_follow"] = request.user.username in user["followers"]
+            return JsonResponse(user, safe=False)
+
+        if request.method == 'PUT':
+            
 
 
 class pages:
