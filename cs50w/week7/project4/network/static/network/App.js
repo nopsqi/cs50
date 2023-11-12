@@ -286,7 +286,7 @@ const Dropdown = (props) => {
     )
 
     return (
-        <div className="dropdown ml-3">
+        <div className="dropdown ml-auto">
             <a href="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: icon }} />
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a className="dropdown-item" href="" onClick={(e) => props.editClick(e, {
