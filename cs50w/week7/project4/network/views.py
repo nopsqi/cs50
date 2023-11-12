@@ -205,10 +205,8 @@ class api:
             print(request.user)
             if is_follow:
                 user.followers.remove(request.user)
-                request.user.followings.remove(user)
             else:
                 user.followers.add(request.user)
-                request.user.followings.add(user)
             serialize = user.serialize()
             serialize["is_follow"] = not is_follow
             return JsonResponse(serialize, safe=False)
