@@ -13,7 +13,7 @@ class User(AbstractUser):
         }
 
 class Follower:
-    user = models.ForeignKey(User, on_delete)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     followers = models.ManyToManyField(User, related_name="followers")
 
 class Post(models.Model):
