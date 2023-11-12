@@ -1,13 +1,17 @@
 const Profile = () => {
-    const url = new URL(docuemnt.getElementById('Profile').dataset.api)
-
     const [state, setState] = React.useState({
-        api
+        api: new URL(document.getElementById('Profile').dataset.api, document.loction.origin)
         loading: true,
+        fetch: true
     })
 
     React.useEffect(() => {
-        fetch(`/api/user?username=${state.username}`)
+        setState({
+            ...state,
+            loading: true
+        })
+
+        fetch(state.api)
         .then(response => response.json())
         .then(result => {
             setState({
@@ -18,7 +22,7 @@ const Profile = () => {
                 loading: false,
             })
         })
-    }, [])
+    }, [state.api, state.fetch])
 
     if (state.loading) {
         return (<div></div>)
@@ -28,8 +32,20 @@ const Profile = () => {
         fetch('/api/user', {
             method: 'PUT',
             body: JSON.stringify({
-                id: state.id
+                id: state.id,
+                is_follow: state.is_follow
             })
+        })
+        .then(response => {
+            if (response.status === 200) {
+                response.json()
+                .then(result => {
+                    setState({
+                        ...state,
+                        ...result
+                    })
+                })
+            }
         })
     }
 

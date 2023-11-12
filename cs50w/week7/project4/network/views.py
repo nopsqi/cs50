@@ -220,4 +220,4 @@ class pages:
     @login_required(login_url="login")
     def profile(request, username):
         get_object_or_404(User, username=username)
-        return render(request, "network/profile.html", {"api": f"/api/posts?page=1&user={username}"})
+        return render(request, "network/profile.html", {"api": f"/api/posts?page=1&username={username}"})
