@@ -150,12 +150,14 @@ const App = () => {
         e.preventDefault()
         const api = new URL(state.api.href)
         if (e.target.innerHTML == "Next") {
-            api.searchParams.set('page', parseInt(e.target.innerHTML))
+            api.searchParams.set('page', Math.min(state.page + 1, state.pages))
+        } else {
+            api.searchParams.set('page', Math.max(state.page - 1, state.pages))
         }
-        // setState({
-        //     ...state,
-        //     api: api
-        // })
+        setState({
+            ...state,
+            api: api
+        })
     }
 
     const newPost = ['', state.myUsername].includes(document.location.pathname.slice(1))
