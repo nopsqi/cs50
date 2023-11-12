@@ -238,7 +238,6 @@ const Post = (props) => {
                 if (response.status === 200) {
                     response.json()
                     .then(result => {
-                        console.log(result)
                         setState({
                             ...state,
                             like: result.like,

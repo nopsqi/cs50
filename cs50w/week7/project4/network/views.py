@@ -144,7 +144,7 @@ class api:
                 post.likes.add(request.user)
             serialize = post.serialize()
             serialize["like"] = not like
-            return JsonResponse(like, safe=False)
+            return JsonResponse(serialize, safe=False)
 
         if post.user != request.user:
             return JsonResponse({"error": "Unaothorize action"}, status=400)
