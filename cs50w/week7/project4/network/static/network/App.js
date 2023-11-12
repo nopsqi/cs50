@@ -307,10 +307,10 @@ const Paginator = (props) => {
         <div>
             <nav className="mt-2" aria-label="Post navigaioon">
                 <ul className="pagination justify-content-end">
-                    <li className={`page-item ${props.page <= 1? 'disable' : ''}`}>
+                    <li className={`page-item ${props.page <= 1? 'disabled' : ''}`}>
                         <a className="page-link" href="" onClick={props.onClick}>Previous</a>
                     </li>
-                    <li className={`page-item ${props.page >= props.pages? 'disable' : ''}`}>
+                    <li className={`page-item ${props.page >= props.pages? 'disabled' : ''}`}>
                         <a className="page-link" href="" onClick={props.onClick}>Next</a>
                     </li>
                 </ul>
