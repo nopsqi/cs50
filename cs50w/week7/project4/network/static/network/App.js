@@ -156,15 +156,19 @@ const App = () => {
         })
     }
 
-    let newPost = (
-            <NewPost onSubmit={addPost} onChange={getParamsToState} />
-    )
-
-    newPost = ['', state.myUsername].includes(document.location.pathname.slice(1)) ? newPost : ''
+    const newPost = ['', state.myUsername].includes(document.location.pathname.slice(1))
 
     if (state.loading) {
         return (
-            newPost
+            <div>
+            {
+                newPost
+                ?
+                <NewPost onSubmit={addPost} onChange={getParamsToState} />
+                :
+                ''
+            }
+            </div>
         )
     }
 
@@ -172,7 +176,13 @@ const App = () => {
         <div>
             <DeleteConfirmationModal deletePost={deletePost} />
             <EditModal editPost={editPost} onChange={getParamsToState} value={state.editPostValue}/>
-            newPost
+            {
+                newPost
+                ?
+                <NewPost onSubmit={addPost} onChange={getParamsToState} />
+                :
+                ''
+            }
             <Posts myUsername={state.myUsername} posts={state.posts} deleteClick={getParamsToState} editClick={getParamsToState} />
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
