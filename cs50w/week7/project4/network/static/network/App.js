@@ -164,7 +164,7 @@ const App = () => {
 
     if (state.loading) {
         return (
-            {newPost}
+            newPost
         )
     }
 
@@ -172,7 +172,7 @@ const App = () => {
         <div>
             <DeleteConfirmationModal deletePost={deletePost} />
             <EditModal editPost={editPost} onChange={getParamsToState} value={state.editPostValue}/>
-            {newPost}
+            newPost
             <Posts myUsername={state.myUsername} posts={state.posts} deleteClick={getParamsToState} editClick={getParamsToState} />
             <Paginator pages={state.pages} page={state.page} onClick={goToPage} />
         </div>
