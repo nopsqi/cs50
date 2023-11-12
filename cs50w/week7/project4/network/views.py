@@ -201,8 +201,6 @@ class api:
             except User.DoesNotExist:
                 return JsonResponse({"error": "User doesn't exist"}, status=404)
 
-            print(user)
-            print(request.user)
             if is_follow:
                 user.followers.remove(request.user)
             else:
