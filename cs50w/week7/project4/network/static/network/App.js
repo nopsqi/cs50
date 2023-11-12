@@ -240,7 +240,7 @@ const Post = (props) => {
                         .then(result => {
                             setState({
                                 ...state,
-                                like: !state.like,
+                                like: result.like,
                                 likes_length: state.like ? state.likes_length - 1 : state.likes_length + 1
                             })
                         })

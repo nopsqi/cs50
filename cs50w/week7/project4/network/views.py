@@ -146,12 +146,15 @@ class api:
             return JsonResponse(serialize, safe=False)
 
         if request.method == "PUT" and like is not None:
-            serialize = post.serialize
             if post.likes.filter(id=request.user.id):
-                post.likes.add(request.user)
+                post.likes.remove(request.user)
+                like = True
             else:
                 post.likes.remove(request.user)
-            return JsonResponse(post.serialize(), safe=False)
+                like = False
+            serialize = post.serialize()
+            serialize["like"] = like
+            return JsonResponse(like, safe=False)
 
         if request.method == "PUT" and content:
             if content == post.content:
