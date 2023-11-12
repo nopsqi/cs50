@@ -46,7 +46,8 @@ const Profile = () => {
                     setState({
                         ...state,
                         ...result,
-                        fetch: !state.fetch
+                        followings_length: result.followings.length,
+                        followers_length: result.followers.length,
                     })
                 })
             } else {
