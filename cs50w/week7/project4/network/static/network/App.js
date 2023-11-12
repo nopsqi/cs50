@@ -152,7 +152,7 @@ const App = () => {
         if (e.target.innerHTML == "Next") {
             api.searchParams.set('page', Math.min(state.page + 1, state.pages))
         } else {
-            api.searchParams.set('page', Math.max(state.page - 1, state.pages))
+            api.searchParams.set('page', Math.max(state.page - 1, state.page))
         }
         setState({
             ...state,
