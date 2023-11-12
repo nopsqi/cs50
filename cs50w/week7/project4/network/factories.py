@@ -62,7 +62,7 @@ if User.objects.count() == 0:
 if Post.objects.count() == 0:
     users = User.objects.all()
     for user in random.sample(list(users), round(users.count() * (2/3))):
-        for _ in range(5):
+        for _ in range(2):
             likes = users.exclude(id=user.id)
             likes = random.sample(list(likes), random.randint(
                 1,
