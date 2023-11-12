@@ -255,23 +255,18 @@ const Post = (props) => {
     return (
         <div className="card mt-2">
             <div className="card-body">
-                <div className="row">
-                    <div className="col-md-3">
-                        <div className="d-flex">
-                            <a href={`${document.location.origin}/${props.username}`} className="text-card">{props.username}</a>
-                            <div className="text-card text-muted ml-1">{props.modified}</div>
-                        </div>
+                <div className="d-flex flex-nowrap ">
+                    <div className="d-flex">
+                        <a href={`${document.location.origin}/${props.username}`} className="text-card">{props.username}</a>
+                        <div className="text-card text-muted ml-1">{props.modified}</div>
                     </div>
-                    <div className="col"></div>
-                    <div className="col-md-1 text-right">
-                        {
-                            props.myUsername === props.username
-                            ?
-                            <Dropdown id={props.id} content={props.content} deleteClick={props.deleteClick} editClick={props.editClick} />
-                            :
-                            ''
-                        }
-                    </div>
+                    {
+                        props.myUsername === props.username
+                        ?
+                        <Dropdown id={props.id} content={props.content} deleteClick={props.deleteClick} editClick={props.editClick} />
+                        :
+                        ''
+                    }
                 </div>
                 <div className="text-card">{props.content}</div>
                 <div className="d-flex">
