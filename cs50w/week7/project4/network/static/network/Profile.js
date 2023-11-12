@@ -45,6 +45,9 @@ const Profile = () => {
                         ...result
                     })
                 })
+            } else {
+                response.json()
+                .then(result => console.log(result))
             }
         })
     }
