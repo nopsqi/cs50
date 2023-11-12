@@ -27,7 +27,7 @@ class UserFactory(DjangoModelFactory):
             return
         if extracted:
             for follower in extracted:
-                self.followers.add(folower)
+                self.followers.add(follower)
 
 
 class PostFactory(DjangoModelFactory):
