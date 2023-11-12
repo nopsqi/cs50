@@ -137,6 +137,15 @@ class api:
         except Post.DoesNotExist:
             return JsonResponse({"error": "Post doesn't exist"}, status=404)
 
+        if request.method == "PUT" and like is not None:
+            if like:
+                post.likes.remove(request.user)
+            else:
+                post.likes.add(request.user)
+            serialize = post.serialize()
+            serialize["like"] = not like
+            return JsonResponse(like, safe=False)
+
         if post.user != request.user:
             return JsonResponse({"error": "Unaothorize action"}, status=400)
 
@@ -151,15 +160,6 @@ class api:
             post.content = content
             post.save()
             return JsonResponse(post.serialize(), safe=False)
-
-        if request.method == "PUT" and like is not None:
-            if like:
-                post.likes.remove(request.user)
-            else:
-                post.likes.add(request.user)
-            serialize = post.serialize()
-            serialize["like"] = not like
-            return JsonResponse(like, safe=False)
 
         return JsonResponse({"error": "Invalid operation"}, status=400)
 
