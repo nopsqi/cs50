@@ -307,11 +307,9 @@ const Paginator = (props) => {
         <div>
             <nav className="mt-2" aria-label="Post navigaioon">
                 <ul className="pagination justify-content-end">
-                    {Array.from({ length: props.pages }, (_, i) => i + 1).map((item) => (
-                        <li key={item} className={`page-item ${item === props.page ? 'active' : ''}`}>
-                            <a className="page-link" href="" onClick={props.onClick}>{item}</a>
-                        </li>
-                    ))}
+                    <li key={item} className={`page-item ${item === props.page ? 'active' : ''}`}>
+                        <a className="page-link" href="" onClick={props.onClick}>{item}</a>
+                    </li>
                 </ul>
             </nav>
         </div>
