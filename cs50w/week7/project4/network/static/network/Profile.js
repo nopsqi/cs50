@@ -1,7 +1,9 @@
 const Profile = () => {
+    const url = new URL(docuemnt.getElementById('Profile').dataset.api)
+
     const [state, setState] = React.useState({
+        api
         loading: true,
-        username: document.location.pathname.slice(1)
     })
 
     React.useEffect(() => {
