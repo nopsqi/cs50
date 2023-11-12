@@ -14,8 +14,6 @@ const Profile = () => {
         fetch(state.api)
         .then(response => response.json())
         .then(result => {
-            console.log(state)
-            console.log(result)
             setState({
                 ...state,
                 ...result,
