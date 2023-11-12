@@ -190,7 +190,10 @@ class api:
             id = body.get("id")
 
             if not id:
-                return JsonResponse()
+                return JsonResponse({"error": "User id required"}, status=400)
+
+            user = User.objects.get(id=id)
+            
 
 
 class pages:
