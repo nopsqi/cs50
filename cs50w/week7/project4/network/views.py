@@ -144,7 +144,14 @@ class api:
             post.delete()
             return JsonResponse(serialize, safe=False)
 
-        if request.method == "PUT" and like is not None:
+        if request.method == "PUT" and content:
+            if content == post.content:
+                return JsonResponse({"error": "Post content is the same"}, status=400)
+            post.content = content
+            post.save()
+            return JsonResponse(post.serialize(), safe=False)
+
+        if request.method == "PUT":
             if post.likes.filter(id=request.user.id):
                 post.likes.remove(request.user)
                 like = True
@@ -154,13 +161,6 @@ class api:
             serialize = post.serialize()
             serialize["like"] = like
             return JsonResponse(like, safe=False)
-
-        if request.method == "PUT" and content:
-            if content == post.content:
-                return JsonResponse({"error": "Post content is the same"}, status=400)
-            post.content = content
-            post.save()
-            return JsonResponse(post.serialize(), safe=False)
 
         return JsonResponse({"error": "Invalid operation"}, status=400)
 
