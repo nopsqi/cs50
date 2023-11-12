@@ -34,7 +34,7 @@ class PostFactory(DjangoModelFactory):
     class Meta:
         model = Post
 
-    created = factory.Faker("date_time_between", start_date="-1y", end_date="now", tzinfo=timezone.get_current_timezone())
+    created = lambda _: factory.Faker("date_time_between", start_date="-1y", end_date="now", tzinfo=timezone.get_current_timezone())
     modified = factory.LazyAttribute(lambda o: o.created)
     user = factory.SubFactory(UserFactory)
     content = factory.Faker("text")
