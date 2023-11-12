@@ -49,9 +49,9 @@ class PostFactory(DjangoModelFactory):
 
 
 if User.objects.count() == 0:
-    UserFactory.create_batch(50)
+    UserFactory.create_batch(20)
     users = User.objects.all()
-    for user in random.sample(list(users), round(users.count() * (2/3))):
+    for user in random.sample(list(users), round(users.count() * )):
         followers = users.exclude(id=user.id)
         followers = random.sample(list(followers), random.randint(
             1,
