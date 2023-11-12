@@ -156,7 +156,10 @@ const App = () => {
         })
     }
 
-    const newPost =
+    const newPost = (
+            <NewPost onSubmit={addPost} onChange={getParamsToState} />
+    )
+    newPost = document.location.pathname 
 
     if (state.loading) {
         return (
