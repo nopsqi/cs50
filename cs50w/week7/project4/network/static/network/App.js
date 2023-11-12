@@ -149,8 +149,9 @@ const App = () => {
     const goToPage = (e) => {
         e.preventDefault()
         const api = new URL(state.api.href)
-        api.searchParams.set('page', parseInt(e.target.innerHTML))
-        console.log(e.target)
+        if (e.target.innerHTML == "Next") {
+            api.searchParams.set('page', parseInt(e.target.innerHTML))
+        }
         // setState({
         //     ...state,
         //     api: api
