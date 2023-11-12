@@ -4,8 +4,7 @@ from django.db import models
 
 
 class User(AbstractUser):
-    followers = models.ManyToManyField("self", symmetrical=False)
-    followings = models.ManyToManyField("self", symmetrical=False)
+    followers = models.ManyToManyField("self", related_name="followings")
     def serialize(self):
         return {
             "id": self.id,
