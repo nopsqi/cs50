@@ -76,12 +76,12 @@ class api:
 
         pages = None
 
-        if request.GET.get("user"):
+        if request.GET.get("username"):
             try:
-                user = User.objects.get(username=request.GET.get("user"))
+                username = User.objects.get(username=request.GET.get("user"))
             except User.DoesNotExist:
                 return JsonResponse({"error": "User not found"}, status=400)
-            pages = Post.objects.filter(user=user).order_by("-modified")
+            pages = Post.objects.filter(user=username).order_by("-modified")
 
         if str(request.GET.get("following")).lower() == "true":
             if not pages:
