@@ -235,15 +235,17 @@ const Post = (props) => {
             })
         })
             .then(response => {
+                response.json()
+                .then(result => console.log(result))
                 if (response.status === 200) {
                     response.json()
-                        .then(result => {
-                            setState({
-                                ...state,
-                                like: result.like,
-                                likes_length: result.likes.length
-                            })
+                    .then(result => {
+                        setState({
+                            ...state,
+                            like: result.like,
+                            likes_length: result.likes.length
                         })
+                    })
                 }
             })
     }
