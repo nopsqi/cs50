@@ -121,6 +121,7 @@ class api:
 
         body = json.loads(request.body)
         id = body.get("id")
+        like = body.get("like")
         content = body.get("content")
 
         if request.method == "POST" and content:
@@ -153,13 +154,11 @@ class api:
 
         if request.method == "PUT":
             if like:
-                post.likes.add(request.user)
-                like = True
-            else:
                 post.likes.remove(request.user)
-                like = False
+            else:
+                post.likes.add(request.user)
             serialize = post.serialize()
-            serialize["like"] = like
+            serialize["like"] = not like
             return JsonResponse(like, safe=False)
 
         return JsonResponse({"error": "Invalid operation"}, status=400)
