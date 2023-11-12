@@ -188,12 +188,13 @@ class api:
 
         if request.method == 'PUT':
             body = json.loads(request.body)
+            print(body)
             id = body.get("id")
             is_follow = body.get("is_follow")
 
             if not id:
                 return JsonResponse({"error": "User id required"}, status=400)
-            if not is_follow:
+            if is_follow is None:
                 return JsonResponse({"error": "Follow status required"}, status=400)
 
             try:
