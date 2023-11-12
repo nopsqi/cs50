@@ -188,12 +188,27 @@ class api:
         if request.method == 'PUT':
             body = json.loads(request.body)
             id = body.get("id")
+            is_follow = body.get("is_follow")
 
             if not id:
                 return JsonResponse({"error": "User id required"}, status=400)
+            if not is_follow:
+                return JsonResponse({"error": "Follow status required"}, status=400)
 
-            user = User.objects.get(id=id)
-            
+            try:
+                user = User.objects.get(id=id)
+            except User.DoesNotExist:
+                return JsonResponse({"error": "User doesn't exist"}, status=404)
+
+            if is_follow:
+                user.followings.remove(request.user)
+                request.user.followers.remove(user)
+            else:
+                user.followings.add(request.user)
+                request.user.followers.add(user)
+            serialize = user.serialize()
+            serialize["is_follow"] = not is_follow
+            return JsonResponse(serialize, safe=False)
 
 
 class pages:
