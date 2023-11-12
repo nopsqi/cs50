@@ -188,7 +188,6 @@ class api:
 
         if request.method == 'PUT':
             body = json.loads(request.body)
-            print(body)
             id = body.get("id")
             is_follow = body.get("is_follow")
 
@@ -202,6 +201,8 @@ class api:
             except User.DoesNotExist:
                 return JsonResponse({"error": "User doesn't exist"}, status=404)
 
+            print(user)
+            print(request.user)
             if is_follow:
                 user.followers.remove(request.user)
                 request.user.followings.remove(user)
