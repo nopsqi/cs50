@@ -30,7 +30,7 @@ const Profile = () => {
     }
 
     return (
-        <div className="card-body">
+        <div className="mt-3">
             <div className="d-flex justify-content-between">
                 <h3><a className="card-title" href="">{state.username}</a></h3>
                 {
