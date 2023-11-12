@@ -165,6 +165,7 @@ class api:
 
 
     @staticmethod
+    @csrf_exempt
     @login_required(login_url="login")
     def user(request):
         if request.method == 'DELETE':
