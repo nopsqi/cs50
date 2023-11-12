@@ -189,6 +189,9 @@ class api:
             body = json.loads(request.body)
             id = body.get("id")
 
+            if not id:
+                return JsonResponse()
+
 
 class pages:
     @staticmethod
