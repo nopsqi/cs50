@@ -9,7 +9,7 @@ Example Sentences:
 - The beautiful sunset cast a warm and [MASK] glow across the tranquil beach.
 - The colorful flowers bloomed beautifully in the garden after the [MASK].
 
-## Layer TODO, Head TODO
+## Layer 8, Head 7
 
 TODO
 
