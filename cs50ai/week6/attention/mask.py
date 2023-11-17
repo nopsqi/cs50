@@ -1,5 +1,4 @@
 import sys
-import numpy as np
 import tensorflow as tf
 
 from PIL import Image, ImageDraw, ImageFont
@@ -47,9 +46,8 @@ def get_mask_token_index(mask_token_id, inputs):
     `None` if not present in the `inputs`.
     """
     # TODO: Implement this function
-    if index := np.where(inputs["input_ids"].numpy()[0] == mask_token_id)[0]:
-        return index.item()
-    return None
+    raise NotImplementedError
+
 
 
 def get_color_for_attention_score(attention_score):
@@ -58,7 +56,8 @@ def get_color_for_attention_score(attention_score):
     given `attention_score`. Each value should be in the range [0, 255].
     """
     # TODO: Implement this function
-    return tuple([round(255 * attention_score.numpy().item())] * 3)
+    raise NotImplementedError
+
 
 
 def visualize_attentions(tokens, attentions):
@@ -72,10 +71,12 @@ def visualize_attentions(tokens, attentions):
     (starting count from 1).
     """
     # TODO: Update this function to produce diagrams for all layers and heads.
-    for i in range(len(attentions)):
-        for j in range(len(attentions[i])):
-            for k in range(len(attentions[i][j])):
-                generate_diagram(i + 1, k + 1, tokens, attentions[i][j][k])
+    generate_diagram(
+        1,
+        1,
+        tokens,
+        attentions[0][0][0]
+    )
 
 
 def generate_diagram(layer_number, head_number, tokens, attention_weights):
@@ -102,7 +103,7 @@ def generate_diagram(layer_number, head_number, tokens, attention_weights):
             (image_size - PIXELS_PER_WORD, PIXELS_PER_WORD + i * GRID_SIZE),
             token,
             fill="white",
-            font=FONT,
+            font=FONT
         )
         token_image = token_image.rotate(90)
         img.paste(token_image, mask=token_image)
@@ -113,7 +114,7 @@ def generate_diagram(layer_number, head_number, tokens, attention_weights):
             (PIXELS_PER_WORD - width, PIXELS_PER_WORD + i * GRID_SIZE),
             token,
             fill="white",
-            font=FONT,
+            font=FONT
         )
 
     # Draw each word
