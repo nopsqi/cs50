@@ -58,7 +58,7 @@ def get_color_for_attention_score(attention_score):
     given `attention_score`. Each value should be in the range [0, 255].
     """
     # TODO: Implement this function
-    raise NotImplementedError
+    return tuple([round(255 * attention_score.numpy().item())] * 3)
 
 
 
@@ -73,12 +73,10 @@ def visualize_attentions(tokens, attentions):
     (starting count from 1).
     """
     # TODO: Update this function to produce diagrams for all layers and heads.
-    generate_diagram(
-        1,
-        1,
-        tokens,
-        attentions[0][0][0]
-    )
+    for i in range(len(attentions)):
+        for j in range(len(attentions[i])):
+            for k in range(len(attentions[i][j])):
+                generate_diagram(i + 1, k + 1, tokens, attentions[i][j][k])
 
 
 def generate_diagram(layer_number, head_number, tokens, attention_weights):
