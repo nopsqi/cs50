@@ -11,9 +11,8 @@ Example Sentences:
 
 ## Layer 8, Head 7
 
-TODO
+this layer and head able to identify a verb and its pronoun while other words paying attention to [SEP], on the first sentence "they" paying attenttion to "meet" and the second sentence "she" paying attention "called"
 
 Example Sentences:
-- TODO
-- TODO
-
+- She called [MASK] yesterday.
+- They will meet us at the [MASK].
