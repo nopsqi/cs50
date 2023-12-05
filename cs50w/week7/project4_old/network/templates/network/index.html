@@ -1,9 +1,0 @@
-{% extends "network/layout.html" %}
-{% load static %}
-
-{% block head %}
-    <script type="text/babel" src="{% static 'network/posts.js' %}"></script>
-{% endblock %}
-{% block body %}
-    <div id="posts" data-api="{{ api }}"></div>
-{% endblock %}
