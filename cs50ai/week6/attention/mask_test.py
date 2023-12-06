@@ -1,17 +1,19 @@
 from mask import *
 from transformers import AutoTokenizer, TFBertForMaskedLM
 
-inputs = {}
 tokenizer = AutoTokenizer.from_pretrained(MODEL)
 
 def test_get_mask_token_index():
-    assert get_mask_token_index(103, tokenizer("then i picked up a [MASK] from the table.", return_tensors="tf")) == 6
+    inputs = tokenizer("then i picked up a [MASK] from the table.", return_tensors="tf")
+    assert get_mask_token_index(tokenizer.mask_token_id, inputs) == 6
 
 def test_get_mask_token_index_1():
-    assert get_mask_token_index(103, tokenizer("then i [MASK] up a book from the table.", return_tensors="tf")) == 2
+    inputs = tokenizer("then i [MASK] up a book from the table.", return_tensors="tf")
+    assert get_mask_token_index(tokenizer.mask_token_id, inputs) == 2
 
 def test_get_mask_token_index_none():
-    assert get_mask_token_index(104, tokenizer("then i picked up a book from the table.", return_tensors="tf")) == None
+    inputs = tokenizer("then i picked up a book from the table.", return_tensors="tf")
+    assert get_mask_token_index(tokenizer.mask_token_id, inputs) == None
 
 def test_get_color_for_attention_score_0():
     assert get_color_for_attention_score(tf.constant(0)) == (0, 0, 0)
