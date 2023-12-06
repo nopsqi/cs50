@@ -59,6 +59,8 @@ def get_color_for_attention_score(attention_score):
     given `attention_score`. Each value should be in the range [0, 255].
     """
     # TODO: Implement this function
+    print(attention_score)
+    raise NotImplementedError
     return tuple([round(255 * attention_score.numpy().item())] * 3)
 
 
