@@ -49,8 +49,10 @@ def get_mask_token_index(mask_token_id, inputs):
     print(inputs["input_ids"])
     print(mask_token_id)
     if index := tf.where(inputs["input_ids"].numpy()[0] == mask_token_id).numpy():
+        print(index.item())
     #     return index.item()
     # return None
+    raise NotImplementedError
 
 
 
