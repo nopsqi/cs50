@@ -47,6 +47,7 @@ def get_mask_token_index(mask_token_id, inputs):
     """
     # TODO: Implement this function
     print(inputs["input_ids"])
+    print(tf.where(tf.equal(inputs["input_ids"], mask_token_id)))
     print(mask_token_id)
     if index := tf.where(inputs["input_ids"].numpy()[0] == mask_token_id).numpy():
         print(index.item())
