@@ -76,7 +76,8 @@ def visualize_attentions(tokens, attentions):
     for i in range(len(attentions)):
         for j in range(len(attentions[i])):
             for k in range(len(attentions[i][j])):
-                generate_diagram(i + 1, k + 1, tokens, attentions[i][j][k])
+                print(f"generate_diagram({i + 1}, {k + 1}, {tokens}, {attentions[i][j][kk]}))
+                # generate_diagram(i + 1, k + 1, tokens, attentions[i][j][k])
 
 
 def generate_diagram(layer_number, head_number, tokens, attention_weights):
