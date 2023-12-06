@@ -15,13 +15,13 @@ def test_get_mask_token_index_none():
     assert get_mask_token_index(104, inputs) == None
 
 def test_get_color_for_attention_score_0():
-    assert get_color_for_attention_score(0) == (0, 0, 0)
+    assert get_color_for_attention_score(tf.constant(0)) == (0, 0, 0)
 
 def test_get_color_for_attention_score_100():
-    assert get_color_for_attention_score(1) == (255, 255, 255)
+    assert get_color_for_attention_score(tf.constant(1)) == (255, 255, 255)
 
 def test_get_color_for_attention_score_25():
-    assert get_color_for_attention_score(0.25) == (64, 64, 64)
+    assert get_color_for_attention_score(tf.constant(0.25)) == (64, 64, 64)
 
 def test_get_color_for_attention_score_50():
-    assert get_color_for_attention_score(0.5) == (128, 128, 128)
+    assert get_color_for_attention_score(tf.constant(0.5)) == (128, 128, 128)
