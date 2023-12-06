@@ -46,6 +46,8 @@ def get_mask_token_index(mask_token_id, inputs):
     `None` if not present in the `inputs`.
     """
     # TODO: Implement this function
+    print(type(inputs))
+    raise NotImplementedError
     if index := tf.where(inputs["input_ids"].numpy()[0] == mask_token_id).numpy():
         return index.item()
     return None
